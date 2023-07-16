@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+import React from "react";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../assets/poetry-logo.png";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
-import { CurrentUserContext } from "../App";
 import styles from "../styles/NavBar.module.css";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const NavBar = () => {
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = useCurrentUser();
   console.log(currentUser?.username);
 
   const loggedOut = (
@@ -25,6 +25,20 @@ const NavBar = () => {
       >
         Sign up
       </NavLink>
+    </>
+  );
+
+  const loggedIn = (
+    <>
+      <NavDropdown title={currentUser?.username} id="nav-dropdown">
+        <NavDropdown.Item>
+          <NavLink
+            className={styles.NavLink}
+          >
+            Sign out
+          </NavLink> 
+        </NavDropdown.Item>
+      </NavDropdown>
     </>
   );
 
@@ -57,7 +71,7 @@ const NavBar = () => {
             >
               Contact
             </NavLink>
-            {loggedOut}
+            {currentUser ? loggedIn : loggedOut}
           </Nav>
         </Navbar.Collapse>
       </Container>
