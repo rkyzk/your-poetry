@@ -5,10 +5,12 @@ import logo from "../assets/poetry-logo.png";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../styles/NavBar.module.css";
 import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
+  const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
   const handleSignOut = async () => {
     try {
@@ -33,7 +35,7 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/signup"
       >
-        Sign up
+        Register
       </NavLink>
     </>
   );
@@ -55,7 +57,7 @@ const NavBar = () => {
   );
 
   return (
-    <Navbar className={styles.NavBar} expand="md" fixed="top">
+    <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
       <Container>
         <NavLink exact activeClassName={styles.Active} to="/">
           <Navbar.Brand>
@@ -64,7 +66,9 @@ const NavBar = () => {
         </NavLink>
         <h1 className="mt-4">Your Poetry</h1>
         <Navbar.Toggle
+          ref={ref}
           aria-controls="basic-navbar-nav"
+          onClick={() => setExpanded(!expanded)}
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
@@ -83,7 +87,7 @@ const NavBar = () => {
             >
               Contact
             </NavLink>
-            {currentUser ? loggedIn : loggedOut}
+            {currentUser? loggedIn : loggedOut}
           </Nav>
         </Navbar.Collapse>
       </Container>
