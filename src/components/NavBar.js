@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../styles/NavBar.module.css";
 import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import Avatar from "./Avatar";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -42,7 +43,8 @@ const NavBar = () => {
 
   const loggedIn = (
     <>
-      <NavDropdown title={currentUser?.username} id="nav-dropdown">
+      <Avatar src={currentUser?.profile_image} height={40} />
+      <NavDropdown title={currentUser?.username} id="nav-dropdown" className={styles.Name}>
         <NavDropdown.Item>
           <NavLink
             className={styles.NavLink}

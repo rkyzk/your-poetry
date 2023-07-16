@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap';
 import {Route, Switch} from "react-router-dom";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
+import PoemCreateForm from "./pages/poems/PoemCreateForm";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/contact" render={() => <h1>Contact</h1> } />
           <Route exact path="/signin" render={() => <SignInForm /> } />
           <Route exact path="/signup" render={() => <SignUpForm /> } />
+          <Route exact path="/poems/create" render={() => <PoemCreateForm /> } />
           <Route render={() => <h1>Page not found</h1> } />
         </Switch>
       </Container>

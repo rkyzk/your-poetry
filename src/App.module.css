@@ -1,10 +1,11 @@
 .App {
-  font-family: Railway, sans-serif;
+  font-family: 'Nanum Myeongj';
+  color:rgb(10, 10, 90);
+  font-size: 1.2rem;
 }
 
-h1 {
+h1, h2 {
   font-family: 'Bacasime Antique', sans-serif;
-  color:rgb(10, 10, 90);
 }
 
 .Main {
