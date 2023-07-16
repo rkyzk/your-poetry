@@ -1,13 +1,23 @@
 import React from "react";
+import axios from "axios";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../assets/poetry-logo.png";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../styles/NavBar.module.css";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
-  console.log(currentUser?.username);
+  const setCurrentUser = useSetCurrentUser();
+
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const loggedOut = (
     <>
@@ -34,6 +44,8 @@ const NavBar = () => {
         <NavDropdown.Item>
           <NavLink
             className={styles.NavLink}
+            to="/"
+            onClick={handleSignOut}
           >
             Sign out
           </NavLink> 

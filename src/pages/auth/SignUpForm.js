@@ -11,7 +11,6 @@ import {
   Alert,
 } from "react-bootstrap";
 import axios from "axios";
-import { axiosReq } from "../../api/axiosDefaults";
 
 const SignUpForm = () => {
   const [registerData, setRegisterData] = useState({
