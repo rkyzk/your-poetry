@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/poetry-logo.png";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { CurrentUserContext } from "../App";
 import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
+  const currentUser = useContext(CurrentUserContext);
+  console.log(currentUser?.username);
+
   const loggedOut = (
     <>
       <NavLink
