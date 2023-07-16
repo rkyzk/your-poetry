@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import { Container } from 'react-bootstrap';
 import {Route, Switch} from "react-router-dom";
 import SignUpForm from "./pages/auth/SignUpForm";
+import SignInForm from "./pages/auth/SignInForm";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Switch>
           <Route exact path="/" render={() => <h1>Home</h1> } />
           <Route exact path="/contact" render={() => <h1>Contact</h1> } />
-          <Route exact path="/signin" render={() => <h1>Sign in</h1> } />
+          <Route exact path="/signin" render={() => <SignInForm /> } />
           <Route exact path="/signup" render={() => <SignUpForm /> } />
           <Route render={() => <h1>Page not found</h1> } />
         </Switch>
