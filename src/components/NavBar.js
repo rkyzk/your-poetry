@@ -1,26 +1,59 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import logo from "../assets/poetry-logo.png";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
+  const loggedOut = (
+    <>
+      <NavLink
+        className={`${styles.NavLink} mr-3`}
+        activeClassName={styles.Active}
+        to="/signin"
+      >
+        Sign in
+      </NavLink>
+      <NavLink
+        className={`${styles.NavLink} mr-3`}
+        activeClassName={styles.Active}
+        to="/register"
+      >
+        Register
+      </NavLink>
+    </>
+  );
+
   return (
-    <Navbar expand="md" fixed="top">
+    <Navbar className={styles.NavBar} expand="md" fixed="top">
       <Container>
-        <Navbar.Brand>
-          <img src={logo} alt="logo" height="45" />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <NavLink exact activeClassName={styles.Active} to="/">
+          <Navbar.Brand>
+            <img src={logo} alt="logo" height="70" />
+          </Navbar.Brand>
+        </NavLink>
+        <h1 className="mt-4">Your Poetry</h1>
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+        />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto text-left">
-            <Nav.Link>
+            <NavLink
+              exact
+              className={`${styles.NavLink} mr-3`}
+              activeClassName={styles.Active}
+              to="/"
+            >
               Home
-            </Nav.Link>
-            <Nav.Link>
-              Sign in
-            </Nav.Link>
-            <Nav.Link>
-              Register
-            </Nav.Link>
+            </NavLink>
+            <NavLink
+              className={`${styles.NavLink} mr-3`}
+              activeClassName={styles.Active}
+              to="/contact"
+            >
+              Contact
+            </NavLink>
+            {loggedOut}
           </Nav>
         </Navbar.Collapse>
       </Container>
