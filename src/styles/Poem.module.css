@@ -1,0 +1,41 @@
+.Poem {
+  background-color: #f8f8f8;
+  border: 1px solid #dadadf;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  color: #333;
+  font-size: 1.2rem;
+}
+  
+.LinkText {
+  color:#333;
+}
+  
+.LinkText:hover {
+  text-decoration: underline;
+}
+  
+.PubDate {
+  font-size: 1rem;
+}
+  
+.Title {
+  font-family: 'Bacasime Antique';
+  font-size: 1.6rem;
+}
+  
+.Line {
+  white-space: pre-line;
+}
+  
+.Heart {
+  color: #efc8b5;
+}
+    
+.Heart:hover {
+  color: #edae8e;
+}
+    
+.HeartOutline:hover {
+  color: #db7545;
+}

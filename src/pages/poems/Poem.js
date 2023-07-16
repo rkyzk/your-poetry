@@ -19,7 +19,6 @@ const Poem = (props) => {
     published_at,
   } = props;
 
-  console.log(title);
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
@@ -28,18 +27,18 @@ const Poem = (props) => {
       <Card className={styles.Poem}>
         <Card.Body className="pr-5">
           {title && (
-            <Card.Title className={`mb-0`}>
+            <Card.Title className={`${styles.Title} mb-0`}>
               {title}
             </Card.Title>
           )}
-          <span className={`ml-4`}> 
+          <span className={`${styles.LinkText} ml-4`}> 
             by
             <Link className="ml-1">
               {profile_name && (profile_name)}
             </Link>
           </span><br/>
           <Row>
-            <span className={`ml-auto`}>
+            <span className={`ml-auto ${styles.PubDate}`}>
             {published_at ? (
               <>Published on {published_at}</>
             ) : (
@@ -50,7 +49,7 @@ const Poem = (props) => {
           {content && (
             <Card.Text>{content}</Card.Text>
           )}
-          <div className={styles.PostBar}>
+          <div>
             {is_owner ? (
             <OverlayTrigger
               placement="top"
@@ -76,7 +75,7 @@ const Poem = (props) => {
           )}
             {likes_count}
           <Link to={`/poems/${id}`}>
-            <i className="far fa-comments ml-2" />
+            <i className="far fa-comments ml-2 mr-1" />
           </Link>
           {comments_count}
         </div>
