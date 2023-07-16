@@ -17,9 +17,9 @@ const NavBar = () => {
       <NavLink
         className={`${styles.NavLink} mr-3`}
         activeClassName={styles.Active}
-        to="/register"
+        to="/signup"
       >
-        Register
+        Sign up
       </NavLink>
     </>
   );
