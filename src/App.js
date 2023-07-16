@@ -5,6 +5,7 @@ import {Route, Switch} from "react-router-dom";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import PoemCreateForm from "./pages/poems/PoemCreateForm";
+import PoemPage from "./pages/poems/PoemPage";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           <Route exact path="/signin" render={() => <SignInForm /> } />
           <Route exact path="/signup" render={() => <SignUpForm /> } />
           <Route exact path="/poems/create" render={() => <PoemCreateForm /> } />
+          <Route exact path="/poems/" render={() => <PoemCreateForm /> } />
+          <Route exact path="/poems/:id" render={() => <PoemPage />} />
           <Route render={() => <h1>Page not found</h1> } />
         </Switch>
       </Container>
