@@ -5,8 +5,10 @@ import btnStyles from "../../styles/Button.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Form, Button, Alert } from "react-bootstrap";
 import { toast } from "react-toastify";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function PoemCreateForm() {
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
   const [poemData, setPoemData] = useState({
     title: "",
