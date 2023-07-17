@@ -3,9 +3,12 @@ import styles from "../../styles/Profile.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, Button, Row, Col } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
-import { axiosRes } from "../../api/axiosDefaults";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosRes, axiosReq } from "../../api/axiosDefaults";
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import { useLocation } from "react-router";
+import { useFeaturedProfilesData, useSetFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataContext";
 
 const Profile = (props) => {
   const {
@@ -21,14 +24,19 @@ const Profile = (props) => {
     created_at,
     imageSize = 55,
     mobile,
-    profilePage,
     featured,
     profilesPage,
+    profilePage,
     setProfiles,
+    forceReRender
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const { pathname } = useLocation();
+  const user_id = currentUser?.profile_id;
+
+  const setFeaturedProfilesData = useSetFeaturedProfilesData();
 
   const handleFollow = async () => {
     try {
@@ -43,9 +51,18 @@ const Profile = (props) => {
           }),
         }));
       }
+  
+      setFeaturedProfilesData((prevProfiles) => ({
+        ...prevProfiles,
+        results: prevProfiles.results.map((profile) => {
+          return profile.id === id
+            ? { ...profile, followers_count: profile.followers_count + 1, following_id: data.id }
+            : profile;
+        }),
+      }));  
     } catch (err) {
       console.log(err);
-    };
+    }
   };
 
   const handleUnfollow= async () => {
@@ -62,30 +79,43 @@ const Profile = (props) => {
           }),
         }));
       }
+      if (pathname === `/profiles/${user_id}/following`) {
+        forceReRender();
+      }
+      setFeaturedProfilesData((prevProfiles) => ({
+        ...prevProfiles,
+        results: prevProfiles.results.map((profile) => {
+          return profile.id === id
+            ? { ...profile, followers_count: profile.followers_count - 1, following_id: null }
+            : profile;
+        }),
+      }));
     } catch (err) {
       console.log(err);
-    };
+    }
   };
 
   return (
     <Card>
       <Card.Body>
         <Media className="align-items-center">
-        {profilesPage && (
-          <Row>
-            <Col xs={4}>
-              <Avatar src={image} height={imageSize} />
-            </Col>
-            <Col xs={8}>
-              <Link to={`/profiles/${id}`}>
-                <h3>{display_name}</h3>
-              </Link>        
-              <p className="my-0">Member since {created_at}</p>
-              <span>{poems_count} poems</span>
-              <span className="ml-2">{followers_count} followers</span>
-            </Col>
-          </Row>
-        )}
+          {mobile && (
+            <>
+              <Row>
+                <Link to={`/profiles/${id}`}>
+                  <div className="d-flex">
+                    <Avatar src={image} height={45} />
+                    <div>
+                      <p className={`ml-0 mb-0 ${styles.MobileName}`}>{display_name}</p>                    
+                      <span>
+                        {poems_count} poems  
+                      </span>                   
+                    </div>
+                  </div>
+                </Link>
+              </Row>
+            </>
+          )}
         {featured && (
           <Row>
             <Col xs={4}>
@@ -102,14 +132,33 @@ const Profile = (props) => {
             </Col>
           </Row>
         )}
+        {profilesPage && (
+          <Row>
+            <Col xs={4}>
+              <Avatar src={image} height={imageSize} />
+            </Col>
+            <Col xs={8}>
+              <Link to={`/profiles/${id}`}>
+                <h3>{display_name}</h3>
+              </Link>        
+              <p className="my-0">Member since {created_at}</p>
+              <span>{poems_count} poems</span>
+              <span className="ml-2">{followers_count} followers</span>
+            </Col>
+          </Row>
+        )}
+        </Media>
         {profilePage && (
-          <>
+         <>
           <Row>
             <Col xs={5}>
               <Avatar src={image} height={120} />
             </Col>
             <Col xs={7}>
               <h3 className="mt-3">{display_name}</h3>
+              {is_owner && (
+                <ProfileEditDropdown id={id} />
+              )}
               <p>Member since {created_at}</p>             
             </Col>
           </Row>
@@ -128,8 +177,8 @@ const Profile = (props) => {
               <span>{poems_count} poems</span>
               <span className="ml-2">{followers_count} followers</span>
             </div>
-          </>
-        )}
+        </>
+      )}
       {!mobile &&
         currentUser &&
         !is_owner &&
@@ -148,7 +197,6 @@ const Profile = (props) => {
             follow
           </Button>
         ))}
-      </Media>
       </Card.Body>
     </Card>
   );

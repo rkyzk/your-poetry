@@ -7,13 +7,19 @@ import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import Asset from "../../components/Asset";
+
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+
 function ProfilesPage(props) {
-  const { filter, message } = props;
+  const { search, filter, message } = props;
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profiles, setProfiles] = useState({ results: [] });
+  const [reRender, setReRender] = useState(false);
+  const currentUser = useCurrentUser();
 
+  const forceReRender = () => setReRender(!reRender);
+  console.log(profiles);
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
@@ -26,11 +32,11 @@ function ProfilesPage(props) {
     }
     setHasLoaded(false);
     fetchProfiles();
-  }, [filter]);
+  }, [filter, reRender]);
 
     return (
       <Container className={appStyles.Content}>
-        <h2>Poets I'm following</h2>
+        {!search && (<h2>Poets I'm following</h2>)}
         <Col>
           {hasLoaded ? (
             <>
@@ -43,6 +49,7 @@ function ProfilesPage(props) {
                       imageSize={80}
                       setProfiles={setProfiles}
                       profilesPage
+                      forceReRender={forceReRender}
                     />
                   ))}
                   dataLength={profiles.results.length}
