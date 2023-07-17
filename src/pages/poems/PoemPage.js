@@ -13,6 +13,7 @@ import Poem from "./Poem";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import { useHistory } from "react-router";
+import ConfirmationModal from "../../components/ConfirmationModal";
 
 function PoemPage() {
   const { id } = useParams();
@@ -21,6 +22,11 @@ function PoemPage() {
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
   const history = useHistory();
+
+  const [showModal, setShowModal] = useState(false);
+
+  const showConfirmationModal = () => setShowModal(true);
+  const hideConfirmationModal = () => setShowModal(false);
 
   useEffect(() => {
     const handleMount = async () => {
@@ -36,15 +42,17 @@ function PoemPage() {
       }
     }
     handleMount();
-  }, [id]);
+  }, [id, showModal]);
 
   return (
+    <>
     <Row className="h-100">
       <Container className={appStyles.Content}>
       <Poem
         {...poem.results[0]}
         setPoems={setPoem}
         poemPage
+        showConfirmationModal={showConfirmationModal}
       />
         {currentUser ?
           (
@@ -78,9 +86,10 @@ function PoemPage() {
         ) : (
             <span>No comments yet</span>
         )}
-      </Container>
-     
+      </Container>    
     </Row>
+    <ConfirmationModal show={showModal} id={id} hideConfirmationModal={hideConfirmationModal} />
+    </>
   );
 }
 

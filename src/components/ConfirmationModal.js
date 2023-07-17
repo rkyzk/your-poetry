@@ -1,17 +1,32 @@
 import { Modal, Button } from "react-bootstrap";
+import useToggleModal from "../hooks/useToggleModal";
+import { axiosReq } from "../api/axiosDefaults";
+import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-const ConfirmationModal = ({show, poem, handleDelete, hideModal}) => {
+const ConfirmationModal = ({show, hideConfirmationModal, id}) => {
+  const history = useHistory();
+  console.log(show);
+
+  const handleDelete = async () => {
+    try {
+      console.log(id);
+      await axiosReq.delete(`/poems/${id}`);
+      hideConfirmationModal();
+      toast("The poem has been deleted.");
+      history.push("/my-poems");
+    } catch (err) {
+      console.log(err);
+    }  
+  };
+
     return (
       <>
-        <Modal show={show} onHide={hideModal}>
+        <Modal show={show} onHide={hideConfirmationModal}>
           <Modal.Body closeButton>
-           {poem ? (
               <span>Are you sure you want to delete your poem?
                 You won't be able to retrieve it.
-              </span>
-            ) : (
-              <span>Are you sure you want to delete your comment?</span>
-            )}
+              </span>        
           </Modal.Body>
           <Modal.Footer>
           <Button
@@ -20,7 +35,7 @@ const ConfirmationModal = ({show, poem, handleDelete, hideModal}) => {
             delete
           </Button>
           <Button
-            onClick={hideModal}
+            onClick={hideConfirmationModal}
           >
             cancel
           </Button>

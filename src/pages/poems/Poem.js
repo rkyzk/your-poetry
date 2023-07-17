@@ -7,6 +7,7 @@ import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { toast } from "react-toastify";
+import ConfirmationModal from "../../components/ConfirmationModal";
 
 const Poem = (props) => {
   const {
@@ -22,6 +23,7 @@ const Poem = (props) => {
     published_at,
     poemPage,
     setPoems,
+    showConfirmationModal
   } = props;
 
   const currentUser = useCurrentUser();
@@ -31,16 +33,6 @@ const Poem = (props) => {
   const handleEdit = () => {
     history.push(`/poems/${id}/edit`);
   }
-
-  const handleDelete = async () => {
-    try {
-      await axiosReq.delete(`/poems/${id}`);
-      toast("The poem has been deleted.");
-      history.push("/my-poems");
-    } catch (err) {
-      console.log(err);
-    }  
-  };
 
   const handleLike = async () => {
     try {
@@ -89,7 +81,7 @@ const Poem = (props) => {
                   <MoreDropdown
                     className="ml-auto"
                     handleEdit={handleEdit}
-                    handleDelete={handleDelete}
+                    showConfirmationModal={showConfirmationModal}
                   />
                 )}
               </Row>
