@@ -5,6 +5,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, Button, Row, Col } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const Profile = (props) => {
   const {
@@ -20,6 +21,9 @@ const Profile = (props) => {
     created_at,
     imageSize = 55,
     mobile,
+    profilePage,
+    featured,
+    profilesPage,
     setProfiles,
   } = props;
 
@@ -67,6 +71,39 @@ const Profile = (props) => {
     <Card>
       <Card.Body>
         <Media className="align-items-center">
+        {profilesPage && (
+          <Row>
+            <Col xs={4}>
+              <Avatar src={image} height={imageSize} />
+            </Col>
+            <Col xs={8}>
+              <Link to={`/profiles/${id}`}>
+                <h3>{display_name}</h3>
+              </Link>        
+              <p className="my-0">Member since {created_at}</p>
+              <span>{poems_count} poems</span>
+              <span className="ml-2">{followers_count} followers</span>
+            </Col>
+          </Row>
+        )}
+        {featured && (
+          <Row>
+            <Col xs={4}>
+              <Link to={`/profiles/${id}`}>
+                <Avatar src={image} height={imageSize} />
+              </Link>
+            </Col>
+            <Col xs={8}>
+              <Link to={`/profiles/${id}`}>
+                <h4>{display_name}</h4>
+              </Link>
+              <span>{poems_count} poems</span>
+              <span className="ml-2">{followers_count} followers</span>
+            </Col>
+          </Row>
+        )}
+        {profilePage && (
+          <>
           <Row>
             <Col xs={5}>
               <Avatar src={image} height={120} />
@@ -91,6 +128,8 @@ const Profile = (props) => {
               <span>{poems_count} poems</span>
               <span className="ml-2">{followers_count} followers</span>
             </div>
+          </>
+        )}
       {!mobile &&
         currentUser &&
         !is_owner &&

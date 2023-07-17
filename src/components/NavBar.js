@@ -31,7 +31,6 @@ const NavBar = () => {
           <NavLink
             className={styles.NavLink}
             to={`/profiles/${currentUser?.profile_id}`}
-            onClick={handleSignOut}
           >
             My Profile
           </NavLink>
@@ -42,7 +41,12 @@ const NavBar = () => {
           </NavLink>
         </NavDropdown.Item>
         <NavDropdown.Item>
+          <NavLink
+            className={styles.NavLink}
+            to={`/profiles/:id/following`}
+          >
             Poets I'm following
+          </NavLink>
         </NavDropdown.Item>
         <NavDropdown.Item>
             Poems I like

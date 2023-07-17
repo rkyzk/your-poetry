@@ -10,6 +10,8 @@ import PoemsPage from "./pages/poems/PoemsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PoemEditForm from "./pages/poems/PoemEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
+import ProfilesPage from "./pages/profiles/ProfilesPage";
+import Home from "./pages/poems/Home";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -20,7 +22,7 @@ function App() {
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <h1>Home</h1> } />
+          <Route exact path="/" render={() => <Home /> } />
           <Route exact path="/contact" render={() => <h1>Contact</h1> } />
           <Route exact path="/signin" render={() => <SignInForm /> } />
           <Route exact path="/signup" render={() => <SignUpForm /> } />
@@ -37,10 +39,13 @@ function App() {
                             message="You haven't wrriten any poems yet." />} />
           <Route
             exact
-            path="/all-poems"
-            render={() => <PoemsPage 
-                            filter={""}
-                            message="You haven't wrriten any poems yet." />} />
+            path="/profiles/:id/following"
+            render={() => (
+              <ProfilesPage
+                filter={`owner__followed__owner__profile=${profile_id}&ordering=-owner__following__created_at&`}
+                message="You haven't followed anyone."
+              />)}
+            />
           <Route render={() => <h1>Page not found</h1> } />
         </Switch>
       </Container>
