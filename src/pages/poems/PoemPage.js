@@ -28,7 +28,7 @@ function PoemPage() {
     <Row className="h-100">
       <Container className={appStyles.Content}>
       {poem.results.length && (
-        <Poem {...poem.results[0]} />
+        <Poem {...poem.results[0]} setPoems={setPoem} />
       )}
       </Container> 
     </Row>

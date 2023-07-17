@@ -3,6 +3,7 @@ import styles from "../../styles/Poem.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Row, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 
 
 const Poem = (props) => {
@@ -17,10 +18,44 @@ const Poem = (props) => {
     title,
     content,
     published_at,
+    setPoems,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/likes/", { poem: id });
+      setPoems((prevPoems) => ({
+        ...prevPoems,
+        results: prevPoems.results.map((poem) => {
+          return poem.id === id
+            ? { ...poem, likes_count: poem.likes_count + 1, like_id: data.id }            
+            : poem;
+        }),
+      }))
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}`);
+      setPoems((prevPoems) => ({
+        ...prevPoems,
+        results: prevPoems.results.map((poem) => {
+          return poem.id === id
+            ? (poem.likes_count === 1 ? { ...poem, likes_count: 0, like_id: null }
+              : { ...poem, likes_count: poem.likes_count - 1, like_id: null })
+            : poem;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -47,7 +82,7 @@ const Poem = (props) => {
             </span>
           </Row>          
           {content && (
-            <Card.Text>{content}</Card.Text>
+            <Card.Text className={styles.Line}>{content}</Card.Text>
           )}
           <div>
             {is_owner ? (
@@ -58,11 +93,11 @@ const Poem = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           ) : like_id ? (
-            <span onClick={() => {}}>
+            <span onClick={handleUnlike}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => {}}>
+            <span onClick={handleLike}>
               <i className={`far fa-heart ${styles.HeartOutline}`} />
             </span>
           ) : (
