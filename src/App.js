@@ -16,6 +16,7 @@ import Home from "./pages/poems/Home";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import PoemsPageWithProfiles from "./pages/poems/PoemsPageWithProfiles";
+import NavBarSecond from "./components/NavBarSecond";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -24,6 +25,7 @@ function App() {
   return (
     <div className={styles.App}>
       <NavBar />
+      <NavBarSecond />
       <Container className={styles.Main}>
         <Switch>
           <Route exact path="/" render={() => <Home /> } />
