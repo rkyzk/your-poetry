@@ -28,6 +28,7 @@ function App() {
     <div className={styles.App}>
       <NavBar />
       <NavBarSecond />
+      <ToastContainer autoClose={4000} />
       <Container className={styles.Main}>
         <Switch>
           <Route exact path="/" render={() => <Home /> } />
