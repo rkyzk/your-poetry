@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Row, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
 
 
 const Poem = (props) => {
@@ -62,9 +63,24 @@ const Poem = (props) => {
     <>
       <Card className={styles.Poem}>
         <Card.Body className="pr-5">
-          {title && (
-            <Card.Title className={`${styles.Title} mb-0`}>
-              {title}
+          {poemPage ? (
+            <>
+              <Row>
+                <Card.Title className={`${styles.Title} mb-0`}>
+                  {title && title}
+                </Card.Title>
+                {is_owner && (
+                  <MoreDropdown
+                    className="ml-auto"
+                  />
+                )}
+              </Row>
+            </>
+          ) : (
+            <Card.Title className={`${styles.LinkText} ${styles.Title} mb-0`}>
+              <Link to={`/poems/${id}`}>
+                {title && title}
+              </Link>
             </Card.Title>
           )}
           <span className={`${styles.LinkText} ml-4`}> 
