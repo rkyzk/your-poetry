@@ -11,7 +11,10 @@ import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PoemEditForm from "./pages/poems/PoemEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
 import ProfilesPage from "./pages/profiles/ProfilesPage";
+import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import Home from "./pages/poems/Home";
+import UsernameForm from "./pages/profiles/UsernameForm";
+import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -31,6 +34,17 @@ function App() {
           <Route exact path="/poems/:id" render={() => <PoemPage />} />
           <Route exact path="/poems/:id/edit" render={() => <PoemEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
+          <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
+          <Route
+            exact
+            path="/profiles/:id/edit/username"
+            render={() => <UsernameForm />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit/password"
+            render={() => <UserPasswordForm />}
+          />
           <Route
             exact
             path="/my-poems"
