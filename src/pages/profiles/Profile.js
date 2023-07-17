@@ -3,9 +3,8 @@ import styles from "../../styles/Profile.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, Button, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
-
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Profile = (props) => {
   const {
@@ -21,14 +20,53 @@ const Profile = (props) => {
     created_at,
     imageSize = 55,
     mobile,
+    setProfiles,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  const handleFollow = async () => {
+    try {
+      const { data } = await axiosRes.post("/followers/", { followed: id });
+      {setProfiles &&
+        setProfiles((prevProfiles) => ({
+          ...prevProfiles,
+          results: prevProfiles.results.map((profile) => {
+            return profile.id === id
+            ? { ...profile, followers_count: profile.followers_count + 1, following_id: data.id }
+            : profile;
+          }),
+        }));
+      }
+    } catch (err) {
+      console.log(err);
+    };
+  };
+
+  const handleUnfollow= async () => {
+    try {
+      console.log(following_id);
+      await axiosRes.delete(`/followers/${following_id}`);
+      {setProfiles &&
+        setProfiles((prevProfiles) => ({
+          ...prevProfiles,
+          results: prevProfiles.results.map((profile) => {
+            return profile.id === id
+              ? { ...profile, followers_count: profile.followers_count - 1, following_id: null }
+              : profile;
+          }),
+        }));
+      }
+    } catch (err) {
+      console.log(err);
+    };
+  };
+
   return (
     <Card>
       <Card.Body>
+        <Media className="align-items-center">
           <Row>
             <Col xs={5}>
               <Avatar src={image} height={120} />
@@ -59,16 +97,19 @@ const Profile = (props) => {
         (following_id ? (
           <Button
             className={`${btnStyles.Button} ${btnStyles.BlackOutline} mt-2 ml-2`}
+            onClick={() => handleUnfollow()}
           >
             unfollow
           </Button>
         ) : (
           <Button
             className={`${btnStyles.Button} ${btnStyles.Black} mt-2 ml-2`}
+            onClick={() => handleFollow()}
           >
             follow
           </Button>
         ))}
+      </Media>
       </Card.Body>
     </Card>
   );
