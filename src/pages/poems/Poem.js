@@ -18,6 +18,7 @@ const Poem = (props) => {
     title,
     content,
     published_at,
+    poemPage,
     setPoems,
   } = props;
 
@@ -81,7 +82,9 @@ const Poem = (props) => {
             )}
             </span>
           </Row>          
-          {content && (
+          {content && !poemPage ? (
+            <Card.Text>{content.substring(0, 60)}</Card.Text>
+          ) : (
             <Card.Text className={styles.Line}>{content}</Card.Text>
           )}
           <div>

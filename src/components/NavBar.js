@@ -1,18 +1,18 @@
 import React from "react";
-import axios from "axios";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../assets/poetry-logo.png";
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../styles/NavBar.module.css";
+import { NavLink } from "react-router-dom";
 import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
-import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import Avatar from "./Avatar";
+import axios from "axios";
+import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
-  const setCurrentUser = useSetCurrentUser();
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
-
+  const setCurrentUser = useSetCurrentUser();
+  
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -21,6 +21,37 @@ const NavBar = () => {
       console.log(err);
     }
   };
+
+  const loggedIn = (
+    <>
+      <Avatar src={currentUser?.profile_image} height={40} />
+      <NavDropdown title={currentUser?.username} id="nav-dropdown">
+        <NavDropdown.Item>
+            My Profile
+        </NavDropdown.Item>
+        <NavDropdown.Item>
+          <NavLink className={styles.NavLink} to="/my-poems">
+            My poems
+          </NavLink>
+        </NavDropdown.Item>
+        <NavDropdown.Item>
+            Poets I'm following
+        </NavDropdown.Item>
+        <NavDropdown.Item>
+            Poems I like
+        </NavDropdown.Item>
+        <NavDropdown.Item>
+          <NavLink
+            className={styles.NavLink}
+            to="/"
+            onClick={handleSignOut}
+          >
+            Sign out
+          </NavLink> 
+        </NavDropdown.Item>
+      </NavDropdown>
+    </>
+  );
 
   const loggedOut = (
     <>
@@ -36,25 +67,8 @@ const NavBar = () => {
         activeClassName={styles.Active}
         to="/signup"
       >
-        Register
+        Sign up
       </NavLink>
-    </>
-  );
-
-  const loggedIn = (
-    <>
-      <Avatar src={currentUser?.profile_image} height={40} />
-      <NavDropdown title={currentUser?.username} id="nav-dropdown" className={styles.Name}>
-        <NavDropdown.Item>
-          <NavLink
-            className={styles.NavLink}
-            to="/"
-            onClick={handleSignOut}
-          >
-            Sign out
-          </NavLink> 
-        </NavDropdown.Item>
-      </NavDropdown>
     </>
   );
 
