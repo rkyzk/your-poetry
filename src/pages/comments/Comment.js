@@ -5,6 +5,7 @@ import Avatar from "../../components/Avatar";
 import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
 
 const Comment = (props) => {
   const {
@@ -20,6 +21,7 @@ const Comment = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const [showEditForm, setShowEditForm] = useState(false);
 
   const handleDelete = async () => {
     try {
@@ -32,6 +34,7 @@ const Comment = (props) => {
           }
         ]
       }));
+
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),
@@ -43,7 +46,7 @@ const Comment = (props) => {
 
   return (
     <>
-      <hr/>
+      <hr />
       <Media>
         <Link to={`/profiles/${profile_id}`}>
           <Avatar src={profile_image} />
@@ -51,8 +54,14 @@ const Comment = (props) => {
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>
           <span className={styles.Date}>{updated_at}</span>
-          {content}
+          <p>{content}</p>
         </Media.Body>
+        {is_owner && !showEditForm && (
+          <MoreDropdown
+            handleEdit={() => setShowEditForm(true)}
+            handleDelete={handleDelete}
+          />
+        )}
       </Media>
     </>
   );

@@ -51,11 +51,23 @@ function PoemPage() {
             setComments={setComments}
           />
         ) : comments.results.length ? (
-          comments.results.map((comment) => (
-            <Comment key={comment.id} comment={comment} />
-          ))
+          "Comments"
         ) : null}
-      </Container>  
+        {comments.results.length ? (
+          comments.results.map((comment) => (
+            <Comment
+              key={comment.id}
+              {...comment}
+              setPoem={setPoem}
+              setComments={setComments}
+            />
+            ))    
+        ) : currentUser ? (
+          <span>No comments yet, be the first to comment!</span>
+        ) : (
+            <span>No comments yet</span>
+        )}
+      </Container>
     </Row>
   );
 }
