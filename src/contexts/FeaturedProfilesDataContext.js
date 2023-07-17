@@ -18,7 +18,6 @@ export const FeaturedProfilesDataProvider = ({ children }) => {
         const { data } = await axiosReq.get(
           "/profiles/?featured_flag=1"
         );
-        console.log("hi");
         setFeaturedProfilesData(data);
       } catch (err) {
         console.log(err);

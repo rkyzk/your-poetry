@@ -15,6 +15,7 @@ import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import Home from "./pages/poems/Home";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
+import PoemsPageWithProfiles from "./pages/poems/PoemsPageWithProfiles";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -60,6 +61,18 @@ function App() {
                 message="You haven't followed anyone."
               />)}
             />
+          <Route
+            exact path="/new-poems"
+            render={() => <PoemsPageWithProfiles
+                            page={"newPoems"}
+                          />}
+          />
+          <Route
+            exact path="/popular-poems"
+            render={() => <PoemsPageWithProfiles
+                            page={"popularPoems"}
+                          />} 
+          />
           <Route render={() => <h1>Page not found</h1> } />
         </Switch>
       </Container>

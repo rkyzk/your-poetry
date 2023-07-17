@@ -19,7 +19,6 @@ const intro = (
         You can read tips to get started and start writing today.
       </p>
     </>
-
 );
 
 function Home() {

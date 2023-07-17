@@ -10,6 +10,7 @@ import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import { useLocation } from "react-router";
 import { useFeaturedProfilesData, useSetFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataContext";
 
+
 const Profile = (props) => {
   const {
     id,
