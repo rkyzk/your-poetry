@@ -31,6 +31,12 @@ function App() {
             render={() => <PoemsPage 
                             filter={`owner__profile=${profile_id}&ordering=-created_at&`}
                             message="You haven't wrriten any poems yet." />} />
+          <Route
+            exact
+            path="/all-poems"
+            render={() => <PoemsPage 
+                            filter={""}
+                            message="You haven't wrriten any poems yet." />} />
           <Route render={() => <h1>Page not found</h1> } />
         </Switch>
       </Container>
