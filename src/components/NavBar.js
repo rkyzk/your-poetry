@@ -8,6 +8,7 @@ import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
+import { toast } from "react-toastify";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -19,6 +20,7 @@ const NavBar = () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
+      toast("You've been signed out.");
       removeTokenTimestamp();
     } catch (err) {
       console.log(err);
@@ -28,7 +30,7 @@ const NavBar = () => {
   const loggedIn = (
     <>
       <Avatar src={currentUser?.profile_image} height={40} />
-      <NavDropdown title={currentUser?.username} id="nav-dropdown">
+      <NavDropdown className={styles.Dropdown} title={currentUser?.username} id="nav-dropdown">
         <NavDropdown.Item>
           <NavLink
             className={styles.NavLink}

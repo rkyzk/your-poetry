@@ -4,6 +4,7 @@ import styles from "../../styles/PoemCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Form, Button, Alert } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 function PoemCreateForm() {
   const [errors, setErrors] = useState({});
@@ -25,6 +26,11 @@ function PoemCreateForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
+    var msg = "Your poem has been saved";
+    if (publish) {
+      formData.append("published", true);
+      msg = "Your poem has been published";
+    }
 
     formData.append("title", title);
     formData.append("content", content);
@@ -32,6 +38,7 @@ function PoemCreateForm() {
 
     try {
       const { data } = await axiosReq.post('/poems/', formData)
+      toast(msg);
       history.push(`/poems/${data.id}`);
     } catch (err){
       if (err.response?.status !== 401) {

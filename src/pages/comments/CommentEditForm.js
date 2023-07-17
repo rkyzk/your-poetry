@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
-
 import styles from "../../styles/CommentCreateEditForm.module.css";
+import { toast } from "react-toastify";
 
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
@@ -32,9 +31,10 @@ function CommentEditForm(props) {
             : comment;
         }),
       }));
+      toast("Your comment has been updated.")
       setShowEditForm(false);
     } catch (err) {
-      console.log(err);
+      toast("There was an error.  Please try again.");
     }
   };
 

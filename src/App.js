@@ -19,6 +19,8 @@ import PoemsPageWithProfiles from "./pages/poems/PoemsPageWithProfiles";
 import NavBarSecond from "./components/NavBarSecond";
 import SearchProfiles from "./pages/profiles/SearchProfiles";
 import SearchPoems from "./pages/poems/SearchPoems";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const currentUser = useCurrentUser();

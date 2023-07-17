@@ -10,6 +10,7 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { toast } from "react-toastify";
 
 function PoemEditForm() {
   const [errors, setErrors] = useState({});
@@ -18,17 +19,19 @@ function PoemEditForm() {
     content: "",
   });
   const { title, content } = poemData;
-   // published tells if the poem has been published.
-   const [published, setPublished] = useState(false);
-   // publish will be set true, if user decides to publish the poem
-   const [publish, setPublish] = useState(false);
-   const history = useHistory();
-   const { id } = useParams();
+  // published tells if the poem has been published.
+  const [published, setPublished] = useState(false);
+  // publish will be set true, if user decides to publish the poem
+  const [publish, setPublish] = useState(false);
+  const history = useHistory();
+  const { id } = useParams();
+  // set toast message
+  var message = "The change has been saved";
 
-   useEffect(() => {
-     const handleMount = async () => {
-       try {
-         const { data } = await axiosReq.get(`/poems/${id}`);
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`/poems/${id}`);
          const { title, content, is_owner, published } = data;
          published && setPublished(true)
          is_owner ? setPoemData({ title, content }) : history.push("/");
@@ -55,8 +58,12 @@ function PoemEditForm() {
      if (publish || published) {
       formData.append("published", true);
      }
+     if (publish) {
+      message = "Your poem has been published."
+     }
      try {
        await axiosReq.put(`/poems/${id}`, formData);
+       toast(message);
        history.push(`/poems/${id}`);
      } catch (err) {
        console.log(err);

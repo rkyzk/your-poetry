@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { toast } from "react-toastify";
 
 const Poem = (props) => {
   const {
@@ -32,9 +33,10 @@ const Poem = (props) => {
   }
 
   const handleDelete = async () => {
-    console.log(id);
     try {
       await axiosReq.delete(`/poems/${id}`);
+      toast("The poem has been deleted.");
+      history.push("/my-poems");
     } catch (err) {
       console.log(err);
     }  

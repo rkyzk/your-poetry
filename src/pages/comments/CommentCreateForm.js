@@ -5,6 +5,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import { toast } from "react-toastify";
 
 function CommentCreateForm (props) {
   const { poem, setPoem, setComments, profileImage, profile_id } = props;
@@ -34,8 +35,9 @@ function CommentCreateForm (props) {
         ],
       }));
       setContent("");
+      toast("Your comment has been posted.")
     } catch (err) {
-      console.log(err);
+      toast("There was an error.  Please try again.");
     }
   };
 

@@ -24,6 +24,10 @@
   margin-top: -9px;
 }
 
+.Dropdown {
+  z-index: 3;
+}
+
 @media screen and (max-width: 400px) {
   h1 {
     font-size: 1.8rem;
