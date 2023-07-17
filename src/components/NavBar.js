@@ -12,6 +12,7 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
   const setCurrentUser = useSetCurrentUser();
+  const id = currentUser?.id;
   
   const handleSignOut = async () => {
     try {
@@ -27,7 +28,13 @@ const NavBar = () => {
       <Avatar src={currentUser?.profile_image} height={40} />
       <NavDropdown title={currentUser?.username} id="nav-dropdown">
         <NavDropdown.Item>
+          <NavLink
+            className={styles.NavLink}
+            to={`/profiles/${currentUser?.profile_id}`}
+            onClick={handleSignOut}
+          >
             My Profile
+          </NavLink>
         </NavDropdown.Item>
         <NavDropdown.Item>
           <NavLink className={styles.NavLink} to="/my-poems">

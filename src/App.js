@@ -9,6 +9,7 @@ import PoemPage from "./pages/poems/PoemPage";
 import PoemsPage from "./pages/poems/PoemsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import PoemEditForm from "./pages/poems/PoemEditForm";
+import ProfilePage from "./pages/profiles/ProfilePage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/poems/" render={() => <PoemCreateForm /> } />
           <Route exact path="/poems/:id" render={() => <PoemPage />} />
           <Route exact path="/poems/:id/edit" render={() => <PoemEditForm />} />
+          <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route
             exact
             path="/my-poems"
