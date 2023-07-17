@@ -15,7 +15,7 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
-export const MoreDropdown = ({ handleEdit, showModal }) => {
+export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className="ml-auto" drop="left">
       <Dropdown.Toggle as={ThreeDots} />
@@ -32,7 +32,7 @@ export const MoreDropdown = ({ handleEdit, showModal }) => {
         </Dropdown.Item>
         <Dropdown.Item
           className={styles.DropdownItem}
-          onClick={showModal}
+          onClick={handleDelete}
           aria-label="delete"
         >
           <i className="fas fa-trash-alt" />

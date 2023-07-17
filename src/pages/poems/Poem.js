@@ -5,7 +5,7 @@ import { Card, Row, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
-
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Poem = (props) => {
   const {
@@ -25,6 +25,20 @@ const Poem = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/poems/${id}/edit`);
+  }
+
+  const handleDelete = async () => {
+    console.log(id);
+    try {
+      await axiosReq.delete(`/poems/${id}`);
+    } catch (err) {
+      console.log(err);
+    }  
+  };
 
   const handleLike = async () => {
     try {
@@ -72,6 +86,8 @@ const Poem = (props) => {
                 {is_owner && (
                   <MoreDropdown
                     className="ml-auto"
+                    handleEdit={handleEdit}
+                    handleDelete={handleDelete}
                   />
                 )}
               </Row>
