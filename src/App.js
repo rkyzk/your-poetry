@@ -6,8 +6,13 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import PoemCreateForm from "./pages/poems/PoemCreateForm";
 import PoemPage from "./pages/poems/PoemPage";
+import PoemsPage from "./pages/poems/PoemsPage";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id;
+
   return (
     <div className={styles.App}>
       <NavBar />
@@ -20,6 +25,12 @@ function App() {
           <Route exact path="/poems/create" render={() => <PoemCreateForm /> } />
           <Route exact path="/poems/" render={() => <PoemCreateForm /> } />
           <Route exact path="/poems/:id" render={() => <PoemPage />} />
+          <Route
+            exact
+            path="/my-poems"
+            render={() => <PoemsPage 
+                            filter={`owner__profile=${profile_id}&ordering=-created_at&`}
+                            message="You haven't wrriten any poems yet." />} />
           <Route render={() => <h1>Page not found</h1> } />
         </Switch>
       </Container>
