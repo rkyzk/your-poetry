@@ -24,7 +24,6 @@ function PoemPage() {
   const history = useHistory();
 
   const [showModal, setShowModal] = useState(false);
-
   const showConfirmationModal = () => setShowModal(true);
   const hideConfirmationModal = () => setShowModal(false);
 
@@ -88,7 +87,11 @@ function PoemPage() {
         )}
       </Container>    
     </Row>
-    <ConfirmationModal show={showModal} id={id} hideConfirmationModal={hideConfirmationModal} />
+    <ConfirmationModal
+      show={showModal}
+      poem_id={id}
+      hideConfirmationModal={hideConfirmationModal}
+    />
     </>
   );
 }

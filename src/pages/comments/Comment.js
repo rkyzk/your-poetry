@@ -17,16 +17,17 @@ const Comment = (props) => {
     content,
     id,
     setPoem,
-    setComments
+    setComments,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const [showEditForm, setShowEditForm] = useState(false);
 
-  const handleDelete = async () => {
+  const handleDeleteComment = async () => {
     try {
-      await axiosRes.delete(`/comments/${id}/`);
+      await axiosRes.delete(`/comments/${id}`);
+      console.log(id);
       setPoem((prevPoem) => ({
         results: [
           {
@@ -71,7 +72,7 @@ const Comment = (props) => {
         {is_owner && !showEditForm && (
           <MoreDropdown
             handleEdit={() => setShowEditForm(true)}
-            handleDelete={handleDelete}
+            handleDeleteComment={handleDeleteComment}
           />
         )}
       </Media>
