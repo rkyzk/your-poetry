@@ -30,7 +30,7 @@ const NavBar = () => {
   const loggedIn = (
     <>
       <Avatar src={currentUser?.profile_image} height={40} />
-      <NavDropdown className={styles.Dropdown} title={currentUser?.username} id="nav-dropdown">
+      <NavDropdown className={`${styles.Dropdown} ${styles.Name}`} title={currentUser?.username} id="nav-dropdown">
         <NavDropdown.Item>
           <NavLink
             className={styles.NavLink}

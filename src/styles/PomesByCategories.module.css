@@ -1,0 +1,13 @@
+.BtnCategories {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: #333;
+}
+  
+.BtnCategories:hover {
+  background-color: #ddd;
+  color: #333;
+}

@@ -19,6 +19,7 @@ import PoemsPageWithProfiles from "./pages/poems/PoemsPageWithProfiles";
 import NavBarSecond from "./components/NavBarSecond";
 import SearchProfiles from "./pages/profiles/SearchProfiles";
 import SearchPoems from "./pages/poems/SearchPoems";
+import PoemsByCategories from "./pages/poems/PoemsByCategories";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -44,6 +45,7 @@ function App() {
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route exact path="/search/profiles" render={() => <SearchProfiles />} />
           <Route exact path="/search/poems" render={() => <SearchPoems />} />
+          <Route exact path="/poems-by-categories" render={() => <PoemsByCategories />} />
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
           <Route
             exact

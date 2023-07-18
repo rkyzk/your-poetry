@@ -25,7 +25,7 @@ const NavBarSecond = () => {
               <NavDropdown.Item>
                 <NavLink className={styles.NavLink} to="/poems-by-categories">
                   Poems by Categories
-                  </NavLink>
+                </NavLink>
               </NavDropdown.Item>
               <NavDropdown.Item>
                 <NavLink className={styles.NavLink} to="/search/poems">
