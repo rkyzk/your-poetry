@@ -53,7 +53,12 @@ const NavBar = () => {
           </NavLink>
         </NavDropdown.Item>
         <NavDropdown.Item>
+          <NavLink
+            className={styles.NavLink}
+            to={`/liked`}
+          >
             Poems I like
+          </NavLink>
         </NavDropdown.Item>
         <NavDropdown.Item>
           <NavLink

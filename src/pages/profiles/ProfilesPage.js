@@ -25,6 +25,8 @@ function ProfilesPage(props) {
       try {
         const { data } = await axiosReq.get(`/profiles/?${filter}`);
         setProfiles(data);
+        console.log(filter);
+        console.log(data);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
