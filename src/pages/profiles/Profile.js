@@ -29,7 +29,6 @@ const Profile = (props) => {
     profilesPage,
     profilePage,
     setProfiles,
-    forceReRender
   } = props;
 
   const currentUser = useCurrentUser();
@@ -52,7 +51,6 @@ const Profile = (props) => {
           }),
         }));
       }
-  
       setFeaturedProfilesData((prevProfiles) => ({
         ...prevProfiles,
         results: prevProfiles.results.map((profile) => {
@@ -70,6 +68,14 @@ const Profile = (props) => {
     try {
       console.log(following_id);
       await axiosRes.delete(`/followers/${following_id}`);
+      if (pathname === `/profiles/${user_id}/following`) {
+        setProfiles((prevProfiles) => ({
+          ...prevProfiles,
+          results: prevProfiles.results.filter((profile) => {
+            return profile.id !== id
+          }),
+        }));
+      }
       {setProfiles &&
         setProfiles((prevProfiles) => ({
           ...prevProfiles,
@@ -80,9 +86,7 @@ const Profile = (props) => {
           }),
         }));
       }
-      if (pathname === `/profiles/${user_id}/following`) {
-        forceReRender();
-      }
+    
       setFeaturedProfilesData((prevProfiles) => ({
         ...prevProfiles,
         results: prevProfiles.results.map((profile) => {
@@ -152,7 +156,7 @@ const Profile = (props) => {
         {profilePage && (
          <>
           <Row>
-            <Col xs={5}>
+            <Col xs={3}>
               <Avatar src={image} height={120} />
             </Col>
             <Col xs={7}>
@@ -163,21 +167,23 @@ const Profile = (props) => {
               <p>Member since {created_at}</p>             
             </Col>
           </Row>
+          <div className="mt-3 ml-3">
             {about_me && (
               <>
-                <div className="text-muted">About me</div>
+                <div className="text-muted">About me:</div>
                 {about_me}
               </>
             )}
             {favorites && (
               <>
-                <div className="text-muted">Favorites</div>
+                <div className="text-muted">Favorites:</div>
                 {favorites}
               </>)}
             <div>
               <span>{poems_count} poems</span>
               <span className="ml-2">{followers_count} followers</span>
             </div>
+          </div>
         </>
       )}
       {!mobile &&
@@ -185,14 +191,14 @@ const Profile = (props) => {
         !is_owner &&
         (following_id ? (
           <Button
-            className={`${btnStyles.Button} ${btnStyles.BlackOutline} mt-2 ml-2`}
+            className={`${btnStyles.Button} ${btnStyles.BlackOutline} mt-2 ml-4`}
             onClick={() => handleUnfollow()}
           >
             unfollow
           </Button>
         ) : (
           <Button
-            className={`${btnStyles.Button} ${btnStyles.Black} mt-2 ml-2`}
+            className={`${btnStyles.Button} ${btnStyles.Black} mt-2 ml-4`}
             onClick={() => handleFollow()}
           >
             follow

@@ -15,10 +15,8 @@ function ProfilesPage(props) {
   const { search, filter, message } = props;
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profiles, setProfiles] = useState({ results: [] });
-  const [reRender, setReRender] = useState(false);
   const currentUser = useCurrentUser();
 
-  const forceReRender = () => setReRender(!reRender);
   console.log(profiles);
   useEffect(() => {
     const fetchProfiles = async () => {
@@ -34,7 +32,7 @@ function ProfilesPage(props) {
     }
     setHasLoaded(false);
     fetchProfiles();
-  }, [filter, reRender]);
+  }, [filter]);
 
     return (
       <Container className={appStyles.Content}>
@@ -51,7 +49,6 @@ function ProfilesPage(props) {
                       imageSize={80}
                       setProfiles={setProfiles}
                       profilesPage
-                      forceReRender={forceReRender}
                     />
                   ))}
                   dataLength={profiles.results.length}
