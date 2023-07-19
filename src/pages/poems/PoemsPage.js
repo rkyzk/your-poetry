@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -43,6 +42,7 @@ function PoemsPage({ filter, message = "No results found" }) {
     <>
       {hasLoaded ? (
           <>
+            {/* {pathname === "/my-poems" && <Col md={8} offset={2}> } */}
             {poems.results.length ? (
               <InfiniteScroll
                 children={poems.results.map((poem) => (
@@ -60,6 +60,7 @@ function PoemsPage({ filter, message = "No results found" }) {
             ) : (
               <p>{message}</p>
             )}
+            {/* {pathname === "/my-poems" && </Col>} */}
           </>
         ) : (
           <Asset spinner />

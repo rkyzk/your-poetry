@@ -6,8 +6,7 @@ import { Link } from "react-router-dom";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { toast } from "react-toastify";
-import ConfirmationModal from "../../components/ConfirmationModal";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 const Poem = (props) => {
   const {
@@ -29,6 +28,7 @@ const Poem = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  const { pathname } = useLocation();
 
   const handleEdit = () => {
     history.push(`/poems/${id}/edit`);
@@ -53,15 +53,24 @@ const Poem = (props) => {
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}`);
-      setPoems((prevPoems) => ({
-        ...prevPoems,
-        results: prevPoems.results.map((poem) => {
-          return poem.id === id
-            ? (poem.likes_count === 1 ? { ...poem, likes_count: 0, like_id: null }
-              : { ...poem, likes_count: poem.likes_count - 1, like_id: null })
-            : poem;
-        }),
-      }));
+      if (pathname === "/liked") {
+        setPoems((prevPoems) => ({
+          ...prevPoems,
+          results: prevPoems.results.filter((poem) => {
+            return poem.id !== id
+          }),
+        }));
+      } else {              
+        setPoems((prevPoems) => ({
+          ...prevPoems,
+          results: prevPoems.results.map((poem) => {
+            return poem.id === id
+              ? (poem.likes_count === 1 ? { ...poem, likes_count: 0, like_id: null }
+                : { ...poem, likes_count: poem.likes_count - 1, like_id: null })
+              : poem;
+          }),
+        }));
+      }
     } catch (err) {
       console.log(err);
     }
