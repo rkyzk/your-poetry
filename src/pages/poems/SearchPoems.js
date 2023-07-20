@@ -56,8 +56,7 @@ function SearchPoems() {
   return (
     <>
       <Container>
-        <h2>Search Poems</h2>
-        <i className={`fas fa-search`} />
+        <h2>Search Poems<i className="fas fa-search ml-4 mt-2" /></h2>
         <Form
           onSubmit={(event) => event.preventDefault()}
         >

@@ -51,7 +51,7 @@ function PoemCreateForm() {
 
   return (
     <>
-      <h2>Write a new poem.</h2>
+      <h2>Write a new poem</h2>
       <Form onSubmit={handleSubmit} className={styles.PoemForm}>
         <Form.Group controlId="title">
             <Form.Label>Title</Form.Label>

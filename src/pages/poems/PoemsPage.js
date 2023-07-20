@@ -49,7 +49,7 @@ function PoemsPage({ filter, message = "No results found", heading }) {
           <Col
             /* {customMargin && sm={{span: 8, offset: 2}}} */
           >
-            <h3 className="my-2">{heading}</h3>
+            <h2 className="my-2">{heading}</h2>
             {poems.results.length ? (
               <InfiniteScroll
                 children={poems.results.map((poem) => (
