@@ -62,12 +62,16 @@ function App() {
             path="/my-poems"
             render={() => <PoemsPage 
                             filter={`owner__profile=${profile_id}&ordering=-created_at&`}
-                            message="You haven't wrriten any poems yet." />} />
+                            message="You haven't wrriten any poems yet."
+                            heading="My Poems"                            
+                          />} />
           <Route
             exact
             path="/liked"
             render={() => <PoemsPage
-                            filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`} />} />
+                            filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+                            heading="Poems I liked"
+                          />} />
           <Route
             exact
             path="/profiles/:id/following"

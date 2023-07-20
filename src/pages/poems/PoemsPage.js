@@ -16,13 +16,17 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
 
-function PoemsPage({ filter, message = "No results found" }) {
+function PoemsPage({ filter, message = "No results found", heading }) {
   const [poems, setPoems] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const [reRender, setReRender] = useState(false);
   const { pathname } = useLocation();
   const history = useHistory();
   console.log(filter);
+  let customMargin = false;
+  if (pathname === "liked" || pathname === "my-poems") {
+    customMargin = true;
+  }
 
   useEffect(() => {
     const fetchPoems = async () => {
@@ -41,8 +45,11 @@ function PoemsPage({ filter, message = "No results found" }) {
   return (
     <>
       {hasLoaded ? (
-          <>
-            {/* {pathname === "/my-poems" && <Col md={8} offset={2}> } */}
+        <>
+          <Col
+            /* {customMargin && sm={{span: 8, offset: 2}}} */
+          >
+            <h3 className="my-2">{heading}</h3>
             {poems.results.length ? (
               <InfiniteScroll
                 children={poems.results.map((poem) => (
@@ -60,7 +67,7 @@ function PoemsPage({ filter, message = "No results found" }) {
             ) : (
               <p>{message}</p>
             )}
-            {/* {pathname === "/my-poems" && </Col>} */}
+            </Col>
           </>
         ) : (
           <Asset spinner />

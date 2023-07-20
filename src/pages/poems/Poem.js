@@ -104,7 +104,7 @@ const Poem = (props) => {
           )}
           <span className={`${styles.LinkText} ml-4`}> 
             by
-            <Link className="ml-1">
+            <Link className="ml-1" to={`/profiles/${profile_id}`}>
               {profile_name && (profile_name)}
             </Link>
           </span><br/>
