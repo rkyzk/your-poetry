@@ -9,6 +9,7 @@ import { fetchMoreData } from "../../utils/utils";
 import Asset from "../../components/Asset";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { Button } from "react-bootstrap";
 
 
 function ProfilesPage(props) {
@@ -16,8 +17,14 @@ function ProfilesPage(props) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profiles, setProfiles] = useState({ results: [] });
   const currentUser = useCurrentUser();
+  const [reRender, setReRender] = useState(false);
 
   console.log(profiles);
+  const handleReRender = () => {
+    setReRender(!reRender);
+    console.log("hi");
+  }
+
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
@@ -48,6 +55,7 @@ function ProfilesPage(props) {
                       {...profile} 
                       imageSize={80}
                       setProfiles={setProfiles}
+                      handleReRender={handleReRender}
                       profilesPage
                     />
                   ))}

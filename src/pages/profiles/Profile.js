@@ -29,6 +29,7 @@ const Profile = (props) => {
     profilesPage,
     profilePage,
     setProfiles,
+    handleReRender
   } = props;
 
   const currentUser = useCurrentUser();
@@ -50,6 +51,11 @@ const Profile = (props) => {
             : profile;
           }),
         }));
+        console.log("hi");
+        if (pathname === "/search/profiles") {
+          handleReRender();
+          console.log("hey");
+        }
       }
       setFeaturedProfilesData((prevProfiles) => ({
         ...prevProfiles,
@@ -58,7 +64,8 @@ const Profile = (props) => {
             ? { ...profile, followers_count: profile.followers_count + 1, following_id: data.id }
             : profile;
         }),
-      }));  
+      })); 
+      console.log("Hello"); 
     } catch (err) {
       console.log(err);
     }
@@ -86,7 +93,10 @@ const Profile = (props) => {
           }),
         }));
       }
-    
+      if (pathname === "/search/profiles") {
+        handleReRender();
+        console.log("hey");
+      }    
       setFeaturedProfilesData((prevProfiles) => ({
         ...prevProfiles,
         results: prevProfiles.results.map((profile) => {

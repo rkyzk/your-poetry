@@ -1,0 +1,10 @@
+  const rearrangePopularPoemsOrder = () => {
+    setPoems((prevPoems) => ({
+      ...prevPoems,
+      results: prevPoems.results.sort((a, b) => b.likes_count = a.likes_count),
+    }))
+  } 
+
+        // if (pathname === "/popular-poems") {
+      //   rearrangePopularPoemsOrder();
+      // }

@@ -34,19 +34,29 @@ function SearchProfiles() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <FeaturedProfiles mobile />
-        <i className={`fas fa-search ${styles.SearchIcon}`} />
-        <Form
-          className={`${styles.SearchBar} mb-3`}
-          onSubmit={(event) => event.preventDefault()}
-        >
-          <Form.Control
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            type="text"
-            className="mr-sm-2"
-            placeholder="Search profiles"
-          />
-        </Form>
+        <h3 className="text-center">Search Profiles</h3>
+        <Row>
+          <Col
+            md={{ span: 8, offset: 2 }}
+            xs={{ span: 9, offset: 1 }}
+          >
+            <Form
+              className={`${styles.SearchBar} mb-3`}
+              onSubmit={(event) => event.preventDefault()}
+            >
+              <Form.Control
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                type="text"
+                className="mr-sm-2"
+                placeholder="Search profiles"
+              />
+            </Form>      
+          </Col>
+          <Col xs={1}>
+            <i className={`fas fa-search ${styles.SearchIcon} mt-2`} />
+          </Col>
+        </Row>
         {search && query && (
           <ProfilesPage
             filter={`search=${query}`}
