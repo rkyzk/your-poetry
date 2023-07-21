@@ -37,14 +37,25 @@ const Poem = (props) => {
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { poem: id });
-      setPoems((prevPoems) => ({
-        ...prevPoems,
-        results: prevPoems.results.map((poem) => {
-          return poem.id === id
-            ? { ...poem, likes_count: poem.likes_count + 1, like_id: data.id }            
-            : poem;
-        }),
-      }))
+      if (pathname === "/popular-poems") {
+        setPoems((prevPoems) => ({
+          ...prevPoems,
+          results: prevPoems.results.map((poem) => {
+            return poem.id === id
+              ? { ...poem, likes_count: poem.likes_count + 1, like_id: data.id }            
+              : poem;
+          }).sort((a, b) => b.likes_count - a.likes_count),
+        }))
+      } else {
+        setPoems((prevPoems) => ({
+          ...prevPoems,
+          results: prevPoems.results.map((poem) => {
+            return poem.id === id
+              ? { ...poem, likes_count: poem.likes_count + 1, like_id: data.id }            
+              : poem;
+          }),
+        }))
+      }
     } catch (err) {
       console.log(err);
     }
@@ -60,16 +71,27 @@ const Poem = (props) => {
             return poem.id !== id
           }),
         }));
-      } else {              
-        setPoems((prevPoems) => ({
-          ...prevPoems,
-          results: prevPoems.results.map((poem) => {
-            return poem.id === id
-              ? (poem.likes_count === 1 ? { ...poem, likes_count: 0, like_id: null }
-                : { ...poem, likes_count: poem.likes_count - 1, like_id: null })
-              : poem;
-          }),
-        }));
+      } else {
+        if (pathname === "/popular-poems") {
+          setPoems((prevPoems) => ({
+            ...prevPoems,
+            results: prevPoems.results.map((poem) => {
+              return poem.id === id
+                ? { ...poem, likes_count: poem.likes_count - 1, like_id: null }            
+                : poem;
+            }).sort((a, b) => b.likes_count - a.likes_count),
+          }))
+        } else {          
+          setPoems((prevPoems) => ({
+            ...prevPoems,
+            results: prevPoems.results.map((poem) => {
+              return poem.id === id
+                ? (poem.likes_count === 1 ? { ...poem, likes_count: 0, like_id: null }
+                  : { ...poem, likes_count: poem.likes_count - 1, like_id: null })
+                : poem;
+            }),
+          }));
+        }
       }
     } catch (err) {
       console.log(err);
