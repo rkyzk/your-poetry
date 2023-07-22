@@ -42,8 +42,8 @@ function PoemCreateForm() {
 
     try {
       const { data } = await axiosReq.post('/poems/', formData)
-      toast(msg);
       history.push(`/poems/${data.id}`);
+      toast(msg);
     } catch (err){
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
@@ -56,21 +56,19 @@ function PoemCreateForm() {
       <h2>Write a new poem</h2>
       <Form onSubmit={handleSubmit} className={styles.PoemForm}>
         <Form.Group controlId="title">
-            <Form.Label>Title</Form.Label>
-            <Form.Control
+          <Form.Label>Title</Form.Label>
+          <Form.Control
             type="text"
             placeholder="Title"
             name="title"
             value={title}
             onChange={handleChange}
-            />    
+          />
         </Form.Group>
         {errors?.title?.map((message, idx) => (
-            <Form.Group controlId="title">
-            <Alert variant="warning" key={idx}>		
-                {message}		
-            </Alert>	
-            </Form.Group>	
+          <Alert variant="warning" key={idx}>		
+            {message}		
+          </Alert>	
         ))}
         <Form.Group controlId="content">
           <Form.Label>Content</Form.Label>

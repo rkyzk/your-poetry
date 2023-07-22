@@ -171,13 +171,13 @@ const Profile = (props) => {
             </Col>
           </Row>
           <div className="mt-3 ml-3">
-            {about_me && (
+            {about_me &&  about_me !== "null" && (
               <>
                 <div className="text-muted">About me:</div>
                 {about_me}
               </>
             )}
-            {favorites && (
+            {favorites && favorites !== "null" && (
               <>
                 <div className="text-muted">Favorites:</div>
                 {favorites}

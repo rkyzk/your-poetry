@@ -33,8 +33,10 @@ function Home() {
             className={`${styles.NavLink} ${styles.Intro}`}>
             Sign up
           </Link><span className={`${styles.Intro} ml-2`}>here.</span>
-          <><h2 className="mt-3" >Featured Poems</h2></>
-          <PoemsPage filter={`published=1&featured_flag=1&ordering=-created_at&`}/>
+          <PoemsPage
+            filter={`published=1&featured_flag=1&ordering=-created_at&`}
+            heading="Featured Poems" 
+          />
         </Col>
         <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
           <FeaturedProfiles />

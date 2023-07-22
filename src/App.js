@@ -33,7 +33,7 @@ function App() {
     <div className={styles.App}>
       <NavBar />
       <NavBarSecond />
-      <ToastContainer autoClose={4000} />
+      <ToastContainer autoClose={4000} position="top-center" />
       <Container className={styles.Main}>
         <Switch>
           <Route exact path="/" render={() => <Home /> } />
@@ -73,6 +73,7 @@ function App() {
             render={() => <PoemsPage
                             filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
                             heading="Poems I like"
+                            message="You haven't liked any poems yet.  Find some nice poems!"
                           />} />
           <Route
             exact

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import Col from "react-bootstrap/Col";
+import Alert from "react-bootstrap/Alert";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -22,6 +22,7 @@ function PoemPage() {
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
   const history = useHistory();
+  const [errMsg, setErrMsg] = useState("");
 
   const [showModal, setShowModal] = useState(false);
   const showConfirmationModal = () => setShowModal(true);
@@ -38,7 +39,13 @@ function PoemPage() {
         setPoem({ results: [poem] });
         setComments(comments);
       } catch(err) {
-        console.log(`Error occured: ${err}`);
+        if (err.response?.status === 500) {
+          setErrMsg("Server error.  Please try again later.");
+        } else if (err.response?.status === 404) {
+          setErrMsg("Poem with the given ID doesn't exist.");
+        } else {
+          setErrMsg("Something went wrong.  Please try again later");
+        }
       }
     }
     handleMount();
@@ -48,6 +55,12 @@ function PoemPage() {
     <>
     <Row className="h-100">
       <Container className={appStyles.Content}>
+      {errMsg ? (
+        <Alert variant="warning" key={errMsg}>
+          {errMsg}
+        </Alert>
+      ) : (
+        <>
       <Poem
         {...poem.results[0]}
         setPoems={setPoem}
@@ -86,6 +99,8 @@ function PoemPage() {
         ) : (
             <span>No comments yet</span>
         )}
+        </>
+      )}
       </Container>    
     </Row>
     <ConfirmationModal

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
@@ -8,7 +8,7 @@ import Poem from "./Poem";
 import Asset from "../../components/Asset";
 
 // import appStyles from "../../App.module.css";
-// import styles from "../../styles/PoemsPage.module.css";
+import styles from "../../styles/PoemsPage.module.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -19,9 +19,9 @@ import { fetchMoreData } from "../../utils/utils";
 function PoemsPage({ filter, message = "No results found", heading }) {
   const [poems, setPoems] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [reRender, setReRender] = useState(false);
   const { pathname } = useLocation();
   const history = useHistory();
+  const [errMsg, setErrMsg] = useState("");
   console.log(filter);
   let customMargin = false;
   if (pathname === "liked" || pathname === "my-poems") {
@@ -32,10 +32,14 @@ function PoemsPage({ filter, message = "No results found", heading }) {
     const fetchPoems = async () => {
       try {
         const { data } = await axiosReq.get(`/poems/?${filter}`);
+        console.log(data);
         setPoems(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        if (err.response) {
+          setErrMsg(`Something went wrong.
+            The poems couldn't be loaded. Please try again later`);
+        };
       }
     };
     setHasLoaded(false);
@@ -44,10 +48,14 @@ function PoemsPage({ filter, message = "No results found", heading }) {
 
   return (
     <>
-      {hasLoaded ? (
-        <>
-          <Col>  {/* {customMargin && md={{span: 8, offset: 2}}} */}
-            <h2 className="my-2">{heading}</h2>
+      <h2 className="my-2">{heading}</h2>
+      {errMsg && 
+        <Alert key={errMsg} variant="warning" className="mt-3">
+          {errMsg}
+        </Alert>}
+      {!errMsg && hasLoaded && (
+        <>       
+          <Col>  {/* {customMargin && md={{span: 8, offset: 2}}} */}     
             {poems.results.length ? (
               <InfiniteScroll
                 children={poems.results.map((poem) => (
@@ -67,9 +75,9 @@ function PoemsPage({ filter, message = "No results found", heading }) {
             )}
             </Col>
           </>
-        ) : (
-          <Asset spinner />
         )}
+        {!errMsg && !hasLoaded &&
+          <Asset spinner />}     
     </>
   );
 }
