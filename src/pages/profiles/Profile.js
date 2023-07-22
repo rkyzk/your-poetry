@@ -111,7 +111,7 @@ const Profile = (props) => {
                     <Avatar src={image} height={45} />
                     <div>
                       <p className={`ml-0 mb-0 ${styles.MobileName}`}>{display_name}</p>                    
-                      <span>
+                      <span className={`${styles.CountsText}`}>
                         {poems_count} poems  
                       </span>                   
                     </div>
@@ -131,8 +131,8 @@ const Profile = (props) => {
               <Link to={`/profiles/${id}`}>
                 <h4>{display_name}</h4>
               </Link>
-              <span>{poems_count} poems</span>
-              <span className="ml-2">{followers_count} followers</span>
+              <span className={`${styles.CountsText}`}>{poems_count} poems</span>
+              <span className={`${styles.CountsText} ml-2`}>{followers_count} followers</span>
             </Col>
           </Row>
         )}
@@ -146,8 +146,8 @@ const Profile = (props) => {
                 <h3>{display_name}</h3>
               </Link>        
               <p className="my-0">Member since {created_at}</p>
-              <span>{poems_count} poems</span>
-              <span className="ml-2">{followers_count} followers</span>
+              <span className={`${styles.CountsText}`}>{poems_count} poems</span>
+              <span className={`${styles.CountsText} ml-2`}>{followers_count} followers</span>
             </Col>
           </Row>
         )}
@@ -163,7 +163,11 @@ const Profile = (props) => {
               {is_owner && (
                 <ProfileEditDropdown id={id} />
               )}
-              <p>Member since {created_at}</p>             
+              <p className="mb-0">Member since {created_at}</p>    
+              <div>
+                <span className={`${styles.CountsText}`}>{poems_count} poems</span>
+                <span className={`${styles.CountsText} ml-2`}>{followers_count} followers</span>
+              </div>         
             </Col>
           </Row>
           <div className="mt-3 ml-3">
@@ -178,10 +182,6 @@ const Profile = (props) => {
                 <div className="text-muted">Favorites:</div>
                 {favorites}
               </>)}
-            <div>
-              <span>{poems_count} poems</span>
-              <span className="ml-2">{followers_count} followers</span>
-            </div>
           </div>
         </>
       )}
