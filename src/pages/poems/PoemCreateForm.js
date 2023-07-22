@@ -109,6 +109,11 @@ function PoemCreateForm() {
             <option selected>other</option>
           </Form.Control>
         </Form.Group>
+        {errors?.category?.map((message, idx) => (
+         <Alert variant="warning" key={idx}>
+           {message}
+         </Alert>
+       ))}
         <Button 
           className={`${btnStyles.Button} ${btnStyles.Olive} mt-2`}
           type="submit"

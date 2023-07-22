@@ -17,8 +17,9 @@ function PoemEditForm() {
   const [poemData, setPoemData] = useState({
     title: "",
     content: "",
+    category: ""
   });
-  const { title, content } = poemData;
+  const { title, content, category } = poemData;
   // published tells if the poem has been published.
   const [published, setPublished] = useState(false);
   // publish will be set true, if user decides to publish the poem
@@ -32,9 +33,9 @@ function PoemEditForm() {
     const handleMount = async () => {
       try {
         const { data } = await axiosReq.get(`/poems/${id}`);
-         const { title, content, is_owner, published } = data;
+         const { title, content, category, is_owner, published } = data;
          published && setPublished(true)
-         is_owner ? setPoemData({ title, content }) : history.push("/");
+         is_owner ? setPoemData({ title, content, category }) : history.push("/");
        } catch (err) {
          console.log(err);
        }
@@ -55,6 +56,7 @@ function PoemEditForm() {
 
      formData.append("title", title);
      formData.append("content", content);
+     formData.append("category", category);
      if (publish || published) {
       formData.append("published", true);
      }
@@ -86,7 +88,6 @@ function PoemEditForm() {
            {message}
          </Alert>
        ))}
-
        <Form.Group>
          <Form.Label>Content</Form.Label>
          <Form.Control
@@ -102,7 +103,30 @@ function PoemEditForm() {
            {message}
          </Alert>
        ))}
-
+       <Form.Group>
+         <Form.Label>Category</Form.Label>
+         <Form.Control
+            as="select"
+            className={`${styles.Category} ml-3`}
+            id="category"
+            name="category"
+            value={category}
+            onChange={handleChange}
+            custom
+          >
+            <option>nature</option>
+            <option>love</option>
+            <option>people</option>
+            <option>humor</option>
+            <option>haiku</option>
+            <option>other</option>
+          </Form.Control>
+       </Form.Group>
+       {errors?.category?.map((message, idx) => (
+         <Alert variant="warning" key={idx}>
+           {message}
+         </Alert>
+       ))}
        <Button className={`${btnStyles.Button} ${btnStyles.Olive}`} type="submit">
          save
        </Button>
