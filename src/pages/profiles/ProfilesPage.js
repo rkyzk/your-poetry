@@ -9,10 +9,9 @@ import { fetchMoreData } from "../../utils/utils";
 import Asset from "../../components/Asset";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-// import { useSetProfilesData, useProfilesData, useSetFilterStr, useFilterStr } from "../../contexts/ProfilesDataContext";
 
 function ProfilesPage(props) {
-  const { search, filter, message } = props;
+  const { filter, message, page } = props;
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
   const [profiles, setProfiles] = useState({ results: [] });
@@ -35,7 +34,7 @@ function ProfilesPage(props) {
 
     return (
       <Container className={appStyles.Content}>
-        {!search && (<h2>Poets I'm following</h2>)}
+        {page === "profilesPage" && (<h2>Poets I'm following</h2>)}
         <Col>
           {hasLoaded ? (
             <>
@@ -46,7 +45,7 @@ function ProfilesPage(props) {
                       key={profile.id}
                       {...profile} 
                       imageSize={80}
-                      profilesPage
+                      page={page}
                       setProfiles={setProfiles}
                     />
                   ))}

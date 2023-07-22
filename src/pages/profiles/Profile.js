@@ -7,7 +7,6 @@ import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes, axiosReq } from "../../api/axiosDefaults";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
-import { useLocation } from "react-router";
 import { useFeaturedProfilesData, useSetFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataContext";
 
 const Profile = (props) => {
@@ -26,16 +25,15 @@ const Profile = (props) => {
     setProfiles,
     mobile,
     featured,
-    profilesPage,
-    profilePage,
+    page
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
-  const { pathname } = useLocation();
   const user_id = currentUser?.profile_id;
   const setFeaturedProfilesData = useSetFeaturedProfilesData();
-
+  console.log("page");
+  console.log(page);
   const handleFollow = async () => {
     try {
       const { data } = await axiosRes.post("/followers/", { followed: id });
@@ -49,15 +47,16 @@ const Profile = (props) => {
         }),
       }));
       }
-      setFeaturedProfilesData((prevProfiles) => ({
-        ...prevProfiles,
-        results: prevProfiles.results.map((profile) => {
-          return profile.id === id
-            ? { ...profile, followers_count: profile.followers_count + 1, following_id: data.id }
-            : profile;
-        }),
-      })); 
-      console.log("Hello"); 
+      {featured &&
+        setFeaturedProfilesData((prevProfiles) => ({
+          ...prevProfiles,
+          results: prevProfiles.results.map((profile) => {
+            return profile.id === id
+              ? { ...profile, followers_count: profile.followers_count + 1, following_id: data.id }
+              : profile;
+          }),
+        }));
+      }
     } catch (err) {
       console.log(err);
     }
@@ -67,7 +66,7 @@ const Profile = (props) => {
     try {
       console.log(following_id);
       await axiosRes.delete(`/followers/${following_id}`);
-      {setProfiles && 
+      {page === "profilesPage" &&
         setProfiles((prevProfiles) => ({
           ...prevProfiles,
           results: prevProfiles.results.filter((profile) => {
@@ -75,7 +74,7 @@ const Profile = (props) => {
           }),
         }));
       }
-      {pathname === "/search/prfiles" &&
+      {(page === "search" && page === "profilePage") &&
         setProfiles((prevProfiles) => ({
           ...prevProfiles,
           results: prevProfiles.results.map((profile) => {
@@ -85,14 +84,16 @@ const Profile = (props) => {
           }),
         }));
       } 
-      setFeaturedProfilesData((prevProfiles) => ({
-        ...prevProfiles,
-        results: prevProfiles.results.map((profile) => {
-          return profile.id === id
-            ? { ...profile, followers_count: profile.followers_count - 1, following_id: null }
-            : profile;
-        }),
-      }));
+      {featured &&
+        setFeaturedProfilesData((prevProfiles) => ({
+          ...prevProfiles,
+          results: prevProfiles.results.map((profile) => {
+            return profile.id === id
+              ? { ...profile, followers_count: profile.followers_count - 1, following_id: null }
+              : profile;
+          }),
+        }));
+      } 
     } catch (err) {
       console.log(err);
     }
@@ -135,7 +136,7 @@ const Profile = (props) => {
             </Col>
           </Row>
         )}
-        {profilesPage && (
+        {(page === "profilesPage" || page === "search") && (
           <Row>
             <Col xs={4}>
               <Avatar src={image} height={imageSize} />
@@ -151,7 +152,7 @@ const Profile = (props) => {
           </Row>
         )}
         </Media>
-        {profilePage && (
+        {page === "profilePage" && (
          <>
           <Row>
             <Col xs={3}>

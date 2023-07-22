@@ -61,7 +61,7 @@ function ProfilePage() {
     <Container>
       <Profile
         {...profileData.results[0]}
-        profilePage
+        page={"profilePage"}
         setProfiles={setProfileData}
       />
       {poems}

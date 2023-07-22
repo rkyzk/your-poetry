@@ -53,7 +53,7 @@ function SearchProfiles() {
           <ProfilesPage
             filter={`search=${query}`}
             message="No profiles found with the name."
-            search
+            page={"search"}
           />
         )}
       </Col>

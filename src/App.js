@@ -79,6 +79,7 @@ function App() {
               <ProfilesPage
                 filter={`owner__followed__owner__profile=${profile_id}&ordering=-owner__following__created_at&`}
                 message="You haven't followed anyone."
+                page={"profilesPage"}
               />)} />
           <Route
             exact path="/new-poems"
