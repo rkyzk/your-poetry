@@ -34,6 +34,7 @@ function PoemPage() {
           axiosReq.get(`/poems/${id}`),
           axiosReq.get(`/comments/?poem__id=${id}`),
         ]);
+        console.log(poem);
         setPoem({ results: [poem] });
         setComments(comments);
       } catch(err) {

@@ -13,8 +13,9 @@ function PoemCreateForm() {
   const [poemData, setPoemData] = useState({
     title: "",
     content: "",
+    category: "other",
   });
-  const { title, content } = poemData;
+  const { title, content, category } = poemData;
   const [publish, setPublish] = useState(false);
   const history = useHistory();
 
@@ -36,6 +37,7 @@ function PoemCreateForm() {
 
     formData.append("title", title);
     formData.append("content", content);
+    formData.append("category", category);
     publish && (formData.append("published", true));
 
     try {
@@ -86,6 +88,27 @@ function PoemCreateForm() {
             {message}		
           </Alert>
         ))}
+        <Form.Group contorlId="category">
+          <Form.Label className="my-1 mr-2">
+            Category
+          </Form.Label>
+          <Form.Control
+            as="select"
+            className={`${styles.Category} ml-3`}
+            id="category"
+            name="category"
+            value={category}
+            onChange={handleChange}
+            custom
+          >
+            <option>nature</option>
+            <option>love</option>
+            <option>people</option>
+            <option>humor</option>
+            <option>haiku</option>
+            <option selected>other</option>
+          </Form.Control>
+        </Form.Group>
         <Button 
           className={`${btnStyles.Button} ${btnStyles.Olive} mt-2`}
           type="submit"
