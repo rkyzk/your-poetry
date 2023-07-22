@@ -71,7 +71,7 @@ function App() {
             path="/liked"
             render={() => <PoemsPage
                             filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
-                            heading="Poems I liked"
+                            heading="Poems I like"
                           />} />
           <Route
             exact

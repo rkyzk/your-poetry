@@ -105,7 +105,7 @@ const Poem = (props) => {
           {poemPage ? (
             <>
               <Row>
-                <Card.Title className={`${styles.Title} mb-0`}>
+                <Card.Title className={`${styles.Title} mb-0 ml-2`}>
                   {title && title}
                 </Card.Title>
                 {is_owner && (
@@ -140,7 +140,7 @@ const Poem = (props) => {
             </span>
           </Row>          
           {content && !poemPage ? (
-            <Card.Text>{content.substring(0, 60)}</Card.Text>
+            <Card.Text>{content.substring(0, 60)}...</Card.Text>
           ) : (
             <Card.Text className={styles.Line}>{content}</Card.Text>
           )}
@@ -168,7 +168,7 @@ const Poem = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           )}
-            {likes_count}
+            <span className="ml-1">{likes_count}</span>
           <Link to={`/poems/${id}`}>
             <i className="far fa-comments ml-2 mr-1" />
           </Link>

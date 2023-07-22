@@ -46,9 +46,7 @@ function PoemsPage({ filter, message = "No results found", heading }) {
     <>
       {hasLoaded ? (
         <>
-          <Col
-            /* {customMargin && sm={{span: 8, offset: 2}}} */
-          >
+          <Col>  {/* {customMargin && md={{span: 8, offset: 2}}} */}
             <h2 className="my-2">{heading}</h2>
             {poems.results.length ? (
               <InfiniteScroll

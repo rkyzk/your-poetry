@@ -155,10 +155,10 @@ const Profile = (props) => {
         {page === "profilePage" && (
          <>
           <Row>
-            <Col xs={3}>
-              <Avatar src={image} height={120} />
+            <Col md={3}>
+              <Avatar src={image} height={120} className={`${styles.Img}`} />
             </Col>
-            <Col xs={7}>
+            <Col md={7}>
               <h3 className="mt-3">{display_name}</h3>
               {is_owner && (
                 <ProfileEditDropdown id={id} />

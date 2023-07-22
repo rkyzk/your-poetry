@@ -2,6 +2,7 @@ nvm install 16 && nvm use 16
 
 footer icons center
 color white icons
+change avatar size under 770px
 
 ``
 

@@ -9,11 +9,14 @@ import Poem from "../poems/Poem";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ProfilePage() {
   const { id } = useParams();
+  const currentUser = useCurrentUser();
+  const is_owner = currentUser?.pk === parseInt(id);
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [profileData, setProfileData] = useState();
+  const [profileData, setProfileData] = useState({ results: [] });
   const [profilePoems, setProfilePoems] = useState({ results: [] });
 
   useEffect(() => {
@@ -59,6 +62,7 @@ function ProfilePage() {
 
   return (
     <Container>
+      {is_owner && <h2>My Profile</h2>}
       <Profile
         {...profileData.results[0]}
         page={"profilePage"}
