@@ -7,7 +7,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import Asset from "../../components/Asset";
-
+import Alert from "react-bootstrap/Alert";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ProfilesPage(props) {
@@ -15,6 +15,7 @@ function ProfilesPage(props) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
   const [profiles, setProfiles] = useState({ results: [] });
+  const [errMsg, setErrMsg] = useState("");
 
   useEffect(() => {
     const fetchProfiles = async () => {
@@ -25,7 +26,7 @@ function ProfilesPage(props) {
         console.log(filter);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        setErrMsg("Something went wrong.  The data couldn't be loaded.  Please try again later.");
       }
     }
     setHasLoaded(false);
@@ -35,6 +36,8 @@ function ProfilesPage(props) {
     return (
       <Container className={appStyles.Content}>
         {page === "profilesPage" && (<h2>Poets I'm following</h2>)}
+        {errMsg ? <Alert key={errMsg} variant="warning" className="mt-3">{errMsg}</Alert> 
+         :
         <Col>
           {hasLoaded ? (
             <>
@@ -63,7 +66,7 @@ function ProfilesPage(props) {
               <Asset spinner />
             </Container>
           )}
-        </Col>
+        </Col>}
       </Container>
     );
 }

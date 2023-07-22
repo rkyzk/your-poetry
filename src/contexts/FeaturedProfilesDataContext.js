@@ -11,6 +11,7 @@ export const useSetFeaturedProfilesData = () => useContext(SetFeaturedProfilesDa
 export const FeaturedProfilesDataProvider = ({ children }) => {
   const currentUser = useCurrentUser();
   const [featuredProfilesData, setFeaturedProfilesData] = useState({ results: [] });
+  const [errMsg, setErrMsg] = useState("");
 
   useEffect(() => {
     const handleMount = async () => {
@@ -20,7 +21,7 @@ export const FeaturedProfilesDataProvider = ({ children }) => {
         );
         setFeaturedProfilesData(data);
       } catch (err) {
-        console.log(err);
+        setErrMsg("Something went wrong.  The profiles couldn't be loaded.  Please try again later");
       }
     };
     handleMount();

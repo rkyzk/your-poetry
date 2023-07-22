@@ -1,6 +1,6 @@
 import styles from "./App.module.css";
 import NavBar from './components/NavBar';
-import { Container } from 'react-bootstrap';
+import Container from "react-bootstrap/Container";
 import {Route, Switch} from "react-router-dom";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
@@ -24,6 +24,8 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FooterComponent } from "./components/FooterComponent";
 import Contact from "./pages/pages/Contact";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min"; 
+import { useState } from "react";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -31,15 +33,15 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <NavBar />
-      <NavBarSecond />
       <ToastContainer autoClose={4000} position="top-center" />
       <Container className={styles.Main}>
-        <Switch>
-          <Route exact path="/" render={() => <Home /> } />
-          <Route exact path="/contact" render={() => <Contact /> } />
+      <NavBar />
+      <NavBarSecond />
+      <Switch>    
           <Route exact path="/signin" render={() => <SignInForm /> } />
           <Route exact path="/signup" render={() => <SignUpForm /> } />
+          <Route exact path="/" render={() => <Home /> } />
+          <Route exact path="/contact" render={() => <Contact /> } />  
           <Route exact path="/poems/create" render={() => <PoemCreateForm /> } />
           <Route exact path="/poems/" render={() => <PoemCreateForm /> } />
           <Route exact path="/poems/:id" render={() => <PoemPage />} />
@@ -73,7 +75,7 @@ function App() {
             render={() => <PoemsPage
                             filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
                             heading="Poems I like"
-                            message="You haven't liked any poems yet.  Find some nice poems!"
+                            message="You haven't liked any poems yet."
                           />} />
           <Route
             exact

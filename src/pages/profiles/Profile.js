@@ -100,7 +100,7 @@ const Profile = (props) => {
   };
 
   return (
-    <Card>
+    <Card className="mb-1">
       <Card.Body>
         <Media className="align-items-center">
           {mobile && (

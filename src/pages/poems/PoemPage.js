@@ -14,6 +14,7 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import { useHistory } from "react-router";
 import ConfirmationModal from "../../components/ConfirmationModal";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function PoemPage() {
   const { id } = useParams();
@@ -97,7 +98,10 @@ function PoemPage() {
         ) : currentUser ? (
           <span>No comments yet, be the first to comment!</span>
         ) : (
-            <span>No comments yet</span>
+            <span>No comments yet.
+              <Link className="ml-2 mr-2" to="/signin" >Sign in</Link>
+              to leave a comment.
+            </span>
         )}
         </>
       )}

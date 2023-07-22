@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
@@ -10,6 +9,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Alert from "react-bootstrap/Alert";
 
 function ProfilePage() {
   const { id } = useParams();
@@ -18,6 +18,7 @@ function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profileData, setProfileData] = useState({ results: [] });
   const [profilePoems, setProfilePoems] = useState({ results: [] });
+  const [errMsg, setErrMsg] = useState("");
 
   useEffect(() => {
     const handleMount = async () => {
@@ -31,7 +32,13 @@ function ProfilePage() {
           setProfilePoems(profilePoems);
           setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        if (err.response?.status === 500) {
+          setErrMsg("Server error.  Please try again later.");
+        } else if (err.response?.status === 404) {
+          setErrMsg("Profile with the given ID doesn't exist.");
+        } else {
+          setErrMsg("Something went wrong.  Please try again later");
+        }
       }
     };
     handleMount();
@@ -59,17 +66,20 @@ function ProfilePage() {
       )}
     </>
   )
-
   return (
     <Container>
       {is_owner && <h2>My Profile</h2>}
-      <Profile
-        {...profileData.results[0]}
-        page={"profilePage"}
-        setProfiles={setProfileData}
-      />
-      {poems}
-  </Container> 
+      {errMsg ? <Alert key={errMsg} variant="warning" className="mt-3">{errMsg}</Alert> : (
+        <>
+          <Profile
+            {...profileData.results[0]}
+            page={"profilePage"}
+            setProfiles={setProfileData}
+          />
+          {poems}
+        </>
+      )}
+    </Container> 
   );
 }
 

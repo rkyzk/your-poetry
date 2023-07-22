@@ -17,7 +17,7 @@ const FeaturedProfiles = ({ mobile }) => {
     >
       {featuredProfilesData.results.length ? (
         <>
-          <h4>Featured profiles</h4>
+          <h4 className={`${styles.Heading}`}>Featured profiles</h4>
           {mobile ? (
             <Row>
               {featuredProfilesData.results.map((profile) => (
@@ -36,7 +36,6 @@ const FeaturedProfiles = ({ mobile }) => {
                 key={profile.id}
                 {...profile}
                 imageSize={55}
-                className="mb-2"
                 featured
               />
             ))

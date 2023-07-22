@@ -15,7 +15,7 @@ const ConfirmationModal = ({show, hideConfirmationModal, id}) => {
       toast("The poem has been deleted.");
       history.push("/my-poems");
     } catch (err) {
-      console.log(err);
+      // handle error
     }  
   };
 
@@ -23,7 +23,7 @@ const ConfirmationModal = ({show, hideConfirmationModal, id}) => {
       <>
         <Modal show={show} onHide={hideConfirmationModal}>
           <Modal.Body closeButton>
-              <span>Are you sure you want to delete your poem?
+            <span>Are you sure you want to delete your poem?
               You won't be able to retrieve it.
               </span> 
           </Modal.Body>

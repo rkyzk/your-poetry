@@ -3,7 +3,7 @@ import styles from "../styles/FooterComponent.module.css";
 
 export const FooterComponent = () => {
   return (
-    <div className={`${styles.FooterBg}`}>
+    <div className={`${styles.FooterBg} pt-2`}>
       <ul className={`{styles.SocialNW} d-flex justify-content-center`}>
         <Link
           to="https://www.facebook.com"

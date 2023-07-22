@@ -28,9 +28,10 @@ function Home() {
         <Col className="py-2 p-0 p-lg-2" lg={8}>
           <FeaturedProfiles mobile />
           {intro}
+          <span className={`${styles.Intro}`}>Don't have an account?</span>
           <Link
             to="/signup"
-            className={`${styles.NavLink} ${styles.Intro}`}>
+            className={`${styles.NavLink} ${styles.Intro} ml-2`}>
             Sign up
           </Link><span className={`${styles.Intro} ml-2`}>here.</span>
           <PoemsPage

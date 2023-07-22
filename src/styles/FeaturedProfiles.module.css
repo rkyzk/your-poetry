@@ -1,6 +1,10 @@
 h4 {
-    font-family: 'Nanum Myeongj';
-  }
+  font-family: 'Nanum Myeongj';
+}
+
+.Heading {
+  font-family: 'Bacasime Antique', sans-serif;
+}
   
 @media screen and (max-width: 630px) {
   .Mobile {
