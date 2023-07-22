@@ -1,20 +1,13 @@
 import React, { useEffect, useState } from "react";
-
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
-import Profile from "./Profile";
 import ProfilesPage from "./ProfilesPage";
 import Asset from "../../components/Asset";
-
 import appStyles from "../../App.module.css";
 import styles from "../../styles/SearchProfiles.module.css";
-
 import { axiosReq } from "../../api/axiosDefaults";
-
-import FeaturedProfiles from "../profiles/FeaturedProfiles";
 
 function SearchProfiles() {
   const [query, setQuery] = useState("");
@@ -32,8 +25,7 @@ function SearchProfiles() {
 
   return (
     <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <FeaturedProfiles mobile />
+      <Col className="py-2 p-0 p-lg-2" lg={{ span: 8, offset: 2 }}>
         <h3 className="text-center">Search Profiles</h3>
         <Row>
           <Col
@@ -64,9 +56,6 @@ function SearchProfiles() {
             search
           />
         )}
-      </Col>
-      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <FeaturedProfiles />
       </Col>
     </Row>
   );

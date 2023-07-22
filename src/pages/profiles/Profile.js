@@ -10,7 +10,6 @@ import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import { useLocation } from "react-router";
 import { useFeaturedProfilesData, useSetFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataContext";
 
-
 const Profile = (props) => {
   const {
     id,
@@ -24,19 +23,17 @@ const Profile = (props) => {
     favorites,
     created_at,
     imageSize = 55,
+    setProfiles,
     mobile,
     featured,
     profilesPage,
     profilePage,
-    setProfiles,
-    handleReRender
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const { pathname } = useLocation();
   const user_id = currentUser?.profile_id;
-
   const setFeaturedProfilesData = useSetFeaturedProfilesData();
 
   const handleFollow = async () => {
@@ -46,16 +43,11 @@ const Profile = (props) => {
         setProfiles((prevProfiles) => ({
           ...prevProfiles,
           results: prevProfiles.results.map((profile) => {
-            return profile.id === id
+          return profile.id === id
             ? { ...profile, followers_count: profile.followers_count + 1, following_id: data.id }
             : profile;
-          }),
-        }));
-        console.log("hi");
-        if (pathname === "/search/profiles") {
-          handleReRender();
-          console.log("hey");
-        }
+        }),
+      }));
       }
       setFeaturedProfilesData((prevProfiles) => ({
         ...prevProfiles,
@@ -75,7 +67,7 @@ const Profile = (props) => {
     try {
       console.log(following_id);
       await axiosRes.delete(`/followers/${following_id}`);
-      if (pathname === `/profiles/${user_id}/following`) {
+      {setProfiles && 
         setProfiles((prevProfiles) => ({
           ...prevProfiles,
           results: prevProfiles.results.filter((profile) => {
@@ -83,7 +75,7 @@ const Profile = (props) => {
           }),
         }));
       }
-      {setProfiles &&
+      {pathname === "/search/prfiles" &&
         setProfiles((prevProfiles) => ({
           ...prevProfiles,
           results: prevProfiles.results.map((profile) => {
@@ -92,11 +84,7 @@ const Profile = (props) => {
               : profile;
           }),
         }));
-      }
-      if (pathname === "/search/profiles") {
-        handleReRender();
-        console.log("hey");
-      }    
+      } 
       setFeaturedProfilesData((prevProfiles) => ({
         ...prevProfiles,
         results: prevProfiles.results.map((profile) => {

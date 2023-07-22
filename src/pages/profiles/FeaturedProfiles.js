@@ -36,6 +36,7 @@ const FeaturedProfiles = ({ mobile }) => {
                 key={profile.id}
                 {...profile}
                 imageSize={55}
+                className="mb-2"
                 featured
               />
             ))

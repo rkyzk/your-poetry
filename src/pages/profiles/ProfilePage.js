@@ -13,7 +13,7 @@ import { fetchMoreData } from "../../utils/utils";
 function ProfilePage() {
   const { id } = useParams();
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [profileData, setProfileData] = useState({ results: [] });
+  const [profileData, setProfileData] = useState();
   const [profilePoems, setProfilePoems] = useState({ results: [] });
 
   useEffect(() => {
@@ -61,8 +61,8 @@ function ProfilePage() {
     <Container>
       <Profile
         {...profileData.results[0]}
-        setProfiles={setProfileData}
         profilePage
+        setProfiles={setProfileData}
       />
       {poems}
   </Container> 

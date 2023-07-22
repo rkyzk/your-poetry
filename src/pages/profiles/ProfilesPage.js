@@ -9,29 +9,21 @@ import { fetchMoreData } from "../../utils/utils";
 import Asset from "../../components/Asset";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Button } from "react-bootstrap";
-
+// import { useSetProfilesData, useProfilesData, useSetFilterStr, useFilterStr } from "../../contexts/ProfilesDataContext";
 
 function ProfilesPage(props) {
   const { search, filter, message } = props;
   const [hasLoaded, setHasLoaded] = useState(false);
-  const [profiles, setProfiles] = useState({ results: [] });
   const currentUser = useCurrentUser();
-  const [reRender, setReRender] = useState(false);
-
-  console.log(profiles);
-  const handleReRender = () => {
-    setReRender(!reRender);
-    console.log("hi");
-  }
+  const [profiles, setProfiles] = useState({ results: [] });
 
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
         const { data } = await axiosReq.get(`/profiles/?${filter}`);
+        console.log(data.results[0]);
         setProfiles(data);
         console.log(filter);
-        console.log(data);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -54,16 +46,15 @@ function ProfilesPage(props) {
                       key={profile.id}
                       {...profile} 
                       imageSize={80}
-                      setProfiles={setProfiles}
-                      handleReRender={handleReRender}
                       profilesPage
+                      setProfiles={setProfiles}
                     />
                   ))}
                   dataLength={profiles.results.length}
                   loader={<Asset spinner />}
                   hasMore={!!profiles.next}
                   next={() => fetchMoreData(profiles, setProfiles={setProfiles})}
-                  />               
+                />               
               ) : (
                 <p>{message}</p>
               )}
