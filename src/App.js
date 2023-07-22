@@ -22,6 +22,7 @@ import SearchPoems from "./pages/poems/SearchPoems";
 import PoemsByCategories from "./pages/poems/PoemsByCategories";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FooterComponent } from "./components/FooterComponent";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -96,6 +97,7 @@ function App() {
           <Route render={() => <h1>Page not found</h1> } />
         </Switch>
       </Container>
+      <FooterComponent />
     </div>
   );
 }

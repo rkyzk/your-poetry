@@ -10,4 +10,6 @@ h1, h2 {
 
 .Main {
   margin-top: 170px;
+  margin-bottom: 20px;
+  min-height: 65vh;
 }

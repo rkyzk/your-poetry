@@ -1,5 +1,8 @@
 nvm install 16 && nvm use 16 
 
+footer icons center
+color white icons
+
 ``
 
 Installed libraries and dependencies:
