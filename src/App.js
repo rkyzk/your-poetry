@@ -23,6 +23,7 @@ import PoemsByCategories from "./pages/poems/PoemsByCategories";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FooterComponent } from "./components/FooterComponent";
+import Contact from "./pages/pages/Contact";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -36,7 +37,7 @@ function App() {
       <Container className={styles.Main}>
         <Switch>
           <Route exact path="/" render={() => <Home /> } />
-          <Route exact path="/contact" render={() => <h1>Contact</h1> } />
+          <Route exact path="/contact" render={() => <Contact /> } />
           <Route exact path="/signin" render={() => <SignInForm /> } />
           <Route exact path="/signup" render={() => <SignUpForm /> } />
           <Route exact path="/poems/create" render={() => <PoemCreateForm /> } />

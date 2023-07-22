@@ -188,7 +188,7 @@ const Profile = (props) => {
       {!mobile &&
         currentUser &&
         !is_owner &&
-        (following_id ? (
+          (following_id ? (
           <Button
             className={`${btnStyles.Button} ${btnStyles.BlackOutline} mt-2 ml-4`}
             onClick={() => handleUnfollow()}
