@@ -16,6 +16,7 @@ const NavBar = () => {
   const setCurrentUser = useSetCurrentUser();
   const id = currentUser?.pk;
   console.log(ref);
+
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -23,7 +24,7 @@ const NavBar = () => {
       toast("You've been signed out.");
       removeTokenTimestamp();
     } catch (err) {
-      console.log(err);
+      console.log(`Something went wrong.  Please try again.`);
     }
   };
 

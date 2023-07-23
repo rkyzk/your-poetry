@@ -11,9 +11,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <CurrentUserProvider>
-        <FeaturedProfilesDataProvider>
+          <FeaturedProfilesDataProvider>
             <App />
-        </FeaturedProfilesDataProvider>
+          </FeaturedProfilesDataProvider>
       </CurrentUserProvider>
     </Router>
   </React.StrictMode>,

@@ -222,8 +222,8 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |15|search non existent poem |—| enter ‘non existent poem’ for title and click search. | A note ‘No results found’ is displayed.|A note ‘No results found’ is displayed.|pass|[image1](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-15.png)|2023/7/23|
 |16|search by multiple factors |—| enter title for title, love for category. |poem 3 is displayed.|poem 3 is displayed.|pass|[image1](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-16.png)|2023/7/23|
 |17|search by multiple factors-2 |—|choose ‘other’ for category‘ and ‘past 14 days’ for published date.  Click search. | poem 8 is displayed.|poem 8 is displayed.|pass|[image1](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-17.png)|2023/7/23|
-|18|error message if no field is entered | Refresh the page, enter no fields. Click search. | A note ‘Please enter at least one field’ is displayed.|A note ‘Please enter at least one field‘ is displayed.|pass|[image1](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-18.png)|2023/7/23|
-|19|error message if only spaces are entered | Refresh the page, enter spaces for title, author, and keyword. Click search. | A note ‘Please enter at least one field’ is displayed.|A note ‘Please enter at least one field‘ is displayed.|pass|[image1](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-19.png)|2023/7/23|
+|18|error message if no field is entered | Refresh the page| Enter no fields. Click search. | A note ‘Please enter at least one field’ is displayed.|A note ‘Please enter at least one field‘ is displayed.|pass|[image1](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-18.png)|2023/7/23|
+|19|error message if only spaces are entered|Refresh the page|enter spaces for title, author, and keyword. Click search. | A note ‘Please enter at least one field’ is displayed.|A note ‘Please enter at least one field‘ is displayed.|pass|[image1](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-19.png)|2023/7/23|
 
 **Testing Search Profiles**
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
@@ -240,4 +240,10 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |5|The search will not run if only spaces are entered.|--|Enter a space and wait.|The search doesn't run.|The search didn't run.|pass|2023/7/23|
 
+**Testing Contact**
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1|Appearance.|Click "Contact"|Check if the heading and the text referring to the contact email address is displayed.|The aforementioned elements are displayed.|The aforementioned elements are displayed.|pass|[image](./src/assets/manual-testing-screenshots/Contact/Contact.png)|2023/7/23|
+
+**Profile Page**
 
