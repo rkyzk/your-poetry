@@ -40,6 +40,7 @@ const NavBar = () => {
           <NavLink
             className={styles.NavLink}
             to={`/profiles/${currentUser?.profile_id}`}
+            onClick={() => setExpanded(false)}
           >
             My Profile
           </NavLink>

@@ -55,7 +55,7 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 **Navigation bar elements (Top left)**
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1|nav bar elements at logged out status|Log out|Check which elements are displayed.|Links “Poems” and “Search Profiles” are displayed.|Links “Poems” and “Search Profiles” are displayed.|2023/7/23|
+|1|nav bar elements at logged out status|Log out|Check which elements are displayed.|Links “Poems” and “Search Profiles” are displayed.|Links “Poems” and “Search Profiles” are displayed.|pass|2023/7/23|
 |2|nav bar elements at logged in status|Log in|Check which elements are displayed.|Links “Poems,” “Write Poems” and “Search Profiles” are displayed.|Links “Poems,” “Write Poems” and “Search Profiles” are displayed.|pass|2023/7/23|
 
 **Navigation links (Top left)**
@@ -109,3 +109,22 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |6| validation (spaces) |—|Enter one space in each field. Click ‘Sign up’ |validation says| validation says|pass|2023/7/23|
 |7| validation (common password) |—|Enter “user5” for username and “password” for both password fields. Click ‘Sign up’ |Validation says the password is too common.| Validation says "This password is too common."|pass|2023/7/23|
 |8| link to sign in page |-|Click the link "Already have an account? Sign in"|Redirected to "Sign in"|Redirected to "Sign in"|pass|2023/7/23|
+
+**Test Poem Component**
+As preparation for test no. 1-9, log in as admin, write a poem with following values and publish:
+title: test poem; content: testing if only the first  characters will be displayed in the poem component; category: other
+
+**CHECK WHICH CHARACTERS WILL BE DISPLAYED!!
+
+- Poem Component on Poems page
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1| displayed element |Go to “New Poems”|Check if the title, author and the starting characters of the content () are displayed. |’test poem’ is displayed on the top of the list, and the title, author and the first 60 characters of the content are displayed  | ’test poem’ is displayed on the top of the list, and the title, author and the first 60 characters of the content are displayed|pass|2023/7/23|
+|2| link (title) |Go to “New Poems”| click the title ‘test poem’ |Redirected to the poem page of ‘test poem.’ | Redirected to the poem page of ‘test poem.’ |pass|2023/7/23|
+|3| link (author) |Go to “New Poems”| Click the author ‘admin’ of ‘test poem’|The admin’s profile page is displayed. | The admin’s profile page is displayed.|pass|2023/7/23|
+|4| like icon tooltip | go to “New Poems” |Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘You can’t like your own poem!’|A tooltip message says ‘You can’t like your own poem!’|pass|2023/7/23|
+|5| link (comment icon) | go to “New Poems” |click the comment icon for ‘test poem’ | Redirected to the poem page of ‘test poem’| Redirected to the poem page of ‘test poem’|pass|2023/7/23|
+|6| like icon tooltip | log out and go to “New Poems” |Bring the cursol over the heart icon for ‘test poem’ | A tiptool message says ‘Log in to like poems!’|A tiptool message says ‘Log in to like poems!’|pass|2023/7/23|
+|7| link (comment icon) | go to “New Poems” |click the comment icon for ‘test poem’ | Redirected to the poem page of ‘test poem’| Redirected to the poem page of ‘test poem’|pass|2023/7/23|
+|8| like function  | log in as user1 and go to “New Poems” |Click the heart icon for ‘test poem’ | The heart icon will turn to pink and the likes count will change from 0 to 1.|The heart icon turns to pink and the likes count changes from 0 to 1.|pass|2023/7/23|
+|9| unlike function | go to “New Poems” |Click the heart icon for ‘test poem’ | The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|pass|2023/7/23|
