@@ -117,9 +117,11 @@ title: test poem; content: testing if only the first  characters will be display
 **CHECK WHICH CHARACTERS WILL BE DISPLAYED!!
 
 - Poem Component on Poems page
-Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
+There are several pages using Poems page, so I decided to test the poem component displayed on "New Poems."<br>
+
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1| displayed element |Go to “New Poems”|Check if the title, author and the starting characters of the content () are displayed. |’test poem’ is displayed on the top of the list, and the title, author and the first 60 characters of the content are displayed  | ’test poem’ is displayed on the top of the list, and the title, author and the first 60 characters of the content are displayed|pass|2023/7/23|
+|1| displayed element |Go to “New Poems”|Check if the title, author and the starting characters of the content () are displayed. |’test poem’ is displayed on the top of the list, and the title, author and the first 60 characters of the content are displayed. | ’test poem’ is displayed on the top of the list, and the title, author and the first 60 characters of the content are displayed|pass|2023/7/23|
 |2| link (title) |Go to “New Poems”| click the title ‘test poem’ |Redirected to the poem page of ‘test poem.’ | Redirected to the poem page of ‘test poem.’ |pass|2023/7/23|
 |3| link (author) |Go to “New Poems”| Click the author ‘admin’ of ‘test poem’|The admin’s profile page is displayed. | The admin’s profile page is displayed.|pass|2023/7/23|
 |4| like icon tooltip | go to “New Poems” |Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘You can’t like your own poem!’|A tooltip message says ‘You can’t like your own poem!’|pass|2023/7/23|
