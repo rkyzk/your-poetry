@@ -59,17 +59,17 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 |2|nav bar elements at logged in status|Log in|Check which elements are displayed.|Links “Poems,” “Write Poems” and “Search Profiles” are displayed.|Links “Poems,” “Write Poems” and “Search Profiles” are displayed.|pass|2023/7/23|
 
 **Navigation links (Top left)**
-- Conduct tests no. 1-6 with logged out status
+- Conduct tests no. 1-6 with logged out status<br>
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1|dropdown menu||Click “Poems”|The dropdown menu is displayed.|The dropdown menu is displayed.|pass|2023/7/23|
+|1|dropdown menu|--|Click “Poems”|The dropdown menu is displayed.|The dropdown menu is displayed.|pass|2023/7/23|
 |2|”New Poems”|click “Poems”|Click “New Poems”|redirected to “New Poems” page.|redirected to “New Poems” page.|pass|2023/7/23|
 |3|”Popular Poems”|Click “Poems”|Click “Popular Poems”|Redirected to ”Popular Poems”|Redirected to ”Popular Poems”|pass|2023/7/23|
 |4|”Poems by Categories”|Click “Poems”|Click “Poems by Categories”|Redirected to ”Poems by Categories”|Redirected to ”Poems by Categories”|pass|2023/7/23|
 |5|”Search Poems”|Click “Poems”|Click “Search Poems”|Redirected to ”Search Poems”|Redirected to ”Search Poems”|pass|2023/7/23|
 |6|”Search Profiles”||Click “Search Profiles”|Redirected to ”Search Profiles” | Redirected to “Search Profiles”|pass|2023/7/23|
 
-- Conduct tests no. 7 with logged in status
+- Conduct tests no. 7 with logged in status<br>
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |7|”Write Poems”||Click “Write Poems”|Redirected to ”Write Poems”|Redirected to “Write Poems”|pass|2023/7/23|
@@ -81,7 +81,7 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 ||link to ”twitter” |—|Click the link|Redirected to twitter website| Redirected to twitter website|pass|2023/7/23|
 ||link to ”instagram” |—|Click the link|Redirected to instagram website| Redirected to instagram website|pass|2023/7/23|
 
-**Sign in**
+**Sign in page**<br>
 Conduct each of tests no. 1-11 with logged out status.
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
@@ -96,3 +96,16 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |9| validation: case sensitivity for the username |—|enter ‘Admin’ for username and ‘superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.”|pass|2023/7/23|
 |10| validation: case sensitivity for the password |—|enter ‘admin’ for username and ‘Superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.” |pass|2023/7/23|
 |11| link to sign up page|—|Click the link “Don’t have an account? Sign up now!” |Redirected to “Sign up”|Redirected to “Sign up”|pass|2023/7/23|
+
+**Sign up**<br>
+Conduct tests no. 1-7 logged out.
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1| sign up function |—|enter ‘user4’ for username and ‘swUf8LcR’ for both password fields. Click ‘Sign up’ |Redirected to “Sign in Page”| Redirected to “Sign in Page”|pass|2023/7/23|
+|2| validation (username) |—|enter nothing for username.  Enter ‘swUf8LcR’ for password fields. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank."|pass|2023/7/23|
+|3| validation (first password field) |—|enter ‘user5’ for username.  Leave the first password field, and enter ‘swUf8LcR’ for the second password field. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank."|pass|2023/7/23|
+|4| validation (second password field) |—|enter ‘user5’ for username.  Enter ‘swUf8LcR’ for the first password field, and leave the second password field. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank."|pass|2023/7/23|
+|5| validation (all fields) |—|Leave all fields blank. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank" for all three fields|pass|2023/7/23|
+|6| validation (spaces) |—|Enter one space in each field. Click ‘Sign up’ |validation says| validation says|pass|2023/7/23|
+|7| validation (common password) |—|Enter “user5” for username and “password” for both password fields. Click ‘Sign up’ |Validation says the password is too common.| Validation says "This password is too common."|pass|2023/7/23|
+|8| link to sign in page |-|Click the link "Already have an account? Sign in"|Redirected to "Sign in"|Redirected to "Sign in"|pass|2023/7/23|
