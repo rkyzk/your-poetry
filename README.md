@@ -34,7 +34,8 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 |2|nav bar elements at logged in status|Log in|Check if the only links displayed are “Home,” “Contact” and username “admin” with an avatar.|The only links displayed are “Home,” “Contact” and username “admin” with an avatar.|The only links displayed are “Home,” “Contact” and username “admin” with an avatar.|pass|2023/7/23|
 
 **Navigation links (Top right)**
-- Conduct tests no. 1-4 with logged out status.
+- Conduct tests no. 1-4 with logged out status.<br>
+
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |1|”Home”|Go to “Contact” page|Click “Home”|Redirected to ”Home"|Redirected to ”Home”|pass|2023/7/23|
@@ -42,9 +43,10 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 |3|”Sign in”|Log out if you haven't.  Go to “Home” page|Click “Sign in”|Redirected to ”Sign in” | Redirected to “Sign in”|pass|2023/7/23|
 |4|”Sign up”|Go to “Home” page|Click “Sign up”|Redirected to ”Sign up”|Redirected to “Sign up”|pass|2023/7/23|
 
-- For test no. 5-10  sign in with username: admin, password: superuser
+- For test no. 5-10  sign in with username: admin, password: superuser<br>
+
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|:---|:---|:---|:---|:---|:---|:---|:---|
 |5|”dropdown menu”||Click username “admin”|The drowdown menu is displayed.|The drowdown menu is displayed.|pass|2023/7/23|
 |6|”My Profile”|Click username “admin”|Click “My Profile”|Redirected to ”My Profile”|Redirected to “My Profile”|pass|2023/7/23|
 |7|”My Poems”|Click username “admin”|Click “My Poems”|Redirected to ”My Poems”|Redirected to “My Poems”|pass|2023/7/23|
@@ -60,19 +62,21 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 
 **Navigation links (Top left)**
 - Conduct tests no. 1-6 with logged out status<br>
+
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|:---|:---|:---|:---|:---|:---|:---|:---|
 |1|dropdown menu|--|Click “Poems”|The dropdown menu is displayed.|The dropdown menu is displayed.|pass|2023/7/23|
 |2|”New Poems”|click “Poems”|Click “New Poems”|redirected to “New Poems” page.|redirected to “New Poems” page.|pass|2023/7/23|
 |3|”Popular Poems”|Click “Poems”|Click “Popular Poems”|Redirected to ”Popular Poems”|Redirected to ”Popular Poems”|pass|2023/7/23|
 |4|”Poems by Categories”|Click “Poems”|Click “Poems by Categories”|Redirected to ”Poems by Categories”|Redirected to ”Poems by Categories”|pass|2023/7/23|
 |5|”Search Poems”|Click “Poems”|Click “Search Poems”|Redirected to ”Search Poems”|Redirected to ”Search Poems”|pass|2023/7/23|
-|6|”Search Profiles”||Click “Search Profiles”|Redirected to ”Search Profiles” | Redirected to “Search Profiles”|pass|2023/7/23|
+|6|”Search Profiles”|--|Click “Search Profiles”|Redirected to ”Search Profiles” | Redirected to “Search Profiles”|pass|2023/7/23|
 
 - Conduct tests no. 7 with logged in status<br>
+
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|7|”Write Poems”||Click “Write Poems”|Redirected to ”Write Poems”|Redirected to “Write Poems”|pass|2023/7/23|
+|7|”Write Poems”|--|Click “Write Poems”|Redirected to ”Write Poems”|Redirected to “Write Poems”|pass|2023/7/23|
 
 **Links in the Footer**
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
@@ -144,6 +148,11 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |8| like function  |--|Click the heart icon for ‘test poem’ | The heart icon will turn to pink and the likes count will change from 0 to 1.|The heart icon turns to pink and the likes count changes from 0 to 1.|pass|2023/7/23|
 |9| unlike function | go to “poems/” |Click the heart icon for ‘test poem’ | The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|pass|2023/7/23|
 
+**Testing Featured Profiles component**
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1|displayed elements|Log out and go to "Home"|Check if navbars, the heading "Search Profiles" and an input box are displayed.|All aformentioned elements are displayed.|All aformentioned elements are displayed.|pass|2023/7/23|
+
 **Poems by Category Page**<br>
 As Preparation<br>
 1. go to admin panel
@@ -166,7 +175,7 @@ For tests no. go to admin panel and prepare poems as follows.  Delete all other 
 author|title|content|category|published date|
 |:---| :--- | :--- |:---| :--- |
 |user1|poem 1| content| other|2022/07/22|
-|user2|poem 2 title| nature poem content| nature|2023/07/23|
+|user2|poem 2 title| nature poem content| nature|2022/07/23|
 |user3|poem 3 title| love poem content| love|2023/04/23|
 |user3|poem 4 keyword| people poem content| people|2023/04/24|
 |user3|poem 5| humor poem content keyword| humor|2023/06/22|
@@ -174,11 +183,11 @@ author|title|content|category|published date|
 |admin|poem 7| content| other|2023/07/08|
 |admin|poem 8| content| other|2023/07/09|
 
-Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|images|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1|displayed elements|Go to “Search Poems”|Check if the navbars, heading “Search Poems” and input fields (‘author contains,’ ‘title contains,’ ‘title/content contains,’), category dropdown, ‘published date’ dropdown and the search button are displayed. |All mentioned elements are displayed. | All mentioned elements are displayed. |pass|2023/7/23|
-|2|search by ‘author’|--|Enter user3 for author. Click search. | poem 3, 4, 5 and 6 are displayed.|poem 3, 4, 5 and 6 are displayed.|pass|2023/7/23|
-|3|search by ‘title’|--|Enter ‘title’ for title and click search. | Only poem 2 and 3 are displayed.|Only poem 2 and 3 are displayed.|pass|2023/7/23|
+|1|displayed elements|Go to “Search Poems”|Check if the navbars, heading “Search Poems” and input fields (‘author contains,’ ‘title contains,’ ‘title/content contains,’), category dropdown, ‘published date’ dropdown and the search button are displayed. |All mentioned elements are displayed. | All mentioned elements are displayed. |pass|![image](./src/assets/manual-testing-screenshots/SearchPoems-1.png)|2023/7/23|
+|2|search by ‘author’|--|Enter user3 for author. Click search. | poem 3, 4, 5 and 6 are displayed.|poem 3, 4, 5 and 6 are displayed.|pass|![image](./src/assets/manual-testing-screenshots/SearchPoems-1.png)|2023/7/23|
+|3|search by ‘title’|--|Enter ‘title’ for title and click search. | Only poem 2 and 3 are displayed.|Only poem 2 and 3 are displayed.|pass|![image](./src/assets/manual-testing-screenshots/SearchPoems-2-1.png)![image](./src/assets/manual-testing-screenshots/SearchPoems-2-2.png)![image](./src/assets/manual-testing-screenshots/SearchPoems-2-3.png)|2023/7/23|
 |4|search by ‘title/content (keyword)’|--|Enter ‘keyword’ for keyword. Click search. | poem 4 and 5 are displayed.|poem 4 and 5 are displayed.|pass|2023/7/23|
 |5|search by ‘category’|--|Enter ‘nature’ for category. Click search. | poem 2 is displayed.|poem 2 is displayed.|pass|2023/7/23|
 |6|search by ‘category’|--|Enter ‘love’ for category. Click search. | poem 3 is displayed.|poem 3 is displayed.|pass|2023/7/23|
@@ -204,13 +213,11 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |3|Display 'No profiles found with the name.' when no matches are found.|--|Enter testuser (type fast--don't pose longer than 1 second inbetween.) and wait.|A note 'No profiles found with the name.' is displayed.|A note 'No profiles found with the name.' is displayed.  After that many profiles are displayed for a moment, and then the note appears again.|fail|2023/7/23|
 |4|The search will not run if only spaces are entered.|--|Enter a space and wait.|The search will not run.|The search was run, and profiles were displayed.|fail|2023/7/23|
 
+Tests no. 2 and 3 failed -- this will be discussed later. 
 To fix the bug found in test no. 4, I rewrote the code in useEffect after line 17 in SearchProfiles.js.  I conducted the test again as follows:<br>
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |5|The search will not run if only spaces are entered.|--|Enter a space and wait.|The search doesn't run.|The search didn't run.|pass|2023/7/23|
 
-
-
-Test no. 2 and 3 failed and will be discussed . 
 
