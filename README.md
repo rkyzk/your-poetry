@@ -28,12 +28,14 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 |1|Logo link|Go to “Contact” page|Click the logo|Redirected to the home page|Redirected to the home page|pass|2023/7/23|
 
 **Navigation bar elements (Top right)**
+Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |1|nav bar elements at logged out status|Log out|Check if the only links displayed are “Home,” “Contact,” “Sign in” and “Sign out”.|The only links displayed are “Home,” “Contact,” “Sign in” and “Sign out” |pass|2023/7/23|
 |2|nav bar elements at logged in status|Log in|Check if the only links displayed are “Home,” “Contact” and username “admin” with an avatar.|The only links displayed are “Home,” “Contact” and username “admin” with an avatar.|pass|2023/7/23|
 
 **Navigation links (Top right)**
 - Conduct tests no. 1-4 with logged out status.
+Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |1|”Home”|Go to “Contact” page|Click “Home”|Redirected to ”Home"|Redirected to ”Home”|pass|2023/7/23|
 |2|”Contact”|Go to “Home”|Click “Contact”|Redirected to ”Contact”|Redirected to ”Contact”|pass|2023/7/23|
@@ -41,6 +43,7 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 |4|”Sign up”|Go to “Home” page|Click “Sign up”|Redirected to ”Sign up”|Redirected to “Sign up”|pass|2023/7/23|
 
 - For test no. 5-10  sign in with username: admin, password: superuser
+Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |5|”dropdown menu”||Click username “admin”|The drowdown menu is displayed.|The drowdown menu is displayed.|pass|2023/7/23|
 |6|”My Profile”|Click username “admin”|Click “My Profile”|Redirected to ”My Profile”|Redirected to “My Profile”|pass|2023/7/23|
@@ -50,6 +53,7 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 |10|”Sign out”|Click username “admin”|Click “Sign out”|Notification “You’ve been signed out” appears.  Redirected to ”Home”|Notification “You’ve been signed out” appears.  Redirected to ”Home”|pass|2023/7/23|
 
 **Navigation bar elements (Top left)**
+Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |1|nav bar elements at logged out status|Log out|Check which elements are displayed.|Links “Poems” and “Search Profiles” are displayed.|Links “Poems” and “Search Profiles” are displayed.|2023/7/23|
 |2|nav bar elements at logged in status|Log in|Check which elements are displayed.|Links “Poems,” “Write Poems” and “Search Profiles” are displayed.|Links “Poems,” “Write Poems” and “Search Profiles” are displayed.|pass|2023/7/23|
@@ -57,6 +61,7 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 **Navigation links (Top left)**
 
 - Conduct tests no. 1-6 with logged out status
+Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |1|dropdown menu||Click “Poems”|The dropdown menu is displayed.|The dropdown menu is displayed.|pass|2023/7/23|
 |2|”New Poems”|click “Poems”|Click “New Poems”|redirected to “New Poems” page.|redirected to “New Poems” page.|pass|2023/7/23|
