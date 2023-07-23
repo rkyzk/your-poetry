@@ -185,23 +185,23 @@ author|title|content|category|published date|
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|images|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1|displayed elements|Go to “Search Poems”|Check if the navbars, heading “Search Poems” and input fields (‘author contains,’ ‘title contains,’ ‘title/content contains,’), category dropdown, ‘published date’ dropdown and the search button are displayed. |All mentioned elements are displayed. | All mentioned elements are displayed. |pass|![image](./src/assets/manual-testing-screenshots/SearchPoems-1.png)|2023/7/23|
-|2|search by ‘author’|--|Enter user3 for author. Click search. | poem 3, 4, 5 and 6 are displayed.|poem 3, 4, 5 and 6 are displayed.|pass|![image](./src/assets/manual-testing-screenshots/SearchPoems-1.png)|2023/7/23|
-|3|search by ‘title’|--|Enter ‘title’ for title and click search. | Only poem 2 and 3 are displayed.|Only poem 2 and 3 are displayed.|pass|![image](./src/assets/manual-testing-screenshots/SearchPoems-2-1.png)![image](./src/assets/manual-testing-screenshots/SearchPoems-2-2.png)![image](./src/assets/manual-testing-screenshots/SearchPoems-2-3.png)|2023/7/23|
-|4|search by ‘title/content (keyword)’|--|Enter ‘keyword’ for keyword. Click search. | poem 4 and 5 are displayed.|poem 4 and 5 are displayed.|pass|2023/7/23|
-|5|search by ‘category’|--|Enter ‘nature’ for category. Click search. | poem 2 is displayed.|poem 2 is displayed.|pass|2023/7/23|
+|1|displayed elements|Go to “Search Poems”|Check if the navbars, heading “Search Poems” and input fields (‘author contains,’ ‘title contains,’ ‘title/content contains,’), category dropdown, ‘published date’ dropdown and the search button are displayed. |All mentioned elements are displayed. | All mentioned elements are displayed. |pass|[image](https://github.com/rkyzk/your-poetry/blob/main/src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-1.png)|2023/7/23|
+|2|search by ‘author’|--|Enter user3 for author. Click search. | poem 3, 4, 5 and 6 are displayed.|poem 3, 4, 5 and 6 are displayed.|pass|[image1](https://github.com/rkyzk/your-poetry/blob/main/src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-2-1.png)[image2](https://github.com/rkyzk/your-poetry/blob/main/src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-2-2.png)[image3](https://github.com/rkyzk/your-poetry/blob/main/src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-2-3.png)|2023/7/23|
+|3|search by ‘title’|--|Enter ‘title’ for title and click search. | Only poem 2 and 3 are displayed.|Only poem 2 and 3 are displayed.|pass|[image](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-2-1.png)[image](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-2-2.png)[image](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-2-3.png)|2023/7/23|
+|4|search by ‘title/content (keyword)’|--|Enter ‘keyword’ for keyword. Click search. |poem 4 and 5 are displayed.|poem 4 and 5 are displayed.|pass|2023/7/23|
+|5|search by ‘category’|--|Enter ‘nature’ for category. Click search. |poem 2 is displayed.|poem 2 is displayed.|pass|2023/7/23|
 |6|search by ‘category’|--|Enter ‘love’ for category. Click search. | poem 3 is displayed.|poem 3 is displayed.|pass|2023/7/23|
 |7|search by ‘category’|--|Enter ‘people’ for category. Click search. | poem 4 is displayed.|poem 4 is displayed.|pass|2023/7/23|
 |8|search by ‘category’|--|Enter ‘humor’ for category. Click search. | poem 5 is displayed.|poem 5 is displayed.|pass|2023/7/23|
 |9|search by ‘category’|--|Enter ‘haiku’ for category. Click search. | poem 6 is displayed.|poem 6 is displayed.|pass|2023/7/23|
-|10|search by ‘category’|--|Enter ‘other’ for category. Click search. | poem 1, 8 and 9 are displayed.|poem 1, 8 and 9 are displayed.|pass|2023/7/23|
-|11|search by ‘published date’|--|choose ‘past 1 year’.  Click search. | poem 2-8 are displayed.|poem 2-8 are displayed.|pass|2023/7/23|
+|10|search by ‘category’|--|Enter ‘other’ for category. Click search. | poem 1, 7 and 8 are displayed.|poem 1, 7 and 8 are displayed.|pass|2023/7/23|
+|11|search by ‘published date’|--|choose ‘past one year’.  Click search. | poem 2-8 are displayed.|poem 2-8 are displayed.|pass|2023/7/23|
 |12|search by ‘published date’|--|choose ‘past 90 days.’ Click search. | poem 4-8 are displayed.|poem 4-8 are displayed.|pass|2023/7/23|
 |13|search by ‘published date’|--|choose ‘past 30 days.’ Click search. | poem 6-8 are displayed.|poem 6-8 are displayed.|pass|2023/7/23|
 |14|search by ‘published date’|--|choose ‘past 14 days.’ Click search. | poem 8 is displayed.|poem 8 is displayed.|pass|2023/7/23|
-|15|search non existent poem |—| enter ‘non existent poem’ and click search. | A note ‘No results found’ is displayed.|A note ‘No results found’ is displayed.|pass|2023/7/23|
+|15|search non existent poem |—| enter ‘non existent poem’ for title and click search. | A note ‘No results found’ is displayed.|A note ‘No results found’ is displayed.|pass|2023/7/23|
 |16|search by multiple factors |—| enter title for title, love for category. |poem 3 is displayed.|poem 3 is displayed.|pass|2023/7/23|
-|17|search by multiple factors 2 |—|choose ‘other’ for category‘ and ‘past 14 days’ for published date.  Click search. | poem 8 is displayed.|poem 8 is displayed.|pass|2023/7/23|
+|17|search by multiple factors-2 |—|choose ‘other’ for category‘ and ‘past 14 days’ for published date.  Click search. | poem 8 is displayed.|poem 8 is displayed.|pass|2023/7/23|
 |18|error message if no field is entered | Refresh the page, enter no fields. Click search. | A note ‘Please enter at least one field’ is displayed.|A note ‘Please enter at least one field‘ is displayed.|pass|2023/7/23|
 |19|error message if only spaces are entered | Refresh the page, enter spaces for title, author, and keyword. Click search. | A note ‘Please enter at least one field’ is displayed.|A note ‘Please enter at least one field‘ is displayed.|pass|2023/7/23|
 

@@ -35,7 +35,7 @@ function SearchPoems() {
       case "past 90 days":
         startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 90).toISOString().substring(0, 10); 
         break;
-      case "past year":
+      case "past one year":
         startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 365).toISOString().substring(0, 10); 
         break;
     }
@@ -142,11 +142,11 @@ function SearchPoems() {
                       onChange={handleChange}
                       custom
                     >
-                      <option>Choose...</option>
+                      <option>choose...</option>
                       <option>past 14 days</option>
                       <option>past 30 days</option>
                       <option>past 90 days</option>
-                      <option>past year</option>
+                      <option>past one year</option>
                     </Form.Control>   
                   </Form.Group>
                 </Col>
