@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Alert from "react-bootstrap/Alert";
 import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
 import { axiosReq } from "../../api/axiosDefaults";
 import appStyles from "../../App.module.css";
 import CommentCreateForm from "../comments/CommentCreateForm";
@@ -55,7 +55,7 @@ function PoemPage() {
   return (
     <>
     <Row className="h-100">
-      <Container className={appStyles.Content}>
+      <Col className="mt-3" md={{ span: 8, offset: 2 }}>
       {errMsg ? (
         <Alert variant="warning" key={errMsg}>
           {errMsg}
@@ -105,7 +105,7 @@ function PoemPage() {
         )}
         </>
       )}
-      </Container>    
+      </Col>    
     </Row>
     <ConfirmationModal
       show={showModal}

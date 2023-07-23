@@ -121,12 +121,24 @@ There are several pages using Poems page, so I decided to test the poem componen
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1| displayed element |Go to “New Poems”|Check if the title, author and the starting characters of the content () are displayed. |’test poem’ is displayed on the top of the list, and the title, author and the first 60 characters of the content are displayed. | ’test poem’ is displayed on the top of the list, and the title, author and the first 60 characters of the content are displayed|pass|2023/7/23|
+|1| displayed element |Go to “New Poems”|Check if the title, author, published date and the first 60 characters of the content are displayed. |’test poem’ is displayed on the top of the list, and the title, author, published date and the first 60 characters of the content are displayed. | ’test poem’ is displayed on the top of the list, and the title, author and the first 60 characters of the content are displayed|pass|2023/7/23|
 |2| link (title) |Go to “New Poems”| click the title ‘test poem’ |Redirected to the poem page of ‘test poem.’ | Redirected to the poem page of ‘test poem.’ |pass|2023/7/23|
 |3| link (author) |Go to “New Poems”| Click the author ‘admin’ of ‘test poem’|The admin’s profile page is displayed. | The admin’s profile page is displayed.|pass|2023/7/23|
 |4| like icon tooltip | go to “New Poems” |Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘You can’t like your own poem!’|A tooltip message says ‘You can’t like your own poem!’|pass|2023/7/23|
 |5| link (comment icon) | go to “New Poems” |click the comment icon for ‘test poem’ | Redirected to the poem page of ‘test poem’| Redirected to the poem page of ‘test poem’|pass|2023/7/23|
-|6| like icon tooltip | log out and go to “New Poems” |Bring the cursol over the heart icon for ‘test poem’ | A tiptool message says ‘Log in to like poems!’|A tiptool message says ‘Log in to like poems!’|pass|2023/7/23|
+|6| like icon tooltip | log out and go to “New Poems” |Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘Log in to like poems!’|A tooltip message says ‘Log in to like poems!’|pass|2023/7/23|
 |7| link (comment icon) | go to “New Poems” |click the comment icon for ‘test poem’ | Redirected to the poem page of ‘test poem’| Redirected to the poem page of ‘test poem’|pass|2023/7/23|
 |8| like function  | log in as user1 and go to “New Poems” |Click the heart icon for ‘test poem’ | The heart icon will turn to pink and the likes count will change from 0 to 1.|The heart icon turns to pink and the likes count changes from 0 to 1.|pass|2023/7/23|
 |9| unlike function | go to “New Poems” |Click the heart icon for ‘test poem’ | The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|pass|2023/7/23|
+
+- Poem Component on Poem page<br>
+
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1| displayed element |Log in as admin.  Go to “/poems/” (‘test poem’s id is )|Check if the title, author, published date, the whole content, category are displayed.  Also three dots for editing are displayed at the top right corner. |The title, author, published date, the whole content, category as well as the three dots are displayed. | The title, author, published date, the whole content, category as well as the three dots are displayed. |pass|2023/7/23|
+|2| link (author) || Click the author ‘admin’ |The admin’s profile page is displayed. | The admin’s profile page is displayed.|pass|2023/7/23|
+|3| three dots menu || Click the three dots |The edit and delete icons are displayed. | The edit and delete icons are displayed.|pass|2023/7/23|
+|4| like icon tooltip for owner | |Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘You can’t like your own poem!’|A tooltip message says ‘You can’t like your own poem!’|pass|2023/7/23|
+|4| like icon tooltip for logged out users | log out|Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘Log in to like poems!’|A  tooltip message says ‘Log in to like poems!’|pass|2023/7/23|
+|8| like function  | log in as user1 and go to “/poems/” |Click the heart icon for ‘test poem’ | The heart icon will turn to pink and the likes count will change from 0 to 1.|The heart icon turns to pink and the likes count changes from 0 to 1.|pass|2023/7/23|
+|9| unlike function | go to “poems/” |Click the heart icon for ‘test poem’ | The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|pass|2023/7/23|

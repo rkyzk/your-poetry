@@ -19,6 +19,7 @@ const Poem = (props) => {
     like_id,
     title,
     content,
+    category,
     published_at,
     poemPage,
     setPoems,
@@ -142,7 +143,10 @@ const Poem = (props) => {
           {content && !poemPage ? (
             <Card.Text>{content.substring(0, 60)}...</Card.Text>
           ) : (
-            <Card.Text className={styles.Line}>{content}</Card.Text>
+            <>
+              <Card.Text className={styles.Line}>{content}</Card.Text>
+              <p className={`mt-3 text-muted ${styles.Category}`}>Category: {category}</p>
+            </>
           )}
           <div>
             {is_owner ? (
