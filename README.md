@@ -30,8 +30,8 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 **Navigation bar elements (Top right)**
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1|nav bar elements at logged out status|Log out|Check if the only links displayed are “Home,” “Contact,” “Sign in” and “Sign out”.|The only links displayed are “Home,” “Contact,” “Sign in” and “Sign out” |pass|2023/7/23|
-|2|nav bar elements at logged in status|Log in|Check if the only links displayed are “Home,” “Contact” and username “admin” with an avatar.|The only links displayed are “Home,” “Contact” and username “admin” with an avatar.|pass|2023/7/23|
+|1|nav bar elements at logged out status|Log out|Check if the only links displayed are “Home,” “Contact,” “Sign in” and “Sign out”.|The only links displayed are “Home,” “Contact,” “Sign in” and “Sign out” |The only links displayed are “Home,” “Contact,” “Sign in” and “Sign out” |pass|2023/7/23|
+|2|nav bar elements at logged in status|Log in|Check if the only links displayed are “Home,” “Contact” and username “admin” with an avatar.|The only links displayed are “Home,” “Contact” and username “admin” with an avatar.|The only links displayed are “Home,” “Contact” and username “admin” with an avatar.|pass|2023/7/23|
 
 **Navigation links (Top right)**
 - Conduct tests no. 1-4 with logged out status.
@@ -59,7 +59,6 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 |2|nav bar elements at logged in status|Log in|Check which elements are displayed.|Links “Poems,” “Write Poems” and “Search Profiles” are displayed.|Links “Poems,” “Write Poems” and “Search Profiles” are displayed.|pass|2023/7/23|
 
 **Navigation links (Top left)**
-
 - Conduct tests no. 1-6 with logged out status
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
@@ -71,5 +70,29 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 |6|”Search Profiles”||Click “Search Profiles”|Redirected to ”Search Profiles” | Redirected to “Search Profiles”|pass|2023/7/23|
 
 - Conduct tests no. 7 with logged in status
+Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |7|”Write Poems”||Click “Write Poems”|Redirected to ”Write Poems”|Redirected to “Write Poems”|pass|2023/7/23|
+
+**Links in the Footer**
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+||link to ”facebook” |—|Click the link|Redirected to facebook website| Redirected to facebook website|pass|2023/7/23|
+||link to ”twitter” |—|Click the link|Redirected to twitter website| Redirected to twitter website|pass|2023/7/23|
+||link to ”instagram” |—|Click the link|Redirected to instagram website| Redirected to instagram website|pass|2023/7/23|
+
+**Sign in**
+Conduct each of tests no. 1-11 with logged out status.
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1| sign in function |—|enter ‘admin’ for username and ‘superuser’ for password. Click ‘Sign in’ |Redirected to “Home”| Redirected to “Home”|pass|2023/7/23|
+|2| sign in function |—|enter ‘admin’ for username and ‘superuser’ for password. Click ‘Sign in’ |Redirected to “Home”| Redirected to “Home”|pass|2023/7/23|
+|3| validation for name field |—|enter nothing for username and ‘superuser’ for password. Click ‘Sign in’ |validation message says required fields must be filled out.| validation message says “Must include "username" and "password".|pass|2023/7/23|
+|4| validation for password field |—|enter admin for username and nothing for password. Click ‘Sign in’ |validation message says required fields must be filled out.| validation message says “The field may not be blank.”|pass|2023/7/23|
+|5| validation for username and pasword fields|—|enter nothing for both username and password. Click ‘Sign in’ |validation message says required fields must be filled out.|Validation message says “This field may not be blank.” |pass|2023/7/23|
+|6| Validation in case spaces are entered in required fields|—|enter one space for both username and password. Click ‘Sign in’ |validation message says required fields must be filled out.|Validation message says “This field may not be blank.”|pass|2023/7/23|
+|7| validation against a wrong password|—|enter admin for username. Enter ‘wrong’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.” |pass|2023/7/23|
+|8| validation when the username is non existent |—|enter ‘test’ for username. enter ‘superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.”|pass|2023/7/23|
+|9| validation: case sensitivity for the username |—|enter ‘Admin’ for username and ‘superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.”|pass|2023/7/23|
+|10| validation: case sensitivity for the password |—|enter ‘admin’ for username and ‘Superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.” |pass|2023/7/23|
+|11| link to sign up page|—|Click the link “Don’t have an account? Sign up now!” |Redirected to “Sign up”|Redirected to “Sign up”|pass|2023/7/23|
