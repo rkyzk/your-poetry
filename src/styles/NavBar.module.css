@@ -1,8 +1,9 @@
 .NavBar {
   background-color: #f8f8f8;
   height: 100px;
+  z-index: 2;
 }
-  
+
 .Active {
   text-decoration: underline;
 }
@@ -26,6 +27,20 @@
 
 .Dropdown {
   z-index: 3;
+}
+
+@media screen and (max-width: 768px) {
+  .NavAvatar {
+    display: none;
+  }
+
+  .NavToggle {
+    background-color: #fff;
+    width: 180px;
+    text-align: left;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+  }
 }
 
 @media screen and (max-width: 400px) {

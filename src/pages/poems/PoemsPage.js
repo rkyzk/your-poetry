@@ -23,9 +23,9 @@ function PoemsPage({ filter, message = "No results found", heading }) {
   const history = useHistory();
   const [errMsg, setErrMsg] = useState("");
   console.log(filter);
-  let customMargin = false;
-  if (pathname === "liked" || pathname === "my-poems") {
-    customMargin = true;
+  let customPadding = false;
+  if (pathname === "/liked" || pathname === "/my-poems" || pathname === "/search/profiles") {
+    customPadding = true;
   }
 
   useEffect(() => {
@@ -47,15 +47,14 @@ function PoemsPage({ filter, message = "No results found", heading }) {
   }, [filter, pathname]);
 
   return (
-    <>
-      <h2 className="my-2">{heading}</h2>
+    <Col>
+      <h2 className="my-2 px-2">{heading}</h2>
       {errMsg && 
         <Alert key={errMsg} variant="warning" className="mt-3">
           {errMsg}
         </Alert>}
       {!errMsg && hasLoaded && (
         <>       
-          <Col>  {/* {customMargin && md={{span: 8, offset: 2}}} */}     
             {poems.results.length ? (
               <InfiniteScroll
                 children={poems.results.map((poem) => (
@@ -73,12 +72,11 @@ function PoemsPage({ filter, message = "No results found", heading }) {
             ) : (
               <p>{message}</p>
             )}
-            </Col>
           </>
         )}
         {!errMsg && !hasLoaded &&
           <Asset spinner />}     
-    </>
+    </Col>
   );
 }
 

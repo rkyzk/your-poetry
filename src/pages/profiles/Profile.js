@@ -153,21 +153,23 @@ const Profile = (props) => {
         )}
         </Media>
         {page === "profilePage" && (
-         <>
+          <>
           <Row>
-            <Col md={3}>
+            <Col xs={4}>
               <Avatar src={image} height={120} className={`${styles.Img}`} />
             </Col>
-            <Col md={7}>
+            <Col xs={7}>
               <h3 className="mt-3">{display_name}</h3>
-              {is_owner && (
-                <ProfileEditDropdown id={id} />
-              )}
               <p className="mb-0">Member since {created_at}</p>    
               <div>
                 <span className={`${styles.CountsText}`}>{poems_count} poems</span>
                 <span className={`${styles.CountsText} ml-2`}>{followers_count} followers</span>
-              </div>         
+              </div> 
+            </Col>
+            <Col xs={1}>
+              {is_owner && (
+                <ProfileEditDropdown id={id} />
+              )}
             </Col>
           </Row>
           <div className="mt-3 ml-3">

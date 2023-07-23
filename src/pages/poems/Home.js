@@ -16,7 +16,7 @@ const intro = (
         and supportive community, you can become better writers.
         Haven't written since high school years?
         Or haven't written a poem before?  Doesn't matter.
-        You can read tips to get started and start writing today.
+        Read some poems, get inspired and start writing!
       </p>
     </>
 );

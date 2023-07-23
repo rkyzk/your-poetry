@@ -13,3 +13,20 @@
   text-decoration: underline;
   color:rgb(10, 10, 90);
 }
+
+.SpaceLeft {
+  margin-left: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .NavToggle {
+    background-color: #fff;
+    width: 180px;
+    border: 1px solid #ccc;
+    padding-left: 10px;
+  }
+
+  .SpaceLeft {
+    margin-left: 0;
+  }
+}

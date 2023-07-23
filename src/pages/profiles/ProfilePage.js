@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
 import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -67,7 +67,9 @@ function ProfilePage() {
     </>
   )
   return (
-    <Container>
+    <Col
+      md={{ span: 8, offset: 2 }}
+    >
       {is_owner && <h2>My Profile</h2>}
       {errMsg ? <Alert key={errMsg} variant="warning" className="mt-3">{errMsg}</Alert> : (
         <>
@@ -79,7 +81,7 @@ function ProfilePage() {
           {poems}
         </>
       )}
-    </Container> 
+    </Col> 
   );
 }
 

@@ -3,6 +3,7 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useState } from 'react';
 import PoemsPage from '../poems/PoemsPage';
 import btnStyles from "../../styles/Button.module.css";
+import Alert from 'react-bootstrap/Alert';
 
 function SearchPoems() {
   const [filterValues, setFilterValues] = useState({
@@ -48,6 +49,7 @@ function SearchPoems() {
   };
 
   const handleSearch = () => {
+    filter !== "published=1" &&
     setSearchFilter(prevState => {
       return filter;
     });
@@ -158,7 +160,8 @@ function SearchPoems() {
             </Button>
           </Container>
           <Container className="mt-3">
-          {searchFilter && <PoemsPage filter={searchFilter} />}
+          {/* {searchFilter.replace(/\s/g, "") ? <PoemsPage filter={searchFilter} />
+            : <Alert variant='warning'>Please enter at least one field</Alert>} */}
         </Container>
       </>
     );

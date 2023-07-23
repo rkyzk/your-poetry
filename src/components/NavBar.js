@@ -14,8 +14,8 @@ const NavBar = () => {
   const currentUser = useCurrentUser();
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
   const setCurrentUser = useSetCurrentUser();
-  const id = currentUser?.id;
-  
+  const id = currentUser?.pk;
+  console.log(ref);
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -29,8 +29,13 @@ const NavBar = () => {
 
   const loggedIn = (
     <>
-      <Avatar src={currentUser?.profile_image} height={40} />
-      <NavDropdown className={`${styles.Dropdown} ${styles.Name}`} title={currentUser?.username} id="nav-dropdown">
+      <Avatar src={currentUser?.profile_image} height={40} className={`${styles.NavAvatar}`} />
+      <NavDropdown
+        className={`${styles.Dropdown} ${styles.Name}`}
+        title={currentUser?.username}
+        id="nav-dropdown"
+        onClick={() => setExpanded(true)}
+      >
         <NavDropdown.Item>
           <NavLink
             className={styles.NavLink}
@@ -107,7 +112,7 @@ const NavBar = () => {
           onClick={() => setExpanded(!expanded)}
         />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto text-left">
+          <Nav className={`${styles.NavToggle} ml-auto`}>
             <NavLink
               exact
               className={`${styles.NavLink} mr-3`}
