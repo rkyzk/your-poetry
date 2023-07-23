@@ -131,7 +131,7 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |8| like function  | log in as user1 and go to “New Poems” |Click the heart icon for ‘test poem’ | The heart icon will turn to pink and the likes count will change from 0 to 1.|The heart icon turns to pink and the likes count changes from 0 to 1.|pass|2023/7/23|
 |9| unlike function | go to “New Poems” |Click the heart icon for ‘test poem’ | The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|pass|2023/7/23|
 
-- Poem Component on Poem page<br>
+- Poem Component on Poem page (the individual poem page versus poems page)<br>
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
@@ -140,5 +140,21 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |3| three dots menu || Click the three dots |The edit and delete icons are displayed. | The edit and delete icons are displayed.|pass|2023/7/23|
 |4| like icon tooltip for owner | |Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘You can’t like your own poem!’|A tooltip message says ‘You can’t like your own poem!’|pass|2023/7/23|
 |4| like icon tooltip for logged out users | log out|Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘Log in to like poems!’|A  tooltip message says ‘Log in to like poems!’|pass|2023/7/23|
-|8| like function  | log in as user1 and go to “/poems/” |Click the heart icon for ‘test poem’ | The heart icon will turn to pink and the likes count will change from 0 to 1.|The heart icon turns to pink and the likes count changes from 0 to 1.|pass|2023/7/23|
+|8|no three dots are displayed for other users| log in as user1 and go to “/poems/” |Check the three dots are not displayed. | The three dots are not displayed.|The three dots are not displayed.|pass|2023/7/23|
+|8| like function  |--|Click the heart icon for ‘test poem’ | The heart icon will turn to pink and the likes count will change from 0 to 1.|The heart icon turns to pink and the likes count changes from 0 to 1.|pass|2023/7/23|
 |9| unlike function | go to “poems/” |Click the heart icon for ‘test poem’ | The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|pass|2023/7/23|
+
+- Poems by Category Page<br>
+
+As Preparation<br>
+1. go to admin panel
+2. click Poems, set categories of the poems as follows: poem 2 —> nature; poem 3 —> love; poem 4 —> people; poem 5 —> humor<br>
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1| displayed element |Go to “Poems by Categories”|Check if the navbars, heading “Choose a category,” the choices (‘nature,’ ‘love,’ ‘people’, ‘humor,’ ‘haiku’ and ‘other’) as well as featured profiles are displayed. |All mentioned elements are displayed. | All mentioned elements are displayed. |pass|2023/7/23|
+|2|filtering by ‘nature’ | Click ‘nature’ |poem 2 is displayed. | poem 2 is displayed.|pass|2023/7/23|
+|2|filtering by ‘love’ | Click ‘nature’ |poem 3 is displayed. | poem 3 is displayed.|pass|2023/7/23|
+|2|filtering by ‘people’ | Click ‘people’ |poem 4 is displayed. | poem 4 is displayed.|pass|2023/7/23|
+|2|filtering by ‘humor’ | Click ‘humor’ |poem 5 is displayed. | poem 5 is displayed.|pass|2023/7/23|
+|2|filtering by ‘haiku’ | Click ‘haiku’ |poem 6 is displayed. | poem 6 is displayed.|pass|2023/7/23|
+|2|filtering by ‘other’ | Click ‘other’ |’test poem’ is displayed. |’test poem’ is displayed.|pass|2023/7/23|
