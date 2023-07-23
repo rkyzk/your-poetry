@@ -144,11 +144,12 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |8| like function  |--|Click the heart icon for ‘test poem’ | The heart icon will turn to pink and the likes count will change from 0 to 1.|The heart icon turns to pink and the likes count changes from 0 to 1.|pass|2023/7/23|
 |9| unlike function | go to “poems/” |Click the heart icon for ‘test poem’ | The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|pass|2023/7/23|
 
-- Poems by Category Page<br>
-
+**Poems by Category Page**<br>
 As Preparation<br>
 1. go to admin panel
-2. click Poems, set categories of the poems as follows: poem 2 —> nature; poem 3 —> love; poem 4 —> people; poem 5 —> humor<br>
+2. click Poems, set categories of the poems as follows: poem 2 —> nature; poem 3 —> love; poem 4 —> people; poem 5 —> humor
+3. delete all other poems except for poem 1-6.<br>
+
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |1| displayed element |Go to “Poems by Categories”|Check if the navbars, heading “Choose a category,” the choices (‘nature,’ ‘love,’ ‘people’, ‘humor,’ ‘haiku’ and ‘other’) as well as featured profiles are displayed. |All mentioned elements are displayed. | All mentioned elements are displayed. |pass|2023/7/23|
@@ -157,4 +158,35 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |2|filtering by ‘people’ | Click ‘people’ |poem 4 is displayed. | poem 4 is displayed.|pass|2023/7/23|
 |2|filtering by ‘humor’ | Click ‘humor’ |poem 5 is displayed. | poem 5 is displayed.|pass|2023/7/23|
 |2|filtering by ‘haiku’ | Click ‘haiku’ |poem 6 is displayed. | poem 6 is displayed.|pass|2023/7/23|
-|2|filtering by ‘other’ | Click ‘other’ |’test poem’ is displayed. |’test poem’ is displayed.|pass|2023/7/23|
+|2|filtering by ‘other’ | Click ‘other’ |’poem 1’ is displayed. |’poem 1’ is displayed.|pass|2023/7/23|
+
+**Search Poems**<br>
+For tests no. go to admin panel and prepare poems as follows.  Delete all other poems.
+
+author|title|content|category|published date|
+|:---| :--- | :--- |:---| :--- |
+|user1|poem 1| content| other|2022/07/22|
+|user2|poem 2 title| nature poem content| nature|2023/07/23|
+|user3|poem 3 title| love poem content| love|2023/04/23|
+|user3|poem 4 keyword| people poem content| people|2023/04/24|
+|user3|poem 5| humor poem content keyword| humor|2023/06/22|
+|user3|poem 6| haiku content| haiku|2023/06/23|
+|admin|poem 7| content| other|2023/07/08|
+|admin|poem 8| content| other|2023/07/09|
+
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1| displayed element |Go to “Search Poems”|Check if the navbars, heading “Search Poems” and input fields (‘author contains,’ ‘title contains,’ ‘title/content contains,’), category dropdown and ‘published date’ dropdown are displayed. |All mentioned elements are displayed. | All mentioned elements are displayed. |pass|2023/7/23|
+|2|search by ‘author’ | Enter user3 for author. Click search. | poem 3, 4, 5 and 6 are displayed.|poem 3, 4, 5 and 6 are displayed.|pass|2023/7/23|
+|3|search by ‘title’ | Enter ‘title’ for title and click search. | Only poem 2 and 3 are displayed.|Only poem 2 and 3 are displayed.|pass|2023/7/23|
+|4|search by ‘title/content (keyword)’ | Enter ‘keyword’ for keyword. Click search. | poem 4 and 5 are displayed.|poem 4 and 5 are displayed.|pass|2023/7/23|
+|5|search by ‘category’ | Enter ‘nature’ for category. Click search. | poem 2 is displayed.|poem 2 is displayed.|pass|2023/7/23|
+|6|search by ‘category’ | Enter ‘love’ for category. Click search. | poem 3 is displayed.|poem 3 is displayed.|pass|2023/7/23|
+|7|search by ‘category’ | Enter ‘people’ for category. Click search. | poem 4 is displayed.|poem 4 is displayed.|pass|2023/7/23|
+|8|search by ‘category’ | Enter ‘humor’ for category. Click search. | poem 5 is displayed.|poem 5 is displayed.|pass|2023/7/23|
+|9|search by ‘category’ | Enter ‘haiku’ for category. Click search. | poem 6 is displayed.|poem 6 is displayed.|pass|2023/7/23|
+|9|search by ‘category’ | Enter ‘other’ for category. Click search. | poem 1, 8 and 9 are displayed.|poem 1, 8 and 9 are displayed.|pass|2023/7/23|
+|9|search by ‘published date’ | choose ‘past 1 year’.  Click search. | poem 2-8 are displayed.|poem 2-8 are displayed.|pass|2023/7/23|
+|9|search by ‘published date’ | choose ‘past 90 days.’ Click search. | poem 4-8 are displayed.|poem 4-8 are displayed.|pass|2023/7/23|
+|9|search by ‘published date’ | choose ‘past 30 days.’ Click search. | poem 6-8 are displayed.|poem 6-8 are displayed.|pass|2023/7/23|
+|9|search by ‘published date’ | choose ‘past 14 days.’ Click search. | poem 8 is displayed.|poem 8 is displayed.|pass|2023/7/23|

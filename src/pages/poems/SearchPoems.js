@@ -3,6 +3,7 @@ import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useState } from 'react';
 import PoemsPage from '../poems/PoemsPage';
 import btnStyles from "../../styles/Button.module.css";
+import styles from "../../styles/SearchPoems.module.css";
 import Alert from 'react-bootstrap/Alert';
 
 function SearchPoems() {
@@ -16,10 +17,10 @@ function SearchPoems() {
   const { author, title, keyword, category, pub_date } = filterValues;
   const [searchFilter, setSearchFilter] = useState("");
   var filter = "published=1"
-
-  author && (filter = filter + `&owner__profile__display_name__icontains=${author}`);
-  title && (filter = filter + `&title__icontains=${title}`);
-  keyword && (filter = filter + `&search=${keyword}`);
+  
+  author.replace(/\s/g, "") && (filter = filter + `&owner__profile__display_name__icontains=${author}`);
+  title.replace(/\s/g, "") && (filter = filter + `&title__icontains=${title}`);
+  keyword.replace(/\s/g, "") && (filter = filter + `&search=${keyword}`);
   category !== "choose..." && (filter = filter + `&category=${category}`);
 
   if (pub_date !== "choose...") {
@@ -49,12 +50,11 @@ function SearchPoems() {
   };
 
   const handleSearch = () => {
-    filter !== "published=1" &&
     setSearchFilter(prevState => {
       return filter;
     });
   };    
-
+  console.log(searchFilter);
   return (
     <>
       <Container>
@@ -63,32 +63,32 @@ function SearchPoems() {
           onSubmit={(event) => event.preventDefault()}
         >
           <Row>
-                <Col lg={4}>
-                  <Form.Group controlId="author">
-                  <Form.Label>author contains:</Form.Label>
+            <Col lg={4}>
+              <Form.Group controlId="author">
+                <Form.Label>author contains:</Form.Label>
                   <Form.Control
-                      value={author}
-                      onChange={handleChange}
-                      type="text"
-                      name="author"
-                      className="mr-sm-2"
-                      placeholder="author"
-                      />
-                  </Form.Group>
-                </Col>
-                <Col lg={4}>
-                  <Form.Group controlId="title">
-                  <Form.Label>title contains:</Form.Label>
-                  <Form.Control
-                      value={title}
-                      name="title"
-                      onChange={handleChange}
-                      type="text"
-                      className="mr-sm-2"
-                      placeholder="title"
+                    value={author}
+                    onChange={handleChange}
+                    type="text"
+                    name="author"
+                    className="mr-sm-2"
+                    placeholder="author"
                   />
-                  </Form.Group>
-                </Col>
+              </Form.Group>
+            </Col>
+            <Col lg={4}>
+              <Form.Group controlId="title">
+                <Form.Label>title contains:</Form.Label>
+                <Form.Control
+                  value={title}
+                  name="title"
+                  onChange={handleChange}
+                  type="text"
+                  className="mr-sm-2"
+                  placeholder="title"
+                />
+              </Form.Group>
+            </Col>
                 <Col lg={4}>
                   <Form.Group controlId="keyword">
                   <Form.Label>title/content contains:</Form.Label>
@@ -111,7 +111,7 @@ function SearchPoems() {
                     </Form.Label>
                     <Form.Control
                       as="select"
-                      className="my-1 mr-sm-2"
+                      className={`my-1 mr-sm-2 ${styles.Category}`}
                       id="category"
                       name="category"
                       value={category}
@@ -119,8 +119,8 @@ function SearchPoems() {
                       custom
                     >
                       <option>choose...</option>
-                      <option>nature</option>
-                      <option>love</option>
+                      <option className={styles.Category}>nature</option>
+                      <option className={styles.Category}>love</option>
                       <option>people</option>
                       <option>humor</option>
                       <option>haiku</option>
@@ -160,8 +160,11 @@ function SearchPoems() {
             </Button>
           </Container>
           <Container className="mt-3">
-          {/* {searchFilter.replace(/\s/g, "") ? <PoemsPage filter={searchFilter} />
-            : <Alert variant='warning'>Please enter at least one field</Alert>} */}
+            {searchFilter === "published=1" &&
+              <Alert variant='warning'>Please enter at least one field</Alert>}
+            {(searchFilter !== "" &&
+              searchFilter !== "published=1") &&
+              <PoemsPage filter={searchFilter} />}
         </Container>
       </>
     );
