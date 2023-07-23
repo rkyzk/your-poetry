@@ -15,7 +15,8 @@ function SearchProfiles() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setSearch(true);
+      query.replace(/\s/g, "") !== "" &&
+        setSearch(true);
     }, 1000);
 
     return () => {
