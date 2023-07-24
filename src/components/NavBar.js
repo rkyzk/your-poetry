@@ -15,7 +15,6 @@ const NavBar = () => {
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
   const setCurrentUser = useSetCurrentUser();
   const id = currentUser?.pk;
-  console.log(ref);
 
   const handleSignOut = async () => {
     try {
@@ -28,6 +27,16 @@ const NavBar = () => {
     }
   };
 
+  const keepMenuOpen = (event) => {
+    console.log(event.target);
+    setExpanded(true);
+  }
+
+  const closeMenu = (event) => {
+    console.log(event.target);
+    setExpanded(false);
+  }
+  console.log(expanded);
   const loggedIn = (
     <>
       <Avatar src={currentUser?.profile_image} height={40} className={`${styles.NavAvatar}`} />
@@ -35,12 +44,13 @@ const NavBar = () => {
         className={`${styles.Dropdown} ${styles.Name}`}
         title={currentUser?.username}
         id="nav-dropdown"
-        onClick={() => setExpanded(true)}
+        onClick={(event) => keepMenuOpen(event)}
       >
         <NavDropdown.Item>
           <NavLink
             className={styles.NavLink}
             to={`/profiles/${currentUser?.profile_id}`}
+            id="my-profile"
             onClick={() => setExpanded(false)}
           >
             My Profile
@@ -112,6 +122,7 @@ const NavBar = () => {
           ref={ref}
           aria-controls="basic-navbar-nav"
           onClick={() => setExpanded(!expanded)}
+          id="navbar-toggle"
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`${styles.NavToggle} ml-auto`}>

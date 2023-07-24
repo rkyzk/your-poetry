@@ -32,8 +32,7 @@ const Profile = (props) => {
   const is_owner = currentUser?.username === owner;
   const user_id = currentUser?.profile_id;
   const setFeaturedProfilesData = useSetFeaturedProfilesData();
-  console.log("page");
-  console.log(page);
+
   const handleFollow = async () => {
     try {
       const { data } = await axiosRes.post("/followers/", { followed: id });
