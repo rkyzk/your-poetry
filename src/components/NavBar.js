@@ -19,6 +19,7 @@ const NavBar = () => {
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
+      setExpanded(false);
       setCurrentUser(null);
       toast("You've been signed out.");
       removeTokenTimestamp();
@@ -28,15 +29,10 @@ const NavBar = () => {
   };
 
   const keepMenuOpen = (event) => {
-    console.log(event.target);
+    event.target.id === "nav-dropdown" &&
     setExpanded(true);
   }
 
-  const closeMenu = (event) => {
-    console.log(event.target);
-    setExpanded(false);
-  }
-  console.log(expanded);
   const loggedIn = (
     <>
       <Avatar src={currentUser?.profile_image} height={40} className={`${styles.NavAvatar}`} />
@@ -57,7 +53,11 @@ const NavBar = () => {
           </NavLink>
         </NavDropdown.Item>
         <NavDropdown.Item>
-          <NavLink className={styles.NavLink} to="/my-poems">
+          <NavLink
+            className={styles.NavLink}
+            to="/my-poems"
+            onClick={() => setExpanded(false)}
+          >
             My poems
           </NavLink>
         </NavDropdown.Item>
@@ -65,6 +65,7 @@ const NavBar = () => {
           <NavLink
             className={styles.NavLink}
             to={`/profiles/:id/following`}
+            onClick={() => setExpanded(false)}
           >
             Poets I'm following
           </NavLink>
@@ -73,6 +74,7 @@ const NavBar = () => {
           <NavLink
             className={styles.NavLink}
             to={`/liked`}
+            onClick={() => setExpanded(false)}
           >
             Poems I like
           </NavLink>
