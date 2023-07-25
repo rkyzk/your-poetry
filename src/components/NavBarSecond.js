@@ -9,6 +9,11 @@ const NavBarSecond = () => {
   const currentUser = useCurrentUser();
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
+  const keepMenuOpen = (event) => {
+    event.target.id === "poem-dropdown" &&
+    setExpanded(true);
+  }
+
   return (
     <Navbar expanded={expanded} className={styles.NavBarSecond} expand="md" fixed="top">
       <Container>
@@ -22,8 +27,8 @@ const NavBarSecond = () => {
             <NavDropdown
               className={`${styles.NavLink} ${styles.SpaceLeft}`}
               title="Poems"
-              id="nav-dropdown"
-              onClick={() => setExpanded(expanded)}
+              id="poem-dropdown"
+              onClick={(event) => keepMenuOpen(event)}
             >
               <NavDropdown.Item>
                 <NavLink
@@ -38,7 +43,7 @@ const NavBarSecond = () => {
                 <NavLink
                   className={styles.NavLink}
                   to="/popular-poems"
-                  onClick={() => setExpanded(!expanded)}
+                  onClick={() => setExpanded(false)}
                 >
                   Popular Poems
                 </NavLink>
@@ -47,7 +52,7 @@ const NavBarSecond = () => {
                 <NavLink
                   className={styles.NavLink}
                   to="/poems-by-categories"
-                  onClick={() => setExpanded(!expanded)}
+                  onClick={() => setExpanded(false)}
                 >
                   Poems by Categories
                 </NavLink>
@@ -56,7 +61,7 @@ const NavBarSecond = () => {
                 <NavLink
                   className={styles.NavLink}
                   to="/search/poems"
-                  onClick={() => setExpanded(!expanded)}
+                  onClick={() => setExpanded(false)}
                 >
                   Search
                 </NavLink>
