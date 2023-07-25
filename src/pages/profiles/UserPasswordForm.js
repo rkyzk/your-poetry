@@ -13,6 +13,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
+import { toast } from "react-toastify";
 
 const UserPasswordForm = () => {
   const history = useHistory();
@@ -34,6 +35,11 @@ const UserPasswordForm = () => {
     });
   };
 
+  const handleCancel = () => {
+    history.goBack();
+    toast('You canceled.  The password remains the same.');
+  }
+
   useEffect(() => {
     if (currentUser?.profile_id?.toString() !== id) {
       // redirect user if they are not the owner of this profile
@@ -46,6 +52,7 @@ const UserPasswordForm = () => {
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
       history.goBack();
+      toast('Your password has been changed');
     } catch (err) {
       console.log(err);
       setErrors(err.response?.data);
@@ -89,7 +96,7 @@ const UserPasswordForm = () => {
             ))}
             <Button
               className={`${btnStyles.Button} ${btnStyles.Blue}`}
-              onClick={() => history.goBack()}
+              onClick={handleCancel}
             >
               cancel
             </Button>

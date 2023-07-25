@@ -286,6 +286,39 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
 |6|displayed elements for logged out users|—|Check that “follow/unfollow” button is not displayed. |“follow/unfollow” button is not displayed.| “follow/unfollow” button is not displayed.|pass|2023/7/24|
 
+**Profile Edit page**
+1. log in as newuser and go to "My Profile." 
+- Notice the functionality for updating the display name, about me, favorites fields has been already tested in no. 5 in the previous Profile Page section. 
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|1|'edit profile' option leads to Profile edit page|—|Click the three dots and choose 'edit profile.'|Redirected to profile edit page with URL '/profiles/14/edit'.| Redirected to profile edit page with URL '/profiles/14/edit'.|pass|2023/7/25|
+|2|cancel button|—|change display name to ‘display name updated,’ and click ‘cancel.’ |Redirected to ProfilePage.  The name remains ‘display name.’| Redirected to ProfilePage.  The name remains ‘display name.’pass|2023/7/25|
+|3|Image can be updated.|—|Click 'Choose File,' select 'test-profile.jpg and click 'save'.|Redirected to profile Page. The avatar has changed to test-profile.jpg.| Redirected to profile Page. The avatar has changed to test-profile.jpg.|pass|2023/7/25|
+|4|file size validation|—|choose ‘test_image_validation.jpg’ and click 'save'. |Error message "File larger than 800KB can't be uploaded." will be displayed.| Error message ‘’ is displayed.|pass|2023/7/25|
+|5|image height validation|—|choose ‘image_height_1280.jpg’ and click 'save'.|Error message "Image with height over 1000px can't be uploaded" will be displayed.| Error message "Image with height over 1000px can't be uploaded"  is displayed.|pass|2023/7/25|
+|6|image height validation|—|choose ‘image_width_1300.jpg’ and click 'save'.|Error message "Image with width over 1000px can't be uploaded" will be displayed.| Error message "Image with width over 1000px can't be uploaded" is displayed.|pass|2023/7/25|
+
+- Go back to "/profiles/14" and click the three dots.
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|7|option 'change username' leads to the right page|—|Click 'change username'|Page "Change username" is displayed.| Page "Change username" is displayed.|pass|2023/7/25|
+|8|username can be changed|—|Enter newuserchanged for username and click 'save'.|Redirected to Profile Page.  Next to the avatar at the top right corner of the page, the new username 'newuserchanged' is displayed.|Redirected to Profile Page.  Next to the avatar at the top right corner of the page, the new username 'newuserchanged' is displayed.|pass|2023/7/25|
+|9|cancel button|—|Enter newuserchanged for username and click 'save'.|Redirected to Profile Page.  Next to the avatar at the top right corner of the page, the new username 'newuserchanged' is displayed.|Redirected to Profile Page.  Next to the avatar at the top right corner of the page, the new username 'newuserchanged' is displayed.|pass|2023/7/25|
+
+- Go back to "/profiles/14" and click the three dots.
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|10|option 'change password' leads to the right page|—|Click 'change password'|Page for changing password is displayed.| Page for changing password is displayed.|pass|2023/7/25|
+|11|password can be changed|—|Enter 'xxffww123' for both password fields and click 'save'.|Redirected to Profile Page.  A toast message "Your password has been changed" will appear.|Redirected to Profile Page.  A toast message "Your password has been changed" will appear.|pass|2023/7/25|
+|11-2|password can be changed|—|Log out and log in as 'newuserchanged' with password 'xxffww123'.|Sign in happens succesfully.|Sign in happens succesfully.|pass|--|2023/7/25|
+|12|password validation--two blank fields|—|leave both fields blank and click 'save'.|Error message will tell the fields must not be blank.|Error messages "This field may not be blank." appear for both fields.|pass|2023/7/25|
+|13|password validation--one blank field|—|enter 'xxffww456' for the first field, leave the second field blank and click 'save'.|Error message will tell the fields must not be blank.|Error message "This field may not be blank." appears below the second password field.|pass|2023/7/25|
+|14|password validation--contradicting input|—|enter 'xxffww456' for the first field, enter 'xxffww789' and click 'save'.|Error message will tell the passwords don't match.|Error message says "The two password fields didn’t match."|pass|2023/7/25|
+|15|password validation--too common password|—|enter 'password' for both fields and click 'save'.|Error message will tell the password is too common.|Error message says "The password is too common."|pass|2023/7/25|
+|16|cancel button|—|Enter 'xxffww000' for both fields and click 'cancel'.|Redirected to Profile Page.  Toast message "You canceled. Your password remains the same" appears. |Redirected to Profile Page.  Toast message "You canceled. Your password remains the same" appears.|pass|2023/7/25|
 
 
 
