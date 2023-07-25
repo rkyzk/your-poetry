@@ -48,8 +48,8 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---|:---|:---|:---|:---|:---|:---|:---|
 |5|”dropdown menu”||Click username “admin”|The drowdown menu is displayed.|The drowdown menu is displayed.|pass|2023/7/23|
-|6|”My Profile”|Click username “admin”|Click “My Profile”|Redirected to ”My Profile”|Redirected to “My Profile”|pass|2023/7/23|
-|7|”My Poems”|Click username “admin”|Click “My Poems”|Redirected to ”My Poems”|Redirected to “My Poems”|pass|2023/7/23|
+|6|”My Profile”|Click username “admin”|Click “My Profile”|Redirected to ”My Profile” of admin|Redirected to “My Profile” of admin|pass|2023/7/23|
+|7|”My Poems”|Click username “admin”|Click “My Poems”|Redirected to ”My Poems” of admin|Redirected to “My Poems” of admin|pass|2023/7/23|
 |8|”Poets I’m following”|Click username “admin”|Click “Poets I’m following”|Redirected to ”Poets I’m following”|Redirected to “Poets I’m following”|pass|2023/7/23|
 |9|”Poems I like”|Click username “admin”|Click “Poems I like”|Redirected to ”Poems I like”|Redirected to “Poems I like”|pass|2023/7/23|
 |10|”Sign out”|Click username “admin”|Click “Sign out”|Notification “You’ve been signed out” appears.  Redirected to ”Home”|Notification “You’ve been signed out” appears.  Redirected to ”Home”|pass|2023/7/23|
@@ -245,5 +245,47 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |1|Appearance.|Click "Contact"|Check if the heading and the text referring to the contact email address is displayed.|The aforementioned elements are displayed.|The aforementioned elements are displayed.|pass|[image](./src/assets/manual-testing-screenshots/Contact/Contact.png)|2023/7/23|
 
-**Profile Page**
+**Profile page (individual profile page)**
+As preparation for following tests: 
+1. go to sign up page and sign up with the following credentials: username: newuser; password: swUf8LcR
+2. Sign in as newuser and go to “/profiles/14” (as 14 is the id of newuser)
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|1|displayed elements|—|Check if heading "My Profile," default photo for avatar, newuser for name, the date joined (today, July 24th 2023), three dots for editing, poems and followers counts (0) are displayed. Check also the message 'No published poems yet' for 'Poems by this Writer' section is displayed. |All aforementioned elements are displayed.| All aforementioned elements are displayed.|pass|2023/7/24|
+|2|three dots menu|—|Click the three dots. |A menu for editing is displayed.| A menu for editing is displayed.|pass|2023/7/24|
+
+As preparation for tests no. 3 and 4:
+1. go to “Write poems,” write a new poem (title: test profile component; content: content; category: other) and publish.
+
+|3| poems count|—|Check poems count. |The count has changed from 0 to 1.| The count has changed from 0 to 1.|pass|2023/7/24|
+|4| Poems by this writer |—|Check the poem ‘test profile component’ is displayed.  |The poem‘test profile component’ is displayed. |The poem ‘test profile component’ is displayed. |pass|2023/7/24|
+
+As preparation for test no. 5,
+1. click on three dots to edit the profile, choose edit profile
+2. write in 'display name' for display name “about me content” for “about me” field and “favorites content” for “favorites” field
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|5| displayed elements|—|Check that the contents for “about me” and “favorites” sections are displayed. |All aforementioned elements are displayed.| All aforementioned elements are displayed.|pass|2023/7/24|
+
+(profile edit page will be tested in more details later)
+
+As preparation for test no. 6-8,
+1. Log in as admin and go to "/profiles/14"
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|6|displayed elements for users other than the owner|—|Check that the heading "My Profile" and three dots for editing aren't displayed and that “follow” button is displayed. |The heading "My Profile" and three dots for editing aren't displayed. “follow” button is displayed.| The heading "My Profile" and three dots for editing aren't displayed. “follow” button is displayed.|pass|2023/7/24|
+|7|follow function|Click “follow”|Check if “unfollow” button is displayed and the follower count is 1. |”unfollow” button is displayed. The follower count has changed from 0 to 1.| ”unfollow” button is displayed. The follower count has changed from 0 to 1.|pass|2023/7/24|
+|8| unfollow function|Click “unfollow”|Check if “follow” button is displayed and the followers count is 0. |”follow” button is displayed. The follower count has changed from 1 to 0.| ”follow” button is displayed. The follower count has changed from 1 to 0.|pass|2023/7/24|
+
+For test no. 9, log out.
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|6|displayed elements for logged out users|—|Check that “follow/unfollow” button is not displayed. |“follow/unfollow” button is not displayed.| “follow/unfollow” button is not displayed.|pass|2023/7/24|
+
+
+
 

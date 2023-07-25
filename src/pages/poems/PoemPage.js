@@ -109,7 +109,7 @@ function PoemPage() {
     </Row>
     <ConfirmationModal
       show={showModal}
-      poem_id={id}
+      id={id}
       hideConfirmationModal={hideConfirmationModal}
     />
     </>

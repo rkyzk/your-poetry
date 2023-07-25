@@ -73,7 +73,7 @@ const Profile = (props) => {
           }),
         }));
       }
-      {(page === "search" && page === "profilePage") &&
+      {(page === "search" || page === "profilePage") &&
         setProfiles((prevProfiles) => ({
           ...prevProfiles,
           results: prevProfiles.results.map((profile) => {

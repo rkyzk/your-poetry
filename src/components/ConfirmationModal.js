@@ -15,7 +15,7 @@ const ConfirmationModal = ({show, hideConfirmationModal, id}) => {
       toast("The poem has been deleted.");
       history.push("/my-poems");
     } catch (err) {
-      // handle error
+      console.log(err);
     }  
   };
 
