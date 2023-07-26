@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 import appStyles from "../../App.module.css";
 import Asset from "../../components/Asset";
 import Profile from "./Profile";
@@ -7,17 +7,19 @@ import styles from "../../styles/FeaturedProfiles.module.css";
 import { useFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataContext";
 
 const FeaturedProfiles = ({ mobile }) => {
-  const featuredProfilesData = useFeaturedProfilesData();
-
+  const { featuredProfilesData, message } = useFeaturedProfilesData();
+  console.log("message:");
+  console.log(message);
   return (
     <Container
       className={`${appStyles.Content} ${styles.Mobile} ${
         mobile && "d-lg-none mb-3" 
       }`}
     >
+      <h4 className={`${styles.Heading}`}>Featured profiles</h4>
       {featuredProfilesData.results.length ? (
         <>
-          <h4 className={`${styles.Heading}`}>Featured profiles</h4>
+          
           {mobile ? (
             <Row>
               {featuredProfilesData.results.map((profile) => (
@@ -42,6 +44,8 @@ const FeaturedProfiles = ({ mobile }) => {
           )}
         </>
       ) : (
+        message ?
+        <Alert variant="warning">{message}</Alert> :
         <Asset spinner />
       )}
     </Container>

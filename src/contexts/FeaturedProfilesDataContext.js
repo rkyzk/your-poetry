@@ -11,7 +11,7 @@ export const useSetFeaturedProfilesData = () => useContext(SetFeaturedProfilesDa
 export const FeaturedProfilesDataProvider = ({ children }) => {
   const currentUser = useCurrentUser();
   const [featuredProfilesData, setFeaturedProfilesData] = useState({ results: [] });
-  const [errMsg, setErrMsg] = useState("");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const handleMount = async () => {
@@ -19,16 +19,16 @@ export const FeaturedProfilesDataProvider = ({ children }) => {
         const { data } = await axiosReq.get(
           "/profiles/?featured_flag=1"
         );
-        setFeaturedProfilesData(data);
+        setFeaturedProfilesData(data);     
       } catch (err) {
-        setErrMsg("Something went wrong.  The profiles couldn't be loaded.  Please try again later");
+        setMessage("There was an error. The profiles couldn't be loaded.");
       }
     };
     handleMount();
   }, [currentUser]);
 
   return (
-    <FeaturedProfilesDataContext.Provider value={featuredProfilesData}>
+    <FeaturedProfilesDataContext.Provider value={{featuredProfilesData, message}}>
       <SetFeaturedProfilesDataContext.Provider
         value={setFeaturedProfilesData}
       >
