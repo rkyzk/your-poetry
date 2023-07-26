@@ -153,36 +153,47 @@ const Profile = (props) => {
         </Media>
         {page === "profilePage" && (
           <>
-          <Row>
-            <Col xs={4}>
-              <Avatar src={image} height={120} className={`${styles.Img}`} />
+          <Row style={{ height: "125px" }} className="align-items-center">
+            <Col xs={4} className="d-sm-block d-md-none">
+              <Avatar src={image} height={80} className={`${styles.Img} align-items-center`} />
             </Col>
-            <Col xs={7}>
-              <h3 className="mt-3">{display_name}</h3>
-              <p className="mb-0">Member since {created_at}</p>    
+            <Col xs={4} className="d-none d-md-block">
+              <Avatar src={image} height={120} className={`${styles.Img}`} />
+            </Col>       
+            <Col xs={7} className={styles.ProfileInfo}>
+              <h3 className={`${styles.ProfileName} mt-3`}>{display_name}</h3>
+              <p className={`${styles.ProfileText} mb-0`}>Member since {created_at}</p>    
               <div>
                 <span className={`${styles.CountsText}`}>{poems_count} poems</span>
                 <span className={`${styles.CountsText} ml-2`}>{followers_count} followers</span>
               </div> 
             </Col>
-            <Col xs={1}>
+            <Col>
               {is_owner && (
                 <ProfileEditDropdown id={id} />
               )}
             </Col>
           </Row>
           <div className="mt-3 ml-3">
-            {about_me &&  about_me !== "null" && (
-              <>
-                <div className="text-muted">About me:</div>
+            <div className={`${styles.ProfileInfoSmall}`}>
+              <h3 className={`${styles.ProfileName} mt-3`}>{display_name}</h3>
+              <p className={`${styles.ProfileText} mb-0`}>Member since {created_at}<br/>
+              {poems_count} poems
+              <span className="ml-2">{followers_count} followers</span>
+              </p>
+            </div>
+            {about_me && about_me !== "null" && (
+              <p className={`${styles.ProfileLabel} mt-3`}>
+                <span className="text-muted">About me:</span><br/>
                 {about_me}
-              </>
+              </p>
             )}
             {favorites && favorites !== "null" && (
-              <>
-                <div className="text-muted">Favorites:</div>
+              <p className={`${styles.ProfileLabel} mt-3`}>
+                <span className="text-muted">My favorites:</span><br/>
                 {favorites}
-              </>)}
+              </p>
+            )}
           </div>
         </>
       )}

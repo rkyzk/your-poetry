@@ -1,3 +1,32 @@
 .CountsText {
   font-size: 1rem;
 }
+
+.ProfileInfoSmall {
+  display: none;
+}
+
+.ProfileLabel {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .ProfileName {
+    font-size: 1.3rem;
+  }
+
+  .ProfileText {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .ProfileInfo {
+    display: none;
+  }
+
+  .ProfileInfoSmall {
+    display: block;
+  }
+}
