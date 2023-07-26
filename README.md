@@ -320,5 +320,33 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |15|password validation--too common password|—|enter 'password' for both fields and click 'save'.|Error message will tell the password is too common.|Error message says "The password is too common."|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/ProfileEdit/ProfileEdit-15.png)|2023/7/25|
 |16|cancel button|—|Enter 'xxffww000' for both fields and click 'cancel'.|Redirected to Profile Page.  Toast message "You canceled. Your password remains the same" appears. |Redirected to Profile Page.  Toast message "You canceled. Your password remains the same" appears.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/ProfileEdit/ProfileEdit-16.png)|2023/7/25|
 
+**My Poems**
+- Log in as admin and go to "My poems"
+- Write a new poem with the following values--title: 'unpublished poem'; content: 'content'; category: 'other' and click 'Save as draft'.
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|1|displayed elements|--|Check the heading "My poems" and poems are displayed. |The heading "My poems" and poems are displayed.|The heading "My poems" and poems are displayed.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/MyPoems/MyPoems-1&2.png)|2023/7/26|
+|2|Correct poems (including unpublished poems) are displayed in the right order.|--|Check 'unpublished poem', 'poem 8' and 'poem 7' are displayed in the order.|'unpublished poem', 'poem 8' and 'poem 7' are displayed in the order.|'unpublished poem', 'poem 8' and 'poem 7' are displayed in the order.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/MyPoems/MyPoems-1&2.png)|2023/7/26|
+
+- For test no. 3, delete all three poems by admin.
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|3|message when no poems|--|Check the message "You haven't written any poems." is displayed.|Check the message "You haven't written any poems." is displayed.|Check the message "You haven't written any poems." is displayed.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/MyPoems/MyPoems-1&2.png)|2023/7/26|    ------------------IMAGE NEEDED!!!!
+
+**Poets I'm following**
+- Log in as admin and go to "Poets I'm following"
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|1|displayed elements|--|Check the heading "Poets I'm following" is displayed. |The heading "Poets I'm following" is displayed.|The heading "Poets I'm following" is displayed.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/PoetsImFollowing/PoetsImFollowing-1&2.png)|2023/7/26|
+|2|message if no followed poets|--|Check if the message says "You haven't followed anyone." |The message says "You haven't followed anyone."|The message says "You haven't followed anyone."|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/PoetsImFollowing/PoetsImFollowing-2&2PoetsPoe.png)|2023/7/26|
+
+- Go to "Home" and click the follow button for user1 and user2 and go back to "Poets I'm following"
+|3|correct profiles are filtered|--|Check if the profiles of user1 and of user2 are displayed. |The profiles of user1 and of user2 are displayed.|The profiles of user1 and of user2 are displayed.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/PoetsImFollowing/PoetsImFollowing-3.png)|2023/7/26|
+
+
+
 
 
