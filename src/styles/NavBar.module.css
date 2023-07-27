@@ -29,10 +29,7 @@
   z-index: 3;
 }
 
-@media screen and (max-width: 768px) {
-  .NavAvatar {
-    display: none;
-  }
+@media screen and (max-width: 767px) {
 
   .NavToggle {
     background-color: #fff;
