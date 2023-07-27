@@ -3,6 +3,8 @@ import CommentEditForm from "./CommentEditForm";
 import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -56,13 +58,19 @@ const Comment = (props) => {
           <Avatar src={profile_image} />
         </Link>
         <Media.Body className="align-self-center ml-2">
-          <span className={styles.Owner}>{owner}</span>
-          {updated_at ?
-          <>
-            <span className={`${styles.Time} ml-2`}>{created_at}</span>
-            <span className={`${styles.Time} ml-3`}>edited</span>
-          </> :
-          <span className={`${styles.Time} ml-2`}>{created_at}</span>}  
+          <Row className={styles.Info}>
+            <Col sm={5} className={styles.OwnerCol}>
+              <span className={styles.Owner}>{owner}</span>
+            </Col>
+            {updated_at ?
+            <Col sm={7}>
+              <span className={`${styles.Time}`}>{created_at}</span>
+              <span className={`${styles.Time} ml-3`}>edited</span>
+            </Col> :
+            <Col sm={7}>
+              <span className={`${styles.Time}`}>{created_at}</span>
+            </Col>}
+          </Row>
           {showEditForm ? (
             <CommentEditForm
             id={id}
