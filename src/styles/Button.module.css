@@ -27,14 +27,19 @@
     background-color: #5f4a0c;
   }
   
-  .Wide {
+  .Large {
     padding: 10px 50px;
     width: 100%;
   }
   
   .Olive {
     background-color: #8d7326;
+    font-size: 1rem;
     color: #ffffff;
+  }
+
+  .Olive:hover {
+    background-color: #524214;
   }
   
   .Black,
