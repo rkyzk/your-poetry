@@ -13,6 +13,7 @@ const Comment = (props) => {
     profile_id,
     profile_image,
     owner,
+    created_at,
     updated_at,
     content,
     id,
@@ -55,7 +56,12 @@ const Comment = (props) => {
         </Link>
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>
-          <span className={styles.Date}>{updated_at}</span>
+          {updated_at ?
+          <>
+            <span className={`${styles.Time} ml-2`}>{created_at}</span>
+            <span className={`${styles.Time} ml-3`}>edited</span>
+          </> :
+          <span className={`${styles.Time} ml-2`}>{created_at}</span>}  
           {showEditForm ? (
             <CommentEditForm
             id={id}

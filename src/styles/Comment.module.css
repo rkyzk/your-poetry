@@ -4,6 +4,11 @@
   margin-right: 8px;
 }
   
+.Time {
+  color:#555;
+  font-size: 1rem;
+}
+
 .Date {
   font-weight: lighter;
   color: #c1c1c5;
