@@ -38,7 +38,7 @@ function PoemsPage({ filter, message = "No results found", heading }) {
       } catch (err) {
         if (err.response) {
           setErrMsg(`Something went wrong.
-            The poems couldn't be loaded. Please try again later`);
+            The poems couldn't be loaded.`);
         };
       }
     };

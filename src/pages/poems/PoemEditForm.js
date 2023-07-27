@@ -37,7 +37,7 @@ function PoemEditForm() {
          published && setPublished(true)
          is_owner ? setPoemData({ title, content, category }) : history.push("/");
        } catch (err) {
-         console.log(err);
+         toast("There was an error.  Please try again.");
        }
      };
      handleMount();

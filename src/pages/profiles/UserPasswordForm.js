@@ -54,7 +54,6 @@ const UserPasswordForm = () => {
       history.goBack();
       toast('Your password has been changed');
     } catch (err) {
-      console.log(err);
       setErrors(err.response?.data);
     }
   };

@@ -7,6 +7,7 @@ import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import { toast } from "react-toastify";
 
 const Comment = (props) => {
   const {
@@ -43,7 +44,7 @@ const Comment = (props) => {
         results: prevComments.results.filter((comment) => comment.id !== id),
       }));
     } catch (err) {
-      console.log(err);
+      toast("There was an error.  Please try again.");
     }
   };
 
