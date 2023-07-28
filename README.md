@@ -93,12 +93,15 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 |1|Link "Search" in the burger menu|--|Click the burger menu > 'Poems' > 'Search'|Redirected to 'Search' (poems)|Redirected to 'Search' (poems)|pass|2023/7/28|
 |1|Link "Search Profiles" in the burger menu|--|Click the burger menu > 'Search Profiles'|Redirected to 'Search Profiles'|Redirected to 'Search Profiles'|pass|2023/7/28|
 
-**Links in the Footer**
+#### Footer
+
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-||link to ”facebook” |—|Click the link|Redirected to facebook website| Redirected to facebook website|pass|2023/7/23|
-||link to ”twitter” |—|Click the link|Redirected to twitter website| Redirected to twitter website|pass|2023/7/23|
-||link to ”instagram” |—|Click the link|Redirected to instagram website| Redirected to instagram website|pass|2023/7/23|
+|1|Displayed elements ||Check facebook, twitter and instagram icons are displayed.|The three icons are displayed.| The three icons are displayed.|pass|2023/7/23|
+|2|responsiveness |--|Expand the screen to 1350px (max width on the device used for testing). Narrow down the screen size to 330px, while checking the elements are displayed without any distortion.|The elements are displayed without any distortion.|The elements are displayed without any distortion.|pass|2023/7/23|
+|3|link to ”facebook” |—|Click the link|Redirected to facebook website| Redirected to facebook website|pass|2023/7/23|
+|4|link to ”twitter” |—|Click the link|Redirected to twitter website| Redirected to twitter website|pass|2023/7/23|
+|5|link to ”instagram” |—|Click the link|Redirected to instagram website| Redirected to instagram website|pass|2023/7/23|
 
 **Sign in page**<br>
 Conduct each of tests no. 1-11 with logged out status.
