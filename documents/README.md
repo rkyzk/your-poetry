@@ -97,7 +97,7 @@ When logging in is necessary, log in with username: admin, password: superuser, 
 
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Image | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
-|1|responsiveness of nav bar components|Go to “Home” page|Expand the screen to the max width(1350px) and gradually narrow down to 330px while checking all elements are displayed without any distortion.|All elements appear without any distortion. |All elements appear without any distortion.|pass|[image1 ](./images/NavBarElements/1-1.png)[image2 ](./images/manual-tests/NavBarElements/1-2.png)[image3](./images/NavBarElements/1-3.png)|2023/7/28|
+|1|responsiveness of nav bar components|Go to “Home” page|Expand the screen to the max width of the device(1350px) and gradually narrow down to 330px while checking all elements are displayed without any distortion.|All elements appear without any distortion. |All elements appear without any distortion.|pass|[image1 ](./images/NavBarElements/1-1.png)[image2 ](./images/manual-tests/NavBarElements/1-2.png)[image3](./images/NavBarElements/1-3.png)|2023/7/28|
 
 **Logo**
 
@@ -181,7 +181,7 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |5|link to ”instagram” |—|Click the link|Redirected to instagram website| Redirected to instagram website|pass|[image](./images/manual-tests/Footer/5.png)|2023/7/28|
 
 #### Sign in page<br>
-Stay logged out for tests no. 1-11.
+Stay logged out for tests no. 1-12.
 
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Image |Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---|:--- |:---|
@@ -204,28 +204,46 @@ Stay logged out for tests no. 1-7<br>
 
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1| sign up function |—|enter ‘user4’ for username and ‘swUf8LcR’ for both password fields. Click ‘Sign up’ |Redirected to “Sign in Page”| Redirected to “Sign in Page”|pass|2023/7/23|
-|2| validation (username) |—|enter nothing for username.  Enter ‘swUf8LcR’ for password fields. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank."|pass|2023/7/23|
-|3| validation (first password field) |—|enter ‘user5’ for username.  Leave the first password field, and enter ‘swUf8LcR’ for the second password field. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank."|pass|2023/7/23|
-|4| validation (second password field) |—|enter ‘user5’ for username.  Enter ‘swUf8LcR’ for the first password field, and leave the second password field. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank."|pass|2023/7/23|
-|5| validation (all fields) |—|Leave all fields blank. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank" for all three fields|pass|2023/7/23|
-|6| validation (spaces) |—|Enter one space in each field. Click ‘Sign up’ |validation says| validation says|pass|2023/7/23|
-|7| validation (common password) |—|Enter “user5” for username and “password” for both password fields. Click ‘Sign up’ |Validation says the password is too common.| Validation says "This password is too common."|pass|2023/7/23|
-|8| link to sign in page |-|Click the link "Already have an account? Sign in"|Redirected to "Sign in"|Redirected to "Sign in"|pass|2023/7/23|
-|9|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|2023/7/28|
-|10|access control|—|Log in and go to "/signup"|Redirected to "Home."|Redirected to "Home."|pass|2023/7/28|
+|1|displayed elements|—|Check that the first nav bar on top right, the heading, input boxes for username, password and confirm password, sign up button and the link to signin page are displayed |All elements are displayed.| All elements are displayed.|pass|[image](./images/manual-tests/Signup/1.png)|2023/7/23|
+|2|sign up function |—|enter ‘user4’ for username and ‘swUf8LcR’ for both password fields. Click ‘Sign up’ |Redirected to “Sign in Page.”| Redirected to “Sign in Page.” In the backend, profile with owner 'user4' is present.|pass|[image1 ](./images/manual-tests/Signup/2.png)[image2](./images/manual-tests/Signup/2-2.png)|2023/7/23|
+|3| validation (username) |—|enter nothing for username.  Enter ‘swUf8LcR’ for password fields. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank."|pass|[image](./images/manual-tests/Signup/3.png)|2023/7/23|
+|4| validation (first password field) |—|enter ‘user5’ for username.  Leave the first password field, and enter ‘swUf8LcR’ for the second password field. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank." for the first password field.|pass|[image](./images/manual-tests/Signup/4.png)|2023/7/23|
+|5| validation (second password field) |—|enter ‘user5’ for username.  Enter ‘swUf8LcR’ for the first password field, and leave the second password field. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank." for the second password field.|pass|[image](./images/manual-tests/Signup/5.png)|2023/7/23|
+|6| validation (all fields) |—|Leave all fields blank. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank" for all three fields|pass|[image](./images/manual-tests/Signup/6.png)|2023/7/23|
+|7| validation (spaces) |—|Enter one space in each field. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank" for all three fields.|pass|[image](./images/manual-tests/Signup/7.png)|2023/7/23|
+|8| validation (common password) |—|Enter “user5” for username and “password” for both password fields. Click ‘Sign up’ |Validation says the password is too common.| Validation says "This password is too common."|pass|[image](./images/manual-tests/Signup/8.png)|2023/7/23|
+|9| link to sign in page |-|Click the link "Already have an account? Sign in"|Redirected to "Sign in"|Redirected to "Sign in"|pass|[image](./images/manual-tests/Signup/9.png)|2023/7/23|
+|10|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/Signup/10.png)|2023/7/28|
+|11|user redirect|—|Log in and enter "/signup" in the URL|Redirected to "Home."|Signup page appears for a moment and then redirected to "Home."|pass|[image](./images/manual-tests/Signup/11.png)|2023/7/28|
 
 #### Home page
+
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1|Displayed elements.|log out|Check both navbars, introduction, the sentence "Don't have an account...", featured poems, featured profiles are displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/Home/1.png)|2023/7/28|
+|2|Displayed elements.|log in|Check that the sentence "Don't have an account..." is not displayed.|The sentence is not displayed.|The sentence is not displayed.|Hopass|[image](./images/manual-tests/Home/2.png)|2023/7/28|
+|3|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/Home/2.png)32023/7/28|
+|4|link to signup page|log out.|Click the link.|Redirected to signup page.|Redirected to signup page.|pass|[image](./images/manual-tests/Home/4.png)|2023/7/28|
 
 #### Contact Page
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1|Displayed elements.|Click "Contact"|Check if the heading and the text referring to the contact email address is displayed.|The aforementioned elements are displayed.|The aforementioned elements are displayed.|pass|[image](./src/assets/manual-testing-screenshots/Contact/Contact.png)|2023/7/23|
-|2|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|2023/7/28|
+|1|Displayed elements.|Click "Contact"|Check if the heading and the right content is displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/Contact/1.png)|2023/7/23|
+|2|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/Contact/2.png)|2023/7/28|
 
 #### Write poems
 
-|10|access control|—|Log out and go to "/poems/create"|Redirected to "Home."|Redirected to "Home."|pass|2023/7/28|
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1|Displayed elements.||Check if the heading, input boxes for title, content, select box for category, 'save as draft,' 'publish,' 'cancel' buttons are displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/WritePoems/1.png)|2023/7/28|
+|2|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/WritePoems/2.png)|2023/7/28|
+|3|Save poem|—|Enter title: 'test'; content: content; category: 'other' and click 'save.'|Message "Your poem has been saved.' appears. Redirected to the poem page of the new poem.  The poem is labeled 'Not published yet.'|Message "Your poem has been saved.' appears. Redirected to the poem page of the new poem. The poem is labeled 'Not published yet.'|pass|[image1 ](./images/manual-tests/WritePoems/3-1.png)[image2](./images/manual-tests/WritePoems/3-2.png)||2023/7/28|
+|4|Publish poem|—|Enter title: 'test2'; content: content; category: 'other' and click 'publish.'|Message "Your poem has been published.' appears. Redirected to the poem page of the new poem. The poem is labeled "Published on 28 Jul 2023."|Message "Your poem has been published.' appears. Redirected to the poem page of the new poem.The poem is labeled "Published on 28 Jul 2023"|pass|
+|5|category|—|Enter title: 'test3'; content: content; category: 'nature' and click 'save.' Check on the poem page that category is labeled 'nature.'|Category is labeled 'nature.'|Category is labeled 'nature.'|pass|[image1 ](./images/manual-tests/WritePoems/5-1.png)[image2](./images/manual-tests/WritePoems/5-2.png)|2023/7/28|
+|6|Validation for title|—|Leave title empty. Enter content: content; category: 'other' and click 'publish.'|Validation says the field is required.|Validation says 'This field may not be blank.'|pass|[image ](./images/manual-tests/WritePoems/6.png)|2023/7/28|
+|7|Validation for content|—|Enter title: test, category: other; leave content empty and click 'publish.'|Validation says the field is required.|Validation says 'This field may not be blank.'|pass|[image ](./images/manual-tests/WritePoems/7.png)|2023/7/28|
+|8|cancel|Go to "Home" and click "Write Poems"|Enter title: 'test'; and click 'cancel.'|Redirected to "Home"|Redirected to "Home"|pass|[image ](./images/manual-tests/WritePoems/8.png)|2023/7/28|
+|9|user redirect|—|Log out and go to "/poems/create"|Redirected to "Home."|Redirected to "Home."|pass|[image ](./images/manual-tests/WritePoems/9.png)|2023/7/28|
 
 #### Edit and delete poems
 
