@@ -8,46 +8,57 @@ import { toast } from "react-toastify";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function PoemCreateForm() {
+  // redirect logged out users to home page.
   useRedirect("loggedOut");
+  // variables for storing error data
   const [errors, setErrors] = useState({});
+  // variables for storing input made by users
   const [poemData, setPoemData] = useState({
     title: "",
     content: "",
     category: "other",
   });
+  // destructure the poemdata object
   const { title, content, category } = poemData;
+  // boolean to tell if user has clicked on 'publish'
   const [publish, setPublish] = useState(false);
+  // instantiate history object to store data which url the user visits.
   const history = useHistory();
 
+  // set user input into variables.
   const handleChange = (event) => {
     setPoemData({
       ...poemData,
       [event.target.name]: event.target.value,
     });
   };
-
+  
+  // send data input by users to the backend.
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
-    var msg = "Your poem has been saved";
+    /* if 'publish' has been clicked, set published to true
+       and set the feedback message accordingly */
     if (publish) {
       formData.append("published", true);
-      msg = "Your poem has been published";
+      var msg = "Your poem has been published";
+    } else {
+      var msg = "Your poem has been saved";
     }
-
     formData.append("title", title);
     formData.append("content", content);
     formData.append("category", category);
-    publish && (formData.append("published", true));
 
     try {
+      // Send the api the data of a new poem
       const { data } = await axiosReq.post('/poems/', formData)
+      // redirect users to the new poem's page.
       history.push(`/poems/${data.id}`);
+      // display feedback message
       toast(msg);
     } catch (err){
-      if (err.response?.status !== 401) {
-        setErrors(err.response?.data);
-      }
+      err.response?.status !== 401 && 
+      setErrors(err.response?.data);
     }
   };
 
@@ -116,20 +127,20 @@ function PoemCreateForm() {
           className={`${btnStyles.Button} ${btnStyles.Olive} mt-2`}
           type="submit"
         >
-          Save as Draft
+          save as draft
         </Button>
         <Button
           className={`${btnStyles.Button} ${btnStyles.Olive} ml-2 mt-2`}
           onClick={()=>{setPublish(true)}} 
           type="submit"
         >
-          Publish
+          publish
         </Button>
         <Button
           className={`${btnStyles.Button} ${btnStyles.Olive} ml-2 mt-2`}
           onClick={() => history.goBack()}
         >
-          Cancel
+          cancel
         </Button>
       </Form>
     </>
