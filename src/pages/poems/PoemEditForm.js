@@ -1,30 +1,33 @@
 import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 import styles from "../../styles/PoemCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { toast } from "react-toastify";
 
 function PoemEditForm() {
+  /**
+    Edit poems (take in data entered by users 
+    and send the data to the API.)
+  */
   const [errors, setErrors] = useState({});
+  // poemData will store poem data entered by users
   const [poemData, setPoemData] = useState({
     title: "",
     content: "",
     category: ""
   });
   const { title, content, category } = poemData;
-  // published tells if the poem has been published.
+  // variable 'published' tells if the poem has been published.
   const [published, setPublished] = useState(false);
-  // publish will be set true, if user decides to publish the poem
+  // 'publish' will be set true, if user decides to publish the poem
   const [publish, setPublish] = useState(false);
   const history = useHistory();
+  // get id from the URL
   const { id } = useParams();
   // set toast message
   var message = "The change has been saved";
@@ -32,122 +35,139 @@ function PoemEditForm() {
   useEffect(() => {
     const handleMount = async () => {
       try {
+        // get poem data from the backend
         const { data } = await axiosReq.get(`/poems/${id}`);
-         const { title, content, category, is_owner, published } = data;
-         published && setPublished(true)
-         is_owner ? setPoemData({ title, content, category }) : history.push("/");
-       } catch (err) {
-         toast("There was an error.  Please try again.");
-       }
-     };
-     handleMount();
-   }, [history, id]);
+        // destructure the poem data
+        const { title, content, category, is_owner, published } = data;
+        // if the poem has been published, set published true
+        published && setPublished(true)
+        /* if the current user is the owner, request the API to update the poem
+           otherwise redirect to "Home" */
+        is_owner ? setPoemData({ title, content, category }) : history.push("/");
+      } catch (err) {
+        toast("There was an error.  The data couldn't be retreved.\
+              Please try again.")
+      }
+    };
+    handleMount();
+  }, [history, id]);
 
-   const handleChange = (event) => {
-     setPoemData({
-       ...poemData,
-       [event.target.name]: event.target.value,
-     });
-   };
+  /* Set data entered by users to variable 'poemData' */
+  const handleChange = (event) => {
+    setPoemData({
+      ...poemData,
+      [event.target.name]: event.target.value,
+    });
+  };
 
-   const handleSubmit = async (event) => {
-     event.preventDefault();
-     const formData = new FormData();
+  /** Send data entered by users to the backend
+      in order to update the poem. */
+  const handleSubmit = async (event) => {
+    // prevent the form from being submitted.
+    event.preventDefault();
+    // instantiate FormData object
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("category", category);
+    /* If the poem was already published,
+       or if it has just been published, set published true */
+    (publish || published) &&
+    formData.append("published", true);
+    // If the poem has been newly published, set the message accordingly.
+    publish &&
+    (message = "Your poem has been published.");
+    
+    try {
+      // Send the backend the data to update the poem.
+      await axiosReq.put(`/poems/${id}`, formData);
+      // Display the message.
+      toast(message);
+      // redirect to the pome page.
+      history.push(`/poems/${id}`);
+    } catch (err) {
+      // if error is not 401, set error messages
+      err.response?.status !== 401 && 
+      setErrors(err.response?.data);
+    }
+  };
 
-     formData.append("title", title);
-     formData.append("content", content);
-     formData.append("category", category);
-     if (publish || published) {
-      formData.append("published", true);
-     }
-     if (publish) {
-      message = "Your poem has been published."
-     }
-     try {
-       await axiosReq.put(`/poems/${id}`, formData);
-       toast(message);
-       history.push(`/poems/${id}`);
-     } catch (err) {
-       console.log(err);
-     }
-   };
-
-   const textFields = (
-     <div className="ml-2">
-       <Form.Group>
-         <Form.Label>Title</Form.Label>
-         <Form.Control
-           type="text"
-           name="title"
-           value={title}
-           onChange={handleChange}
-         />
-       </Form.Group>
-       {errors?.title?.map((message, idx) => (
-         <Alert variant="warning" key={idx}>
-           {message}
-         </Alert>
-       ))}
-       <Form.Group>
-         <Form.Label>Content</Form.Label>
-         <Form.Control
-           as="textarea"
-           rows={10}
-           name="content"
-           value={content}
-           onChange={handleChange}
-         />
-       </Form.Group>
-       {errors?.content?.map((message, idx) => (
-         <Alert variant="warning" key={idx}>
-           {message}
-         </Alert>
-       ))}
-       <Form.Group>
-         <Form.Label>Category</Form.Label>
-         <Form.Control
-            as="select"
-            className={`${styles.Category} ml-3`}
-            id="category"
-            name="category"
-            value={category}
-            onChange={handleChange}
-            custom
-          >
-            <option>nature</option>
-            <option>love</option>
-            <option>people</option>
-            <option>humor</option>
-            <option>haiku</option>
-            <option>other</option>
-          </Form.Control>
-       </Form.Group>
-       {errors?.category?.map((message, idx) => (
-         <Alert variant="warning" key={idx}>
-           {message}
-         </Alert>
-       ))}
-       <Button className={`${btnStyles.Button} ${btnStyles.Olive}`} type="submit">
-         save
-       </Button>
-      {!published && (
-        <Button
-          className={`${btnStyles.Button} ${btnStyles.Olive}`}
-          onClick={()=>{setPublish(true)}} 
-          type="submit"
+  const textFields = (
+    <div className="ml-2">
+      <Form.Group>
+        <Form.Label>Title</Form.Label>
+        <Form.Control
+          type="text"
+          name="title"
+          value={title}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.title?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Content</Form.Label>
+        <Form.Control
+          as="textarea"
+          rows={10}
+          name="content"
+          value={content}
+          onChange={handleChange}
+        />
+      </Form.Group>
+      {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+        <Form.Label>Category</Form.Label>
+        <Form.Control
+          as="select"
+          className={`${styles.Category} ml-3`}
+          id="category"
+          name="category"
+          value={category}
+          onChange={handleChange}
+          custom
         >
-          publish
-        </Button>
-      )}
-       <Button
-         className={`${btnStyles.Button} ${btnStyles.Olive}`}
-         onClick={() => history.goBack()}
-       >
-         cancel
-       </Button>
-       
-     </div>
-   );
+          <option>nature</option>
+          <option>love</option>
+          <option>people</option>
+          <option>humor</option>
+          <option>haiku</option>
+          <option>other</option>
+        </Form.Control>
+      </Form.Group>
+      {errors?.category?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Button className={`${btnStyles.Button} ${btnStyles.Olive}`} type="submit">
+        save
+      </Button>
+      {/* If not pusbliehd, display 'publish' button. */}
+      {!published &&
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Olive} ml-2`}
+        onClick={()=>{setPublish(true)}} 
+        type="submit"
+      >
+        publish
+      </Button>
+      }
+      <Button
+        className={`${btnStyles.Button} ${btnStyles.Olive} ml-2`}
+        onClick={() => history.goBack()}
+      >
+        cancel
+      </Button>   
+    </div>
+  );
 
   return (
     <Form onSubmit={handleSubmit}>

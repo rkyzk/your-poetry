@@ -26,7 +26,7 @@ const NavBarSecond = () => {
           aria-controls="basic-navbar-nav"
           onClick={() => setExpanded(!expanded)}
         >
-          <span className={styles.Burger}>|||</span>
+          <i class={`${styles.Burger} fa-solid fa-bars`}></i>
         </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`${styles.NavToggle} text-left`}>
