@@ -1,8 +1,8 @@
 import React from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 import styles from "../../styles/Home.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
 import PoemsPage from "../poems/PoemsPage";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import FeaturedProfiles from "../profiles/FeaturedProfiles";
@@ -28,12 +28,13 @@ function Home() {
         <Col className="py-2 p-0 p-lg-2" lg={8}>
           <FeaturedProfiles mobile />
           {intro}
-          <span className={`${styles.Intro}`}>Don't have an account?</span>
+          <span className={`${styles.Intro} mt-0`}>Don't have an account yet?</span>
           <Link
             to="/signup"
             className={`${styles.NavLink} ${styles.Intro} ml-2`}>
             Sign up
-          </Link><span className={`${styles.Intro} ml-2`}>here.</span>
+          </Link>
+          <span className={`${styles.Intro} ml-2`}>here.</span>
           <PoemsPage
             filter={`published=1&featured_flag=1&ordering=-created_at&`}
             heading="Featured Poems" 

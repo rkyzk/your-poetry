@@ -1,5 +1,9 @@
 import React from 'react'
-import { Container, Form, Row, Col, Button } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 import { useState } from 'react';
 import PoemsPage from '../poems/PoemsPage';
 import btnStyles from "../../styles/Button.module.css";
@@ -7,6 +11,7 @@ import styles from "../../styles/SearchPoems.module.css";
 import Alert from 'react-bootstrap/Alert';
 
 function SearchPoems() {
+  // variables for storing input made by users
   const [filterValues, setFilterValues] = useState({
     author: "",
     title: "",
@@ -14,19 +19,26 @@ function SearchPoems() {
     category: "choose...",
     pub_date: "choose..."
   });
+  // destructure the filterValues object
   const { author, title, keyword, category, pub_date } = filterValues;
+  // variable for storing the final search filter statement
   const [searchFilter, setSearchFilter] = useState("");
+  // variable for storing the filter statement
   var filter = "published=1"
   
-  author.replace(/\s/g, "") && (filter = filter + `&owner__profile__display_name__icontains=${author}`);
+  /* If input is made for author, title, keyword and category,
+     replace empty spaces and add to variable 'filter' */
+  author.replace(/\s/g, "") &&
+    (filter = filter + `&owner__profile__display_name__icontains=${author}`);
   title.replace(/\s/g, "") && (filter = filter + `&title__icontains=${title}`);
   keyword.replace(/\s/g, "") && (filter = filter + `&search=${keyword}`);
   category !== "choose..." && (filter = filter + `&category=${category}`);
-
+  // if published date range is specified, add it to variable 'filter'
   if (pub_date !== "choose...") {
-    let startDate;
+    var startDate;
     switch (pub_date) {
       case "past 14 days":
+        // get the date in YYYY-MM-dd format and set it to startDate.
         startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 14).toISOString().substring(0, 10);  
         break;
       case "past 30 days":
@@ -39,21 +51,26 @@ function SearchPoems() {
         startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 365).toISOString().substring(0, 10); 
         break;
     }
+    // set the date range to filter
     filter = filter + `&published_at__date__gte=${startDate}`;
   }
 
   const handleChange = (event) => {
+    // set user input to 'filterValues'
     setFilterValues({
       ...filterValues,
       [event.target.name]: event.target.value,
     });
   };
 
-  const handleSearch = () => {
-    setSearchFilter(prevState => {
-      return filter;
-    });
-  };    
+  // const handleSearch = () => {
+  //   setSearchFilter(prevState => {
+  //     return filter;
+  //   });
+  // };
+  
+  const handleSearch = () => setSearchFilter(filter);
+
   console.log(searchFilter);
   return (
     <>
@@ -89,85 +106,87 @@ function SearchPoems() {
                 />
               </Form.Group>
             </Col>
-                <Col lg={4}>
-                  <Form.Group controlId="keyword">
-                  <Form.Label>title/content contains:</Form.Label>
-                  <Form.Control
-                      value={keyword}
-                      name="keyword"
-                      onChange={handleChange}
-                      type="text"
-                      className="mr-sm-2"
-                      placeholder="keyword"
-                  />
-                  </Form.Group>
-                </Col>
-              </Row>
-              <Row>
-                <Col lg={4}>
-                  <Form.Group contorlId="category">
-                    <Form.Label className="my-1 mr-2">
-                      category
-                    </Form.Label>
-                    <Form.Control
-                      as="select"
-                      className={`my-1 mr-sm-2 ${styles.Category}`}
-                      id="category"
-                      name="category"
-                      value={category}
-                      onChange={handleChange}
-                      custom
-                    >
-                      <option>choose...</option>
-                      <option className={styles.Category}>nature</option>
-                      <option className={styles.Category}>love</option>
-                      <option>people</option>
-                      <option>humor</option>
-                      <option>haiku</option>
-                      <option>other</option>
-                    </Form.Control>
-                  </Form.Group>
-                </Col>
-                <Col lg={4}>
-                  <Form.Label className="my-1 mr-2">
-                    Published date
-                  </Form.Label>
-                  <Form.Group>
-                    <Form.Control
-                      as="select"
-                      className="my-1 mr-sm-2"
-                      name="pub_date"
-                      value={pub_date}
-                      id="pub_date"
-                      onChange={handleChange}
-                      custom
-                    >
-                      <option>choose...</option>
-                      <option>past 14 days</option>
-                      <option>past 30 days</option>
-                      <option>past 90 days</option>
-                      <option>past one year</option>
-                    </Form.Control>   
-                  </Form.Group>
-                </Col>
-              </Row>
-            </Form>
-            <Button
-              onClick={handleSearch}
-              className={`${btnStyles.Button} ${btnStyles.Olive}`}
-            >
-              search
-            </Button>
-          </Container>
-          <Container className="mt-3">
-            {searchFilter === "published=1" &&
-              <Alert variant='warning'>Please enter at least one field</Alert>}
-            {(searchFilter !== "" &&
-              searchFilter !== "published=1") &&
-              <PoemsPage filter={searchFilter} />}
-        </Container>
-      </>
-    );
+            <Col lg={4}>
+              <Form.Group controlId="keyword">
+              <Form.Label>title/content contains:</Form.Label>
+              <Form.Control
+                  value={keyword}
+                  name="keyword"
+                  onChange={handleChange}
+                  type="text"
+                  className="mr-sm-2"
+                  placeholder="keyword"
+              />
+              </Form.Group>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg={4}>
+              <Form.Group contorlId="category">
+                <Form.Label className="my-1 mr-2">
+                  category
+                </Form.Label>
+                <Form.Control
+                  as="select"
+                  className={`my-1 mr-sm-2 ${styles.Category}`}
+                  id="category"
+                  name="category"
+                  value={category}
+                  onChange={handleChange}
+                  custom
+                >
+                  <option>choose...</option>
+                  <option className={styles.Category}>nature</option>
+                  <option className={styles.Category}>love</option>
+                  <option>people</option>
+                  <option>humor</option>
+                  <option>haiku</option>
+                  <option>other</option>
+                </Form.Control>
+              </Form.Group>
+            </Col>
+            <Col lg={4}>
+              <Form.Label className="my-1 mr-2">
+                Published date
+              </Form.Label>
+              <Form.Group>
+                <Form.Control
+                  as="select"
+                  className="my-1 mr-sm-2"
+                  name="pub_date"
+                  value={pub_date}
+                  id="pub_date"
+                  onChange={handleChange}
+                  custom
+                >
+                  <option>choose...</option>
+                  <option>past 14 days</option>
+                  <option>past 30 days</option>
+                  <option>past 90 days</option>
+                  <option>past one year</option>
+                </Form.Control>   
+              </Form.Group>
+            </Col>
+          </Row>
+        </Form>
+        <Button
+          onClick={handleSearch}
+          className={`${btnStyles.Button} ${btnStyles.Olive}`}
+        >
+          search
+        </Button>
+      </Container>
+      <Container className="mt-3">
+        {/* If 'search' is clicked but nothing or only spaces are entered,
+            display an alert.  If an input has been made, display search results */}
+        {searchFilter === "published=1" ?
+          <Alert variant='warning'>Please enter at least one field</Alert> :
+          (searchFilter !== "" &&
+            <PoemsPage filter={searchFilter} />)
+        }
+      </Container>
+    </>
+  );
 }
 
 export default SearchPoems;

@@ -24,14 +24,19 @@ https://3000-rkyzk-yourpoetry-kp7cuajca1w.ws-us101.gitpod.io/
 * [Notes on Design](#notes-on-design)
 * [Main Technologies Used](#main-technologies-used)
 * [Each Part and Function in Detail](#each-part-and-function-in-detail)
-* [Automated Testing](#automated-testing)
 * [Manual Testing](#manual-testing)
+* [Bugs](#bugs)
+* [Aspects to be improved in the future](#aspects-to-be-improved-in-the-future)
+* [Deployment Procedure](#depoyment-procedure)
+* [Validating CSS, Html code with Tools](#validating-css-html-code-with-tools)
+* [Checking Performance and Accessibility](#checking-performance-and-accessibility)
+* [Media](#media)
+* [Credits](#credits)
 - - -
 
 ![your-poetry](your-poetry.png)
 
 ## Overview
-
 Your Poetry offers an interactive platform where users can share their poems and give/get comments on each other’s poems.  The app is equipped with various features including liking/unliking poems, following/unfollowing profiles as well as searching poems/profiles.  In addition users can also make their own profiles to let others know a few things about themselves.  The app offers users opportunities to be creative, to share their art and to inspire others.
 
 ## User Stories
@@ -50,7 +55,8 @@ In this app users can:
 - Search poems and profiles
 
 ## Wireframes
-Wireframes can be found [here](https://wireframe.cc/pro/edit/672331)
+Wireframes for this application can be found [here.](https://wireframe.cc/pro/edit/672331)
+Please click on "Homepage" in the upper left corner to see wireframes of different pages.
 
 ## Notes on Design
 **Fonts**
@@ -466,6 +472,8 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |3|correct profiles are filtered|--|Check if the profiles of user1 and of user2 are displayed. |The profiles of user1 and of user2 are displayed.|The profiles of user1 and of user2 are displayed.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/PoetsImFollowing/PoetsImFollowing-3.png)|2023/7/26|
 
 #### Sign out function (no page)
+
+## 
 
 
 

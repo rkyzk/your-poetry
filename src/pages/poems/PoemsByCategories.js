@@ -4,13 +4,16 @@ import Row from "react-bootstrap/Row";
 import PoemsPage from "../poems/PoemsPage";
 import { useState } from "react";
 import styles from "../../styles/PomesByCategories.module.css";
+import btnstyles from "../../styles/Button.module.css";
 import FeaturedProfiles from "../profiles/FeaturedProfiles";
 
 function PoemsByCategories() {
+  // hold info on which category was selected.
   const [category, setCategory] = useState("");
+  // set filter statement
   var filter = `published=1&category=${category}&ordering=-published_at`;
 
-const categories = (
+  const categories = (
     <div className="d-flex justify-content-center">
       <Button
         className={`${styles.BtnCategories}`}
@@ -49,7 +52,8 @@ const categories = (
         other
       </Button>
     </div>
-  )
+  );
+
   return (
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
