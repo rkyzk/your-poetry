@@ -3,9 +3,9 @@ import styles from "../../styles/Profile.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, Button, Row, Col } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
-import { axiosRes, axiosReq } from "../../api/axiosDefaults";
+import { axiosRes } from "../../api/axiosDefaults";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import { useFeaturedProfilesData, useSetFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataContext";
 

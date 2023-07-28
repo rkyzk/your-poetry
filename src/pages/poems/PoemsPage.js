@@ -7,13 +7,16 @@ import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
-
+import styles from "../../styles/PoemsPage.module.css";
 
 function PoemsPage({ filter, message = "No results found", heading }) {
   const [poems, setPoems] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [errMsg, setErrMsg] = useState("");
+  var customPadding;
+  (pathname === "/my-poems" || pathname === "/liked" ) &&
+  (customPadding = true);
 
   useEffect(() => {
     const fetchPoems = async () => {
@@ -31,7 +34,9 @@ function PoemsPage({ filter, message = "No results found", heading }) {
   }, [filter, pathname]);
 
   return (
-    <Col>
+    <Col
+      className={`${customPadding && styles.Padding }`}
+    >
       <h2 className="my-2 px-2">{heading}</h2>
       {/* If there's an error message, display it. */}
       {errMsg ?

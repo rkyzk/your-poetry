@@ -23,9 +23,7 @@ import PoemsByCategories from "./pages/poems/PoemsByCategories";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FooterComponent } from "./components/FooterComponent";
-import Contact from "./pages/pages/Contact";
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min"; 
-import { useState } from "react";
+import Contact from "./pages/other_pages/Contact";
 
 function App() {
   const currentUser = useCurrentUser();

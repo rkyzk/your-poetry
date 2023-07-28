@@ -6,6 +6,7 @@ import styles from "../../styles/Home.module.css";
 import PoemsPage from "../poems/PoemsPage";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import FeaturedProfiles from "../profiles/FeaturedProfiles";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 const intro = (
     <>
@@ -22,19 +23,23 @@ const intro = (
 );
 
 function Home() {
+  const currentUser = useCurrentUser();
   return (
     <Container>
       <Row>
         <Col className="py-2 p-0 p-lg-2" lg={8}>
           <FeaturedProfiles mobile />
           {intro}
-          <span className={`${styles.Intro} mt-0`}>Don't have an account yet?</span>
-          <Link
-            to="/signup"
-            className={`${styles.NavLink} ${styles.Intro} ml-2`}>
-            Sign up
-          </Link>
-          <span className={`${styles.Intro} ml-2`}>here.</span>
+          {!currentUser && (
+          <>
+            <span className={`${styles.Intro} mt-0`}>Don't have an account yet?</span>
+            <Link
+              to="/signup"
+              className={`${styles.NavLink} ${styles.Intro} ml-2`}>
+              Sign up
+            </Link>
+            <span className={`${styles.Intro} ml-2`}>here.</span>
+          </>)}
           <PoemsPage
             filter={`published=1&featured_flag=1&ordering=-created_at&`}
             heading="Featured Poems"

@@ -35,7 +35,7 @@ https://3000-rkyzk-yourpoetry-kp7cuajca1w.ws-us101.gitpod.io/
 * [Credits](#credits)
 - - -
 
-![your-poetry](your-poetry.png)
+![your-poetry](./images/Your-Poetry.png)
 
 ## Overview
 Your Poetry offers an interactive platform where users can share their poems and give/get comments on each other’s poems.  The app is equipped with various features including liking/unliking poems, following/unfollowing profiles as well as searching poems/profiles.  In addition users can also make their own profiles to let others know a few things about themselves.  The app offers users opportunities to be creative, to share their art and to inspire others.
@@ -92,75 +92,83 @@ Please click on "Homepage" in the upper left corner to see wireframes of differe
 
 When logging in is necessary, log in with username: admin, password: superuser, unless specified otherwise.
 
-#### Navigation bar elements
-**Overall responsiveness** 
+#### Navigation Bar
+**Overall responsiveness**
+
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Image | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1|responsiveness of nav bar components|Go to “Home” page|Expand the screen to the max width(1350px) and gradually narrow down to 330px while checking all elements are displayed without any distortion.|All elements appear without any distortion. |All elements appear without any distortion.|pass|[image1 ](NavBarElements/1-1.png)[image2 ](NavBarElements/1-2.png)|2023/7/23|
+|1|responsiveness of nav bar components|Go to “Home” page|Expand the screen to the max width(1350px) and gradually narrow down to 330px while checking all elements are displayed without any distortion.|All elements appear without any distortion. |All elements appear without any distortion.|pass|[image1 ](./images/NavBarElements/1-1.png)[image2 ](./images/manual-tests/NavBarElements/1-2.png)[image3](./images/NavBarElements/1-3.png)|2023/7/28|
 
 **Logo**
 
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Image | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|2|Logo link|Go to “Contact” page|Click the logo|Redirected to the home page|Redirected to the home page|pass|[image1 ](NavBarElements/1-1.png)[image2 ](NavBarElements/1-2&2.png)|2023/7/23|
+|2|Logo link|Go to “Contact” page|Click the logo|Redirected to the home page|Redirected to the home page|pass|[image1 ](./images/NavBarElements/manual-tests/2&3.png)|2023/7/23|
 
 **Navigation bar elements (Top right)**
 
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|3|nav bar elements when logged out|Log out|Check if the only links displayed are “Home,” “Contact,” “Sign in” and “Sign out”.|The only links displayed are “Home,” “Contact,” “Sign in” and “Sign out” |The only links displayed are “Home,” “Contact,” “Sign in” and “Sign out” |pass|[image](NavBarElements/1-2&2.png)|2023/7/23|
-|4|link to ”Home”|Go to “Contact” page|Click “Home”|Redirected to ”Home"|Redirected to ”Home”|pass|2023/7/23|
-|5|link to ”Contact”|Go to “Home”|Click “Contact”|Redirected to ”Contact”|Redirected to ”Contact”|pass|2023/7/23|
-|6|link to ”Sign in”|Log out if you haven't.  Go to “Home” page|Click “Sign in”|Redirected to ”Sign in” | Redirected to “Sign in”|pass|2023/7/23|
-|7|link to ”Sign up”|Go to “Home” page|Click “Sign up”|Redirected to ”Sign up”|Redirected to “Sign up”|pass|2023/7/23|
-|8|burger menu|--|Narrow down the screen width and check a burger menu appears at 767px. |A burger menu appears at 767px or below. |A burger menu appears at 767px or below.|pass|[image](NavBarElements/.png)|2023/7/23|
-|9|burger menu opens when clicked|--|Click the burger menu. |A menu with 'Home', 'Contact', 'Sign in' and 'Sign out' appears. |A menu with 'Home', 'Contact', 'Sign in' and 'Sign out' appears.|pass|[image](NavBarElements/4.png)|2023/7/23|
-|10|Burger menu closes when a link is clicked|--|Click the burger menu and click 'Home'. |The burger menu closes.|The burger menu closes.|pass|[image](NavBarElements/.png)|2023/7/23|
-|10|Burger menu closes when outside the menu is clicked|--|Click the burger menu and click outside the menu. |The burger menu closes.|The burger menu closes.|pass|[image](NavBarElements/.png)|2023/7/23|
-|10|link "Home" in burger menu functions|--|Click the burger menu and click 'Home'. |Redirected to 'Home.' |Redirected to 'Home.'|pass|[image](NavBarElements/.png)|2023/7/23|
-|11|link 'Contact' in burger menu functions|--|Click the burger menu and click 'Contact'. |Redirected to 'Contact.' |Redirected to 'Contact.'|pass|[image](NavBarElements/.png)|2023/7/23|
-|12|link 'Sign in; in burger menu functions|--|Click the burger menu and click 'Sign in'. |Redirected to 'Sign in.' |Redirected to 'Sign in.'|pass|[image](NavBarElements/.png)|2023/7/23|
-|13|link 'Sign out' burger menu functions|--|Click the burger menu and click 'Sign out'. |Redirected to 'Sign out.' |Redirected to 'Sign out.'|pass|[image](NavBarElements/.png)|2023/7/23|
+|3|Nav bar elements when logged out|Log out|Check if the only links displayed are “Home,” “Contact,” “Sign in” and “Sign out”.|The only links displayed are “Home,” “Contact,” “Sign in” and “Sign out” |The only links displayed are “Home,” “Contact,” “Sign in” and “Sign out” |pass|[image](./images/manual-tests/NavBarElements/2&3.png)|2023/7/23|
+|4|link to ”Home”|Go to “Contact” page|Click “Home”|Redirected to ”Home"|Redirected to ”Home”|pass|[image](./images/manual-tests/NavBarElements/4.png)|2023/7/23|
+|5|link to ”Contact”|Go to “Home”|Click “Contact”|Redirected to ”Contact”|Redirected to ”Contact”|pass|[image](./images/manual-tests/NavBarElements/5.png)|2023/7/23|
+|6|link to ”Sign in”|Log out if you haven't.  Go to “Home” page|Click “Sign in”|Redirected to ”Sign in” | Redirected to “Sign in”|pass|[image](./images/manual-tests/NavBarElements/6.png)|2023/7/23|
+|7|link to ”Sign up”|Go to “Home” page|Click “Sign up”|Redirected to ”Sign up”|Redirected to “Sign up”|pass|[image](./images/manual-tests/NavBarElements/7.png)|2023/7/23|
+|8|burger menu|--|Narrow down the screen width and check a burger menu appears at 767px. |A burger menu appears at 767px or below. |A burger menu appears at 767px or below.|pass|[image](./images/manual-tests/NavBarElements/8.png)|2023/7/23|
+|9|burger menu opens when clicked|--|Click the burger menu. |A menu with 'Home', 'Contact', 'Sign in' and 'Sign out' appears. |A menu with 'Home', 'Contact', 'Sign in' and 'Sign out' appears.|pass|[image](./images/manual-tests/NavBarElements/9.png)|2023/7/23|
+|10|Burger menu closes when a link is clicked|--|Click the burger menu and click 'Home'. |The burger menu closes.|The burger menu closes.|pass|[image](./images/manual-tests/NavBarElements/10.png)|2023/7/23|
+|11|Burger menu closes when outside the menu is clicked|--|Click the burger menu and click outside the menu. |The burger menu closes.|The burger menu closes.|pass|[image](./images/manual-tests/NavBarElements/11.png)|2023/7/23|
+|12|link "Home" in burger menu functions|Go to "Contact"|Click the burger menu and click 'Home'. |Redirected to 'Home.' |Redirected to 'Home.'|pass|[image](./images/manual-tests/NavBarElements/12.png)|2023/7/23|
+|13|link 'Contact' in burger menu functions|Go to "Home"|Click the burger menu and click 'Contact'. |Redirected to 'Contact.' |Redirected to 'Contact.'|pass|[image](./images/manual-tests/NavBarElements/13.png)|2023/7/23|
+|14|link 'Sign in; in burger menu functions|--|Click the burger menu and click 'Sign in'. |Redirected to 'Sign in.' |Redirected to 'Sign in.'|pass|[image](./images/manual-tests/NavBarElements/14.png)|2023/7/23|
+|15|link 'Sign up' burger menu functions|--|Click the burger menu and click 'Sign up'. |Redirected to 'Sign up.' |Redirected to 'Sign up.'|pass|[image](./images/manual-tests/NavBarElements/15.png)|2023/7/23|
 
-- For test no. 5-10, sign in with username: admin, password: superuser<br>
+- For test no. 16-10, sign in with username: admin, password: superuser<br>
 
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---|:---|:---|:---|:---|:---|:---|:---|
-|5|displayed items|--|Check links 'Home', 'Contact,' an avatar and username 'admin' are displayed.|Links 'Home', 'Contact,' an avatar and username 'admin' are displayed.|Links 'Home', 'Contact,' an avatar and username 'admin' are displayed.|pass|[image]()|2023/7/23|
-|5|dropdown menu|--|Click username “admin”|The drowdown menu is displayed.|The drowdown menu is displayed.|pass|2023/7/23|
-|6|”My Profile”|Click username “admin”|Click “My Profile”|Redirected to ”My Profile” of admin|Redirected to “My Profile” of admin|pass|2023/7/23|
-|7|”My Poems”|Click username “admin”|Click “My Poems”|Redirected to ”My Poems” of admin|Redirected to “My Poems” of admin|pass|2023/7/23|
-|8|”Poets I’m following”|Click username “admin”|Click “Poets I’m following”|Redirected to ”Poets I’m following”|Redirected to “Poets I’m following”|pass|2023/7/23|
-|9|”Poems I like”|Click username “admin”|Click “Poems I like”|Redirected to ”Poems I like”|Redirected to “Poems I like”|pass|2023/7/23|
-|10|”Sign out”|Click username “admin”|Click “Sign out”|Notification “You’ve been signed out” appears.  Redirected to ”Home”|Notification “You’ve been signed out” appears.  Redirected to ”Home”|pass|2023/7/23|
-|10|Avatar is absent in the burger menu|Log in. Narrow down the screen below 767px.|Click the burger menu and check the avatar in front of the username is absent.|The avatar is absent.|The avatar is absent.|pass|2023/7/28|
-|10|Link "My Profile" in the burger menu|--|Click the burger menu, "admin" and "My Profile."|Redirected to “My Profile” of admin|pass|2023/7/28|
-|7|Link ”My Poems” in the burger menu|--|Click the burger menu, "admin" and “My Poems”|Redirected to ”My Poems” of admin|Redirected to “My Poems” of admin|pass|2023/7/28|
-|8|Link ”Poets I’m following” in the burger menu|--|Click the burger menu, "admin" and "Poets I'm following"|Redirected to ”Poets I’m following”|Redirected to “Poets I’m following”|pass|2023/7/28|
-|9|Link ”Poems I like” in the burger menu|--|Click the burger menu, "admin" and “Poems I like”|Redirected to ”Poems I like”|Redirected to “Poems I like”|pass|2023/7/28|
-|10|”Sign out” in the burger menu|--|Click the burger menu, "admin" and “Sign out”|Redirected to ”Home.” Notification “You’ve been signed out” appears.|Redirected to ”Home.” Notification “You’ve been signed out” appears. |pass|2023/7/28|
+|16|displayed items|--|Check links 'Home', 'Contact,' an avatar and username 'admin' are displayed.|Links 'Home', 'Contact,' an avatar and username 'admin' are displayed.|Links 'Home', 'Contact,' an avatar and username 'admin' are displayed.|pass|[image](./images/manual-tests/NavBarElements/16.png)|2023/7/23|
+|17|dropdown menu|--|Click username “admin”|The drowdown menu is displayed.|The drowdown menu is displayed.|pass|[image](./images/manual-tests/NavBarElements/17.png)|2023/7/23|
+|18|”My Profile”|Click username “admin”|Click “My Profile”|Redirected to ”My Profile” of admin|Redirected to “My Profile” of admin|pass|[image](./images/manual-tests/NavBarElements/18.png)|2023/7/23|
+|19|”My Poems”|Click username “admin”|Click “My Poems”|Redirected to ”My Poems” of admin|Redirected to “My Poems” of admin|pass|[image](./images/manual-tests/NavBarElements/19.png)|2023/7/23|
+|20|”Poets I’m following”|Click username “admin”|Click “Poets I’m following”|Redirected to ”Poets I’m following”|Redirected to “Poets I’m following”|pass|[image](./images/manual-tests/NavBarElements/20.png)|2023/7/23|
+|21|”Poems I like”|Click username “admin”|Click “Poems I like”|Redirected to ”Poems I like”|Redirected to “Poems I like”|pass|[image](./images/manual-tests/NavBarElements/21.png)|2023/7/23|
+|22|”Sign out”|Click username “admin”|Click “Sign out”|Notification “You’ve been signed out” appears.  Redirected to ”Home”|Notification “You’ve been signed out” appears.  Redirected to ”Home”|pass|[image](./images/manual-tests/NavBarElements/22.png)|2023/7/23|
+|23|Avatar is absent in the burger menu|Log in. Narrow down the screen below 767px.|Click the burger menu and check the avatar in front of the username is absent.|The avatar is absent.|The avatar is absent.|pass|[image](./images/manual-tests/NavBarElements/23.png)|2023/7/28|
+|24|The second dropdown in the burger menu opens when clicked.|--|Click the burger menu and "admin" |The burger menu opens|The burger menu opens|pass|[image](./images/manual-tests/NavBarElements/24.png)|2023/7/28|
+|25|both menus close when a link is clicked.|--|Click the burger menu, "admin" and "My Profile" |The burger menu closes|The burger menu closes|pass|[image](./images/manual-tests/NavBarElements/25.png)|2023/7/28|
+|26|both burger menus close if outside the menu is clicked.|--|Click the burger menu, "admin" and click outside the menu.|The menus close.|The menus close.|pass|[image](./images/manual-tests/NavBarElements/26.png)|2023/7/28|
+|27|Link ”My Profile” in the burger menu|--|Click the burger menu, "admin" and “My Profile”|Redirected to ”My Profile” of admin|Redirected to “My Profile” of admin|pass|[image](./images/manual-tests/NavBarElements/27.png)|2023/7/28|
+|28|Link ”My Poems” in the burger menu|--|Click the burger menu, "admin" and “My Poems”|Redirected to ”My Poems” of admin|Redirected to “My Poems” of admin|pass|[image](./images/manual-tests/NavBarElements/28.png)|2023/7/28|
+|29|Link ”Poets I’m following” in the burger menu|--|Click the burger menu, "admin" and "Poets I'm following"|Redirected to ”Poets I’m following”|Redirected to “Poets I’m following”|pass|[image](./images/manual-tests/NavBarElements/29.png)|2023/7/28|
+|30|Link ”Poems I like” in the burger menu|--|Click the burger menu, "admin" and “Poems I like”|Redirected to ”Poems I like”|Redirected to “Poems I like”|pass|[image](./images/manual-tests/NavBarElements/30.png)|2023/7/28|
+|31|”Sign out” in the burger menu|--|Click the burger menu, "admin" and “Sign out”|Redirected to ”Home.” Notification “You’ve been signed out” appears.|Redirected to ”Home.” Notification “You’ve been signed out” appears. |pass|[image](./images/manual-tests/NavBarElements/31.png)|2023/7/28|
 
 **Navigation bar elements (Top left)**
-Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1|displayed elements when logged out|Log out|Check which elements are displayed.|Links “Poems” and “Search Profiles” are displayed.|Links “Poems” and “Search Profiles” are displayed.|pass|2023/7/23|
-|2|displayed elements when logged in|Log in|Check which elements are displayed.|Links “Poems,” “Write Poems” and “Search Profiles” are displayed.|Links “Poems,” “Write Poems” and “Search Profiles” are displayed.|pass|2023/7/23|
-|1|dropdown menu|log out|Click “Poems”|The dropdown menu is displayed.|The dropdown menu is displayed.|pass|2023/7/23|
-|2|”New Poems”|click “Poems”|Click “New Poems”|redirected to “New Poems” page.|redirected to “New Poems” page.|pass|2023/7/23|
-|3|”Popular Poems”|Click “Poems”|Click “Popular Poems”|Redirected to ”Popular Poems”|Redirected to ”Popular Poems”|pass|2023/7/23|
-|4|”Poems by Categories”|Click “Poems”|Click “Poems by Categories”|Redirected to ”Poems by Categories”|Redirected to ”Poems by Categories”|pass|2023/7/23|
-|5|”Search”|Click “Poems”|Click “Search”|Redirected to ”Search” (poems)|Redirected to ”Search” (poems)|pass|2023/7/23|
-|6|”Search Profiles”|--|Click “Search Profiles”|Redirected to ”Search Profiles” | Redirected to “Search Profiles”|pass|2023/7/23|
-|7|”Write Poems”|log in|Click “Write Poems”|Redirected to ”Write Poems”|Redirected to “Write Poems”|pass|2023/7/23|
-|1|responsiveness|Log out|narrow down the screen to 767px.|A burger menu appears.|A burger menu appears.|pass|2023/7/28|
-|1|The burger menu opens when clicked.|--|narrow down the screen to 767px.|A burger menu appears.|A burger menu appears.|pass|2023/7/28|
-|1|The burger menu closes when a link is clicked.|--|Click the burger menu and click "Search profiles."|A burger menu closes.|A burger menu closes.|pass|2023/7/28|
-|1|The burger menu closes when outside the menu is clicked.|--|Click the burger menu and click outside the menu.|A burger menu closes.|A burger menu closes.|pass|2023/7/28|
-|1|Link "New Poems" in the burger menu|--|Click the burger menu > 'Poems' > 'New Poems'|Redirected to 'New Poems'|Redirected to 'New Poems'|pass|2023/7/28|
-|1|Link "Popular Poems" in the burger menu|--|Click the burger menu > 'Poems' > 'Popular Poems'|Redirected to 'Popular Poems'|Redirected to 'Popular Poems'|pass|2023/7/28|
-|1|Link "Poems by Categories" in the burger menu|--|Click the burger menu > 'Poems' > 'Poems by Categories'|Redirected to 'Poems by Categories'|Redirected to 'Poems by Categories'|pass|2023/7/28|
-|1|Link "Search" in the burger menu|--|Click the burger menu > 'Poems' > 'Search'|Redirected to 'Search' (poems)|Redirected to 'Search' (poems)|pass|2023/7/28|
-|1|Link "Search Profiles" in the burger menu|--|Click the burger menu > 'Search Profiles'|Redirected to 'Search Profiles'|Redirected to 'Search Profiles'|pass|2023/7/28|
+
+Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Image |Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
+|32|displayed elements when logged out|Log out|Check which elements are displayed.|Links “Poems” and “Search Profiles” are displayed.|Links “Poems” and “Search Profiles” are displayed.|pass|[image](./images/manual-tests/NavBarElements/32.png)|2023/7/23|
+|33|displayed elements when logged in|Log in|Check which elements are displayed.|Links “Poems,” “Write Poems” and “Search Profiles” are displayed.|Links “Poems,” “Write Poems” and “Search Profiles” are displayed.|pass|[image](./images/manual-tests/NavBarElements/33.png)|2023/7/23|
+|34|dropdown menu|--|Click “Poems”|The dropdown menu is displayed.|The dropdown menu is displayed.|pass|[image](./images/manual-tests/NavBarElements/34.png)|2023/7/23|
+|35|dropdown closes if a link is clicked|click “Poems”|Click “New Poems”|The menu closes|The menu closes.|pass|[image](./images/manual-tests/NavBarElements/34.png)|2023/7/23|
+|35|dropdown closes if outside the menu is clicked|click “Poems”|Click outside the menu.|The menu closes|The menu closes.|pass|[image](./images/manual-tests/NavBarElements/35.png)|2023/7/23|
+|36|Link ”New Poems”|click “Poems”|Click “New Poems”|redirected to “New Poems” page.|redirected to “New Poems” page.|pass|[image](./images/manual-tests/NavBarElements/36.png)|2023/7/23|
+|37|Link ”Popular Poems”|Click “Poems”|Click “Popular Poems”|Redirected to ”Popular Poems”|Redirected to ”Popular Poems”|pass|[image](./images/manual-tests/NavBarElements/37.png)|2023/7/23|
+|38|Link ”Poems by Categories”|Click “Poems”|Click “Poems by Categories”|Redirected to ”Poems by Categories”|Redirected to ”Poems by Categories”|pass|[image](./images/manual-tests/NavBarElements/38.png)|2023/7/23|
+|39|Link ”Search”|Click “Poems”|Click “Search”|Redirected to ”Search” (poems)|Redirected to ”Search” (poems)|pass|[image](./images/manual-tests/NavBarElements/39.png)|2023/7/23|
+|40|Link ”Search Profiles”|--|Click “Search Profiles”|Redirected to ”Search Profiles” | Redirected to “Search Profiles”|pass|[image](./images/manual-tests/NavBarElements/40.png)|2023/7/23|
+|41|”Write Poems”|log in|Click “Write Poems”|Redirected to ”Write Poems”|Redirected to “Write Poems”|pass|[image](./images/manual-tests/NavBarElements/41.png)|2023/7/23|
+|42|responsiveness|Log out|Narrow down the screen to 767px.|A burger menu appears.|A burger menu appears.|pass|[image](./images/manual-tests/NavBarElements/42.png)|2023/7/28|
+|43|The burger menu opens when clicked.|--|Click the burger menu.|A burger menu appears.|A burger menu appears.|pass|[image](./images/manual-tests/NavBarElements/43.png)|2023/7/28|
+|44|The burger menu closes when a link is clicked.|--|Click the burger menu and click "Search Profiles."|A burger menu closes.|A burger menu closes.|pass|[image](./images/manual-tests/NavBarElements/44.png)|2023/7/28|
+|45|The burger menu closes when outside the menu is clicked.|--|Click the burger menu and click outside the menu.|A burger menu closes.|A burger menu closes.|pass|[image](./images/manual-tests/NavBarElements/45.png)|2023/7/28|
+|46|Link "New Poems" in the burger menu|--|Click the burger menu > 'Poems' > 'New Poems'|Redirected to 'New Poems'|Redirected to 'New Poems'|pass|[image](./images/manual-tests/NavBarElements/46.png)|2023/7/28|
+|47|Link "Popular Poems" in the burger menu|--|Click the burger menu > 'Poems' > 'Popular Poems'|Redirected to 'Popular Poems'|Redirected to 'Popular Poems'|pass|[image](./images/manual-tests/NavBarElements/47.png)|2023/7/28|
+|48|Link "Poems by Categories" in the burger menu|--|Click the burger menu > 'Poems' > 'Poems by Categories'|Redirected to 'Poems by Categories'|Redirected to 'Poems by Categories'|pass|[image](./images/manual-tests/NavBarElements/48.png)|2023/7/28|
+|49|Link "Search" in the burger menu|--|Click the burger menu > 'Poems' > 'Search'|Redirected to 'Search' (poems)|Redirected to 'Search' (poems)|pass|[image](./images/manual-tests/NavBarElements/49.png)|2023/7/28|
+|50|Link "Search Profiles" in the burger menu|--|Click the burger menu > 'Search Profiles'|Redirected to 'Search Profiles'|Redirected to 'Search Profiles'|pass|[image](./images/manual-tests/NavBarElements/50.png)|2023/7/28|
+|51|Link "Write poems" in the burger menu|log in|Click the burger menu > 'Write Poems'|Redirected to 'Write Poems'|Redirected to 'Write Poems'|pass|[image](./images/manual-tests/NavBarElements/51.png)|2023/7/28|
 
 #### Footer
 

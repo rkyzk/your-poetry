@@ -26,12 +26,12 @@ function SearchProfiles() {
 
   return (
     <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={{ span: 8, offset: 2 }}>
+      <Col className="py-2 p-0 p-lg-2">
         <h3 className="text-center">Search Profiles</h3>
         <Row>
           <Col
-            md={{ span: 8, offset: 2 }}
-            xs={{ span: 9, offset: 1 }}
+            md={{ span: 6, offset: 3 }}
+            sm={{ span: 8, offset: 2 }}
           >
             <Form
               className={`${styles.SearchBar} mb-3`}

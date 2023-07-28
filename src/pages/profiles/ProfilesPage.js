@@ -34,12 +34,13 @@ function ProfilesPage(props) {
   }, [filter]);
 
     return (
-      <Container className={appStyles.Content}>
+      <Container>
+        <Col lg={{ span: 8, offset: 2 }}>
         {page === "profilesPage" && (<h2>Poets I'm following</h2>)}
-        {errMsg ? <Alert key={errMsg} variant="warning" className="mt-3">{errMsg}</Alert> 
-         :
-        <Col>
-          {hasLoaded ? (
+        {errMsg ?
+          <Alert key={errMsg} variant="warning" className="mt-3">{errMsg}</Alert> 
+          :
+          hasLoaded ? (
             <>
               {profiles.results.length ? (
                 <InfiniteScroll
@@ -66,7 +67,7 @@ function ProfilesPage(props) {
               <Asset spinner />
             </Container>
           )}
-        </Col>}
+        </Col>
       </Container>
     );
 }

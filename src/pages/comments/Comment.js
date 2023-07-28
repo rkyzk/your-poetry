@@ -62,7 +62,7 @@ const Comment = (props) => {
             <Col sm={5} className={styles.OwnerCol}>
               <span className={styles.Owner}>{owner}</span>
             </Col>
-            {updated_at ?
+            {updated_at !== created_at ?
             <Col sm={7}>
               <span className={`${styles.Time}`}>{created_at}</span>
               <span className={`${styles.Time} ml-3`}>edited</span>

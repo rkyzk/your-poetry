@@ -6,7 +6,7 @@ const Avatar = ({ src, height = 45, navbar }) => {
     <span>
       <img
         className={`${styles.Avatar} ${
-          navbar && "d-none d-md-block"
+          navbar && "d-none d-md-block mt-3"
         }`}
         src={src}
         height={height}

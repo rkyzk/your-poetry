@@ -15,34 +15,49 @@ import { toast } from "react-toastify";
 /** 
  * Return poem data including title, content or excerpt,
  * author, published date.
+ * Hold handleLike und handleUnlike functions.
 */
 const Poem = (props) => {
   const {
+    /** poem id */
     id,
+    /** poem owner */
     owner,
+    /** owner's profile id */
     profile_id,
+    /** owner's profile name */
     profile_name,
+    /** number of comments */
     comments_count,
+    /** number of likes */
     likes_count,
+    /** like id, if the current user has liked the poem */
     like_id,
+    /** poem titel */
     title,
+    /** poem content */
     content,
+    /** poem category */
     category,
+    /** poem's published date */
     published_at,
+    /** If called from poem page */
     poemPage,
+    /** function to set poem data */
     setPoems,
+    /** function to show confirmation modal */
     showConfirmationModal
   } = props;
 
-  // get currentUser from CurrentUserContext.
+  /** get currentUser from CurrentUserContext. */
   const currentUser = useCurrentUser();
-  // is_owner tells if the current user is the owner of the poem.
+  /** is_owner tells if the current user is the owner of the poem. */
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
-  // get the pathname
+  /** get the pathname */
   const { pathname } = useLocation();
   
-  /* Display PoemEdit page. */
+  /** Display PoemEdit page. */
   const handleEdit = () => history.push(`/poems/${id}/edit`);
   
   /**
@@ -51,7 +66,7 @@ const Poem = (props) => {
    */
   const handleLike = async () => {
     try {
-      // post 'like' data to the backend.
+      // Post 'like' data to the backend.
       const { data } = await axiosRes.post("/likes/", { poem: id });
       /* On popular poems page, update the likes count
          and rearrange the order of poems by descending number of likes. */
@@ -127,6 +142,7 @@ const Poem = (props) => {
   };
 
   return (
+    /** Return poem data  */
     <Card className={styles.Poem}>
       <Card.Body className="pr-5">
         {poemPage ? (
