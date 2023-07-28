@@ -53,7 +53,26 @@ In this app users can:
 Wireframes can be found [here](https://wireframe.cc/pro/edit/672331)
 
 ## Notes on Design
+**Fonts**
+- For the website title and the headings of the pages, I used ‘Bacasime Antique.’
+- For navigation links, labels for input boxes and the contents of poems, I used 'Nanum Myeongj.'
+- I chose these two fonts because they both give an artistic ambient.
+- For introductory paragraph and notification messages I used ‘Raleway’ since this font is readable and offers an approachable ambient.
 
+**Colors**
+- Overall I wanted the website to appear simple, elegant and original.
+- I used following colors in different sections:
+
+- Background of navigation bars: light gray, #f8f8f8
+- Text color: dark blue, rgb(10, 10, 90)
+- Most buttons: olive, #8d7326;
+- follow button:  black, #242a3d
+- unfollow button: aliceblue
+- Footer: dark blue, rgb(10, 10, 90)
+
+- I used dark blue for the text, instead of very commonly used black or dark gray in order to provide originality.
+- I used light gray for the background of navigation bars to keep the appearance simple.
+- I used olive color for most buttons, because the color provides a nice contrast against dark blue.
 
 ## Main Technologies Used
 - HTML, CSS, JavaScript
