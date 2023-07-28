@@ -1,13 +1,16 @@
-import React from "react"; // removed { useContext }
+import React from "react";
 import { Navbar, Container, NavDropdown, Nav } from "react-bootstrap";
 import styles from "../styles/NavBarSecond.module.css";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 const NavBarSecond = () => {
   const currentUser = useCurrentUser();
+  const { pathname } = useLocation();
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
+  let hide = pathname === "/signin" || pathname === "/signup"
 
   const keepMenuOpen = (event) => {
     event.target.id === "poem-dropdown" &&
@@ -15,6 +18,7 @@ const NavBarSecond = () => {
   }
 
   return (
+    !hide &&
     <Navbar expanded={expanded} className={styles.NavBarSecond} expand="md" fixed="top">
       <Container>
         <Navbar.Toggle
