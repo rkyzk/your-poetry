@@ -13,10 +13,10 @@ const FeaturedProfiles = ({ mobile }) => {
   return (
     <Container
       className={`${appStyles.Content} ${styles.Mobile} ${
-        mobile && "d-lg-none mb-3" 
+        mobile && "d-lg-none mb-3"
       }`}
     >
-      <h4 className={`${styles.Heading}`}>Featured profiles</h4>
+      <h4 className={`${styles.Heading} text-center`}>Featured profiles</h4>
       {featuredProfilesData.results.length ? (
         <>
           

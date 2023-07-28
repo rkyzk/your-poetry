@@ -18,6 +18,11 @@
   margin-left: 15px;
 }
 
+.Burger {
+  rotate: 90deg;
+  border: none;
+}
+
 @media screen and (max-width: 767px) {
   .NavToggle {
     background-color: #fff;

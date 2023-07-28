@@ -21,7 +21,9 @@ const NavBarSecond = () => {
           ref={ref}
           aria-controls="basic-navbar-nav"
           onClick={() => setExpanded(!expanded)}
-        />
+        >
+          <span className={styles.Burger}>|||</span>
+        </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`${styles.NavToggle} text-left`}>
             <NavDropdown
