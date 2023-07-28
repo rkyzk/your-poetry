@@ -1,9 +1,5 @@
 nvm install 16 && nvm use 16
 
-footer icons center
-color white icons
-change avatar size under 770px
-poems col how can I set span 8 but not for Home
 category & published dates font css on search poems
 ``
 
@@ -16,6 +12,53 @@ npm i react-toastify@9.0.3
 npm install jwt-decode
 Client origin dev
 https://3000-rkyzk-yourpoetry-kp7cuajca1w.ws-us101.gitpod.io/
+
+# Your Poetry
+
+## CONTENTS
+
+* [Overview](#overview)
+* [User Stories](#user-stories)
+* [Features in Nutshell](#features-in-a-nutshell)
+* [Wireframes](#wireframes)
+* [Notes on Design](#notes-on-design)
+* [Main Technologies Used](#main-technologies-used)
+* [Each Part and Function in Detail](#each-part-and-function-in-detail)
+* [Automated Testing](#automated-testing)
+* [Manual Testing](#manual-testing)
+- - -
+
+![your-poetry](your-poetry.png)
+
+## Overview
+
+Your Poetry offers an interactive platform where users can share their poems and give/get comments on each other’s poems.  The app is equipped with various features including liking/unliking poems, following/unfollowing profiles as well as searching poems/profiles.  In addition users can also make their own profiles to let others know a few things about themselves.  The app offers users opportunities to be creative, to share their art and to inspire others.
+
+## User Stories
+
+## Features in a Nutshell
+In this app users can:
+- Sign up for membership
+- Sign in to have full access
+- Edit one's own profile
+- Write, update and delete poems
+- Write, update and delete comments on poems
+- Like/unlike poems
+- Follow/unfollow profiles
+- Look at various lists of poems such as recently published poems, popular poems, one's own poems and the poems they've liked
+- Look at the list of profiles they've followed.
+- Search poems and profiles
+
+## Wireframes
+Wireframes can be found [here](https://wireframe.cc/pro/edit/672331)
+
+## Notes on Design
+
+
+## Main Technologies Used
+- HTML, CSS, JavaScript
+- React.js
+- Bootstrap.js
 
 ## Manual Testing
 
