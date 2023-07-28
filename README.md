@@ -97,14 +97,15 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1|Displayed elements ||Check facebook, twitter and instagram icons are displayed.|The three icons are displayed.| The three icons are displayed.|pass|2023/7/23|
-|2|responsiveness |--|Expand the screen to 1350px (max width on the device used for testing). Narrow down the screen size to 330px, while checking the elements are displayed without any distortion.|The elements are displayed without any distortion.|The elements are displayed without any distortion.|pass|2023/7/23|
-|3|link to ”facebook” |—|Click the link|Redirected to facebook website| Redirected to facebook website|pass|2023/7/23|
-|4|link to ”twitter” |—|Click the link|Redirected to twitter website| Redirected to twitter website|pass|2023/7/23|
-|5|link to ”instagram” |—|Click the link|Redirected to instagram website| Redirected to instagram website|pass|2023/7/23|
+|1|Displayed elements ||Check facebook, twitter and instagram icons are displayed.|The three icons are displayed.| The three icons are displayed.|pass|2023/7/28|
+|2|responsiveness |--|Expand the screen to 1350px (max width on the device used for testing). Narrow down the screen size to 330px, while checking the elements are displayed without any distortion.|The elements are displayed without any distortion.|The elements are displayed without any distortion.|pass|2023/7/28|
+|3|link to ”facebook” |—|Click the link|Redirected to facebook website| Redirected to facebook website|pass|2023/7/28|
+|4|link to ”twitter” |—|Click the link|Redirected to twitter website| Redirected to twitter website|pass|2023/7/28|
+|5|link to ”instagram” |—|Click the link|Redirected to instagram website| Redirected to instagram website|pass|2023/7/28|
 
-**Sign in page**<br>
-Conduct each of tests no. 1-11 with logged out status.
+#### Sign in page<br>
+Stay logged out for tests no. 1-11.
+
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |1| sign in function |—|enter ‘admin’ for username and ‘superuser’ for password. Click ‘Sign in’ |Redirected to “Home”| Redirected to “Home”|pass|2023/7/23|
@@ -118,9 +119,12 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |9| validation: case sensitivity for the username |—|enter ‘Admin’ for username and ‘superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.”|pass|2023/7/23|
 |10| validation: case sensitivity for the password |—|enter ‘admin’ for username and ‘Superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.” |pass|2023/7/23|
 |11| link to sign up page|—|Click the link “Don’t have an account? Sign up now!” |Redirected to “Sign up”|Redirected to “Sign up”|pass|2023/7/23|
+|12|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|2023/7/28|
+|13|access control|—|Log in and go to "/signin"|Redirected to "Home."|Redirected to "Home."|pass|2023/7/28|
 
-**Sign up**<br>
-Conduct tests no. 1-7 logged out.
+#### Sign up
+Stay logged out for tests no. 1-7<br>
+
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |1| sign up function |—|enter ‘user4’ for username and ‘swUf8LcR’ for both password fields. Click ‘Sign up’ |Redirected to “Sign in Page”| Redirected to “Sign in Page”|pass|2023/7/23|
@@ -131,15 +135,31 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |6| validation (spaces) |—|Enter one space in each field. Click ‘Sign up’ |validation says| validation says|pass|2023/7/23|
 |7| validation (common password) |—|Enter “user5” for username and “password” for both password fields. Click ‘Sign up’ |Validation says the password is too common.| Validation says "This password is too common."|pass|2023/7/23|
 |8| link to sign in page |-|Click the link "Already have an account? Sign in"|Redirected to "Sign in"|Redirected to "Sign in"|pass|2023/7/23|
+|9|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|2023/7/28|
+|10|access control|—|Log in and go to "/signup"|Redirected to "Home."|Redirected to "Home."|pass|2023/7/28|
 
-**Test Poem Component**
-As preparation for test no. 1-9, log in as admin, write a poem with following values and publish:
+#### Home page
+
+#### Contact Page
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1|Displayed elements.|Click "Contact"|Check if the heading and the text referring to the contact email address is displayed.|The aforementioned elements are displayed.|The aforementioned elements are displayed.|pass|[image](./src/assets/manual-testing-screenshots/Contact/Contact.png)|2023/7/23|
+|2|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|2023/7/28|
+
+#### Write poems
+
+|10|access control|—|Log out and go to "/poems/create"|Redirected to "Home."|Redirected to "Home."|pass|2023/7/28|
+
+#### Edit and delete poems
+
+#### Poem Component
+As preparation for tests no. 1-9, log in as admin, write a poem with following values and publish:
 title: test poem; content: testing if only the first  characters will be displayed in the poem component; category: other
 
 **CHECK WHICH CHARACTERS WILL BE DISPLAYED!!
 
 - Poem Component on Poems page
-There are several pages using Poems page, so I decided to test the poem component displayed on "New Poems."<br>
+There are several pages using Poems page, so I tested the poem component displayed on "New Poems."<br>
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
@@ -166,32 +186,21 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |8| like function  |--|Click the heart icon for ‘test poem’ | The heart icon will turn to pink and the likes count will change from 0 to 1.|The heart icon turns to pink and the likes count changes from 0 to 1.|pass|2023/7/23|
 |9| unlike function | go to “poems/” |Click the heart icon for ‘test poem’ | The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|pass|2023/7/23|
 
-**Testing Featured Profiles component**
-Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
+#### PoemsPage
+- I tested PoemsPage on "New Poems."
+
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1| Profiles are correctly filtered. |Go to “Home”|Check if user1, 2 and 3 are displayed. |user1, 2 and 3 are displayed.| user1, 2 and 3 are displayed.|pass|2023/7/23|
-|2| Displayed elements |—|Check if the avatar, name, poems count and followers count are displayed. |The avatar, name, poems count and followers count are displayed.| the avatar, name, poems count and followers count are displayed.|pass|2023/7/23|
-|3| follow/unfollow buttons are dipslayed for logged in users |log in as admin|Check if ‘follow’ buttons are displayed for each featured profile. |follow’ buttons are displayed.| follow’ buttons are displayed.|pass|2023/7/23|
-|4| follow function |—|Click ‘follow’ of the top profile. | The follower count will change from 0 to 1.  The button will say ‘unfollow.’ | The follower count changes from 0 to 1.  The button says ‘unfollow.’.|pass|2023/7/23|
-|5| unfollow function |—|Click ‘unfollow’ of the top profile. | The follower count will change from 1 to 0.  The button will say ‘follow.’ | The follower count changes from 0 to 1.  The button says ‘follow.’.|pass|2023/7/23|
+|| infinit scroll | go to “New Poems” |scroll down to bottom | Loading icon appears, and  will be displayed.|Loading icon appears, and then  are displayed.|pass|2023/7/28|
 
-As preparatory steps for test no. 6:<br>
-1. log in as user1.  
-2. Confirm in the featured profiles section that the poem count is 1. 
-3. Write a poem with title: ‘poem count test’; content: content; category: other
-
-Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
+#### New Poems
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|6| poems count |—|Check poems count | The poems count has turned to 2. | The poems count has turned to 2. |pass|2023/7/23|
+|| Displayed elements | go to “New Poems” |Check which elements are displayed. | Heading "", poems are featured profiles are displayed.| are displayed.|pass|2023/7/28|
+|| Correct poems are filtered | go to “New Poems” |Check which poems are displayed. | are displayed.| are displayed.|pass|2023/7/28|
+|9|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|2023/7/28|
 
-- Featured Profiles on small screen<br>
-
-Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1| alignment |Go to “Home”|Check if user1, 2 and 3 are displayed side to side. |user1, 2 and 3 are displayed side to side.| user1, 2 and 3 are displayed side to side.|pass|2023/7/23|
-|2| displayed elements |—|Check if avatar, name and poems count are displayed. |Avatar, name and poems count are displayed.| Avatar, name and poems count are displayed.|pass|2023/7/23|
-
-**Poems by Category Page**<br>
+#### Poems by Category Page
 As Preparation<br>
 1. go to admin panel
 2. click Poems, set categories of the poems as follows: poem 2 —> nature; poem 3 —> love; poem 4 —> people; poem 5 —> humor
@@ -206,8 +215,9 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |2|filtering by ‘humor’ | Click ‘humor’ |poem 5 is displayed. | poem 5 is displayed.|pass|2023/7/23|
 |2|filtering by ‘haiku’ | Click ‘haiku’ |poem 6 is displayed. | poem 6 is displayed.|pass|2023/7/23|
 |2|filtering by ‘other’ | Click ‘other’ |’poem 1’ is displayed. |’poem 1’ is displayed.|pass|2023/7/23|
+|9|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|2023/7/28|
 
-**Search Poems**<br>
+#### Search Poems
 For tests no. go to admin panel and prepare poems as follows.  Delete all other poems.
 
 author|title|content|category|published date|
@@ -242,8 +252,57 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |17|search by multiple factors-2 |—|choose ‘other’ for category‘ and ‘past 14 days’ for published date.  Click search. | poem 8 is displayed.|poem 8 is displayed.|pass|[image1](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-17.png)|2023/7/23|
 |18|error message if no field is entered | Refresh the page| Enter no fields. Click search. | A note ‘Please enter at least one field’ is displayed.|A note ‘Please enter at least one field‘ is displayed.|pass|[image1](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-18.png)|2023/7/23|
 |19|error message if only spaces are entered|Refresh the page|enter spaces for title, author, and keyword. Click search. | A note ‘Please enter at least one field’ is displayed.|A note ‘Please enter at least one field‘ is displayed.|pass|[image1](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-19.png)|2023/7/23|
+|9|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|2023/7/28|
 
-**Testing Search Profiles**
+#### My Poems
+- Log in as admin and go to "My poems"
+- Write a new poem with the following values--title: 'unpublished poem'; content: 'content'; category: 'other' and click 'Save as draft'.
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|1|displayed elements|--|Check the heading "My poems" and poems are displayed. |The heading "My poems" and poems are displayed.|The heading "My poems" and poems are displayed.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/MyPoems/MyPoems-1&2.png)|2023/7/26|
+|2|Correct poems (including unpublished poems) are displayed in the right order.|--|Check 'unpublished poem', 'poem 8' and 'poem 7' are displayed in the order.|'unpublished poem', 'poem 8' and 'poem 7' are displayed in the order.|'unpublished poem', 'poem 8' and 'poem 7' are displayed in the order.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/MyPoems/MyPoems-1&2.png)|2023/7/26|
+
+- For test no. 3, delete all three poems by admin.
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|3|message when no poems|--|Check the message "You haven't written any poems." is displayed.|Check the message "You haven't written any poems." is displayed.|Check the message "You haven't written any poems." is displayed.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/MyPoems/MyPoems-1&2.png)|2023/7/26|    ------------------IMAGE NEEDED!!!!
+
+#### Poems I like
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|1|displayed elements|--|Check the heading "Poems I like" and poems are displayed. |The heading "Poems I like" and poems are displayed.|The heading "Poems I like" and poems are displayed.|pass|[image]()|2023/7/28|
+|2|Correct poems are displayed in the right order.|--|Check 'unpublished poem', 'poem 8' and 'poem 7' are displayed in the order.|'unpublished poem', 'poem 8' and 'poem 7' are displayed in the order.|'unpublished poem', 'poem 8' and 'poem 7' are displayed in the order.|pass|[image]()|2023/7/26|
+|3|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|2023/7/28|
+
+#### Featured Profiles component**
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1| Profiles are correctly filtered. |Go to “Home”|Check if user1, 2 and 3 are displayed. |user1, 2 and 3 are displayed.| user1, 2 and 3 are displayed.|pass|2023/7/23|
+|2| Displayed elements |—|Check if the avatar, name, poems count and followers count are displayed. |The avatar, name, poems count and followers count are displayed.| the avatar, name, poems count and followers count are displayed.|pass|2023/7/23|
+|3| follow/unfollow buttons are dipslayed for logged in users |log in as admin|Check if ‘follow’ buttons are displayed for each featured profile. |follow’ buttons are displayed.| follow’ buttons are displayed.|pass|2023/7/23|
+|4| follow function |—|Click ‘follow’ of the top profile. | The follower count will change from 0 to 1.  The button will say ‘unfollow.’ | The follower count changes from 0 to 1.  The button says ‘unfollow.’.|pass|2023/7/23|
+|5| unfollow function |—|Click ‘unfollow’ of the top profile. | The follower count will change from 1 to 0.  The button will say ‘follow.’ | The follower count changes from 0 to 1.  The button says ‘follow.’.|pass|2023/7/23|
+
+As preparatory steps for test no. 6:<br>
+1. log in as user1.  
+2. Confirm in the featured profiles section that the poem count is 1. 
+3. Write a poem with title: ‘poem count test’; content: content; category: other
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|6| poems count |—|Check poems count | The poems count has turned to 2. | The poems count has turned to 2. |pass|2023/7/23|
+
+- Featured Profiles on small screen<br>
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1| alignment |Go to “Home”|Check if user1, 2 and 3 are displayed side to side. |user1, 2 and 3 are displayed side to side.| user1, 2 and 3 are displayed side to side.|pass|2023/7/23|
+|2| displayed elements |—|Check if avatar, name and poems count are displayed. |Avatar, name and poems count are displayed.| Avatar, name and poems count are displayed.|pass|2023/7/23|
+
+#### Search Profiles
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |1|displayed elements|Go to "search profiles"|Check if navbars, the heading "Search Profiles" and an input box are displayed.|All aformentioned elements are displayed.|All aformentioned elements are displayed.|pass|2023/7/23|
@@ -258,12 +317,7 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
 |5|The search will not run if only spaces are entered.|--|Enter a space and wait.|The search doesn't run.|The search didn't run.|pass|2023/7/23|
 
-**Testing Contact**
-Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1|Appearance.|Click "Contact"|Check if the heading and the text referring to the contact email address is displayed.|The aforementioned elements are displayed.|The aforementioned elements are displayed.|pass|[image](./src/assets/manual-testing-screenshots/Contact/Contact.png)|2023/7/23|
-
-**Profile page (individual profile page)**
+#### Profile page (individual profile page)
 As preparation for following tests: 
 1. go to sign up page and sign up with the following credentials: username: newuser; password: swUf8LcR
 2. Sign in as newuser and go to “/profiles/14” (as 14 is the id of newuser)
@@ -304,7 +358,7 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
 |6|displayed elements for logged out users|—|Check that “follow/unfollow” button is not displayed. |“follow/unfollow” button is not displayed.| “follow/unfollow” button is not displayed.|pass|2023/7/24|
 
-**Profile Editing (Profile edit, change username, change password pages)**
+#### Profile Editing (Profile edit, change username, change password pages)
 1. log in as newuser and go to "My Profile." 
 - Notice the functionality for updating the display name, about me, favorites fields has been already tested in no. 5 in the previous Profile Page section. 
 
@@ -338,22 +392,7 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |15|password validation--too common password|—|enter 'password' for both fields and click 'save'.|Error message will tell the password is too common.|Error message says "The password is too common."|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/ProfileEdit/ProfileEdit-15.png)|2023/7/25|
 |16|cancel button|—|Enter 'xxffww000' for both fields and click 'cancel'.|Redirected to Profile Page.  Toast message "You canceled. Your password remains the same" appears. |Redirected to Profile Page.  Toast message "You canceled. Your password remains the same" appears.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/ProfileEdit/ProfileEdit-16.png)|2023/7/25|
 
-**My Poems**
-- Log in as admin and go to "My poems"
-- Write a new poem with the following values--title: 'unpublished poem'; content: 'content'; category: 'other' and click 'Save as draft'.
-
-Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
-|1|displayed elements|--|Check the heading "My poems" and poems are displayed. |The heading "My poems" and poems are displayed.|The heading "My poems" and poems are displayed.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/MyPoems/MyPoems-1&2.png)|2023/7/26|
-|2|Correct poems (including unpublished poems) are displayed in the right order.|--|Check 'unpublished poem', 'poem 8' and 'poem 7' are displayed in the order.|'unpublished poem', 'poem 8' and 'poem 7' are displayed in the order.|'unpublished poem', 'poem 8' and 'poem 7' are displayed in the order.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/MyPoems/MyPoems-1&2.png)|2023/7/26|
-
-- For test no. 3, delete all three poems by admin.
-
-Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
-|3|message when no poems|--|Check the message "You haven't written any poems." is displayed.|Check the message "You haven't written any poems." is displayed.|Check the message "You haven't written any poems." is displayed.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/MyPoems/MyPoems-1&2.png)|2023/7/26|    ------------------IMAGE NEEDED!!!!
-
-**Poets I'm following**
+#### Poets I'm following
 - Log in as admin and go to "Poets I'm following"
 
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
@@ -363,6 +402,8 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 
 - Go to "Home" and click the follow button for user1 and user2 and go back to "Poets I'm following"
 |3|correct profiles are filtered|--|Check if the profiles of user1 and of user2 are displayed. |The profiles of user1 and of user2 are displayed.|The profiles of user1 and of user2 are displayed.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/PoetsImFollowing/PoetsImFollowing-3.png)|2023/7/26|
+
+#### Sign out function (no page)
 
 
 
