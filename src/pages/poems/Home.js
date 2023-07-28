@@ -37,7 +37,7 @@ function Home() {
           <span className={`${styles.Intro} ml-2`}>here.</span>
           <PoemsPage
             filter={`published=1&featured_flag=1&ordering=-created_at&`}
-            heading="Featured Poems" 
+            heading="Featured Poems"
           />
         </Col>
         <Col md={4} className="d-none d-lg-block p-0 p-lg-2">

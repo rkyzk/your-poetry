@@ -1,5 +1,4 @@
 .Poem {
-  background-color: #f8f8f8;
   border: 1px solid #dadadf;
   border-radius: 2px;
   margin-bottom: 16px;
@@ -8,11 +7,20 @@
 }
   
 .LinkText {
-  color:#333;
+  color: rgb(51, 93, 151);
 }
-  
+
 .LinkText:hover {
   text-decoration: underline;
+  color:rgb(10, 10, 90);
+}
+
+.CommentIcon {
+  color: #8d7326;
+}
+
+.CommentIcon:hover {
+  color: #d8c513;
 }
   
 .PubDate {
