@@ -96,19 +96,19 @@ When logging in is necessary, log in with username: admin, password: superuser, 
 **Overall responsiveness**
 
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Image | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
 |1|responsiveness of nav bar components|Go to “Home” page|Expand the screen to the max width(1350px) and gradually narrow down to 330px while checking all elements are displayed without any distortion.|All elements appear without any distortion. |All elements appear without any distortion.|pass|[image1 ](./images/NavBarElements/1-1.png)[image2 ](./images/manual-tests/NavBarElements/1-2.png)[image3](./images/NavBarElements/1-3.png)|2023/7/28|
 
 **Logo**
 
 Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Image | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
 |2|Logo link|Go to “Contact” page|Click the logo|Redirected to the home page|Redirected to the home page|pass|[image1 ](./images/NavBarElements/manual-tests/2&3.png)|2023/7/23|
 
 **Navigation bar elements (Top right)**
 
-Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Image| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
 |3|Nav bar elements when logged out|Log out|Check if the only links displayed are “Home,” “Contact,” “Sign in” and “Sign out”.|The only links displayed are “Home,” “Contact,” “Sign in” and “Sign out” |The only links displayed are “Home,” “Contact,” “Sign in” and “Sign out” |pass|[image](./images/manual-tests/NavBarElements/2&3.png)|2023/7/23|
 |4|link to ”Home”|Go to “Contact” page|Click “Home”|Redirected to ”Home"|Redirected to ”Home”|pass|[image](./images/manual-tests/NavBarElements/4.png)|2023/7/23|
 |5|link to ”Contact”|Go to “Home”|Click “Contact”|Redirected to ”Contact”|Redirected to ”Contact”|pass|[image](./images/manual-tests/NavBarElements/5.png)|2023/7/23|
@@ -123,10 +123,10 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 |14|link 'Sign in; in burger menu functions|--|Click the burger menu and click 'Sign in'. |Redirected to 'Sign in.' |Redirected to 'Sign in.'|pass|[image](./images/manual-tests/NavBarElements/14.png)|2023/7/23|
 |15|link 'Sign up' burger menu functions|--|Click the burger menu and click 'Sign up'. |Redirected to 'Sign up.' |Redirected to 'Sign up.'|pass|[image](./images/manual-tests/NavBarElements/15.png)|2023/7/23|
 
-- For test no. 16-10, sign in with username: admin, password: superuser<br>
+- For the subsequent tests, sign in with username: admin, password: superuser<br>
 
-Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
-|:---|:---|:---|:---|:---|:---|:---|:---|
+Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Image |Date |
+|:---|:---|:---|:---|:---|:---|:---|:---|:--- |
 |16|displayed items|--|Check links 'Home', 'Contact,' an avatar and username 'admin' are displayed.|Links 'Home', 'Contact,' an avatar and username 'admin' are displayed.|Links 'Home', 'Contact,' an avatar and username 'admin' are displayed.|pass|[image](./images/manual-tests/NavBarElements/16.png)|2023/7/23|
 |17|dropdown menu|--|Click username “admin”|The drowdown menu is displayed.|The drowdown menu is displayed.|pass|[image](./images/manual-tests/NavBarElements/17.png)|2023/7/23|
 |18|”My Profile”|Click username “admin”|Click “My Profile”|Redirected to ”My Profile” of admin|Redirected to “My Profile” of admin|pass|[image](./images/manual-tests/NavBarElements/18.png)|2023/7/23|
@@ -172,32 +172,32 @@ Test No.| Feature being tested | Preparation Steps if any | Test Steps | Expecte
 
 #### Footer
 
-Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1|Displayed elements ||Check facebook, twitter and instagram icons are displayed.|The three icons are displayed.| The three icons are displayed.|pass|2023/7/28|
-|2|responsiveness |--|Expand the screen to 1350px (max width on the device used for testing). Narrow down the screen size to 330px, while checking the elements are displayed without any distortion.|The elements are displayed without any distortion.|The elements are displayed without any distortion.|pass|2023/7/28|
-|3|link to ”facebook” |—|Click the link|Redirected to facebook website| Redirected to facebook website|pass|2023/7/28|
-|4|link to ”twitter” |—|Click the link|Redirected to twitter website| Redirected to twitter website|pass|2023/7/28|
-|5|link to ”instagram” |—|Click the link|Redirected to instagram website| Redirected to instagram website|pass|2023/7/28|
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |Image| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
+|1|Displayed elements ||Check facebook, twitter and instagram icons are displayed.|The three icons are displayed.| The three icons are displayed.|pass|[image](./images/manual-tests/Footer/1.png)|2023/7/28|
+|2|responsiveness |--|Expand the screen to 1350px (max width on the device used for testing). Narrow down the screen size to 330px, while checking the elements are displayed without any distortion.|The elements are displayed without any distortion.|The elements are displayed without any distortion.|pass|[image](./images/manual-tests/Footer/2.png)|2023/7/28|
+|3|link to ”facebook” |—|Click the link|Redirected to facebook website| Redirected to facebook website|pass|[image](./images/manual-tests/Footer/3.png)|2023/7/28|
+|4|link to ”twitter” |—|Click the link|Redirected to twitter website| Redirected to twitter website|pass|[image](./images/manual-tests/Footer/4.png)|2023/7/28|
+|5|link to ”instagram” |—|Click the link|Redirected to instagram website| Redirected to instagram website|pass|[image](./images/manual-tests/Footer/5.png)|2023/7/28|
 
 #### Sign in page<br>
 Stay logged out for tests no. 1-11.
 
-Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1| sign in function |—|enter ‘admin’ for username and ‘superuser’ for password. Click ‘Sign in’ |Redirected to “Home”| Redirected to “Home”|pass|2023/7/23|
-|2| sign in function |—|enter ‘admin’ for username and ‘superuser’ for password. Click ‘Sign in’ |Redirected to “Home”| Redirected to “Home”|pass|2023/7/23|
-|3| validation for name field |—|enter nothing for username and ‘superuser’ for password. Click ‘Sign in’ |validation message says required fields must be filled out.| validation message says “Must include "username" and "password".|pass|2023/7/23|
-|4| validation for password field |—|enter admin for username and nothing for password. Click ‘Sign in’ |validation message says required fields must be filled out.| validation message says “The field may not be blank.”|pass|2023/7/23|
-|5| validation for username and pasword fields|—|enter nothing for both username and password. Click ‘Sign in’ |validation message says required fields must be filled out.|Validation message says “This field may not be blank.” |pass|2023/7/23|
-|6| Validation in case spaces are entered in required fields|—|enter one space for both username and password. Click ‘Sign in’ |validation message says required fields must be filled out.|Validation message says “This field may not be blank.”|pass|2023/7/23|
-|7| validation against a wrong password|—|enter admin for username. Enter ‘wrong’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.” |pass|2023/7/23|
-|8| validation when the username is non existent |—|enter ‘test’ for username. enter ‘superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.”|pass|2023/7/23|
-|9| validation: case sensitivity for the username |—|enter ‘Admin’ for username and ‘superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.”|pass|2023/7/23|
-|10| validation: case sensitivity for the password |—|enter ‘admin’ for username and ‘Superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.” |pass|2023/7/23|
-|11| link to sign up page|—|Click the link “Don’t have an account? Sign up now!” |Redirected to “Sign up”|Redirected to “Sign up”|pass|2023/7/23|
-|12|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|2023/7/28|
-|13|access control|—|Log in and go to "/signin"|Redirected to "Home."|Redirected to "Home."|pass|2023/7/28|
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Image |Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---|:--- |:---|
+|1| displayed elements |—|Check the navbar on top right is present but the one on the left side is not.  Check the heading, input box for username and password, the sign in button, link to sign up page are displayed.  |All mentioned elements are displayed.| All mentioned elements are displayed.|pass|[image](./images/manual-tests/Signin/1.png)|2023/7/23|
+|2| sign in function |—|enter ‘admin’ for username and ‘superuser’ for password. Click ‘Sign in’ |Redirected to “Home.” Message "You're signed in as admin" appears.| Redirected to “Home.” Message "You're signed in as admin" appears.|pass|[image](./images/manual-tests/Signin/2.png)|2023/7/23|
+|3| validation for name field |—|enter nothing for username and ‘superuser’ for password. Click ‘Sign in’ |validation message says required fields must be filled out.| validation message says “Must include "username" and "password".|pass|[image](./images/manual-tests/Signin/3.png)|2023/7/23|
+|4| validation for password field |—|enter admin for username and nothing for password. Click ‘Sign in’ |validation message says required fields must be filled out.| validation message says “The field may not be blank.”|pass|[image](./images/manual-tests/Signin/4.png)|2023/7/23|
+|5| validation for username and pasword fields|—|enter nothing for both username and password. Click ‘Sign in’ |validation message says required fields must be filled out.|Validation message says “This field may not be blank.” |pass|[image](./images/manual-tests/Signin/5.png)|2023/7/23|
+|6| Validation in case spaces are entered in required fields|—|enter one space for both username and password. Click ‘Sign in’ |validation message says required fields must be filled out.|Validation message says “This field may not be blank.”|pass|[image](./images/manual-tests/Signin/6.png)|2023/7/23|
+|7| validation against a wrong password|—|enter admin for username. Enter ‘wrong’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.” |pass|[image](./images/manual-tests/Signin/7.png)|2023/7/23|
+|8| validation when the username is non existent |—|enter ‘test’ for username. enter ‘superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.”|pass|[image](./images/manual-tests/Signin/8.png)|2023/7/23|
+|9| validation: case sensitivity for the username |—|enter ‘Admin’ for username and ‘superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.”|pass[image](./images/manual-tests/Signin/9.png)|2023/7/23|
+|10| validation: case sensitivity for the password |—|enter ‘admin’ for username and ‘Superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.” |pass|[image](./images/manual-tests/Signin/10.png)|2023/7/23|
+|11| link to sign up page|—|Click the link “Don’t have an account? Sign up now!” |Redirected to “Sign up”|Redirected to “Sign up”|pass|[image](./images/manual-tests/Signin/11.png)|2023/7/23|
+|12|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/Signin/12.png)|2023/7/28|
+|13|user redirect|—|Log in and enter "/signin" in the URL|Redirected to "Home."|Sign in appears for a moment and then redirected to "Home."|pass|[image](./images/manual-tests/Signin/13.png)|2023/7/28|
 
 #### Sign up
 Stay logged out for tests no. 1-7<br>
