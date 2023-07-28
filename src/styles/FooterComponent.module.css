@@ -1,5 +1,8 @@
 .FooterBg {
   background-color: rgb(10, 10, 90);
   height: 70px;
-  color: #fff;
+}
+
+.SocialNW {
+  color: #ddd;
 }

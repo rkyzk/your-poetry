@@ -1,5 +1,8 @@
 import React from "react";
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assets/poetry-logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
@@ -10,29 +13,39 @@ import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 import { toast } from "react-toastify";
 
+// render the first navbar on top right
 const NavBar = () => {
+  // store info of logged in/out, if logged in, which user
   const currentUser = useCurrentUser();
+  /* expanded: wheather the menu bar is expanded/not
+     setExpanded: set expanded true/false
+     ref: stores info about what has been clicked */
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
+  // function to set current user
   const setCurrentUser = useSetCurrentUser();
-  const id = currentUser?.pk;
 
+  // funtion for signing out
   const handleSignOut = async () => {
     try {
+      // tell backend to log out the user
       await axios.post("dj-rest-auth/logout/");
       setExpanded(false);
       setCurrentUser(null);
       toast("You've been signed out.");
       removeTokenTimestamp();
     } catch (err) {
-      console.log(`Something went wrong.  Please try again.`);
+      toast("Something went wrong.  Please try again.");
     }
   };
 
+  /* For screen size md or below, if the username has been clicked,
+     keep the burger menu open. */
   const keepMenuOpen = (event) => {
     event.target.id === "nav-dropdown" &&
     setExpanded(true);
   }
 
+  // Nav link items to be displayed when logged in
   const loggedIn = (
     <>
       <Avatar src={currentUser?.profile_image} height={40} navbar />
@@ -92,6 +105,7 @@ const NavBar = () => {
     </>
   );
 
+  // Nav link items to be displayed when logged out
   const loggedOut = (
     <>
       <NavLink

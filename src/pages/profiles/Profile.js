@@ -197,24 +197,32 @@ const Profile = (props) => {
           </div>
         </>
       )}
-      {!mobile &&
-        currentUser &&
-        !is_owner &&
-          (following_id ? (
-          <Button
-            className={`${btnStyles.Button} ${btnStyles.BlackOutline} mt-2 ml-4`}
-            onClick={() => handleUnfollow()}
+      {!mobile && currentUser && (
+        is_owner ? (
+          <span
+          className={`${btnStyles.You} ml-4 mt-3`}
           >
-            unfollow
-          </Button>
+            You!
+          </span>
         ) : (
-          <Button
-            className={`${btnStyles.Button} ${btnStyles.Black} mt-2 ml-4`}
-            onClick={() => handleFollow()}
-          >
-            follow
-          </Button>
-        ))}
+          following_id ? (
+            <Button
+              className={`${btnStyles.Button} ${btnStyles.BlackOutline} mt-2 ml-4`}
+              onClick={() => handleUnfollow()}
+            >
+              unfollow
+            </Button>
+          ) : (
+            <Button
+              className={`${btnStyles.Button} ${btnStyles.Black} mt-2 ml-4`}
+              onClick={() => handleFollow()}
+            >
+              follow
+            </Button>
+          )
+        )
+      )
+      }
       </Card.Body>
     </Card>
   );

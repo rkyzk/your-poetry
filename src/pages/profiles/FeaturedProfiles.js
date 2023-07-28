@@ -8,8 +8,6 @@ import { useFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataCont
 
 const FeaturedProfiles = ({ mobile }) => {
   const { featuredProfilesData, message } = useFeaturedProfilesData();
-  console.log("message:");
-  console.log(message);
   return (
     <Container
       className={`${appStyles.Content} ${styles.Mobile} ${
@@ -18,8 +16,7 @@ const FeaturedProfiles = ({ mobile }) => {
     >
       <h4 className={`${styles.Heading} text-center`}>Featured profiles</h4>
       {featuredProfilesData.results.length ? (
-        <>
-          
+        <> 
           {mobile ? (
             <Row>
               {featuredProfilesData.results.map((profile) => (
