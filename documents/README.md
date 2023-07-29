@@ -417,6 +417,26 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |2|Correct poems are displayed in the right order.|--|Check 'poem 3' and 'poem 2' are displayed.|'poem 3' and 'poem 2' are displayed.|'poem 3' and 'poem 2' are displayed.|pass|[image](./images/manual-tests/PoemsIlike/1&2-1.png)|2023/7/29|
 |3|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/PoemsIlike/3.png)|2023/7/29|
 
+#### Poem Page
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |Image| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
+|1|displayed elements |Log out and go to "/poems/39"|Check if the poem, a note "No comments yet..." and a link to signin page are displayed.|All mentioned elements are displayed.| All mentioned elements are displayed.|pass|[image](./images/manual-tests/PoemPage/1.png)|2023/7/29|
+|2|Link to Signin page |--|Click the link.|Redirected to Signin page.| Redirected to Signin page.|pass|[image](./images/manual-tests/PoemPage/2.png)|2023/7/29|
+|3|displayed elements. |log in and go to "/poems/39|Check comment form, avatar and name 'admin' are displayed below the poem. |All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/PoemPage/3.png)|2023/7/29|
+
+#### Comments 
+- Log in as admin, Go to ‘poems/39’ — the poem page of ‘poem 8.'
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1| comment can be posted |—|Write in “test comment” and click ‘post’. |The comment ‘test comment’ is displayed.| The comment ‘test comment’ is displayed.|pass|[image](./images/manual-tests/Comments/1.png)2023/7/29|
+|2| comment can be updated |—|Click on three dots |Click edit icon, and update the comment as ‘test comment updated’. Click ‘save’| The comment ‘test comment updated’ is displayed.|The comment ‘test comment updated’ is displayed.|pass|[image](./images/manual-tests/Comments/2.png)2023/7/29|
+|3| comment update can be canceled |—|Click on three dots |Click edit icon, and update the comment as ‘test comment updated’. Click ‘save’| The comment ‘test comment updated’ is displayed.  The comment will be labeld as ’edited.’|The comment ‘test comment updated’ is displayed. The comment will be labeld as ‘edited.’|pass|[image](./images/manual-tests/Comments/3.png)2023/7/29|
+|4| Comment edit not possible for other users| log out and log in as user1. Go to “/poems/” | Check that the three dots are absent.|The three dots are absent.|pass|[image](./images/manual-tests/Comments/4.png)2023/7/29|
+|5| Infinit scroll | make 11 additional comments with content ‘test comment.’ Edit the 10th comment in the list to '10th test comment' and 11th comment to ;11th comment.' | Go to "Home" once and go back to "/poems/39." Scroll down.|A spinner shows up after the 10th comment, and two more comments will be displayed briefly later. |A spinner shows up after the 10th comment, and two more comments are displayed briefly later.|pass|[image1 ](./images/manual-tests/Comments/5-1.png)[image2](./images/manual-tests/Comments/5-2.png)2023/7/29|
+|6| comment can be deleted |Update the top comment to “test comment delete.” |Click on three dots of the updated comment. Click trash bin icon| The comment is erased.|The comment is erased.|pass|[image](./images/manual-tests/Comments/7-1.png)[image](./images/manual-tests/Comments/7-2.png)|2023/7/29|
+
 #### Featured Profiles component**
 - On admin panel, make 3 users: user1, user2, user3 and set featured_flag to true.
 
