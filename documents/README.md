@@ -193,7 +193,7 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |6| Validation in case spaces are entered in required fields|—|enter one space for both username and password. Click ‘Sign in’ |validation message says required fields must be filled out.|Validation message says “This field may not be blank.”|pass|[image](./images/manual-tests/Signin/6.png)|2023/7/23|
 |7| validation against a wrong password|—|enter admin for username. Enter ‘wrong’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.” |pass|[image](./images/manual-tests/Signin/7.png)|2023/7/23|
 |8| validation when the username is non existent |—|enter ‘test’ for username. enter ‘superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.”|pass|[image](./images/manual-tests/Signin/8.png)|2023/7/23|
-|9| validation: case sensitivity for the username |—|enter ‘Admin’ for username and ‘superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.”|pass[image](./images/manual-tests/Signin/9.png)|2023/7/23|
+|9| validation: case sensitivity for the username |—|enter ‘Admin’ for username and ‘superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.”|pass|[image](./images/manual-tests/Signin/9.png)|2023/7/23|
 |10| validation: case sensitivity for the password |—|enter ‘admin’ for username and ‘Superuser’ for password. Click ‘Sign in’ |Validation message says either the username or the password is wrong.|Validation says “Unable to log in with provided credentials.” |pass|[image](./images/manual-tests/Signin/10.png)|2023/7/23|
 |11| link to sign up page|—|Click the link “Don’t have an account? Sign up now!” |Redirected to “Sign up”|Redirected to “Sign up”|pass|[image](./images/manual-tests/Signin/11.png)|2023/7/23|
 |12|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/Signin/12.png)|2023/7/28|
@@ -202,8 +202,8 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 #### Sign up
 Stay logged out for tests no. 1-7<br>
 
-Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |Image| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
 |1|displayed elements|—|Check that the first nav bar on top right, the heading, input boxes for username, password and confirm password, sign up button and the link to signin page are displayed |All elements are displayed.| All elements are displayed.|pass|[image](./images/manual-tests/Signup/1.png)|2023/7/23|
 |2|sign up function |—|enter ‘user4’ for username and ‘swUf8LcR’ for both password fields. Click ‘Sign up’ |Redirected to “Sign in Page.”| Redirected to “Sign in Page.” In the backend, profile with owner 'user4' is present.|pass|[image1 ](./images/manual-tests/Signup/2.png)[image2](./images/manual-tests/Signup/2-2.png)|2023/7/23|
 |3| validation (username) |—|enter nothing for username.  Enter ‘swUf8LcR’ for password fields. Click ‘Sign up’ |Validation says required fields must be filled out.| Validation says "This field may not be blank."|pass|[image](./images/manual-tests/Signup/3.png)|2023/7/23|
@@ -218,8 +218,8 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 
 #### Home page
 
-Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Images|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
 |1|Displayed elements.|log out|Check both navbars, introduction, the sentence "Don't have an account...", featured poems, featured profiles are displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/Home/1.png)|2023/7/28|
 |2|Displayed elements.|log in|Check that the sentence "Don't have an account..." is not displayed.|The sentence is not displayed.|The sentence is not displayed.|Hopass|[image](./images/manual-tests/Home/2.png)|2023/7/28|
 |3|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/Home/2.png)32023/7/28|
@@ -227,14 +227,14 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 
 #### Contact Page
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|:---| :--- | :--- |:---| :--- | :--- |:---|:---|
 |1|Displayed elements.|Click "Contact"|Check if the heading and the right content is displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/Contact/1.png)|2023/7/23|
 |2|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/Contact/2.png)|2023/7/28|
 
 #### Write poems
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|:---| :--- | :--- |:---| :--- | :--- |:---|:---|:---|
 |1|Displayed elements.||Check if the heading, input boxes for title, content, select box for category, 'save as draft,' 'publish,' 'cancel' buttons are displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/WritePoems/1.png)|2023/7/28|
 |2|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/WritePoems/2.png)|2023/7/28|
 |3|Save poem|—|Enter title: 'test'; content: content; category: 'other' and click 'save.'|Message "Your poem has been saved.' appears. Redirected to the poem page of the new poem.  The poem is labeled 'Not published yet.'|Message "Your poem has been saved.' appears. Redirected to the poem page of the new poem. The poem is labeled 'Not published yet.'|pass|[image1 ](./images/manual-tests/WritePoems/3-1.png)[image2](./images/manual-tests/WritePoems/3-2.png)||2023/7/28|
@@ -245,55 +245,89 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |8|cancel|Go to "Home" and click "Write Poems"|Enter title: 'test'; and click 'cancel.'|Redirected to "Home"|Redirected to "Home"|pass|[image ](./images/manual-tests/WritePoems/8.png)|2023/7/28|
 |9|user redirect|—|Log out and go to "/poems/create"|Redirected to "Home."|Redirected to "Home."|pass|[image ](./images/manual-tests/WritePoems/9.png)|2023/7/28|
 
-#### Edit and delete poems
+#### Edit poems
+- Go to "/poems/27/edit," which is the edit page for the poem written in test no. 3 in the previous 'Write poems' section.
+
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---|:---|:---|
+|1|Displayed elements.||Check if the heading, input boxes for title, content, select box for category, 'save,' 'publish,' 'cancel' buttons are displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/EditPoems/1.png)|2023/7/28|
+|2|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/EditPoems/2.png)|2023/7/28|
+|3|editing title|—|update the title to ‘test updated’ and click ‘save’| The title reads ‘test updated,’ and the notification says 'The change has been saved.'|The title reads ‘test updated,’ and the notification says 'The change has been saved.'|pass|[image](./images/manual-tests/EditPoems/3-1.png)[image](./images/manual-tests/EditPoems/3-2.png)|2023/7/29|
+|4|editing content|—|update the content to ‘content updated’ and click ‘save.’| The title reads ‘content updated’|The title reads ‘content updated’|pass|[image](./images/manual-tests/EditPoems/4-1.png)[image](./images/manual-tests/EditPoems/4-2.png)|2023/7/29|
+|5|editing category|—|update the category to ‘nature’ and click ‘save’| The category reads ‘nature.’|The category reads ‘nature.’|pass|[image](./images/manual-tests/EditPoems/5.png)|2023/7/29|
+|6|publish|—|click ‘publish’| A notification says "Your poem has been published." The publish date reads ’Published on 29 Jul 2023’.|A notification says "Your poem has been published." The publish date reads ’Published on 29 Jul 2023’.|pass|[image](./images/manual-tests/EditPoems/6.png)|2023/7/29|
+|7|validation - title|—|erase the title and click ‘save’| The validation says the field must be filled out.|The validation says 'This field may not be blank.' below the title field.|pass|[image](./images/manual-tests/EditPoems/7.png)|2023/7/29|
+|8|validation - content|—|erase the content and click ‘save’| The validation says the field must be filled out.|The validation says 'This field may not be blank.' below the content field.|pass|[image](./images/manual-tests/EditPoems/8.png)|2023/7/29|
+|9|cancel|—|change the title to ‘title updated again,’ and click ‘cancel’| The title remains as ’title updated’.|The title remains as’ title updated’.|pass|[image](./images/manual-tests/EditPoems/9.png)|2023/7/29|
+|10|no 'publish' button for published poems|—|Check 'publish' button is absent.| 'publish' button is absent.|'publish' button is absent.|pass|[image](./images/manual-tests/EditPoems/10.png)|2023/7/29|
+
+#### Delete Poems
+- Log in as admin and go to "/poems/27" (The poem page of 'test updated')
+
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---|:---|:---|
+|1|A confirmation modal|—|Click on the three dots and the trash bin icon.| Delete confirmation will appear.|Delete confirmation will appear.|pass|[image](./images/manual-tests/DeletePoems/1.png)|2023/7/29|
+|2|Cancel|—|Click 'cancel.'| The confirmation modal disappears, and the poem page of 'test updated' remains the same.|The confirmation modal disappears, and the poem page of 'test updated' remains the same.|pass|[image](./images/manual-tests/DeletePoems/2.png)|2023/7/29|
+|1|Delete|—|Click 'delete.'| Message "Your poem has been deleted" appears and redirected to "My Poems" page.|Message "Your poem has been deleted" appears and redirected to "My Poems" page.|pass|[image](./images/manual-tests/DeletePoems/1.png)|2023/7/29|
 
 #### Poem Component
-As preparation for tests no. 1-9, log in as admin, write a poem with following values and publish:
-title: test poem; content: testing if only the first  characters will be displayed in the poem component; category: other
+As preparation for subsequent tests, log in as admin, write a poem with following values and publish:
+title: poem component test; content: testing if only the first 60 characters will be displayed in the poem component; category: other
 
-**CHECK WHICH CHARACTERS WILL BE DISPLAYED!!
-
-- Poem Component on Poems page
+**Test Poem Component on Poems page**
 There are several pages using Poems page, so I tested the poem component displayed on "New Poems."<br>
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1| displayed element |Go to “New Poems”|Check if the title, author, published date and the first 60 characters of the content are displayed. |’test poem’ is displayed on the top of the list, and the title, author, published date and the first 60 characters of the content are displayed. | ’test poem’ is displayed on the top of the list, and the title, author and the first 60 characters of the content are displayed|pass|2023/7/23|
-|2| link (title) |Go to “New Poems”| click the title ‘test poem’ |Redirected to the poem page of ‘test poem.’ | Redirected to the poem page of ‘test poem.’ |pass|2023/7/23|
-|3| link (author) |Go to “New Poems”| Click the author ‘admin’ of ‘test poem’|The admin’s profile page is displayed. | The admin’s profile page is displayed.|pass|2023/7/23|
-|4| like icon tooltip | go to “New Poems” |Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘You can’t like your own poem!’|A tooltip message says ‘You can’t like your own poem!’|pass|2023/7/23|
-|5| link (comment icon) | go to “New Poems” |click the comment icon for ‘test poem’ | Redirected to the poem page of ‘test poem’| Redirected to the poem page of ‘test poem’|pass|2023/7/23|
-|6| like icon tooltip | log out and go to “New Poems” |Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘Log in to like poems!’|A tooltip message says ‘Log in to like poems!’|pass|2023/7/23|
-|7| link (comment icon) | go to “New Poems” |click the comment icon for ‘test poem’ | Redirected to the poem page of ‘test poem’| Redirected to the poem page of ‘test poem’|pass|2023/7/23|
-|8| like function  | log in as user1 and go to “New Poems” |Click the heart icon for ‘test poem’ | The heart icon will turn to pink and the likes count will change from 0 to 1.|The heart icon turns to pink and the likes count changes from 0 to 1.|pass|2023/7/23|
-|9| unlike function | go to “New Poems” |Click the heart icon for ‘test poem’ | The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|pass|2023/7/23|
+|1| displayed elements |Go to “New Poems”|Check if the title, author, published date and the first 60 characters (up to 'displayed in') followed by '...' are displayed. |All mentioned elements are displayed. | All mentioned elements are displayed.|pass|[image](./images/manual-tests/PoemComponent/1.png)|2023/7/23|
+|2| link (title) |Go to “New Poems”| click the title ‘poem component test’ |Redirected to the poem page of ‘poem component test.’ | Redirected to the poem page of ‘poem component test.’ |pass|[image](./images/manual-tests/PoemComponent/2.png)|2023/7/23|
+|3| link (author) |Go to “New Poems”| Click the author ‘admin’ of ‘poem component test’|The admin’s profile page is displayed. | The admin’s profile page is displayed.|pass|[image](./images/manual-tests/PoemComponent/3.png)|2023/7/23|
+|4| like icon tooltip | Go to “New Poems” |Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘You can’t like your own poem!’|A tooltip message says ‘You can’t like your own poem!’|pass|[image](./images/manual-tests/PoemComponent/4.png)|2023/7/23|
+|5| link (comment icon) | Go to “New Poems” |click the comment icon for ‘poem component test’ | Redirected to the poem page of ‘poem component test’| Redirected to the poem page of ‘poem component test’|pass|[image](./images/manual-tests/PoemComponent/5.png)|2023/7/23|
+|6| like icon tooltip | log out and go to “New Poems” |Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘Log in to like poems!’|A tooltip message says ‘Log in to like poems!’|pass|[image](./images/manual-tests/PoemComponent/6.png)|2023/7/23|
+|7| like function  | log in as user1 and go to “New Poems” |Click the heart icon for ‘poem component test’ | The heart icon will turn to pink and the likes count will change from 0 to 1.|The heart icon turns to pink and the likes count changes from 0 to 1.|pass|[image](./images/manual-tests/PoemComponent/7.png)|2023/7/23|
+|8| unlike function | go to “New Poems” |Click the heart icon for ‘test poem’ | The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|pass|[image](./images/manual-tests/PoemComponent/8.png)|2023/7/23|
 
-- Poem Component on Poem page (the individual poem page versus poems page)<br>
+- Poem Component on Poem page (the individual poem page)<br>
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1| displayed element |Log in as admin.  Go to “/poems/” (‘test poem’s id is )|Check if the title, author, published date, the whole content, category are displayed.  Also three dots for editing are displayed at the top right corner. |The title, author, published date, the whole content, category as well as the three dots are displayed. | The title, author, published date, the whole content, category as well as the three dots are displayed. |pass|2023/7/23|
-|2| link (author) || Click the author ‘admin’ |The admin’s profile page is displayed. | The admin’s profile page is displayed.|pass|2023/7/23|
-|3| three dots menu || Click the three dots |The edit and delete icons are displayed. | The edit and delete icons are displayed.|pass|2023/7/23|
-|4| like icon tooltip for owner | |Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘You can’t like your own poem!’|A tooltip message says ‘You can’t like your own poem!’|pass|2023/7/23|
-|4| like icon tooltip for logged out users | log out|Bring the cursol over the heart icon for ‘test poem’ | A tooltip message says ‘Log in to like poems!’|A  tooltip message says ‘Log in to like poems!’|pass|2023/7/23|
-|8|no three dots are displayed for other users| log in as user1 and go to “/poems/” |Check the three dots are not displayed. | The three dots are not displayed.|The three dots are not displayed.|pass|2023/7/23|
-|8| like function  |--|Click the heart icon for ‘test poem’ | The heart icon will turn to pink and the likes count will change from 0 to 1.|The heart icon turns to pink and the likes count changes from 0 to 1.|pass|2023/7/23|
-|9| unlike function | go to “poems/” |Click the heart icon for ‘test poem’ | The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|pass|2023/7/23|
+|9| displayed elements |Log in as admin.  Go to “/poems/29” (29 is ‘poem component test’s id.)|Check if the title, author, published date, the whole content, category are displayed.  Also three dots for editing are displayed at the top right corner. |All mentioned elements are displayed.| TAll mentioned elements are displayed.|pass|[image](./images/manual-tests/PoemComponent/9.png)|2023/7/23|
+|10| link (author) |--| Click the author ‘admin’ |The admin’s profile page is displayed. | The admin’s profile page is displayed.|pass|[image](./images/manual-tests/PoemComponent/10.png)|2023/7/23|
+|11| three dots menu |--| Click the three dots |The edit and delete icons are displayed. | The edit and delete icons are displayed.|pass|[image](./images/manual-tests/PoemComponent/11.png)|2023/7/23|
+|12| like icon tooltip for owner |--|Bring the cursol over the heart icon for ‘poem component test’ | A tooltip message says ‘You can’t like your own poem!’|A tooltip message says ‘You can’t like your own poem!’|pass|[image](./images/manual-tests/PoemComponent/12.png)|2023/7/23|
+|13| like icon tooltip for logged out users |log out|Bring the cursol over the heart icon | A tooltip message says ‘Log in to like poems!’|A tooltip message says ‘Log in to like poems!’|pass|[image](./images/manual-tests/PoemComponent/13.png)|2023/7/23|
+|14|no three dots are displayed for other users| log in as user1 and go to “/poems/29” |Check the three dots are not displayed. | The three dots are not displayed.|The three dots are not displayed.|pass|[image](./images/manual-tests/PoemComponent/14.png)|2023/7/23|
+|15| like function  |--|Click the heart icon | The heart icon will turn to pink and the likes count will change from 0 to 1.|The heart icon turns to pink and the likes count changes from 0 to 1.|pass|[image](./images/manual-tests/PoemComponent/15.png)|2023/7/23|
+|16| unlike function | go to “poems/29” |Click the heart icon. | The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|The heart icon will turn from pink to transparent and the likes count will change from 1 to 0.|pass|[image](./images/manual-tests/PoemComponent/16.png)|2023/7/23|
+|17| comments count | -- |Leave a commnet 'test comment' | The comments count has changed from 0 to 1.|The comments count has changed from 0 to 1.|pass|[image](./images/manual-tests/PoemComponent/17.png)|2023/7/29|
 
 #### PoemsPage
-- I tested PoemsPage on "New Poems."
+- In order to test features common to pages using PoemsPage, I conducted following tests on "New Poems."
+- As preparation, write several new poems and publish them so that 12 poems will be displayed on "New Poems."
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|| infinit scroll | go to “New Poems” |scroll down to bottom | Loading icon appears, and  will be displayed.|Loading icon appears, and then  are displayed.|pass|2023/7/28|
+|1| spinner | go to “New Poems” |Check if the spinner appears before the data loads. | The spinner shows before the data loads.|The spinner shows before the data loads.|pass|[image](./images/manual-tests/PoemsPage/1.png)|2023/7/29|
+|2| infinit scroll | Go to “New Poems” |scroll down to bottom | Spinner appears, and 2 more poems will be displayed after a few seconds.|First a spinner is displayed below the 10th poem on the list 'test2'.  After a few seconds, two more poems 'title' and 'title profile component' are displayed.|pass|[image](./images/manual-tests/PoemsPage/2.png)|2023/7/28|
 
 #### New Poems
-Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|| Displayed elements | go to “New Poems” |Check which elements are displayed. | Heading "", poems are featured profiles are displayed.| are displayed.|pass|2023/7/28|
-|| Correct poems are filtered | go to “New Poems” |Check which poems are displayed. | are displayed.| are displayed.|pass|2023/7/28|
-|9|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|2023/7/28|
+For the subesequent tests, go to admin panel and prepare poems as follows.  Delete all other poems.
+
+author|title|content|category|published date|
+|:---| :--- | :--- |:---| :--- |
+|user1|poem 1| content| other|2023/07/29|
+|user2|poem 2| content| other|2023/07/29|
+|user3|poem 3| content| other|2023/07/29|
+|user3|poem 4| content| other|2023/07/09|
+|user3|poem 5| content| other|2023/07/09|
+|user3|poem 6| content| other|2023/07/09|
+
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Image|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
+|1|Displayed elements| go to “New Poems” |Check which elements are displayed. | Heading "New Poems (published in the past 14 days)", list of poems and featured profiles are displayed.| All elements are displayed.|All elements are displayed.|pass|[image](./images/manual-tests/NewPoemsPage/1&2-1.png)|2023/7/29|
+|| Correct poems are filtered | go to “New Poems” |Check which poems are displayed. | 'poem 1-3' are displayed.| 'poem 1-3' are displayed.|pass|[image1 ](./images/manual-tests/NewPoemsPage/1&2-1.png)[image](./images/manual-tests/NewPoemsPage/2-2.png)|2023/7/29|
+|9|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|2023/7/29|
 
 #### Poems by Category Page
 As Preparation<br>
