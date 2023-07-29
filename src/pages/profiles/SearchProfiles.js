@@ -18,7 +18,6 @@ function SearchProfiles() {
       query.replace(/\s/g, "") !== "" &&
         setSearch(true);
     }, 1000);
-
     return () => {
       clearTimeout(timer);
     };
@@ -26,12 +25,13 @@ function SearchProfiles() {
 
   return (
     <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2">
+      <Col className="p-2">
         <h3 className="text-center">Search Profiles</h3>
         <Row>
           <Col
             md={{ span: 6, offset: 3 }}
             sm={{ span: 8, offset: 2 }}
+            xs={{ span: 10 }}
           >
             <Form
               className={`${styles.SearchBar} mb-3`}

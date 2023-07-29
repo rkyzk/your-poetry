@@ -217,6 +217,7 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |11|user redirect|—|Log in and enter "/signup" in the URL|Redirected to "Home."|Signup page appears for a moment and then redirected to "Home."|pass|[image](./images/manual-tests/Signup/11.png)|2023/7/28|
 
 #### Home page
+- For test no. 5, go to admin panel, make poems titled 'poem1', 'poem2', 'poem3' (content: 'content'; category: 'other') and set the featured_flag to true
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Images|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
@@ -224,6 +225,7 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |2|Displayed elements.|log in|Check that the sentence "Don't have an account..." is not displayed.|The sentence is not displayed.|The sentence is not displayed.|Hopass|[image](./images/manual-tests/Home/2.png)|2023/7/28|
 |3|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/Home/2.png)32023/7/28|
 |4|link to signup page|log out.|Click the link.|Redirected to signup page.|Redirected to signup page.|pass|[image](./images/manual-tests/Home/4.png)|2023/7/28|
+|5|Correct poems are filtered as featured poems||Check if 'poem 3', 'poem2', 'poem1' are displayed.|'poem 3', 'poem2', 'poem1' are displayed.|'poem 3', 'poem2', 'poem1' are displayed.|pass|[image1 ](./images/manual-tests/Home/5-1.png)[image2](./images/manual-tests/Home/5-2.png)|2023/7/29|
 
 #### Contact Page
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
@@ -329,6 +331,18 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |2| Correct poems are filtered | go to “New Poems” |Check which poems are displayed. | 'poem 1-3' are displayed.| 'poem 1-3' are displayed.|pass|[image1 ](./images/manual-tests/NewPoemsPage/1&2-1.png)[image](./images/manual-tests/NewPoemsPage/2-2.png)|2023/7/29|
 |3|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/NewPoemsPage/3.png)|2023/7/29|
 
+#### Popular Poems
+- log in as admin and like poem 6
+- log in as user1 and like poem 6 and poem 7
+- Likes counts should be a follows: poem 6: 2; poem 7: 1; poem 8: 0
+
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Image|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
+|1|Displayed elements| -- |Check which elements are displayed. | Heading "Popular Poems (published in the past 30 days)", list of poems and featured profiles are displayed.| All elements are displayed.|pass|[image](./images/manual-tests/PopularPage/1&2-1.png)|2023/7/29|
+|2| Correct poems are filtered and displayed in the right order. |--|Check which poems are displayed.|poem 6, poem 7, poem 8 are displayed in the order.| poem 6, poem 7, poem 8 are displayed in the order.|pass|[image1 ](./images/manual-tests/PopularPoemsPage/1&2-1.png)[image2](./images/manual-tests/PopularPoemsPage/2-2.png)|2023/7/29|
+|3| The poems will be rearranged by the number of likes. |log in as user1 |Unlike poem 7 and like poem 8.|The order of poems changes to poem 6, poem 8, poem 7.| The order of poems changes to poem 6, poem 8, poem 7.|pass|[image](./images/manual-tests/PopularPoemsPage/3.png)|2023/7/29|
+|4|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/PopularPoemsPage/4.png)|2023/7/29|
+
 #### Poems by Category Page
 As Preparation<br>
 1. go to admin panel
@@ -401,47 +415,51 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
 |1|displayed elements||Check the heading "Poems I like" and poems are displayed. |The heading "Poems I like" and poems are displayed.|The heading "Poems I like" and poems are displayed.|pass|[image](./images/manual-tests/PoemsIlike/1&2-1.png)|2023/7/29|
 |2|Correct poems are displayed in the right order.|--|Check 'poem 3' and 'poem 2' are displayed.|'poem 3' and 'poem 2' are displayed.|'poem 3' and 'poem 2' are displayed.|pass|[image](./images/manual-tests/PoemsIlike/1&2-1.png)|2023/7/29|
-|3|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/PoemsIlike/3.png)|2023/7/28|
+|3|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/PoemsIlike/3.png)|2023/7/29|
 
 #### Featured Profiles component**
-Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1| Profiles are correctly filtered. |Go to “Home”|Check if user1, 2 and 3 are displayed. |user1, 2 and 3 are displayed.| user1, 2 and 3 are displayed.|pass|2023/7/23|
-|2| Displayed elements |—|Check if the avatar, name, poems count and followers count are displayed. |The avatar, name, poems count and followers count are displayed.| the avatar, name, poems count and followers count are displayed.|pass|2023/7/23|
-|3| follow/unfollow buttons are dipslayed for logged in users |log in as admin|Check if ‘follow’ buttons are displayed for each featured profile. |follow’ buttons are displayed.| follow’ buttons are displayed.|pass|2023/7/23|
-|4| follow function |—|Click ‘follow’ of the top profile. | The follower count will change from 0 to 1.  The button will say ‘unfollow.’ | The follower count changes from 0 to 1.  The button says ‘unfollow.’.|pass|2023/7/23|
-|5| unfollow function |—|Click ‘unfollow’ of the top profile. | The follower count will change from 1 to 0.  The button will say ‘follow.’ | The follower count changes from 0 to 1.  The button says ‘follow.’.|pass|2023/7/23|
+- On admin panel, make 3 users: user1, user2, user3 and set featured_flag to true.
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |Image| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
+|1| Profiles are correctly filtered. |Go to “Home”|Check if user1, 2 and 3 are displayed. |user1, 2 and 3 are displayed.| user1, 2 and 3 are displayed.|pass|[image](./images/manual-tests/FeaturedProfiles/1&2.png)|2023/7/29|
+|2| Displayed elements |—|Check if the avatar, name, poems count and followers count are displayed. |The avatar, name, poems count and followers count are displayed.| the avatar, name, poems count and followers count are displayed.|pass|[image](./images/manual-tests/FeaturedProfiles/1&2.png)|2023/7/29|
+|3| follow buttons are dipslayed for logged in users |log in as admin|Check if ‘follow’ buttons are displayed for each featured profile. |follow’ buttons are displayed.| follow’ buttons are displayed.|pass|2023/7/29|
+|4| follow function |—|Click ‘follow’ user3. | The follower count will change from 0 to 1.  The button will say ‘unfollow.’ | The follower count changes from 0 to 1.  The button says ‘unfollow.’.|pass|2023/7/29|
+|5| unfollow function |—|Click ‘unfollow’ of user3. | The follower count will change from 1 to 0.  The button will say ‘follow.’ | The follower count changes from 0 to 1.  The button says ‘follow.’.|pass|2023/7/29|
 
 As preparatory steps for test no. 6:<br>
 1. log in as user1.  
-2. Confirm in the featured profiles section that the poem count is 1. 
+2. Confirm in the featured profiles section that the poem count is 0. 
 3. Write a poem with title: ‘poem count test’; content: content; category: other
 
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Image|Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|6| poems count |—|Check poems count | The poems count turns to 1. | The poems count stays 0. |fail|[image](./images/manual-tests/FeaturedProfiles/6.png)|2023/7/29|
+|7| 'You!' tag |—|Check user1 profile| 'You!' tag is present | 'You!' tag is present. |pass|[image](./images/manual-tests/FeaturedProfiles/7.png)|2023/7/29|
+
+- Test Featured Profiles on small screen<br>
+
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|6| poems count |—|Check poems count | The poems count has turned to 2. | The poems count has turned to 2. |pass|2023/7/23|
+|8| alignment |Go to “Home”|Norrow the screen width to 991px. Check if the profiles are displayed side to side. |The profiles are displayed side to side.| The profiles are displayed side to side.|pass|[image](./images/manual-tests/FeaturedProfiles/8&9.png)|2023/7/29|
+|9| displayed elements |—|Check if avatar, name and poems count are displayed. |Avatar, name and poems count are displayed.| Avatar, name and poems count are displayed.|pass|[image](./images/manual-tests/FeaturedProfiles/8&9.png)|2023/7/29|
+|10| responsiveness |—|Narrow down the screen width gradually to 630px. |All elements will be displayed without any distortion, and at 630px, the profiles disappear.| All elements will be displayed without any distortion, and at 630px, the profiles disappear.|pass|[image1 ](./images/manual-tests/FeaturedProfiles/10-1.png)[image2](./images/manual-tests/FeaturedProfiles/10-2.png)|2023/7/29|
 
-- Featured Profiles on small screen<br>
-
-Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1| alignment |Go to “Home”|Check if user1, 2 and 3 are displayed side to side. |user1, 2 and 3 are displayed side to side.| user1, 2 and 3 are displayed side to side.|pass|2023/7/23|
-|2| displayed elements |—|Check if avatar, name and poems count are displayed. |Avatar, name and poems count are displayed.| Avatar, name and poems count are displayed.|pass|2023/7/23|
+test no. 6 failed.
 
 #### Search Profiles
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1|displayed elements|Go to "search profiles"|Check if navbars, the heading "Search Profiles" and an input box are displayed.|All aformentioned elements are displayed.|All aformentioned elements are displayed.|pass|2023/7/23|
-|2|Correct profiles are filtered|--|Enter user1 (type fast--don't pose longer than 1 second inbetween.) and wait.|The profile of user1 is displayed.|The profile of user1 is displayed.  After that many more profiles are displayed for a moment, and then only user1 will be displayed again.|fail|2023/7/23|
-|3|Display 'No profiles found with the name.' when no matches are found.|--|Enter testuser (type fast--don't pose longer than 1 second inbetween.) and wait.|A note 'No profiles found with the name.' is displayed.|A note 'No profiles found with the name.' is displayed.  After that many profiles are displayed for a moment, and then the note appears again.|fail|2023/7/23|
-|4|The search will not run if only spaces are entered.|--|Enter a space and wait.|The search will not run.|The search was run, and profiles were displayed.|fail|2023/7/23|
+|1|displayed elements|Go to "search profiles"|Check if navbars, the heading "Search Profiles" and an input box are displayed.|All aformentioned elements are displayed.|All aformentioned elements are displayed.|pass|[image](./images/manual-tests/SearchProfiles/1.png)|2023/7/23|
+|2|Correct profiles are filtered|--|Enter user1 (type fast--don't pose longer than 1 second inbetween.) and wait.|The profile of user1 is displayed.|The profile of user1 is displayed.|pass|[image](./images/manual-tests/SearchProfiles/2.png)|2023/7/23|
+|3|Display 'No profiles found with the name.' when no matches are found.|--|Enter testuser (type fast--don't pose longer than 1 second inbetween.) and wait.|A note 'No profiles found with the name.' is displayed.|A note 'No profiles found with the name.' is displayed.  After that many profiles are displayed for a moment, and then the note appears again.|fail|[image](./images/manual-tests/SearchProfiles/3.png)|2023/7/23|
+|4|Multiple profiles that match the search word will be displayed.|--|Enter 'user' and wait|All profiles containing the word 'user' user1, user2, user3 user4 will be displayed.|First many profiles not containing 'user' in their names are displayed, and after a few seconds only user 1-4 will be displayed.|fail|[image](./images/manual-tests/SearchProfiles/4.png)|2023/7/23|
+|5|The search will not run if only spaces are entered.|--|Enter a space and wait.|The search doesn't run.|The search didn't run.|pass|[image](./images/manual-tests/SearchProfiles/5.png)|2023/7/23|
+|6| responsiveness |—|Gradually narrow down the screen width to 330px. |All elements will be displayed without any distortion.| All elements will be displayed without any distortion.|fail|[image](./images/manual-tests/FeaturedProfiles/6.png)|2023/7/29|
 
-Tests no. 2 and 3 failed -- this will be discussed later. 
-To fix the bug found in test no. 4, I rewrote the code in useEffect after line 17 in SearchProfiles.js.  I conducted the test again as follows:<br>
-
-Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|5|The search will not run if only spaces are entered.|--|Enter a space and wait.|The search doesn't run.|The search didn't run.|pass|2023/7/23|
+Test no. 6 failed.  I added line 28 & 34 in SearchProfiles.js, redid the test and the test passed.<br>
+[image](./images/manual-tests/FeaturedProfiles/6-2.png) date conducted: 2023/7/29
 
 #### Profile page (individual profile page)
 As preparation for following tests: 
@@ -450,8 +468,8 @@ As preparation for following tests:
 
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
-|1|displayed elements|—|Check if heading "My Profile," default photo for avatar, newuser for name, the date joined (today, July 24th 2023), three dots for editing, poems and followers counts (0) are displayed. Check also the message 'No published poems yet' for 'Poems by this Writer' section is displayed. |All aforementioned elements are displayed.| All aforementioned elements are displayed.|pass|2023/7/24|
-|2|three dots menu|—|Click the three dots. |A menu for editing is displayed.| A menu for editing is displayed.|pass|2023/7/24|
+|1|displayed elements|—|Check if heading "My Profile," default photo for avatar, newuser for name, the date joined (today, July 24th 2023), three dots for editing, poems and followers counts (0) are displayed. Check also the message 'No published poems yet' for 'Poems by this Writer' section is displayed. |All aforementioned elements are displayed.| All aforementioned elements are displayed.|pass|[image](./images/manual-tests/ProfilePage/1.png)|2023/7/24|
+|2|three dots menu|—|Click the three dots. |A menu for editing is displayed.| A menu for editing is displayed.|pass|[image](./images/manual-tests/ProfilePage/2.png)|2023/7/24|
 
 As preparation for tests no. 3 and 4:
 1. go to “Write poems,” write a new poem (title: test profile component; content: content; category: other) and publish.
