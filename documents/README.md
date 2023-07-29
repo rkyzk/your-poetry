@@ -221,15 +221,15 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Images|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
-|1|Displayed elements.|log out|Check both navbars, introduction, the sentence "Don't have an account...", featured poems, featured profiles are displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/Home/1.png)|2023/7/28|
+|1|Displayed elements.|log out|Check both navbars, introduction, the sentence "Don't have an account...", featured poems, featured profiles are displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/Home/1.png)|2023/7/28|
 |2|Displayed elements.|log in|Check that the sentence "Don't have an account..." is not displayed.|The sentence is not displayed.|The sentence is not displayed.|Hopass|[image](./images/manual-tests/Home/2.png)|2023/7/28|
-|3|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/Home/2.png)32023/7/28|
+|3|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/Home/3.png)|2023/7/28|
 |4|link to signup page|log out.|Click the link.|Redirected to signup page.|Redirected to signup page.|pass|[image](./images/manual-tests/Home/4.png)|2023/7/28|
 |5|Correct poems are filtered as featured poems||Check if 'poem 3', 'poem2', 'poem1' are displayed.|'poem 3', 'poem2', 'poem1' are displayed.|'poem 3', 'poem2', 'poem1' are displayed.|pass|[image1 ](./images/manual-tests/Home/5-1.png)[image2](./images/manual-tests/Home/5-2.png)|2023/7/29|
 
 #### Contact Page
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
-|:---| :--- | :--- |:---| :--- | :--- |:---|:---|
+|:---| :--- | :--- |:---| :--- | :--- |:---|:---|:---|
 |1|Displayed elements.|Click "Contact"|Check if the heading and the right content is displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/Contact/1.png)|2023/7/23|
 |2|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/Contact/2.png)|2023/7/28|
 
@@ -240,7 +240,7 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |1|Displayed elements.||Check if the heading, input boxes for title, content, select box for category, 'save as draft,' 'publish,' 'cancel' buttons are displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/WritePoems/1.png)|2023/7/28|
 |2|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/WritePoems/2.png)|2023/7/28|
 |3|Save poem|—|Enter title: 'test'; content: content; category: 'other' and click 'save.'|Message "Your poem has been saved.' appears. Redirected to the poem page of the new poem.  The poem is labeled 'Not published yet.'|Message "Your poem has been saved.' appears. Redirected to the poem page of the new poem. The poem is labeled 'Not published yet.'|pass|[image1 ](./images/manual-tests/WritePoems/3-1.png)[image2](./images/manual-tests/WritePoems/3-2.png)||2023/7/28|
-|4|Publish poem|—|Enter title: 'test2'; content: content; category: 'other' and click 'publish.'|Message "Your poem has been published.' appears. Redirected to the poem page of the new poem. The poem is labeled "Published on 28 Jul 2023."|Message "Your poem has been published.' appears. Redirected to the poem page of the new poem.The poem is labeled "Published on 28 Jul 2023"|pass|
+|4|Publish poem|—|Enter title: 'test2'; content: content; category: 'other' and click 'publish.'|Message "Your poem has been published.' appears. Redirected to the poem page of the new poem. The poem is labeled "Published on 28 Jul 2023."|Message "Your poem has been published.' appears. Redirected to the poem page of the new poem.The poem is labeled "Published on 28 Jul 2023"|pass||[image](./images/manual-tests/WritePoems/4.png)|2023/7/28|
 |5|category|—|Enter title: 'test3'; content: content; category: 'nature' and click 'save.' Check on the poem page that category is labeled 'nature.'|Category is labeled 'nature.'|Category is labeled 'nature.'|pass|[image1 ](./images/manual-tests/WritePoems/5-1.png)[image2](./images/manual-tests/WritePoems/5-2.png)|2023/7/28|
 |6|Validation for title|—|Leave title empty. Enter content: content; category: 'other' and click 'publish.'|Validation says the field is required.|Validation says 'This field may not be blank.'|pass|[image ](./images/manual-tests/WritePoems/6.png)|2023/7/28|
 |7|Validation for content|—|Enter title: test, category: other; leave content empty and click 'publish.'|Validation says the field is required.|Validation says 'This field may not be blank.'|pass|[image ](./images/manual-tests/WritePoems/7.png)|2023/7/28|
@@ -255,7 +255,7 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |1|Displayed elements.||Check if the heading, input boxes for title, content, select box for category, 'save,' 'publish,' 'cancel' buttons are displayed.|All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/EditPoems/1.png)|2023/7/28|
 |2|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/EditPoems/2.png)|2023/7/28|
 |3|editing title|—|update the title to ‘test updated’ and click ‘save’| The title reads ‘test updated,’ and the notification says 'The change has been saved.'|The title reads ‘test updated,’ and the notification says 'The change has been saved.'|pass|[image](./images/manual-tests/EditPoems/3-1.png)[image](./images/manual-tests/EditPoems/3-2.png)|2023/7/29|
-|4|editing content|—|update the content to ‘content updated’ and click ‘save.’| The title reads ‘content updated’|The title reads ‘content updated’|pass|[image](./images/manual-tests/EditPoems/4-1.png)[image](./images/manual-tests/EditPoems/4-2.png)|2023/7/29|
+|4|editing content|—|update the content to ‘content updated’ and click ‘save.’| The title reads ‘content updated’|The title reads ‘content updated’|pass|[image1 ](./images/manual-tests/EditPoems/4-1.png)[image2](./images/manual-tests/EditPoems/4-2.png)|2023/7/29|
 |5|editing category|—|update the category to ‘nature’ and click ‘save’| The category reads ‘nature.’|The category reads ‘nature.’|pass|[image](./images/manual-tests/EditPoems/5.png)|2023/7/29|
 |6|publish|—|click ‘publish’| A notification says "Your poem has been published." The publish date reads ’Published on 29 Jul 2023’.|A notification says "Your poem has been published." The publish date reads ’Published on 29 Jul 2023’.|pass|[image](./images/manual-tests/EditPoems/6.png)|2023/7/29|
 |7|validation - title|—|erase the title and click ‘save’| The validation says the field must be filled out.|The validation says 'This field may not be blank.' below the title field.|pass|[image](./images/manual-tests/EditPoems/7.png)|2023/7/29|
@@ -279,8 +279,8 @@ title: poem component test; content: testing if only the first 60 characters wil
 **Test Poem Component on Poems page**
 There are several pages using Poems page, so I tested the poem component displayed on "New Poems."<br>
 
-Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Image|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
 |1| displayed elements |Go to “New Poems”|Check if the title, author, published date and the first 60 characters (up to 'displayed in') followed by '...' are displayed. |All mentioned elements are displayed. | All mentioned elements are displayed.|pass|[image](./images/manual-tests/PoemComponent/1.png)|2023/7/23|
 |2| link (title) |Go to “New Poems”| click the title ‘poem component test’ |Redirected to the poem page of ‘poem component test.’ | Redirected to the poem page of ‘poem component test.’ |pass|[image](./images/manual-tests/PoemComponent/2.png)|2023/7/23|
 |3| link (author) |Go to “New Poems”| Click the author ‘admin’ of ‘poem component test’|The admin’s profile page is displayed. | The admin’s profile page is displayed.|pass|[image](./images/manual-tests/PoemComponent/3.png)|2023/7/23|
@@ -292,8 +292,8 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 
 - Poem Component on Poem page (the individual poem page)<br>
 
-Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Image|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
 |9| displayed elements |Log in as admin.  Go to “/poems/29” (29 is ‘poem component test’s id.)|Check if the title, author, published date, the whole content, category are displayed.  Also three dots for editing are displayed at the top right corner. |All mentioned elements are displayed.| TAll mentioned elements are displayed.|pass|[image](./images/manual-tests/PoemComponent/9.png)|2023/7/23|
 |10| link (author) |--| Click the author ‘admin’ |The admin’s profile page is displayed. | The admin’s profile page is displayed.|pass|[image](./images/manual-tests/PoemComponent/10.png)|2023/7/23|
 |11| three dots menu |--| Click the three dots |The edit and delete icons are displayed. | The edit and delete icons are displayed.|pass|[image](./images/manual-tests/PoemComponent/11.png)|2023/7/23|
@@ -351,12 +351,12 @@ As Preparation<br>
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Image|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
 |1| displayed element |Go to “Poems by Categories”|Check if the heading “Choose a category,” the choices (‘nature,’ ‘love,’ ‘people’, ‘humor,’ ‘haiku’ and ‘other’) as well as featured profiles are displayed. |All mentioned elements are displayed. | All mentioned elements are displayed. |pass|[image](./images/manual-tests/PoemsByCategories/1.png)|2023/7/23|
-|2|filtering by ‘nature’ | Click ‘nature’ |poem 2 is displayed. | poem 2 is displayed.|pass|[image](./images/manual-tests/PoemsByCategories/2.png)|2023/7/23|
-|3|filtering by ‘love’ | Click ‘nature’ |poem 3 is displayed. | poem 3 is displayed.|pass|[image](./images/manual-tests/PoemsByCategories/3.png)|2023/7/23|
-|4|filtering by ‘people’ | Click ‘people’ |poem 4 is displayed. | poem 4 is displayed.|pass|[image](./images/manual-tests/PoemsByCategories/4.png)|2023/7/23|
-|5|filtering by ‘humor’ | Click ‘humor’ |poem 5 is displayed. | poem 5 is displayed.|pass|[image](./images/manual-tests/PoemsByCategories/5.png)|2023/7/23|
-|6|filtering by ‘haiku’ | Click ‘haiku’ |poem 6 is displayed. | poem 6 is displayed.|pass|[image](./images/manual-tests/PoemsByCategories/6.png)|2023/7/23|
-|7|filtering by ‘other’ | Click ‘other’ |’poem 1’ is displayed. |’poem 1’ is displayed.|pass|[image](./images/manual-tests/PoemsByCategories/7.png)|2023/7/23|
+|2|filtering by ‘nature’ |--| Click ‘nature’ |poem 2 is displayed. | poem 2 is displayed.|pass|[image](./images/manual-tests/PoemsByCategories/2.png)|2023/7/23|
+|3|filtering by ‘love’ |--| Click ‘nature’ |poem 3 is displayed. | poem 3 is displayed.|pass|[image](./images/manual-tests/PoemsByCategories/3.png)|2023/7/23|
+|4|filtering by ‘people’ |--| Click ‘people’ |poem 4 is displayed. | poem 4 is displayed.|pass|[image](./images/manual-tests/PoemsByCategories/4.png)|2023/7/23|
+|5|filtering by ‘humor’ |--| Click ‘humor’ |poem 5 is displayed. | poem 5 is displayed.|pass|[image](./images/manual-tests/PoemsByCategories/5.png)|2023/7/23|
+|6|filtering by ‘haiku’ |--| Click ‘haiku’ |poem 6 is displayed. | poem 6 is displayed.|pass|[image](./images/manual-tests/PoemsByCategories/6.png)|2023/7/23|
+|7|filtering by ‘other’ |--| Click ‘other’ |’poem 1’ is displayed. |’poem 1’ is displayed.|pass|[image](./images/manual-tests/PoemsByCategories/7.png)|2023/7/23|
 |8|responsiveness|—|Expand the screen to 1350px, and gradually norrow it down to 330px, while checking if all elements appear without any distortion.|All elements appear without any distortion.|All elements appear without any distortion.|pass|[image](./images/manual-tests/PoemsByCategories/8.png)|2023/7/29|
 
 #### Search Poems
@@ -385,8 +385,8 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |8|search by ‘category’|--|Enter ‘humor’ for category. Click search. | poem 5 is displayed.|poem 5 is displayed.|pass|[image ](./images/manual-tests/SearchPoems/SearchPoems-8.png)|2023/7/23|
 |9|search by ‘category’|--|Enter ‘haiku’ for category. Click search. | poem 6 is displayed.|poem 6 is displayed.|pass|[image ](./images/manual-tests/SearchPoems/SearchPoems-9.png)|2023/7/23|
 |10|search by ‘category’|--|Enter ‘other’ for category. Click search. | poem 1, 7 and 8 are displayed.|poem 1, 7 and 8 are displayed.|pass|[image1 ](./images/manual-tests/SearchPoems/SearchPoems-10-1.png)[image2](./src/assets/manual-testing-screenshots/SearchPoems/SearchPoems-10-2.png)|2023/7/23|
-|11|search by ‘published date’|--|choose ‘past one year’.  Click search. | poem 2-8 are displayed.|poem 2-8 are displayed.|pass|[image1 ](./images/manual-tests/SearchPoems/SearchPoems-11-1.png)[image2 ](./images/manual-tests/SearchPoems-11-2.png)|[image3 ](./images/manual-tests/SearchPoems/SearchPoems-11-3.png)[image4](./images/manual-tests/SearchPoems/SearchPoems-11-4.png)|2023/7/23|
-|12|search by ‘published date’|--|choose ‘past 90 days.’ Click search. | poem 4-8 are displayed.|poem 4-8 are displayed.|pass|[image1 ](./images/manual-tests/SearchPoems/SearchPoems-12-1.png)[image2 ](./images/manual-tests/SearchPoems/SearchPoems-12-2.png)|[image3 ](./images/manual-tests/SearchPoems/SearchPoems-12-3.png)|2023/7/23|
+|11|search by ‘published date’|--|choose ‘past one year’.  Click search. | poem 2-8 are displayed.|poem 2-8 are displayed.|pass|[image1 ](./images/manual-tests/SearchPoems/SearchPoems-11-1.png)[image2 ](./images/manual-tests/SearchPoems-11-2.png)[image3 ](./images/manual-tests/SearchPoems/SearchPoems-11-3.png)[image4](./images/manual-tests/SearchPoems/SearchPoems-11-4.png)|2023/7/23|
+|12|search by ‘published date’|--|choose ‘past 90 days.’ Click search. | poem 4-8 are displayed.|poem 4-8 are displayed.|pass|[image1 ](./images/manual-tests/SearchPoems/SearchPoems-12-1.png)[image2 ](./images/manual-tests/SearchPoems/SearchPoems-12-2.png)[image3 ](./images/manual-tests/SearchPoems/SearchPoems-12-3.png)|2023/7/23|
 |13|search by ‘published date’|--|choose ‘past 30 days.’ Click search. | poem 6-8 are displayed.|poem 6-8 are displayed.|pass|[image1 ](./images/manual-tests/SearchPoems/SearchPoems-13-1.png)[image2](./images/manual-tests/SearchPoems/SearchPoems-13-2.png)|2023/7/23|
 |14|search by ‘published date’|--|choose ‘past 14 days.’ Click search. | poem 8 is displayed.|poem 8 is displayed.|pass|[image](./images/manual-tests/SearchPoems/SearchPoems-14.png)|2023/7/23|
 |15|search non existent poem |—| enter ‘non existent poem’ for title and click search. | A note ‘No results found’ is displayed.|A note ‘No results found’ is displayed.|pass|[image](./images/manual-tests/SerachPoems/SearchPoems-15.png)|2023/7/23|
@@ -444,9 +444,9 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
 |1| Profiles are correctly filtered. |Go to “Home”|Check if user1, 2 and 3 are displayed. |user1, 2 and 3 are displayed.| user1, 2 and 3 are displayed.|pass|[image](./images/manual-tests/FeaturedProfiles/1&2.png)|2023/7/29|
 |2| Displayed elements |—|Check if the avatar, name, poems count and followers count are displayed. |The avatar, name, poems count and followers count are displayed.| the avatar, name, poems count and followers count are displayed.|pass|[image](./images/manual-tests/FeaturedProfiles/1&2.png)|2023/7/29|
-|3| follow buttons are dipslayed for logged in users |log in as admin|Check if ‘follow’ buttons are displayed for each featured profile. |follow’ buttons are displayed.| follow’ buttons are displayed.|pass|2023/7/29|
-|4| follow function |—|Click ‘follow’ user3. | The follower count will change from 0 to 1.  The button will say ‘unfollow.’ | The follower count changes from 0 to 1.  The button says ‘unfollow.’.|pass|2023/7/29|
-|5| unfollow function |—|Click ‘unfollow’ of user3. | The follower count will change from 1 to 0.  The button will say ‘follow.’ | The follower count changes from 0 to 1.  The button says ‘follow.’.|pass|2023/7/29|
+|3| follow buttons are dipslayed for logged in users |log in as admin|Check if ‘follow’ buttons are displayed for each featured profile. |follow’ buttons are displayed.| follow’ buttons are displayed.|pass|[image](./images/manual-tests/FeaturedProfiles/3.png)|2023/7/29|
+|4| follow function |—|Click ‘follow’ user3. | The follower count will change from 0 to 1.  The button will say ‘unfollow.’ | The follower count changes from 0 to 1.  The button says ‘unfollow.’.|pass|[image](./images/manual-tests/FeaturedProfiles/4.png)|2023/7/29|
+|5| unfollow function |—|Click ‘unfollow’ of user3. | The follower count will change from 1 to 0.  The button will say ‘follow.’ | The follower count changes from 0 to 1.  The button says ‘follow.’.|pass|[image](./images/manual-tests/FeaturedProfiles/5.png)|2023/7/29|
 
 As preparatory steps for test no. 6:<br>
 1. log in as user1.  
@@ -460,8 +460,8 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 
 - Test Featured Profiles on small screen<br>
 
-Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |Image| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
 |8| alignment |Go to “Home”|Norrow the screen width to 991px. Check if the profiles are displayed side to side. |The profiles are displayed side to side.| The profiles are displayed side to side.|pass|[image](./images/manual-tests/FeaturedProfiles/8&9.png)|2023/7/29|
 |9| displayed elements |—|Check if avatar, name and poems count are displayed. |Avatar, name and poems count are displayed.| Avatar, name and poems count are displayed.|pass|[image](./images/manual-tests/FeaturedProfiles/8&9.png)|2023/7/29|
 |10| responsiveness |—|Narrow down the screen width gradually to 630px. |All elements will be displayed without any distortion, and at 630px, the profiles disappear.| All elements will be displayed without any distortion, and at 630px, the profiles disappear.|pass|[image1 ](./images/manual-tests/FeaturedProfiles/10-1.png)[image2](./images/manual-tests/FeaturedProfiles/10-2.png)|2023/7/29|
@@ -469,8 +469,8 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 test no. 6 failed.
 
 #### Search Profiles
-Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Date|
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Image|Date|
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
 |1|displayed elements|Go to "search profiles"|Check if navbars, the heading "Search Profiles" and an input box are displayed.|All aformentioned elements are displayed.|All aformentioned elements are displayed.|pass|[image](./images/manual-tests/SearchProfiles/1.png)|2023/7/23|
 |2|Correct profiles are filtered|--|Enter user1 (type fast--don't pose longer than 1 second inbetween.) and wait.|The profile of user1 is displayed.|The profile of user1 is displayed.|pass|[image](./images/manual-tests/SearchProfiles/2.png)|2023/7/23|
 |3|Display 'No profiles found with the name.' when no matches are found.|--|Enter testuser (type fast--don't pose longer than 1 second inbetween.) and wait.|A note 'No profiles found with the name.' is displayed.|A note 'No profiles found with the name.' is displayed.  After that many profiles are displayed for a moment, and then the note appears again.|fail|[image](./images/manual-tests/SearchProfiles/3.png)|2023/7/23|
@@ -494,8 +494,8 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 As preparation for tests no. 3 and 4:
 1. go to “Write poems,” write a new poem (title: test profile component; content: content; category: other) and publish.
 
-|3| poems count|—|Check poems count. |The count has changed from 0 to 1.| The count has changed from 0 to 1.|pass|2023/7/24|
-|4| Poems by this writer |—|Check the poem ‘test profile component’ is displayed.  |The poem‘test profile component’ is displayed. |The poem ‘test profile component’ is displayed. |pass|2023/7/24|
+|3| poems count|—|Check poems count. |The count has changed from 0 to 1.| The count has changed from 0 to 1.|pass|[image](./images/manual-tests/ProfilePage/3.png)|2023/7/24|
+|4| Poems by this writer |—|Check the poem ‘test profile component’ is displayed.  |The poem‘test profile component’ is displayed. |The poem ‘test profile component’ is displayed. |pass|[image](./images/manual-tests/ProfilePage/4.png)|2023/7/24|
 
 As preparation for test no. 5,
 1. click on three dots to edit the profile, choose edit profile
@@ -503,7 +503,7 @@ As preparation for test no. 5,
 
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
-|5| displayed elements|—|Check that the contents for “about me” and “favorites” sections are displayed. |All aforementioned elements are displayed.| All aforementioned elements are displayed.|pass|2023/7/24|
+|5| displayed elements|—|Check that the contents for “about me” and “favorites” sections are displayed. |All aforementioned elements are displayed.| All aforementioned elements are displayed.|pass|[image](./images/manual-tests/ProfilePage/5.png)|2023/7/24|
 
 (profile edit page will be tested in more details later)
 
@@ -512,9 +512,9 @@ As preparation for test no. 6-8,
 
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
-|6|displayed elements for users other than the owner|—|Check that the heading "My Profile" and three dots for editing aren't displayed and that “follow” button is displayed. |The heading "My Profile" and three dots for editing aren't displayed. “follow” button is displayed.| The heading "My Profile" and three dots for editing aren't displayed. “follow” button is displayed.|pass|2023/7/24|
-|7|follow function|Click “follow”|Check if “unfollow” button is displayed and the follower count is 1. |”unfollow” button is displayed. The follower count has changed from 0 to 1.| ”unfollow” button is displayed. The follower count has changed from 0 to 1.|pass|2023/7/24|
-|8| unfollow function|Click “unfollow”|Check if “follow” button is displayed and the followers count is 0. |”follow” button is displayed. The follower count has changed from 1 to 0.| ”follow” button is displayed. The follower count has changed from 1 to 0.|pass|2023/7/24|
+|6|displayed elements for users other than the owner|—|Check that the heading "My Profile" and three dots for editing aren't displayed and that “follow” button is displayed. |The heading "My Profile" and three dots for editing aren't displayed. “follow” button is displayed.| The heading "My Profile" and three dots for editing aren't displayed. “follow” button is displayed.|pass|[image](./images/manual-tests/ProfilePage/6.png)|2023/7/24|
+|7|follow function|Click “follow”|Check if “unfollow” button is displayed and the follower count is 1. |”unfollow” button is displayed. The follower count has changed from 0 to 1.| ”unfollow” button is displayed. The follower count has changed from 0 to 1.|pass|[image](./images/manual-tests/ProfilePage/7.png)|2023/7/24|
+|8| unfollow function|Click “unfollow”|Check if “follow” button is displayed and the followers count is 0. |”follow” button is displayed. The follower count has changed from 1 to 0.| ”follow” button is displayed. The follower count has changed from 1 to 0.|pass|[image](./images/manual-tests/ProfilePage/8.png)|2023/7/24|
 
 For test no. 9, log out.
 
@@ -541,8 +541,8 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
 |7|Link 'change username' redirects the right page|—|Click 'change username'|Page "Change username" is displayed.| Page "Change username" is displayed.|pass|[image](./images/manual-tests/ProfileEdit/ProfileEdit-7.png)|2023/7/25|
-|8|username can be changed|—|Enter newuserchanged for username and click 'save'.|Redirected to Profile Page.  Next to the avatar at the top right corner of the page, the new username 'newuserchanged' is displayed.|Redirected to Profile Page.  Next to the avatar at the top right corner of the page, the new username 'newuserchanged' is displayed.|pass|[image1 ](./images/manual-tests/ProfileEdit/ProfileEdit-8-1.png)[image2](./images/manual-tests/ProfileEdit/ProfileEdit-8-2.png)||2023/7/25|
-|9|cancel button|—|Enter newuserchanged for username and click 'save'.|Redirected to Profile Page.  Next to the avatar at the top right corner of the page, the new username 'newuserchanged' is displayed.|Redirected to Profile Page.  Next to the avatar at the top right corner of the page, the new username 'newuserchanged' is displayed.|pass|[image1 ](./images/manual-tests/ProfileEdit/ProfileEdit-9-1.png)[image](./images/manual-tests/ProfileEdit/ProfileEdit-9-2.png)||2023/7/25|
+|8|username can be changed|—|Enter newuserchanged for username and click 'save'.|Redirected to Profile Page.  Next to the avatar at the top right corner of the page, the new username 'newuserchanged' is displayed.|Redirected to Profile Page.  Next to the avatar at the top right corner of the page, the new username 'newuserchanged' is displayed.|pass|[image1 ](./images/manual-tests/ProfileEdit/ProfileEdit-8-1.png)[image2](./images/manual-tests/ProfileEdit/ProfileEdit-8-2.png)|2023/7/25|
+|9|cancel button|—|Enter newuserchanged for username and click 'save'.|Redirected to Profile Page.  Next to the avatar at the top right corner of the page, the new username 'newuserchanged' is displayed.|Redirected to Profile Page.  Next to the avatar at the top right corner of the page, the new username 'newuserchanged' is displayed.|pass|[image1 ](./images/manual-tests/ProfileEdit/ProfileEdit-9-1.png)[image](./images/manual-tests/ProfileEdit/ProfileEdit-9-2.png)|2023/7/25|
 
 - Go back to "/profiles/14" and click the three dots.
 
@@ -582,7 +582,7 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
 |1|sign out |log in as admin|Choose 'Sign out' from the dropdown menu. |The notification 'You've been signed out' will be displayed.|The notification 'You've been signed out' is displayed.|pass|[image](./images/manual-tests/Signout/1.png)|2023/7/29|
 
-#### Comments
+
 
 
 
