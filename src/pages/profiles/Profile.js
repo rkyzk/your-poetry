@@ -99,7 +99,7 @@ const Profile = (props) => {
   };
 
   return (
-    <Card className="mb-1">
+    <Card className={`${styles.CardSpace} mb-1`}>
       <Card.Body>
         <Media className="align-items-center">
           {mobile && (
@@ -136,19 +136,38 @@ const Profile = (props) => {
           </Row>
         )}
         {(page === "profilesPage" || page === "search") && (
-          <Row>
-            <Col xs={4}>
-              <Avatar src={image} height={imageSize} />
-            </Col>
-            <Col xs={8}>
-              <Link to={`/profiles/${id}`}>
-                <h3>{display_name}</h3>
-              </Link>        
-              <p className="my-0">Member since {created_at}</p>
-              <span className={`${styles.CountsText}`}>{poems_count} poems</span>
-              <span className={`${styles.CountsText} ml-2`}>{followers_count} followers</span>
-            </Col>
-          </Row>
+          <>
+          <div className={`${styles.SmallLayout}`}>
+            <Row>
+              <Col xs={4}>
+                <Avatar src={image} height={imageSize} />
+              </Col>
+              <Col xs={8}>
+                <Link to={`/profiles/${id}`}>
+                  <h3 className={`${styles.Name}`}>{display_name}</h3>
+                </Link>        
+                <p className="my-0">Member since {created_at}</p>
+                <span>{poems_count} poems</span>
+                <span className="ml-2">{followers_count} followers</span>
+              </Col>
+            </Row>
+          </div>
+          <div className={`${styles.XSLayout}`}>
+            <Row>
+              <Col xs={4}>
+                <Avatar src={image} height={45} />
+              </Col>
+              <Col xs={8}>
+                <Link to={`/profiles/${id}`}>
+                  <h3 className={`${styles.Name} mt-2`}>{display_name}</h3>
+                </Link>
+              </Col>
+            </Row>
+            <p className={`${styles.DateJoined} mb-0 mt-2 ml-1`}>Member since {created_at}</p>
+            <span className={`${styles.CountsText} ml-1`}>{poems_count} poems</span>
+            <span className={`${styles.CountsText} ml-2`}>{followers_count} followers</span>
+          </div>
+        </>
         )}
         </Media>
         {page === "profilePage" && (

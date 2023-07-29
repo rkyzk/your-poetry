@@ -11,6 +11,10 @@
   line-height: 1rem;
 }
 
+.XSLayout {
+  display: none;
+}
+
 @media screen and (max-width: 1000px) {
   .ProfileName {
     font-size: 1.3rem;
@@ -18,6 +22,28 @@
 
   .ProfileText {
     font-size: 1rem;
+  }
+}
+@media screen and (max-width: 490px) {
+  .SmallLayout {
+    display: none;
+  }
+
+  .XSLayout {
+    display: block;
+  }
+
+  .Name {
+    font-size: 1.3rem;
+  }
+
+  .DateJoined {
+    font-size: 1rem;
+  }
+
+  .MemberInfo {
+    width: 200px;
+    margin: 0 auto;
   }
 }
 
@@ -28,5 +54,10 @@
 
   .ProfileInfoSmall {
     display: block;
+  }
+
+  .CardSpace {
+    margin: 0;
+    padding: 0;
   }
 }

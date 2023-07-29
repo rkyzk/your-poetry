@@ -63,7 +63,7 @@ function ProfilesPage(props) {
               )}
             </>
           ) : (
-            <Container className={appStyles.Content}>
+            <Container>
               <Asset spinner />
             </Container>
           )}

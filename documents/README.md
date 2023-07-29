@@ -542,16 +542,27 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
-|1|displayed elements|--|Check the heading "Poets I'm following" is displayed. |The heading "Poets I'm following" is displayed.|The heading "Poets I'm following" is displayed.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/PoetsImFollowing/PoetsImFollowing-1&2.png)|2023/7/26|
-|2|message if no followed poets|--|Check if the message says "You haven't followed anyone." |The message says "You haven't followed anyone."|The message says "You haven't followed anyone."|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/PoetsImFollowing/PoetsImFollowing-2&2PoetsPoe.png)|2023/7/26|
+|1|displayed elements|--|Check the heading "Poets I'm following" is displayed. |The heading "Poets I'm following" is displayed.|The heading "Poets I'm following" is displayed.|pass|[image](./images/manual-tests/PoetsImFollowing/PoetsImFollowing-1&2.png)|2023/7/26|
+|2|message if no followed poets|--|Check if the message says "You haven't followed anyone." |The message says "You haven't followed anyone."|The message says "You haven't followed anyone."|pass|[image](./images/manual-tests/PoetsImFollowing/PoetsImFollowing-2&2PoetsPoe.png)|2023/7/26|
 
 - Go to "Home" and click the follow button for user1 and user2 and go back to "Poets I'm following"
-|3|correct profiles are filtered|--|Check if the profiles of user1 and of user2 are displayed. |The profiles of user1 and of user2 are displayed.|The profiles of user1 and of user2 are displayed.|pass|[image](https://github.com/rkyzk/manualtests-your-poetry/blob/main/screenshots/PoetsImFollowing/PoetsImFollowing-3.png)|2023/7/26|
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|3|correct profiles are filtered|--|Check if the profiles of user1 and of user2 are displayed. |The profiles of user1 and of user2 are displayed.|The profiles of user1 and of user2 are displayed.|pass|[image](./images/manual-tests/PoetsImFollowing/PoetsImFollowing-3.png)|2023/7/26|
+|4| responsiveness |—|Narrow down the screen width gradually to 330px. |All elements will be displayed without any distortion.| Below 490px, the publish date goes over 2 lines, which doesn't look good.  Also, below 380px, the text overlaps the image.|fail|[image](./images/manual-tests/PoetsImFollowing/4.png)|2023/7/29|
+
+To fix the issue found in test no. 4, I added 155-169 in Profile.js.
+After the code was added, all elements are displayed fine in small screen sizes.<br>
+[image](./images/manual-tests/PoetsImFollowing/4-2.png)
 
 #### Sign out function (no page)
 
-## 
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
+|1|sign out |log in as admin|Choose 'Sign out' from the dropdown menu. |The notification 'You've been signed out' will be displayed.|The notification 'You've been signed out' is displayed.|pass|[image](./images/manual-tests/Signout/1.png)|2023/7/29|
 
+#### Comments
 
 
 
