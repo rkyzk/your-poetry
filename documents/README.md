@@ -41,6 +41,7 @@ https://3000-rkyzk-yourpoetry-kp7cuajca1w.ws-us101.gitpod.io/
 Your Poetry offers an interactive platform where users can share their poems and give/get comments on each other’s poems.  The app is equipped with various features including liking/unliking poems, following/unfollowing profiles as well as searching poems/profiles.  In addition users can also make their own profiles to let others know a few things about themselves.  The app offers users opportunities to be creative, to share their art and to inspire others.
 
 ## User Stories
+User stories can be found [here](https://github.com/users/rkyzk/projects/6/views/1).
 
 ## Features in a Nutshell
 In this app users can:
@@ -56,7 +57,7 @@ In this app users can:
 - Search poems and profiles
 
 ## Wireframes
-Wireframes for this application can be found [here.](https://wireframe.cc/pro/edit/672331)
+Wireframes for this application can be found [here.](https://wireframe.cc/pro/pp/8521443d2672331)
 Please click on "Homepage" in the upper left corner to see wireframes of different pages.
 
 ## Notes on Design
@@ -67,8 +68,8 @@ Please click on "Homepage" in the upper left corner to see wireframes of differe
 - For introductory paragraph and notification messages I used ‘Raleway’ since this font is readable and offers an approachable ambient.
 
 **Colors**
-- Overall I wanted the website to appear simple, elegant and original.
-- I used following colors in different sections:
+Overall I wanted the website to appear simple, elegant and original.<br>
+I used following colors in different sections:
 
 - Background of navigation bars: light gray, #f8f8f8
 - Text color: dark blue, rgb(10, 10, 90)
@@ -77,9 +78,9 @@ Please click on "Homepage" in the upper left corner to see wireframes of differe
 - unfollow button: aliceblue
 - Footer: dark blue, rgb(10, 10, 90)
 
-- I used dark blue for the text, instead of very commonly used black or dark gray in order to provide originality.
-- I used light gray for the background of navigation bars to keep the appearance simple.
-- I used olive color for most buttons, because the color provides a nice contrast against dark blue.
+I used dark blue for the text, instead of very commonly used black or dark gray in order to provide originality.<br>
+I used light gray for the background of navigation bars to keep the appearance simple.<br>
+I used olive color for most buttons, because the color provides a nice contrast against dark blue.<br>
 
 ## Main Technologies Used
 - HTML, CSS, JavaScript
@@ -94,12 +95,7 @@ Test No.| Goals | How they are achieved|
 |1|The purpose and usage of the app are made clear.|On “Home” page, the introductory paragraph summarizes what users can do with the application.  In addition, the navigation links and the titles of sections are labeled with clearly indicative terms.  Also the icons that are used in the application such as heart, edit and trash bin icons are commonly utilized so their usage is clear for site visitors.| 
 |2|Clearly labeled navigation links| All navigation links are labeled with self explanatory terms such as ‘Contact’ and ‘My poems.’|
 |3|Featued poems on the home page| Editors of the site can select featured poems, and those featured poems will be displayed on the home page.|
-|4| Lists of poems grouped by various criteria|Besides “Featured poems” on “Home” page, the app offers following pages displaying various lists of poems:<br>
--	New Poems: poems published in the previous 14 days
--	Popular Poems: the page lists poems with the highest number of likes at the top.
--	Poems by Categories: poems in six different categories can be found separately.
--	My Poems: list of poems written by the logged in user
--	Poems I like: list of poems that the user liked|
+|4| Lists of poems grouped by various criteria|Besides “Featured poems” on “Home” page, the app offers following pages displaying various lists of poems. 1. New Poems: poems published in the previous 14 days; 2. Popular Poems: the page lists poems with the highest number of likes at the top; 3. Poems by Categories: poems in six different categories can be found separately; 4. My Poems: list of poems written by the logged in user; 5. Poems I like: list of poems that the user liked|
 |5|Signing up for membership| A link to the signup page is displayed in the navigation bar at the top right of all pages in the app.  In addition, at the end of the introductory paragraph on “Home” page, visitors are invited to sign up, and a link is provided.|
 |6|Writing and sharing poems| Users can write poems and save or publish their poems on “Write Poems” page.  A link to the page is placed in the navigation bar at the top left for logged in users.|
 |7|Updating poems| In order to update a poem, users can go to “My Poems” page, click the title of the poem they want to edit, click the three dots that appear on the top right of their poem and click the edit icon.|
@@ -109,14 +105,12 @@ Test No.| Goals | How they are achieved|
 |11|Liking poems|Logged in users can like others’ poems by clicking the heart icon.| 
 |12|Following users|Logged in users can follow other members by clicking ‘follow’ button that appear at the bottom part of their profile.| 
 |13|Profile Pages|Registered users can update their profiles to introduce themselves to other members.  Users can take a look at other members’ profiles to get to know about them.|
-|14|Restricting access where appropriate | Edit and delete buttons are displayed only for the owner of the poems and comments. |
+|14|Restricting access where appropriate | Edit and delete buttons are displayed only for the owner of the poems and comments.  If users try to get to the Poem Edit pages of others' poems by entering the URL "/poems/:id/edit, they will be redirected to "Home" by the code at line 46 in PoemEditForm.js. |
 |15|Searching Poems|On “Search” page, users can search poems by author, title of the poems, keywords, categories and published date ranges.|
 |16|Searching profiles |On “Search Profiles” page users can search profiles by entering display names.|
 
-
 ### Testing Features
-
-When logging in is necessary, log in with username: admin, password: superuser, unless specified otherwise.
+If logging in is necessary, log in with username: admin, password: superuser, unless specified otherwise.
 
 #### Navigation Bar
 **Overall responsiveness**
@@ -274,7 +268,7 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |9|user redirect|—|Log out and go to "/poems/create"|Redirected to "Home."|Redirected to "Home."|pass|[image ](./images/manual-tests/WritePoems/9.png)|2023/7/28|
 
 #### Edit poems
-- Go to "/poems/27/edit," which is the edit page for the poem written in test no. 3 in the previous 'Write poems' section.
+Go to "/poems/27/edit," which is the edit page for the poem written in test no. 3 in the previous 'Write poems' section.<br>
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---|:---|:---|
@@ -290,7 +284,7 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |10|no 'publish' button for published poems|—|Check 'publish' button is absent.| 'publish' button is absent.|'publish' button is absent.|pass|[image](./images/manual-tests/EditPoems/10.png)|2023/7/29|
 
 #### Delete Poems
-- Log in as admin and go to "/poems/27" (The poem page of 'test updated')
+Log in as admin and go to "/poems/27" (The poem page of 'test updated')<br>
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|image|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---|:---|:---|
@@ -320,7 +314,7 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Image|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
-|9| displayed elements |Log in as admin.  Go to “/poems/29” (29 is ‘poem component test’s id.)|Check if the title, author, published date, the whole content, category are displayed.  Also three dots for editing are displayed at the top right corner. |All mentioned elements are displayed.| TAll mentioned elements are displayed.|pass|[image](./images/manual-tests/PoemComponent/9.png)|2023/7/23|
+|9| displayed elements |Log in as admin.  Go to “/poems/29” (29 is ‘poem component test’s id.)|Check if the title, author, published date, the whole content, category are displayed.  Also three dots for editing are displayed at the top right corner. |All mentioned elements are displayed.| All mentioned elements are displayed.|pass|[image](./images/manual-tests/PoemComponent/9.png)|2023/7/23|
 |10| link (author) |--| Click the author ‘admin’ |The admin’s profile page is displayed. | The admin’s profile page is displayed.|pass|[image](./images/manual-tests/PoemComponent/10.png)|2023/7/23|
 |11| three dots menu |--| Click the three dots |The edit and delete icons are displayed. | The edit and delete icons are displayed.|pass|[image](./images/manual-tests/PoemComponent/11.png)|2023/7/23|
 |12| like icon tooltip for owner |--|Bring the cursol over the heart icon for ‘poem component test’ | A tooltip message says ‘You can’t like your own poem!’|A tooltip message says ‘You can’t like your own poem!’|pass|[image](./images/manual-tests/PoemComponent/12.png)|2023/7/23|
@@ -452,15 +446,15 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |3|displayed elements. |log in and go to "/poems/39|Check comment form, avatar and name 'admin' are displayed below the poem. |All mentioned elements are displayed.|All mentioned elements are displayed.|pass|[image](./images/manual-tests/PoemPage/3.png)|2023/7/29|
 
 #### Comments 
-- Log in as admin, Go to ‘poems/39’ — the poem page of ‘poem 8.'
+Log in as admin, Go to ‘poems/39’ — the poem page of ‘poem 8.'<br>
 
-Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
-|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
-|1| comment can be posted |—|Write in “test comment” and click ‘post’. |The comment ‘test comment’ is displayed.| The comment ‘test comment’ is displayed.|pass|[image](./images/manual-tests/Comments/1.png)2023/7/29|
-|2| comment can be updated |—|Click on three dots |Click edit icon, and update the comment as ‘test comment updated’. Click ‘save’| The comment ‘test comment updated’ is displayed.|The comment ‘test comment updated’ is displayed.|pass|[image](./images/manual-tests/Comments/2.png)2023/7/29|
-|3| comment update can be canceled |—|Click on three dots |Click edit icon, and update the comment as ‘test comment updated’. Click ‘save’| The comment ‘test comment updated’ is displayed.  The comment will be labeld as ’edited.’|The comment ‘test comment updated’ is displayed. The comment will be labeld as ‘edited.’|pass|[image](./images/manual-tests/Comments/3.png)2023/7/29|
-|4| Comment edit not possible for other users| log out and log in as user1. Go to “/poems/” | Check that the three dots are absent.|The three dots are absent.|pass|[image](./images/manual-tests/Comments/4.png)2023/7/29|
-|5| Infinit scroll | make 11 additional comments with content ‘test comment.’ Edit the 10th comment in the list to '10th test comment' and 11th comment to ;11th comment.' | Go to "Home" once and go back to "/poems/39." Scroll down.|A spinner shows up after the 10th comment, and two more comments will be displayed briefly later. |A spinner shows up after the 10th comment, and two more comments are displayed briefly later.|pass|[image1 ](./images/manual-tests/Comments/5-1.png)[image2](./images/manual-tests/Comments/5-2.png)2023/7/29|
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |Image| Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
+|1| comment can be posted |—|Write in “test comment” and click ‘post’. |The comment ‘test comment’ is displayed.| The comment ‘test comment’ is displayed.|pass|[image](./images/manual-tests/Comments/1.png)|2023/7/29|
+|2| comment can be updated |—|Click on three dots |Click edit icon, and update the comment as ‘test comment updated’. Click ‘save’| The comment ‘test comment updated’ is displayed.|The comment ‘test comment updated’ is displayed.|pass|[image](./images/manual-tests/Comments/2.png)|2023/7/29|
+|3| comment update can be canceled |—|Click on three dots |Click edit icon, and update the comment as ‘test comment updated’. Click ‘save’| The comment ‘test comment updated’ is displayed.  The comment will be labeld as ’edited.’|The comment ‘test comment updated’ is displayed. The comment will be labeld as ‘edited.’|pass|[image](./images/manual-tests/Comments/3.png)|2023/7/29|
+|4| Comment edit not possible for other users| log out and log in as user1. Go to “/poems/” | Check that the three dots are absent.|The three dots are absent.|The three dots are absent.|pass|[image](./images/manual-tests/Comments/4.png)|2023/7/29|
+|5| Infinit scroll | make 11 additional comments with content ‘test comment.’ Edit the 10th comment in the list to '10th test comment' and 11th comment to ;11th comment.' | Go to "Home" once and go back to "/poems/39." Scroll down.|A spinner shows up after the 10th comment, and two more comments will be displayed briefly later. |A spinner shows up after the 10th comment, and two more comments are displayed briefly later.|pass|[image1 ](./images/manual-tests/Comments/5-1.png)[image2](./images/manual-tests/Comments/5-2.png)|2023/7/29|
 |6| comment can be deleted |Update the top comment to “test comment delete.” |Click on three dots of the updated comment. Click trash bin icon| The comment is erased.|The comment is erased.|pass|[image](./images/manual-tests/Comments/7-1.png)[image](./images/manual-tests/Comments/7-2.png)|2023/7/29|
 
 #### Featured Profiles component**
@@ -484,7 +478,9 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |6| poems count |—|Check poems count | The poems count turns to 1. | The poems count stays 0. |fail|[image](./images/manual-tests/FeaturedProfiles/6.png)|2023/7/29|
 |7| 'You!' tag |—|Check user1 profile| 'You!' tag is present | 'You!' tag is present. |pass|[image](./images/manual-tests/FeaturedProfiles/7.png)|2023/7/29|
 
-- Test Featured Profiles on small screen<br>
+*test no. 6 failed, and how I fixed the issue will be discussed in the *[Bugs](#bugs)* section.*
+
+**Test Featured Profiles on small screen**<br>
 
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |Image| Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |

@@ -6,7 +6,13 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { Form, Button, Alert } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { useRedirect } from "../../hooks/useRedirect";
+import { useFeaturedProfilesData, useSetFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataContext";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+/**
+ * 
+ * @returns 
+ */
 function PoemCreateForm() {
   // redirect logged out users to home page.
   useRedirect("loggedOut");
@@ -24,8 +30,15 @@ function PoemCreateForm() {
   const [publish, setPublish] = useState(false);
   // instantiate history object to store data which url the user visits.
   const history = useHistory();
+  // get setFeaturedProfileData
+  const setFeaturedProfilesData = useSetFeaturedProfilesData();
+  const currentUser = useCurrentUser();
+  const user_id = currentUser?.pk
 
-  // set user input into variables.
+  /**
+   *  Set user input into variables poemData.
+   *  :arguments event
+   */ 
   const handleChange = (event) => {
     setPoemData({
       ...poemData,
@@ -33,7 +46,24 @@ function PoemCreateForm() {
     });
   };
   
-  // send data input by users to the backend.
+  /**
+   *  Add poems count in featured profiles
+   *  when a new poem has been written.
+   */
+  const handlePoemCount = () => {
+    setFeaturedProfilesData((prevProfiles) => ({
+      ...prevProfiles,
+      results: prevProfiles.results.map((profile) => {
+        return profile.id === user_id
+          ? { ...profile, poems_count: profile.poems_count + 1, }
+          : profile;
+      }),
+    }));
+  };
+  
+  /**
+   * Send poem data entered by users to the backend.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -51,7 +81,10 @@ function PoemCreateForm() {
 
     try {
       // Send the api the data of a new poem
-      const { data } = await axiosReq.post('/poems/', formData)
+      const { data } = await axiosReq.post('/poems/', formData);
+      /* Add 1 to poems count in the featured profile
+         if the user is featured. */      
+      handlePoemCount();
       // redirect users to the new poem's page.
       history.push(`/poems/${data.id}`);
       // display feedback message
