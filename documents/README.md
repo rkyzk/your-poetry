@@ -582,6 +582,17 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
 |1|sign out |log in as admin|Choose 'Sign out' from the dropdown menu. |The notification 'You've been signed out' will be displayed.|The notification 'You've been signed out' is displayed.|pass|[image](./images/manual-tests/Signout/1.png)|2023/7/29|
 
+#### Error Messages
+- In order to test if error messages are rendered correctly, a wrong URL will be set as the destination of get/post/put/delete requests.  
+- Don’t forget to set it back after each test!
+
+Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail | Date |
+|:---| :--- | :--- |:---| :--- | :--- |:---| :--- |
+|1| Poems Page|Change the destination of the get request `/poems/?${filter}` to '/poem/?${filter}' (line 24 in PoemsPage.js)  Go to “Home.”|Check if an error message appears. | Message "There was an error. The poems couldn't be loaded." is displayed.| Message "There was an error. The poems couldn't be loaded." is displayed.|pass|[image](./images/manual-tests/ErrorMessages/1.png)2023/7/29|
+|2| featured profiles |Change ‘/profiles/’ to “/profile/“ in line 20 in FeaturedProfilesDataContext.js. Go to "Home."|Check if an error message appears. | displayed.| displayed.|pass|[image](./images/manual-tests/ErrorMessages/2.png)2023/7/29|
+|3| profiles page |Change ‘/profiles/’ to “/profile/,“ in line 23 in ProfilesPage.js. Log in as admin and go to “Poets I’m following”|Check if an error message appears. | Message "There was an error.  The data couldn't be loaded.  Please try again later." is displayed.| Message "There was an error.  The data couldn't be loaded.  Please try again later." is displayed.|pass|[image](./images/manual-tests/ErrorMessages/3.png)2023/7/29|
+
+
 
 
 

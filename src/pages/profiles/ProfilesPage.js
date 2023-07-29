@@ -26,7 +26,7 @@ function ProfilesPage(props) {
         console.log(filter);
         setHasLoaded(true);
       } catch (err) {
-        setErrMsg("Something went wrong.  The data couldn't be loaded.  Please try again later.");
+        setErrMsg("There was an error.  The data couldn't be loaded.  Please try again later.");
       }
     }
     setHasLoaded(false);

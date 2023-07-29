@@ -123,6 +123,11 @@ function PoemCreateForm() {
            {message}
          </Alert>
        ))}
+       {errors.non_field_errors?.map((message, idx) => (
+            <Alert key={idx} variant="warning" className="mt-3">
+              {message}
+            </Alert>
+          ))}
         <Button 
           className={`${btnStyles.Button} ${btnStyles.Olive} mt-2`}
           type="submit"
