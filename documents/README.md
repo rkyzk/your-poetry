@@ -87,6 +87,32 @@ Please click on "Homepage" in the upper left corner to see wireframes of differe
 - Bootstrap.js
 
 ## Manual Testing
+### Testing If Goals (User Stories) are achieved 
+
+Test No.| Goals | How they are achieved| 
+|:---| :--- | :--- |
+|1|The purpose and usage of the app are made clear.|On “Home” page, the introductory paragraph summarizes what users can do with the application.  In addition, the navigation links and the titles of sections are labeled with clearly indicative terms.  Also the icons that are used in the application such as heart, edit and trash bin icons are commonly utilized so their usage is clear for site visitors.| 
+|2|Clearly labeled navigation links| All navigation links are labeled with self explanatory terms such as ‘Contact’ and ‘My poems.’|
+|3|Featued poems on the home page| Editors of the site can select featured poems, and those featured poems will be displayed on the home page.|
+|4| Lists of poems grouped by various criteria|Besides “Featured poems” on “Home” page, the app offers following pages displaying various lists of poems:<br>
+-	New Poems: poems published in the previous 14 days
+-	Popular Poems: the page lists poems with the highest number of likes at the top.
+-	Poems by Categories: poems in six different categories can be found separately.
+-	My Poems: list of poems written by the logged in user
+-	Poems I like: list of poems that the user liked|
+|5|Signing up for membership| A link to the signup page is displayed in the navigation bar at the top right of all pages in the app.  In addition, at the end of the introductory paragraph on “Home” page, visitors are invited to sign up, and a link is provided.|
+|6|Writing and sharing poems| Users can write poems and save or publish their poems on “Write Poems” page.  A link to the page is placed in the navigation bar at the top left for logged in users.|
+|7|Updating poems| In order to update a poem, users can go to “My Poems” page, click the title of the poem they want to edit, click the three dots that appear on the top right of their poem and click the edit icon.|
+|8|Deleting poems| In order to delete a poem, users should go to “My Poems” page, click the title of the poem they want to delete, click the three dots that appear on the top right of their poem, click the trash bin icon and click “delete” in the confirmation dialog.|
+|9|Posting comments on poems| Comment form is displayed below each poem if the user is logged in.  They can enter their comment and click ‘post.’|
+|10|Editing and deleting comments|Users can edit or delete their comments by clicking the three dots that appear on the right side of their comments.|
+|11|Liking poems|Logged in users can like others’ poems by clicking the heart icon.| 
+|12|Following users|Logged in users can follow other members by clicking ‘follow’ button that appear at the bottom part of their profile.| 
+|13|Profile Pages|Registered users can update their profiles to introduce themselves to other members.  Users can take a look at other members’ profiles to get to know about them.|
+|14|Restricting access where appropriate | Edit and delete buttons are displayed only for the owner of the poems and comments. |
+|15|Searching Poems|On “Search” page, users can search poems by author, title of the poems, keywords, categories and published date ranges.|
+|16|Searching profiles |On “Search Profiles” page users can search profiles by entering display names.|
+
 
 ### Testing Features
 
@@ -591,10 +617,3 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |1| Poems Page|Change the destination of the get request `/poems/?${filter}` to '/poem/?${filter}' (line 24 in PoemsPage.js)  Go to “Home.”|Check if an error message appears. | Message "There was an error. The poems couldn't be loaded." is displayed.| Message "There was an error. The poems couldn't be loaded." is displayed.|pass|[image](./images/manual-tests/ErrorMessages/1.png)2023/7/29|
 |2| featured profiles |Change ‘/profiles/’ to “/profile/“ in line 20 in FeaturedProfilesDataContext.js. Go to "Home."|Check if an error message appears. | displayed.| displayed.|pass|[image](./images/manual-tests/ErrorMessages/2.png)2023/7/29|
 |3| profiles page |Change ‘/profiles/’ to “/profile/,“ in line 23 in ProfilesPage.js. Log in as admin and go to “Poets I’m following”|Check if an error message appears. | Message "There was an error.  The data couldn't be loaded.  Please try again later." is displayed.| Message "There was an error.  The data couldn't be loaded.  Please try again later." is displayed.|pass|[image](./images/manual-tests/ErrorMessages/3.png)2023/7/29|
-
-
-
-
-
-
-
