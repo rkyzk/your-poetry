@@ -199,11 +199,13 @@ const Profile = (props) => {
       )}
       {!mobile && currentUser && (
         is_owner ? (
-          <span
-          className={`${btnStyles.You} ml-4 mt-3`}
-          >
-            You!
-          </span>
+          <div className="mt-2">
+            <span
+            className={`${btnStyles.You} ml-4`}
+            >
+              You!
+            </span>
+          </div>
         ) : (
           following_id ? (
             <Button

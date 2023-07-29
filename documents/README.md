@@ -456,7 +456,7 @@ Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual res
 |3|Display 'No profiles found with the name.' when no matches are found.|--|Enter testuser (type fast--don't pose longer than 1 second inbetween.) and wait.|A note 'No profiles found with the name.' is displayed.|A note 'No profiles found with the name.' is displayed.  After that many profiles are displayed for a moment, and then the note appears again.|fail|[image](./images/manual-tests/SearchProfiles/3.png)|2023/7/23|
 |4|Multiple profiles that match the search word will be displayed.|--|Enter 'user' and wait|All profiles containing the word 'user' user1, user2, user3 user4 will be displayed.|First many profiles not containing 'user' in their names are displayed, and after a few seconds only user 1-4 will be displayed.|fail|[image](./images/manual-tests/SearchProfiles/4.png)|2023/7/23|
 |5|The search will not run if only spaces are entered.|--|Enter a space and wait.|The search doesn't run.|The search didn't run.|pass|[image](./images/manual-tests/SearchProfiles/5.png)|2023/7/23|
-|6| responsiveness |—|Gradually narrow down the screen width to 330px. |All elements will be displayed without any distortion.| All elements will be displayed without any distortion.|fail|[image](./images/manual-tests/FeaturedProfiles/6.png)|2023/7/29|
+|6| responsiveness |—|Gradually narrow down the screen width to 330px. |All elements will be displayed without any distortion.| Below 400px, the input box extends to the edges of the screen, and the search icon is displayed on the new line, which doesn't appear good.|fail|[image](./images/manual-tests/FeaturedProfiles/6.png)|2023/7/29|
 
 Test no. 6 failed.  I added line 28 & 34 in SearchProfiles.js, redid the test and the test passed.<br>
 [image](./images/manual-tests/FeaturedProfiles/6-2.png) date conducted: 2023/7/29
@@ -500,7 +500,8 @@ For test no. 9, log out.
 
 Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | Actual results | Pass/Fail |images| Date |
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- | :--- |
-|6|displayed elements for logged out users|—|Check that “follow/unfollow” button is not displayed. |“follow/unfollow” button is not displayed.| “follow/unfollow” button is not displayed.|pass|2023/7/24|
+|9|displayed elements for logged out users|—|Check that “follow/unfollow” button is not displayed. |“follow/unfollow” button is not displayed.| “follow/unfollow” button is not displayed.|pass|[image](./images/manual-tests/ProfilePage/9.png)|2023/7/24|
+|10| responsiveness |—|Gradually narrow down the screen width to 330px. |All elements will be displayed without any distortion.| All elements will be displayed without any distortion.|fail|[image](./images/manual-tests/ProfilePage/10.png)|2023/7/29|
 
 #### Profile Editing (Profile edit, change username, change password pages)
 1. log in as newuser and go to "My Profile." 
