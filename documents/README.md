@@ -95,24 +95,43 @@ I chose a feather icon for the favicon, because a feather quill pen
 
 ## Each Part and Function in Detail
 **Logo**<br>
--	The logo is placed at the top left corner of the page, and it links to the home page.
--	I chose the graphic because the quill pen, ink and flowers suit the theme of the site.
+- The logo is placed at the top left corner of the page, and it links to the home page.
+- I chose the graphic because the quill pen, ink and flowers suit the theme of the site.
 
 **Navigation Bars**
 **Navigation Bar at the top right**<br>
--	For logged out users the navigation bar displays links to “Home”, “Contact”, “Sign in” and “Sign out” pages.
--	For logged in users, the avatar and the logged in user’s name are displayed in place of “Sign in” and “Sign up.”
--	Clicking the username shows a dropdown menu for “My Profile”, “My Poems”, “Poets I’m following”, “Poems I like” and “Sign out”.
--	I placed links to poems lists and a profile list that are specific to the current user in the top right dropdown menu.  I placed links to other lists that are common to all users such as “New Poems” and “Popular poems” in the navigation bar on the left side.
+- For logged out users the navigation bar displays links to “Home”, “Contact”, “Sign in” and “Sign out” pages.
+- For logged in users, the avatar and the logged in user’s name are displayed in place of “Sign in” and “Sign up.”
+- Clicking the username shows a dropdown menu for “My Profile”, “My Poems”, “Poets I’m following”, “Poems I like” and “Sign out”.
+- I placed links to poems lists and a profile list that are specific to the current user in the top right dropdown menu.  I placed links to other lists that are common to all users such as “New Poems” and “Popular poems” in the navigation bar on the left side.
 
 **Navigation Bar at the top left**<br>
--	The second navigation bar is displayed on all pages except for sign in and sign up pages.  (Users trying to sign in or sign up will not need this navigation bar.)
--	For logged out users, a dropdown menu “Poems” and a link “Search Profiles” are displayed.
--	For logged in users, the link to “Write Poems” will be displayed as well.  This is hidden for logged out users because only logged in users can write poems.
--	Clicking the dropdown menu “Poems” will show links to “New Poems”, “Popular Poems”, “Poems by Categories” and “Search” pages.
+- The second navigation bar is displayed on all pages except for sign in and sign up pages.  (Users trying to sign in or sign up will not need this navigation bar.)
+- For logged out users, a dropdown menu “Poems” and a link “Search Profiles” are displayed.
+- For logged in users, the link to “Write Poems” will be displayed as well.  This is hidden for logged out users because only logged in users can write poems.
+- Clicking the dropdown menu “Poems” will show links to “New Poems”, “Popular Poems”, “Poems by Categories” and “Search” pages.
 
 Both navigation bars will be replaced by burger menus for screen sizes below 767px.<br>
 All links are labeled with terms that clearly indicate what these links will do.
+
+**Footer**
+- Footer has a dark blue color that matches the color of the text in the app to establish unity in the appearance.
+- Footer offers links to facebook, twitter and Instagram pages.
+
+**The Poem component**
+- The poem component displays the title, the author, published date, excerpt (the first 60 characters of the content), likes count and comments count of the poem.
+- Users can click the title to go to the individual poem page that displays the full content.
+- On the individual poem page, if the user is the writer of the poem, three dots will appear at the top right corner of the component.  Clicking the three dots will show options for editing and deleting the poem.
+- Clicking the name of the author will redirect users to the profile page of the author.
+- If users are logged in they can click the heart icon to like the poem.  Clicking again will unlike the poem.  The color of the heart is transparent if the user hasn’t liked the poem, and it will be pink otherwise.
+- If the user is the writer of the poem, a tooltip will show up when the user hovers over the heart icon and says ‘You can’t like your own poem!’
+- If users are not logged in, a tooltip will say ‘Log in to like poems!’ when they hover over the heart icon.
+- Clicking the comment icon will redirect users to the individual poem page, so they can leave comments if they are logged in.
+
+**The Profile component**
+-	The profile component displays the avatar, display name, the date joined, the number of poems written, number of followers.  On the individual profile page, an introduction written by the owner (about_me) and their favorite poems and poets (‘favorites’ field) will be displayed as well.
+- If users are logged in, follow/unfollow button will be displayed.
+- If the user is the owner of the profile, a tag saying ‘You!’ will be displayed.
 
 
 ## Manual Testing
