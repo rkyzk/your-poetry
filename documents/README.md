@@ -648,21 +648,75 @@ Solution: I added line 14 in function 'timer' in useEffect in SearchProfiles so 
 
 
 ### Checking Performance and Accessibility
-Accessibility 82 
-Aria IDs are not unique.
-The same ID was used for the aria-controls and id for Nav.Dropdown in the NabBar and NavBarSecond components.
-I changed the aria-controls and the id in the NavBarSecond
+**Performance**
+Performace for all pages scored in 80s (I cleared browser cache before testing.)
 
-Background and foreground colors do not have a sufficient contrast ratio.
+The factor that lowered the score and the recommendation to improve the performance were stated as follows:
 
-Links do not have a discernible name
-I added aria-label for the link comment icons.
+Page prevented back/forward cache restoration.
+Serve static assets with an efficient cache policy.
 
-Lists do not contain only <li> elements and script supporting elements (<script> and <template>).
+I will need more time and research to look into these aspects.  For now I left these issues as they are.
+
+**Accessibility**
+
+#### Home
+Accessibility scored 82 at first.
+I corrected the following points as the report suggested.
+
+1. **Aria IDs are not unique.**<br>
+The same ID was used for as id for Nav.Dropdown in the NabBar and NavBarSecond components.
+I changed the aria-controls and the id in the NavBarSecond.
+
+2. **Background and foreground colors do not have a sufficient contrast ratio.**<br>
+
+3. **Links do not have a discernible name.**<br>
+I added aria-label for the link on the comment icon.
+
+4. **Lists do not contain only <li> elements and script supporting elements (<script> and <template>).**<br>
 In Footer Component, I added list tags around anchor tags.
 
-Heading elements are not in a sequentially-descending order
-I used h1, h2 and h4.  So I replaced h4 with h3.
+5. **Heading elements are not in a sequentially-descending order.**<br>
+I was using h1, h2 and h4.  So I replaced h4 with h3.
+
+After the correction, accessibility scores 96.
+![image](./images/Lighthouse/Home.png)
+
+### New Poems
+![image](./images/Lighthouse/NewPoems.png)
+
+### Popular Poems
+![image](./images/Lighthouse/PopularPoems.png)
+
+### Poems by Categories
+![image](./images/Lighthouse/PoemsByCategories.pngpng)
+
+### Search (poems)
+![image](./images/Lighthouse/SearchPoems.png)
+
+### Search Profiles
+![image](./images/Lighthouse/SearchProfiles.png)
+
+### Contact
+![image](./images/Lighthouse/Contact.png)
+
+### Sign in
+![image](./images/Lighthouse/Signin.png)
+
+### Sign up
+![image](./images/Lighthouse/Signup.png)
+
+### My Profile
+![image](./images/Lighthouse/MyProfile.png)
+
+I wasn't able to check "My Poems", "Poets I'm following" and "Poems I liked".
+When I go to these pages and click "Analyze the page load", the data didn't load and the error message was displayed.
+If I don't click 'analyze the page load', the pages load without any issues, and poems or profiles are displayed.
+
+### Checking html and css
+No errors were found in the html and css by validation tools at following sites.
+https://validator.w3.org/
+https://jigsaw.w3.org/
 
 ### Media
 
