@@ -157,6 +157,58 @@ All links are labeled with terms that clearly indicate what these links will do.
 - Users can search poems by entering title, author, keyword, category and/or published date range.
 - Title, author, keyword will search poems that contain the phrase entered by users (not exact match).  The search is case insensitive.
 
+**Write Poems**
+- Logged in users can write new poems.
+- The title and the content are required fields, and the category will be set ‘other’ unless the users select another category.
+- If users try to submit a poem without either or both required fields, the validation message will tell the field may not be blank.
+- Users can publish the poem, or save the draft without publishing it.
+- All poems written by the user (including unpublished poems) can be found on “My Poems” page.
+
+**Edit Poems**
+- On the individual poems page, clicking the three dots and clicking the edit icon will redirect users to “Revise poems” page.
+- The saved data for the title, content and category will be displayed on the page, and the user can update them.
+- Clicking ‘cancel’ will abort editing and redirect users to the previous page.
+- Clicking ‘save’ will save the changes.
+- If the user hasn’t published the poem, ‘publish’ button will be displayed.
+
+**Delete Poems (No page)**
+- If users wish to delete their poem, they can click the three dots on the individual poem page and click the trash bin icon.
+- A confirmation modal will be displayed, and the user can choose to delete or cancel. 
+- Deleting the poem will remove the data from the backend.
+
+**Search Profiles**
+- Users can enter a name of the profile and profiles that match will be displayed.
+- The search will start to run one second after the user has stopped typing. (Otherwise the screen will keep flashing while users type letters.)
+- The search will look for profiles with display names that contain the phrase entered by the users.
+- The search is case insensitive. 
+
+**My Profile**
+- The page displays the profile and the poems written by the user.
+- Three dots will be displayed at the top right corner of the profile.
+- Clicking on the three dots will show options to edit profile, to change username and to change password.
+
+**Edit Profile**
+- Users can update their display name, introduction about themselves, their favorite poems and poets as well as the profile image.
+- Profile image has to be less than 800KB in size.  The height and width need to be less than 1000px.  Otherwise errors will be raised.
+
+**Change username and password**
+- In order to change the username or password, users can click the three dots on their profile page, select an option.
+- They can enter their new username or password and save the data.
+
+**My Poems**
+- The page shows a list of poems written by the user.
+
+**Poets I’m following**
+- The page shows a list of profiles that the user is following.
+
+**Poems I like**
+- The page shows a list of poems the user has liked.
+
+**Sign out (No page)**
+- Clicking the link will sing out the user.
+
+
+
 
 ## Manual Testing
 ### Testing If Goals (User Stories) are achieved 
