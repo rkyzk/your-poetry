@@ -8,12 +8,14 @@ import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import styles from "../../styles/PoemsPage.module.css";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PoemsPage({ filter, message = "No results found", heading }) {
   const [poems, setPoems] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [errMsg, setErrMsg] = useState("");
+  const currentUser = useCurrentUser();
   var customPadding;
   (pathname === "/my-poems" || pathname === "/liked" ) &&
   (customPadding = true);
@@ -31,7 +33,7 @@ function PoemsPage({ filter, message = "No results found", heading }) {
     };
     setHasLoaded(false);
     fetchPoems();
-  }, [filter, pathname]);
+  }, [filter, pathname, currentUser]);
 
   return (
     <Col
