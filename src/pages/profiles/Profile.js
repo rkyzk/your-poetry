@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import { toast } from "react-toastify";
 import { useFeaturedProfilesData, useSetFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataContext";
 
 const Profile = (props) => {
@@ -57,13 +58,12 @@ const Profile = (props) => {
         }));
       }
     } catch (err) {
-      console.log(err);
+      toast("There was an error.  Please try again.");
     }
   };
 
   const handleUnfollow= async () => {
     try {
-      console.log(following_id);
       await axiosRes.delete(`/followers/${following_id}`);
       {page === "profilesPage" &&
         setProfiles((prevProfiles) => ({
@@ -94,7 +94,7 @@ const Profile = (props) => {
         }));
       } 
     } catch (err) {
-      console.log(err);
+      toast("There was an error.  Please try again.");
     }
   };
 

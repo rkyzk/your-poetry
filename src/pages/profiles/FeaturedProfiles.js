@@ -22,9 +22,9 @@ const FeaturedProfiles = ({ mobile }) => {
               {featuredProfilesData.results.map((profile) => (
                 <Col>
                   <Profile
-                  key={profile.id}
-                  {...profile}
-                  mobile
+                    key={profile.id}
+                    {...profile}
+                    mobile
                   />
                 </Col>
               ))}

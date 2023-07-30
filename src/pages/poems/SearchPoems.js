@@ -71,7 +71,6 @@ function SearchPoems() {
   
   const handleSearch = () => setSearchFilter(filter);
 
-  console.log(searchFilter);
   return (
     <>
       <Container>

@@ -28,7 +28,6 @@ const ConfirmationModal = ({show, hideConfirmationModal, id}) => {
 
   const handleDeletePoem = async () => {
     try {
-      console.log(id);
       await axiosReq.delete(`/poems/${id}`);
       hideConfirmationModal();
       subtractOneFromPoemsCount();

@@ -4,12 +4,8 @@
   z-index: 1;
 }
   
-.NavLink {
+.NavBarSecond .NavToggle .NavLink {
   font-family: 'Nanum Myeongj';
-  color: rgb(35, 78, 139);
-}
-
-#poem-dropdown {
   color: rgb(35, 78, 139);
 }
   

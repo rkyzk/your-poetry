@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Profile from "./Profile";
-import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
@@ -21,9 +20,7 @@ function ProfilesPage(props) {
     const fetchProfiles = async () => {
       try {
         const { data } = await axiosReq.get(`/profiles/?${filter}`);
-        console.log(data.results[0]);
         setProfiles(data);
-        console.log(filter);
         setHasLoaded(true);
       } catch (err) {
         setErrMsg("There was an error.  The data couldn't be loaded.  Please try again later.");
