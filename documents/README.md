@@ -621,6 +621,17 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |2| featured profiles |Change ‘/profiles/’ to “/profile/“ in line 20 in FeaturedProfilesDataContext.js. Go to "Home."|Check if an error message appears. | displayed.| displayed.|pass|[image](./images/manual-tests/ErrorMessages/2.png)2023/7/29|
 |3| profiles page |Change ‘/profiles/’ to “/profile/,“ in line 23 in ProfilesPage.js. Log in as admin and go to “Poets I’m following”|Check if an error message appears. | Message "There was an error.  The data couldn't be loaded.  Please try again later." is displayed.| Message "There was an error.  The data couldn't be loaded.  Please try again later." is displayed.|pass|[image](./images/manual-tests/ErrorMessages/3.png)2023/7/29|
 
+### Bugs
+
+Bug 1. In manual test 'Featured Profiles component' section, test no. 6 failed.
+When a user who is featured writes a new poem, the poem count in the featured profile was not updated.  (It was updated only after refreshing the page.)
+
+Solution: I added handlePoemCount function in PoemCreateForm which adjusts the poem count in the featured profile if a featured user write a new poem.  I found that when a featured user deletes a poem, the poem count was also not reflected.  I added subtractOneFromPoemsCount function in ConfirmationModal.js to adjust the poem count in case a featured user deletes a poem.
+
+Bug 2. On Search Profiles Page, when a user enters spaces, the search used to start running, which is not necessary.
+
+Solution: I added line 14 in function 'timer' in useEffect in SearchProfiles so the search will not be run if only spaces are entered.
+
 ### Depoyment Process
 
 1. Remove ReactStrictMode components from index.js.
@@ -653,9 +664,33 @@ In Footer Component, I added list tags around anchor tags.
 Heading elements are not in a sequentially-descending order
 I used h1, h2 and h4.  So I replaced h4 with h3.
 
+### Media
+
+The favicon was taken from [this site](https://icons8.com/icons/set/feather).
+The logo was taken from [this site]().
+
+I used fonts from Google fonts and icons from Fontawesome.
 
 ### Credits
 
-Avatar 
-Asset
-MoreDropdown
+Many thanks to my mentor Jubril Akolade and tutors at CI for their dedicated guidance.
+
+I made use of the code from the walk-through project at CI, 'Moments'.
+Specifically the following files were taken from 'Moments' with very little or no modification.
+
+api/axiosDefaults.js
+components/Asset.js
+components/Avatar.js
+components/MoreDropdown.js
+contexts/CurrentUserContext.js
+hooks/useClickOutsideToggle.js
+hooks/useRedirect.js
+utils/utils.js
+profiles/UsePasswordForm.js
+profiles/UsernameForm.js
+comments/Comment.js
+comments/CommentCreateForm.js
+comments/CommentEditForm.js
+
+I also took the basic structure of Nav components in NavBar.js and NavBarSecond.js from React-Bootstrap.
+

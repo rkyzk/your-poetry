@@ -12,7 +12,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 function ProfilesPage(props) {
   const { filter, message, page } = props;
   const [hasLoaded, setHasLoaded] = useState(false);
-  const currentUser = useCurrentUser();
   const [profiles, setProfiles] = useState({ results: [] });
   const [errMsg, setErrMsg] = useState("");
 

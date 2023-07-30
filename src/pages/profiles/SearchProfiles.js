@@ -2,12 +2,8 @@ import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
 import ProfilesPage from "./ProfilesPage";
-import Asset from "../../components/Asset";
-import appStyles from "../../App.module.css";
 import styles from "../../styles/SearchProfiles.module.css";
-import { axiosReq } from "../../api/axiosDefaults";
 
 function SearchProfiles() {
   const [query, setQuery] = useState("");
@@ -15,7 +11,7 @@ function SearchProfiles() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      query.replace(/\s/g, "") !== "" &&
+      query.trim() !== "" &&
         setSearch(true);
     }, 1000);
     return () => {
