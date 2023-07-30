@@ -133,6 +133,30 @@ All links are labeled with terms that clearly indicate what these links will do.
 - If users are logged in, follow/unfollow button will be displayed.
 - If the user is the owner of the profile, a tag saying ‘You!’ will be displayed.
 
+**Home**
+- An introduction explains what the page is for and encourages users to become a member in a friendly and concise manner.  
+- Featured poems are presented right below the introduction.
+- The editors of the site can select featured poems every week or 2 weeks or so and set the featured flag of the poems to true.
+- It is important to present featured poems on “Home,” so editors can direct users to read well written poems when they land on the page, which will give them a good first impression of the site.
+- Featured profiles are presented on the right column for large screen sizes.  For screen sizes below 767px, the profiles are displayed at the top center.
+- Featured profiles
+
+**Contact**
+- Contact page provides the email address of the admin, so users can write to the owner of the site.
+
+**New Poems**
+- The page lists poems published in the previous 14 days.
+
+**Popular Poems**
+- The page lists poems published in the past 30 days ordered by descending likes count. (The poems with the highest number of likes will be displayed at the top.)
+
+**Poems by Categories**
+- Poems are categorized under different themes--nature, love, people, humor, haiku and other.  Users can choose a category to get a list of poems in that category.
+
+**Search (Poems)**
+- Users can search poems by entering title, author, keyword, category and/or published date range.
+- Title, author, keyword will search poems that contain the phrase entered by users (not exact match).  The search is case insensitive.
+
 
 ## Manual Testing
 ### Testing If Goals (User Stories) are achieved 
