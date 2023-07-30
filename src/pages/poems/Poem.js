@@ -171,7 +171,11 @@ const Poem = (props) => {
         <span className={`${styles.LinkText} ml-4`}> 
           by
           {/* Link the profile name to the profile page. */}
-          <Link className={`${styles.LinkText} ml-1`} to={`/profiles/${profile_id}`}>
+          <Link
+            className={`${styles.LinkText} ml-1`}
+            to={`/profiles/${profile_id}`}
+            aria-label={`go-to-the-profile-page-of-${profile_name}`}
+          >
             {profile_name && (profile_name)}
           </Link>
         </span><br/>
@@ -216,8 +220,7 @@ const Poem = (props) => {
           <>
           {/* If like_id doesn't exist and if the user is logged in,
               handleLike will be fired when the heart is clicked. */}
-          <span onClick={handleLike}>
-            
+          <span onClick={handleLike}>          
             <i className={`far fa-heart ${styles.HeartOutline}`} />
           </span>
           </>
@@ -235,7 +238,11 @@ const Poem = (props) => {
           </>
         )}
         <span className="ml-1">{likes_count}</span>
-        <Link className={`${styles.CommentIcon}`} to={`/poems/${id}`}>
+        <Link
+          className={`${styles.CommentIcon}`}
+          to={`/poems/${id}`}
+          aria-label={`comment-on-${title}`}
+        >
           <i className="far fa-comments ml-2 mr-1" />
         </Link>
         {comments_count}  

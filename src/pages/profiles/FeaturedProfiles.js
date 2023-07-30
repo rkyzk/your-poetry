@@ -14,7 +14,7 @@ const FeaturedProfiles = ({ mobile }) => {
         mobile && "d-lg-none mb-3"
       }`}
     >
-      <h4 className={`${styles.Heading} text-center`}>Featured profiles</h4>
+      <h3 className={`${styles.Heading} text-center`}>Featured profiles</h3>
       {featuredProfilesData.results.length ? (
         <> 
           {mobile ? (

@@ -6,7 +6,11 @@
   
 .NavLink {
   font-family: 'Nanum Myeongj';
-  color: rgb(51, 93, 151);
+  color: rgb(35, 78, 139);
+}
+
+#poem-dropdown {
+  color: rgb(35, 78, 139);
 }
   
 .NavLink:hover {

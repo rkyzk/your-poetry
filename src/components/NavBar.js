@@ -3,7 +3,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import logo from "../assets/poetry-logo.png";
+import logo from "../assets/images/poetry-logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
@@ -52,7 +52,7 @@ const NavBar = () => {
       <NavDropdown
         className={`${styles.Dropdown} ${styles.Name}`}
         title={currentUser?.username}
-        id="nav-dropdown"
+        id="nav-my-space"
         onClick={(event) => keepMenuOpen(event)}
       >
         <NavDropdown.Item>
@@ -130,7 +130,7 @@ const NavBar = () => {
       <Container>
         <NavLink exact activeClassName={styles.Active} to="/">
           <Navbar.Brand>
-            <img src={logo} alt="logo" height="70" />
+            <img src={logo} alt="logo" width="70" height="auto" />
           </Navbar.Brand>
         </NavLink>
         <h1 className="mt-4">Your Poetry</h1>

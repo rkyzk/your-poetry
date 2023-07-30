@@ -37,6 +37,8 @@ https://3000-rkyzk-yourpoetry-kp7cuajca1w.ws-us101.gitpod.io/
 
 ![your-poetry](./images/Your-Poetry.png)
 
+The app can be found [here:](https://your-poetry-b19cd2115cd5.herokuapp.com/)
+
 ## Overview
 Your Poetry offers an interactive platform where users can share their poems and give/get comments on each other’s poems.  The app is equipped with various features including liking/unliking poems, following/unfollowing profiles as well as searching poems/profiles.  In addition users can also make their own profiles to let others know a few things about themselves.  The app offers users opportunities to be creative, to share their art and to inspire others.
 
@@ -627,3 +629,21 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 8. Add two Config Vars:
 - CLIENT_DEV_ORIGIN = the URL of this app in development
 - CLIENT_ORIGIN = the URL of the app deployed on Heroku.  Deploy again the API project.
+
+
+### Checking Performance and Accessibility
+Accessibility 82 
+Aria IDs are not unique.
+The same ID was used for the aria-controls and id for Nav.Dropdown in the NabBar and NavBarSecond components.
+I changed the aria-controls and the id in the NavBarSecond
+
+Background and foreground colors do not have a sufficient contrast ratio.
+
+Links do not have a discernible name
+I added aria-label for the link comment icons.
+
+Lists do not contain only <li> elements and script supporting elements (<script> and <template>).
+In Footer Component, I added list tags around anchor tags.
+
+Heading elements are not in a sequentially-descending order
+I used h1, h2 and h4.  So I replaced h4 with h3.

@@ -23,12 +23,12 @@ const NavBarSecond = () => {
       <Container>
         <Navbar.Toggle
           ref={ref}
-          aria-controls="basic-navbar-nav"
+          aria-controls="basic-navbar-second-nav"
           onClick={() => setExpanded(!expanded)}
         >
           <i class={`${styles.Burger} fa-solid fa-bars`}></i>
         </Navbar.Toggle>
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Collapse id="basic-navbar-second-nav">
           <Nav className={`${styles.NavToggle} text-left`}>
             <NavDropdown
               className={`${styles.NavLink} ${styles.SpaceLeft}`}
