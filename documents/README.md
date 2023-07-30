@@ -2,7 +2,7 @@ nvm install 16 && nvm use 16
 
 category & published dates font css on search poems
 ``
-poemcreate history comment
+
 \
 Installed libraries and dependencies:
 npm install react-bootstrap@1.6.3 bootstrap@4.6.0
@@ -11,8 +11,7 @@ npm install axios
 npm install react-infinite-scroll-component
 npm i react-toastify@9.0.3
 npm install jwt-decode
-Client origin dev
-https://3000-rkyzk-yourpoetry-kp7cuajca1w.ws-us101.gitpod.io/
+
 
 # Your Poetry
 
@@ -93,6 +92,28 @@ I chose a feather icon for the favicon, because a feather quill pen
 - HTML, CSS, JavaScript
 - React.js
 - Bootstrap.js
+
+## Each Part and Function in Detail
+**Logo**<br>
+-	The logo is placed at the top left corner of the page, and it links to the home page.
+-	I chose the graphic because the quill pen, ink and flowers suit the theme of the site.
+
+**Navigation Bars**
+**Navigation Bar at the top right**<br>
+-	For logged out users the navigation bar displays links to “Home”, “Contact”, “Sign in” and “Sign out” pages.
+-	For logged in users, the avatar and the logged in user’s name are displayed in place of “Sign in” and “Sign up.”
+-	Clicking the username shows a dropdown menu for “My Profile”, “My Poems”, “Poets I’m following”, “Poems I like” and “Sign out”.
+-	I placed links to poems lists and a profile list that are specific to the current user in the top right dropdown menu.  I placed links to other lists that are common to all users such as “New Poems” and “Popular poems” in the navigation bar on the left side.
+
+**Navigation Bar at the top left**<br>
+-	The second navigation bar is displayed on all pages except for sign in and sign up pages.  (Users trying to sign in or sign up will not need this navigation bar.)
+-	For logged out users, a dropdown menu “Poems” and a link “Search Profiles” are displayed.
+-	For logged in users, the link to “Write Poems” will be displayed as well.  This is hidden for logged out users because only logged in users can write poems.
+-	Clicking the dropdown menu “Poems” will show links to “New Poems”, “Popular Poems”, “Poems by Categories” and “Search” pages.
+
+Both navigation bars will be replaced by burger menus for screen sizes below 767px.<br>
+All links are labeled with terms that clearly indicate what these links will do.
+
 
 ## Manual Testing
 ### Testing If Goals (User Stories) are achieved 
@@ -623,12 +644,12 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 
 ### Bugs
 
-Bug 1. In manual test 'Featured Profiles component' section, test no. 6 failed.
+1. In manual test 'Featured Profiles component' section, test no. 6 failed.
 When a user who is featured writes a new poem, the poem count in the featured profile was not updated.  (It was updated only after refreshing the page.)
 
 Solution: I added handlePoemCount function in PoemCreateForm which adjusts the poem count in the featured profile if a featured user write a new poem.  I found that when a featured user deletes a poem, the poem count was also not reflected.  I added subtractOneFromPoemsCount function in ConfirmationModal.js to adjust the poem count in case a featured user deletes a poem.
 
-Bug 2. On Search Profiles Page, when a user enters spaces, the search used to start running, which is not necessary.
+2. On Search Profiles Page, when a user enters spaces, the search used to start running, which is not necessary.
 
 Solution: I added line 14 in function 'timer' in useEffect in SearchProfiles so the search will not be run if only spaces are entered.
 
@@ -648,7 +669,7 @@ Solution: I added line 14 in function 'timer' in useEffect in SearchProfiles so 
 
 
 ### Checking Performance and Accessibility
-**Performance**
+**Performance**<br>
 Performace for all pages scored in 80s (I cleared browser cache before testing.)
 
 The factor that lowered the score and the recommendation to improve the performance were stated as follows:
@@ -679,49 +700,20 @@ In Footer Component, I added list tags around anchor tags.
 5. **Heading elements are not in a sequentially-descending order.**<br>
 I was using h1, h2 and h4.  So I replaced h4 with h3.
 
-After the correction, accessibility scores 96.
+After the corrections, accessibility scores 96.
 ![image](./images/Lighthouse/Home.png)
 
-### New Poems
-![image](./images/Lighthouse/NewPoems.png)
-
-### Popular Poems
-![image](./images/Lighthouse/PopularPoems.png)
-
-### Poems by Categories
-![image](./images/Lighthouse/PoemsByCategories.pngpng)
-
-### Search (poems)
-![image](./images/Lighthouse/SearchPoems.png)
-
-### Search Profiles
-![image](./images/Lighthouse/SearchProfiles.png)
-
-### Contact
-![image](./images/Lighthouse/Contact.png)
-
-### Sign in
-![image](./images/Lighthouse/Signin.png)
-
-### Sign up
-![image](./images/Lighthouse/Signup.png)
-
-### My Profile
-![image](./images/Lighthouse/MyProfile.png)
-
-I wasn't able to check "My Poems", "Poets I'm following" and "Poems I liked".
-When I go to these pages and click "Analyze the page load", the data didn't load and the error message was displayed.
-If I don't click 'analyze the page load', the pages load without any issues, and poems or profiles are displayed.
+The results for other pages are recorded [here](./Lighthouse.md)
 
 ### Checking html and css
-No errors were found in the html and css by validation tools at following sites.
+No errors were found in the html and css by validation tools at following sites:<br>
 https://validator.w3.org/
 https://jigsaw.w3.org/
 
 ### Media
 
-The favicon was taken from [this site](https://icons8.com/icons/set/feather).
-The logo was taken from [this site]().
+The favicon was taken from [this site](https://icons8.com/icons/set/feather).<br>
+The logo was taken from [this site](https://www.vecteezy.com/vector-art/20301495-continuous-line-drawing-plants-black-sketch-wild-flowers-isolated-on-white-background-flowers-one-line-illustration-minimalist-print-set).
 
 I used fonts from Google fonts and icons from Fontawesome.
 
@@ -729,22 +721,22 @@ I used fonts from Google fonts and icons from Fontawesome.
 
 Many thanks to my mentor Jubril Akolade and tutors at CI for their dedicated guidance.
 
-I made use of the code from the walk-through project at CI, 'Moments'.
+I made use of the code from the walk-through project at CI, 'Moments'.<br>
 Specifically the following files were taken from 'Moments' with very little or no modification.
 
-api/axiosDefaults.js
-components/Asset.js
-components/Avatar.js
-components/MoreDropdown.js
-contexts/CurrentUserContext.js
-hooks/useClickOutsideToggle.js
-hooks/useRedirect.js
-utils/utils.js
-profiles/UsePasswordForm.js
-profiles/UsernameForm.js
-comments/Comment.js
-comments/CommentCreateForm.js
-comments/CommentEditForm.js
+- api/axiosDefaults.js
+- components/Asset.js
+- components/Avatar.js
+- components/MoreDropdown.js
+- contexts/CurrentUserContext.js
+- hooks/useClickOutsideToggle.js
+- hooks/useRedirect.js
+- utils/utils.js
+- profiles/UsePasswordForm.js
+- profiles/UsernameForm.js
+- comments/Comment.js
+- comments/CommentCreateForm.js
+- comments/CommentEditForm.js
 
 I also took the basic structure of Nav components in NavBar.js and NavBarSecond.js from React-Bootstrap.
 
