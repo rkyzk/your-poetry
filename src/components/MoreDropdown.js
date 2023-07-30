@@ -3,8 +3,11 @@ import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
 import { useHistory } from "react-router";
 
-// The forwardRef important!!
-// Dropdown needs access to the DOM node in order to position the Menu
+/**
+ * Set forwardRef to the three dots.
+ * The forwardRef is necessary since the dropdown needs
+ * access to the DOM node in order to position the Menu.
+ */ 
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fas fa-ellipsis-v"
@@ -16,6 +19,12 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
+/**
+ * Return a dropdown menu for editing/deleting poems and comments.
+ * The dropdown will be shown as three dots.
+ * @param {handleEdit, showConfirmationModal, handleDeleteComment}
+ * @returns Dropdown
+ */
 export const MoreDropdown = ({ handleEdit, showConfirmationModal, handleDeleteComment }) => {
   return (
     <Dropdown className="ml-auto" drop="left">
@@ -31,14 +40,18 @@ export const MoreDropdown = ({ handleEdit, showConfirmationModal, handleDeleteCo
         >
           <i className="fas fa-edit" />
         </Dropdown.Item>
+        {/* If a poem will be deleted, showConfirmationModal is passed down,
+            so a confirmation modal will be displayed.
+            If a comment will be deleted, handleDeleteComment will be fired
+            without a confirmation. */}
         {showConfirmationModal ? (
           <Dropdown.Item
-          className={styles.DropdownItem}
-          onClick={showConfirmationModal}
-          aria-label="delete"
-        >
-          <i className="fas fa-trash-alt" />
-        </Dropdown.Item>
+            className={styles.DropdownItem}
+            onClick={showConfirmationModal}
+            aria-label="delete"
+          >
+            <i className="fas fa-trash-alt" />
+          </Dropdown.Item>
         ) : (
         <Dropdown.Item
           className={styles.DropdownItem}
@@ -53,7 +66,14 @@ export const MoreDropdown = ({ handleEdit, showConfirmationModal, handleDeleteCo
   );
 };
 
+/**
+ * Return a dropdown menu for editing profiles.
+ * The menu will appear as three dots.
+ * @param {id}
+ * @returns 
+ */
 export function ProfileEditDropdown({ id }) {
+  /** stores info on which pages the user has been to. */
   const history = useHistory();
   return (
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">

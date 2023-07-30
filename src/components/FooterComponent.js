@@ -1,5 +1,8 @@
 import styles from "../styles/FooterComponent.module.css";
 
+/**
+ * Return Footer component.
+ */
 export const FooterComponent = () => {
   return (
     <div className={`${styles.FooterBg} pt-2`}>

@@ -12,25 +12,44 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useRedirect } from "../../hooks/useRedirect";
 
+/**
+ * Return sign up form that lets 
+ * users sign up.
+ * @returns
+ */
 const SignUpForm = () => {
+  // Redirect users who are logged in to "Home".
   useRedirect("loggedIn");
+  /** registerData will store data entered by users. */
   const [registerData, setRegisterData] = useState({
     username: "",
     password1: "",
     password2: "",
   });
-
+  /** destructure 'registerData' */
   const { username, password1, password2 } = registerData;
+  /** stores info about which pages the user has visited. */
   const history = useHistory();
+  /** stores errors */
   const [errors, setErrors] = useState({});
-
+  
+  /** 
+   * Set the data entered by users to
+   * 'registerData.'
+   * @param {event}
+   */
   const handleChange = (event) => {
     setRegisterData({
       ...registerData,
       [event.target.name]: event.target.value,
     });
   };
-
+  
+  /**
+   * Send the data entered by users to the backend.
+   * Redirect the user to signin page.
+   * @param {event} 
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -38,6 +57,7 @@ const SignUpForm = () => {
       history.push("/signin");
       toast(`You've been registered.  Now sign in.`);
     } catch (err) {
+      // set errors
       setErrors(err.response?.data);
     };
   };

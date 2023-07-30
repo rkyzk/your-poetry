@@ -3,30 +3,38 @@ import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import axios from "axios";
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
 import { setTokenTimestamp } from "../../utils/utils";
 import { toast } from 'react-toastify';
 import { useRedirect } from "../../hooks/useRedirect";
 
+/**
+ * Return the sign in form
+ * that allows users to sign in.
+ */
 function SignInForm() {
+  /** get the function to set current user info to a variable. */
   const setCurrentUser = useSetCurrentUser();
+  /** Redirect logged in users. */
   useRedirect("loggedIn");
+  /** 'signInData' will store data entered by users  */
   const [signInData, setSignInData] = useState({
     username: "",
     password: "",
   });
-
+  /** destructure 'signInData' */
   const { username, password } = signInData;
+  /** stores info about which pages the user has visited. */
   const history = useHistory();
+  /** stores errors */
   const [errors, setErrors] = useState({});
-
+ 
+  /** set data entered by users to 'signInData'. */
   const handleChange = (event) => {
     setSignInData({
       ...signInData,
@@ -34,15 +42,25 @@ function SignInForm() {
     });
   };
 
+  /**
+   * Post the data entered by users to the backend.
+   * If posting is successful, set 'currentUser' the data
+   * of logged in user.  Set the token time stamp,
+   * redirect to "Home."
+   * @param {event}
+  */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const { data } = await axios.post("dj-rest-auth/login/", signInData);
+      // set the data of the logged in user to 'currentUser'.
       setCurrentUser(data.user);
+      // set token time statmp.
       setTokenTimestamp(data);
       toast(`You're signed in as ${data.user.username}`);
       history.push("/");
     } catch (err) {
+      // Set errors in 'errors'
       setErrors(err.response?.data);
     }
   };
@@ -51,7 +69,8 @@ function SignInForm() {
     <Col
       className="my-auto p-0 p-md-2"
       lg={{ span: 6, offset: 3 }}
-      md={{ span: 8, offset: 2 }}>
+      md={{ span: 8, offset: 2 }}
+    >
       <Container className="p-4">
         <h1 className={styles.Header}>sign in</h1>
         <Form onSubmit={handleSubmit}>

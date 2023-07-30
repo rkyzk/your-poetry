@@ -7,7 +7,7 @@ import styles from "../../styles/FeaturedProfiles.module.css";
 import { useFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataContext";
 
 const FeaturedProfiles = ({ mobile }) => {
-  const { featuredProfilesData, message } = useFeaturedProfilesData();
+  const { featuredProfilesData, errMessage } = useFeaturedProfilesData();
   return (
     <Container
       className={`${appStyles.Content} ${styles.Mobile} ${
@@ -41,8 +41,8 @@ const FeaturedProfiles = ({ mobile }) => {
           )}
         </>
       ) : (
-        message ?
-        <Alert variant="warning">{message}</Alert> :
+        errMessage ?
+        <Alert variant="warning">{errMessage}</Alert> :
         <Asset spinner />
       )}
     </Container>

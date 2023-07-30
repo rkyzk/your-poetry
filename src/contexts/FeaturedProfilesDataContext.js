@@ -8,11 +8,20 @@ const SetFeaturedProfilesDataContext = createContext();
 export const useFeaturedProfilesData = () => useContext(FeaturedProfilesDataContext);
 export const useSetFeaturedProfilesData = () => useContext(SetFeaturedProfilesDataContext);
 
+/**
+ * Return featured profiles data.
+ * @param {children}
+ * @returns 
+ */
 export const FeaturedProfilesDataProvider = ({ children }) => {
+  /** stores info about the logged in user. */
   const currentUser = useCurrentUser();
+  /** stores data about featured profiles. */
   const [featuredProfilesData, setFeaturedProfilesData] = useState({ results: [] });
-  const [message, setMessage] = useState("");
+  /** stores an error message. */
+  const [errMessage, setErrMessage] = useState("");
 
+  /** Get data about featured profiles and store them in 'featuredProfilesData' */
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -21,14 +30,14 @@ export const FeaturedProfilesDataProvider = ({ children }) => {
         );
         setFeaturedProfilesData(data);     
       } catch (err) {
-        setMessage("There was an error. The profiles couldn't be loaded.");
+        setErrMessage("There was an error. The profiles couldn't be loaded.");
       }
     };
     handleMount();
   }, [currentUser]);
 
   return (
-    <FeaturedProfilesDataContext.Provider value={{featuredProfilesData, message}}>
+    <FeaturedProfilesDataContext.Provider value={{featuredProfilesData, errMessage}}>
       <SetFeaturedProfilesDataContext.Provider
         value={setFeaturedProfilesData}
       >

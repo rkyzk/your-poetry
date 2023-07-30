@@ -84,6 +84,11 @@ I used dark blue for the text, instead of very commonly used black or dark gray 
 I used light gray for the background of navigation bars to keep the appearance simple.<br>
 I used olive color for most buttons, because the color provides a nice contrast against dark blue.<br>
 
+**Logo**
+
+**Favicon**
+I chose a feather icon for the favicon, because a feather quill pen  
+
 ## Main Technologies Used
 - HTML, CSS, JavaScript
 - React.js
@@ -647,3 +652,10 @@ In Footer Component, I added list tags around anchor tags.
 
 Heading elements are not in a sequentially-descending order
 I used h1, h2 and h4.  So I replaced h4 with h3.
+
+
+### Credits
+
+Avatar 
+Asset
+MoreDropdown

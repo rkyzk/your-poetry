@@ -2,9 +2,19 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useHistory } from "react-router";
 
+/**
+ * Redirect users to "Home"
+ * if they navigate to pages they shouldn't
+ * be able to access.
+ * @param {useAuthStatus}
+ */
 export const useRedirect = (userAuthStatus) => {
+  /** stores info about which pages the user has visited. */
   const history = useHistory();
-
+  
+  /**
+   * 
+   */
   useEffect(() => {
     const handleMount = async () => {
       try {
