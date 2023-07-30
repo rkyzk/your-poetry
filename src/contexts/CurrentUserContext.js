@@ -38,10 +38,15 @@ export const CurrentUserProvider = ({ children }) => {
   }, []);
   
   /**
-   * If 
+   * Before children mount, run interceptors,
+   * so users stay logged in as long as
+   * the refresh token is valid.
    */
   useMemo(() => {
-    
+    /** if refresh token is valid, run interceptor
+     *  send a request to refresh the acces token before
+     *  request by users is processed.
+     */
     axiosReq.interceptors.request.use(
       async (config) => {
       // If refresh token hasn't expired, refresh the access token.
@@ -50,6 +55,7 @@ export const CurrentUserProvider = ({ children }) => {
             await axios.post("/dj-rest-auth/token/refresh/");
           } catch (err) {
             setCurrentUser((prevCurrentUser) => {
+              // If the user was logeed in, send them to sign in page.
               if (prevCurrentUser) {
                 history.push("/signin");
               }
@@ -62,27 +68,48 @@ export const CurrentUserProvider = ({ children }) => {
         return config;
       },
       (err) => {
+        // In case of an error reject the promise with the error.
         return Promise.reject(err);
       }
     );
-
+    
+    /** 
+      * Intercept responses and if there's an 'unauthorized' error
+      * send a request to refresh the access token.
+      * If that fails set currentUser to null and remove 
+      * the TokenTimesStamp.  
+      * This prevents users from getting
+      * logged out every 5 minutes when the access token expires.
+      */
     axiosRes.interceptors.response.use(
+      // If there's no error, return the response.
       (response) => response,
+      // In case of an error check if the error is 'unauthorized.'
       async (err) => {
         if (err.response?.status === 401) {
           try {
             await axios.post("/dj-rest-auth/token/refresh/");
           } catch (err) {
+            // if refreshing the token fails, set currenUser to null.
             setCurrentUser((prevCurrentUser) => {
+              /** if the user was logged in,
+                  redirect to sign in page.
+                */
               if (prevCurrentUser) {
                 history.push("/signin");
               }
               return null;
             });
+            // remove token time stamp.
             removeTokenTimestamp();
           }
+          /** If there was no error while refreshing the token,
+              let the axios instance with error config exit from
+              the interceptor. */
           return axios(err.config);
         }
+        /** if the error was not 401, reject the promise
+            to exit the interceptor. */
         return Promise.reject(err);
       }
     );

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import FeaturedProfiles from "../profiles/FeaturedProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+/** The heading and the introduction. */
 const intro = (
     <>
       <h2 className="text-center">Welcome!</h2>
@@ -22,14 +23,23 @@ const intro = (
     </>
 );
 
+/**
+ * Return the content of "Home" page.
+ * 
+ * @returns
+ */
 function Home() {
+  /** set the info of the logged in user to 'currentUser' */
   const currentUser = useCurrentUser();
   return (
     <Container>
       <Row>
         <Col className="py-2 p-0 p-lg-2" lg={8}>
+          {/* display featured profiles at the top center for
+              screen sizes md or smaller. */}
           <FeaturedProfiles mobile />
           {intro}
+          {/* if not logged in, display invitation to sign up. */}
           {!currentUser && (
           <>
             <span className={`${styles.Intro} mt-0`}>Don't have an account yet?</span>
@@ -39,12 +49,15 @@ function Home() {
               Sign up
             </Link>
             <span className={`${styles.Intro} ml-2`}>here.</span>
-          </>)}
+          </>
+          )}
+          {/* featured poems section */}
           <PoemsPage
             filter={`published=1&featured_flag=1&ordering=-created_at&`}
             heading="Featured Poems"
           />
         </Col>
+        {/* featured profiles for large screen sizes */}
         <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
           <FeaturedProfiles />
         </Col>

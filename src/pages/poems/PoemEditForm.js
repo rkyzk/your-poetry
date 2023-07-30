@@ -9,11 +9,13 @@ import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import { toast } from "react-toastify";
 
-function PoemEditForm() {
-  /**
-    Edit poems (take in data entered by users 
-    and send the data to the API.)
+/**
+  * Display the poem to the user and let them
+  * update the title, content and category.
+  * Send the API the updated data
+  * returns Form
   */
+function PoemEditForm() {
   const [errors, setErrors] = useState({});
   // poemData will store poem data entered by users
   const [poemData, setPoemData] = useState({
@@ -33,6 +35,7 @@ function PoemEditForm() {
   var message = "The change has been saved";
 
   useEffect(() => {
+    /** Get the data of the poem from the backend and display it on the edit form. */
     const handleMount = async () => {
       try {
         // get poem data from the backend
@@ -60,8 +63,11 @@ function PoemEditForm() {
     });
   };
 
-  /** Send data entered by users to the backend
-      in order to update the poem. */
+  /**
+   * Send data entered by users to the backend
+   * to update the poem.
+   * @param {event}
+   */
   const handleSubmit = async (event) => {
     // prevent the form from being submitted.
     event.preventDefault();
@@ -74,12 +80,12 @@ function PoemEditForm() {
        or if it has just been published, set published true */
     (publish || published) &&
     formData.append("published", true);
-    // If the poem has been newly published, set the message accordingly.
+    // If the poem has been newly published, set the message as follows.
     publish &&
     (message = "Your poem has been published.");
     
     try {
-      // Send the backend the data to update the poem.
+      // Send the new data to the backend to update the poem.
       await axiosReq.put(`/poems/${id}`, formData);
       // Display the message.
       toast(message);

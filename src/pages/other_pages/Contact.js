@@ -1,8 +1,10 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import styles from "../../styles/Home.module.css";
-import appStyles from "../../App.module.css";
 
+/**
+ * Return the content for Contact page.
+ * @returns
+ */
 function Contact() {
   return (
     <Container>

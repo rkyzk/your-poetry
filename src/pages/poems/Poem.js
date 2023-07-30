@@ -16,7 +16,8 @@ import { toast } from "react-toastify";
  * Return poem data including title, content or excerpt,
  * author, published date.
  * Hold handleLike und handleUnlike functions.
-*/
+ * @param {props} 
+ */
 const Poem = (props) => {
   const {
     /** poem id */

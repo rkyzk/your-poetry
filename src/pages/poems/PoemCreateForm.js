@@ -6,19 +6,20 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { Form, Button, Alert } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { useRedirect } from "../../hooks/useRedirect";
-import { useFeaturedProfilesData, useSetFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataContext";
+import { useSetFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataContext";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 /**
- * 
+ * Return Poem create form.
+ * Display error messages if the input is not valid.
  * @returns 
  */
 function PoemCreateForm() {
   // redirect logged out users to home page.
   useRedirect("loggedOut");
-  // variables for storing error data
+  // variable for storing error data
   const [errors, setErrors] = useState({});
-  // variables for storing input made by users
+  // variable for storing input made by users
   const [poemData, setPoemData] = useState({
     title: "",
     content: "",
@@ -36,8 +37,8 @@ function PoemCreateForm() {
   const user_id = currentUser?.pk
 
   /**
-   *  Set user input into variables poemData.
-   *  :arguments event
+   *  Set user input into variable 'poemData'.
+   *  @param {event}
    */ 
   const handleChange = (event) => {
     setPoemData({
@@ -48,7 +49,8 @@ function PoemCreateForm() {
   
   /**
    *  Add poems count in featured profiles
-   *  when a new poem has been written.
+   *  when a new poem has been written
+   *  if the user is featured.
    */
   const handlePoemCount = () => {
     setFeaturedProfilesData((prevProfiles) => ({
@@ -63,6 +65,7 @@ function PoemCreateForm() {
   
   /**
    * Send poem data entered by users to the backend.
+   * @param{event}
    */
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -90,6 +93,7 @@ function PoemCreateForm() {
       // display feedback message
       toast(msg);
     } catch (err){
+      // if the error is not 'unauthorized, set error data to 'erros'
       err.response?.status !== 401 && 
       setErrors(err.response?.data);
     }
