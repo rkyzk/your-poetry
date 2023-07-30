@@ -28,7 +28,7 @@ https://3000-rkyzk-yourpoetry-kp7cuajca1w.ws-us101.gitpod.io/
 * [Manual Testing](#manual-testing)
 * [Bugs](#bugs)
 * [Aspects to be improved in the future](#aspects-to-be-improved-in-the-future)
-* [Deployment Procedure](#depoyment-procedure)
+* [Deployment Process](#depoyment-process)
 * [Validating CSS, Html code with Tools](#validating-css-html-code-with-tools)
 * [Checking Performance and Accessibility](#checking-performance-and-accessibility)
 * [Media](#media)
@@ -613,3 +613,17 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |1| Poems Page|Change the destination of the get request `/poems/?${filter}` to '/poem/?${filter}' (line 24 in PoemsPage.js)  Go to “Home.”|Check if an error message appears. | Message "There was an error. The poems couldn't be loaded." is displayed.| Message "There was an error. The poems couldn't be loaded." is displayed.|pass|[image](./images/manual-tests/ErrorMessages/1.png)2023/7/29|
 |2| featured profiles |Change ‘/profiles/’ to “/profile/“ in line 20 in FeaturedProfilesDataContext.js. Go to "Home."|Check if an error message appears. | displayed.| displayed.|pass|[image](./images/manual-tests/ErrorMessages/2.png)2023/7/29|
 |3| profiles page |Change ‘/profiles/’ to “/profile/,“ in line 23 in ProfilesPage.js. Log in as admin and go to “Poets I’m following”|Check if an error message appears. | Message "There was an error.  The data couldn't be loaded.  Please try again later." is displayed.| Message "There was an error.  The data couldn't be loaded.  Please try again later." is displayed.|pass|[image](./images/manual-tests/ErrorMessages/3.png)2023/7/29|
+
+### Depoyment Process
+
+1. Remove ReactStrictMode components from index.js.
+2. Make sure in package.json file, in the “scripts” section, the following prebuild command is written:<br>
+`"heroku-prebuild": "npm install -g serve",`
+3. Add Procfile and write `web: serve -s build`
+4. Create a new app on Heroku.  On the Deploy tab, connect to this repository ‘your-poetry’ through Github.
+5.	At the bottom of the page, click ‘deploy branch’
+6.	After the app is successfully deployed, click “View” and get the URL of the app.
+7. Go to Dashboard, select the app of the DRF API and open the Settings tab.
+8. Add two Config Vars:
+- CLIENT_DEV_ORIGIN = the URL of this app in development
+- CLIENT_ORIGIN = the URL of the app deployed on Heroku.  Deploy again the API project.
