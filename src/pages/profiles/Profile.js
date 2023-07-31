@@ -99,11 +99,10 @@ const Profile = (props) => {
   };
 
   return (
-    <Card className={`${styles.CardSpace} mb-1`}>
+    <Card className="mb-1">
       <Card.Body>
-        <Media className="align-items-center">
-          {mobile && (
-            <>
+          {mobile ? (
+            <Media className="align-items-center">
               <Row>
                 <Link to={`/profiles/${id}`}>
                   <div className="d-flex">
@@ -117,75 +116,39 @@ const Profile = (props) => {
                   </div>
                 </Link>
               </Row>
-            </>
-          )}
-        {featured && (
-          <Row>
-            <Col xs={4}>
-              <Link to={`/profiles/${id}`}>
-                <Avatar src={image} height={imageSize} />
-              </Link>
-            </Col>
-            <Col xs={8}>
-              <Link to={`/profiles/${id}`}>
-                <h4>{display_name}</h4>
-              </Link>
-              <span className={`${styles.CountsText}`}>{poems_count} poems</span>
-              <span className={`${styles.CountsText} ml-2`}>{followers_count} followers</span>
-            </Col>
-          </Row>
-        )}
-        {(page === "profilesPage" || page === "search") && (
-          <>
-          <div className={`${styles.SmallLayout}`}>
+            </Media>
+          ) : (
+          featured ? (
+          <Media className="align-items-center">
             <Row>
               <Col xs={4}>
-                <Avatar src={image} height={imageSize} />
-              </Col>
-              <Col xs={8}>
                 <Link to={`/profiles/${id}`}>
-                  <h3 className={`${styles.Name}`}>{display_name}</h3>
-                </Link>        
-                <p className="my-0">Member since {created_at}</p>
-                <span>{poems_count} poems</span>
-                <span className="ml-2">{followers_count} followers</span>
-              </Col>
-            </Row>
-          </div>
-          <div className={`${styles.XSLayout}`}>
-            <Row>
-              <Col xs={4}>
-                <Avatar src={image} height={45} />
-              </Col>
-              <Col xs={8}>
-                <Link to={`/profiles/${id}`}>
-                  <h3 className={`${styles.Name} mt-2`}>{display_name}</h3>
+                  <Avatar src={image} height={imageSize} />
                 </Link>
               </Col>
+              <Col xs={8}>
+                <Link to={`/profiles/${id}`}>
+                  <h4 className={`${styles.FeaturedName}`}>{display_name}</h4>
+                </Link>
+                <span className={`${styles.ProfileText}`}>{poems_count} poems</span>
+                <span className={`${styles.ProfileText} ml-2`}>{followers_count} followers</span>
+              </Col>
             </Row>
-            <p className={`${styles.DateJoined} mb-0 mt-2 ml-1`}>Member since {created_at}</p>
-            <span className={`${styles.CountsText} ml-1`}>{poems_count} poems</span>
-            <span className={`${styles.CountsText} ml-2`}>{followers_count} followers</span>
-          </div>
-        </>
-        )}
-        </Media>
-        {page === "profilePage" && (
+          </Media>
+        ) : (
           <>
-          <Row style={{ height: "125px" }} className="align-items-center">
-            <Col xs={4} className="d-sm-block d-md-none">
-              <Avatar src={image} height={80} className={`${styles.Img} align-items-center`} />
+            <Row style={{ height: "100px" }} className="pt-2">
+            <Col xs={4}>
+              <Avatar src={image} height={80} className={`${styles.Img}`} />
             </Col>
-            <Col xs={4} className="d-none d-md-block">
-              <Avatar src={image} height={120} className={`${styles.Img}`} />
-            </Col>       
+            {/* display the user info (the name, the date joinged etc)
+                next to the avatar for screen sizes above 490px
+                className ProfileInfo won't be displayed below 490px. */}
             <Col xs={7} className={styles.ProfileInfo}>
-              <h3 className={`${styles.ProfileName} mt-3`}>{display_name}</h3>
+              <h3 className={`${styles.ProfileName}`}>{display_name}</h3>
               <p className={`${styles.ProfileText} mb-0`}>Member since {created_at}</p>    
-              <div>
-                <span className={`${styles.CountsText}`}>{poems_count} poems</span>
-                <span className={`${styles.CountsText} ml-2`}>{followers_count} followers</span>
-              </div> 
+              <span className={`${styles.ProfileText}`}>{poems_count} poems</span>
+              <span className={`${styles.ProfileText} ml-2`}>{followers_count} followers</span> 
             </Col>
             <Col>
               {is_owner && (
@@ -194,13 +157,17 @@ const Profile = (props) => {
             </Col>
           </Row>
           <div className="mt-3 ml-3">
+            {/* display the user info (the name, the date joinged etc)
+                below the avatar for screen sizes below 490px
+                className ProfileInfoSmall will be displayed only below 490px. */}
             <div className={`${styles.ProfileInfoSmall}`}>
-              <h3 className={`${styles.ProfileName} mt-3`}>{display_name}</h3>
+              <h3 className={`${styles.ProfileName}`}>{display_name}</h3>
               <p className={`${styles.ProfileText} mb-0`}>Member since {created_at}<br/>
-              {poems_count} poems
-              <span className="ml-2">{followers_count} followers</span>
+                {poems_count} poems
+                <span className="ml-2">{followers_count} followers</span>
               </p>
             </div>
+            {/* on ProfilePage, display about me and favorites. */}
             {about_me && about_me !== "null" && (
               <p className={`${styles.ProfileLabel} mt-3`}>
                 <span className="text-muted">About me:</span><br/>
@@ -215,7 +182,7 @@ const Profile = (props) => {
             )}
           </div>
         </>
-      )}
+      ))}
       {!mobile && currentUser && (
         is_owner ? (
           <div className="mt-2">

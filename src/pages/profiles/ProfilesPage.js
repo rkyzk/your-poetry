@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Profile from "./Profile";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -7,7 +8,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import Asset from "../../components/Asset";
 import Alert from "react-bootstrap/Alert";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ProfilesPage(props) {
   const { filter, message, page } = props;
@@ -30,7 +30,7 @@ function ProfilesPage(props) {
   }, [filter]);
 
     return (
-      <Container>
+      <Row>
         <Col lg={{ span: 8, offset: 2 }}>
         {page === "profilesPage" && (<h2>Poets I'm following</h2>)}
         {errMsg ?
@@ -64,7 +64,7 @@ function ProfilesPage(props) {
             </Container>
           )}
         </Col>
-      </Container>
+      </Row>
     );
 }
 

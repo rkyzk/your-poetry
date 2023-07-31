@@ -1,7 +1,14 @@
-.CountsText {
+.ProfileName {
+  font-size: 1.5rem;
+}
+
+.ProfileText {
   font-size: 1rem;
 }
 
+.FeaturedName {
+  font-size: 1.2rem;
+}
 .ProfileInfoSmall {
   display: none;
 }
@@ -15,15 +22,6 @@
   display: none;
 }
 
-@media screen and (max-width: 1000px) {
-  .ProfileName {
-    font-size: 1.3rem;
-  }
-
-  .ProfileText {
-    font-size: 1rem;
-  }
-}
 @media screen and (max-width: 490px) {
   .SmallLayout {
     display: none;
