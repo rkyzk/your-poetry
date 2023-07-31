@@ -4,15 +4,6 @@ category & published dates font css on search poems
 ``
 
 \
-Installed libraries and dependencies:
-npm install react-bootstrap@1.6.3 bootstrap@4.6.0
-npm install react-router-dom@5.3.0
-npm install axios
-npm install react-infinite-scroll-component
-npm i react-toastify@9.0.3
-npm install jwt-decode
-
-
 # Your Poetry
 
 ## CONTENTS
@@ -24,6 +15,7 @@ npm install jwt-decode
 * [Notes on Design](#notes-on-design)
 * [Main Technologies Used](#main-technologies-used)
 * [Each Part and Function in Detail](#each-part-and-function-in-detail)
+* [Installed Libraries and Dependencies](#installed-libraries-and-dependencies)
 * [Manual Testing](#manual-testing)
 * [Bugs](#bugs)
 * [Aspects to be improved in the future](#aspects-to-be-improved-in-the-future)
@@ -36,7 +28,7 @@ npm install jwt-decode
 
 ![your-poetry](./images/Your-Poetry.png)
 
-The app can be found [here:](https://your-poetry-b19cd2115cd5.herokuapp.com/)
+The app is hosted [here:](https://your-poetry-b19cd2115cd5.herokuapp.com/)
 
 ## Overview
 Your Poetry offers an interactive platform where users can share their poems and give/get comments on each other’s poems.  The app is equipped with various features including liking/unliking poems, following/unfollowing profiles as well as searching poems/profiles.  In addition users can also make their own profiles to let others know a few things about themselves.  The app offers users opportunities to be creative, to share their art and to inspire others.
@@ -65,10 +57,10 @@ Please click on "Homepage" in the upper left corner to see wireframes of differe
 **Fonts**
 - For the website title and the headings of the pages, I used ‘Bacasime Antique.’
 - For navigation links, labels for input boxes and the contents of poems, I used 'Nanum Myeongj.'
-- I chose these two fonts because they both give an artistic ambient.
-- For introductory paragraph and notification messages I used ‘Raleway’ since this font is readable and offers an approachable ambient.
+- I chose these two fonts because they bare both artistic.
+- For introductory paragraph I used ‘Raleway’ since this font is readable and offers an approachable ambient.
 
-**Colors**
+**Colors**<br>
 Overall I wanted the website to appear simple, elegant and original.<br>
 I used following colors in different sections:
 
@@ -81,12 +73,12 @@ I used following colors in different sections:
 
 I used dark blue for the text, instead of very commonly used black or dark gray in order to provide originality.<br>
 I used light gray for the background of navigation bars to keep the appearance simple.<br>
-I used olive color for most buttons, because the color provides a nice contrast against dark blue.<br>
+I used olive color for most buttons, because the color provides a nice contrast to the dark blue.<br>
 
 **Logo**
 
 **Favicon**
-I chose a feather icon for the favicon, because a feather quill pen  
+I chose a feather icon for the favicon, because a feather quill pen suits the theme of poetry. 
 
 ## Main Technologies Used
 - HTML, CSS, JavaScript
@@ -98,7 +90,7 @@ I chose a feather icon for the favicon, because a feather quill pen
 - The logo is placed at the top left corner of the page, and it links to the home page.
 - I chose the graphic because the quill pen, ink and flowers suit the theme of the site.
 
-**Navigation Bars**
+**Navigation Bars**<br>
 **Navigation Bar at the top right**<br>
 - For logged out users the navigation bar displays links to “Home”, “Contact”, “Sign in” and “Sign out” pages.
 - For logged in users, the avatar and the logged in user’s name are displayed in place of “Sign in” and “Sign up.”
@@ -207,8 +199,15 @@ All links are labeled with terms that clearly indicate what these links will do.
 **Sign out (No page)**
 - Clicking the link will sing out the user.
 
+## Installed Libraries and Dependencies
 
-
+- react-bootstrap@1.6.3 bootstrap@4.6.0 were installed to make styling easier.
+- react-router-dom@5.3.0 was installed to facilitate component-based routing.
+- axios was installed as means to send requests to and get responses from the API.
+- react-infinite-scroll-component was installed to implement infinite scroll functionality in displaying lists of poems and profiles. 
+- react-toastify@9.0.3 was installed to display feedback messages.
+- jwt-decode was installed so that the timestamp within the response can be accessed.
+The timestamp for when the user logged in can be stored in the local storage, and this information is used to know if it’s appropriate to request a token refresh.
 
 ## Manual Testing
 ### Testing If Goals (User Stories) are achieved 
@@ -216,19 +215,19 @@ All links are labeled with terms that clearly indicate what these links will do.
 Test No.| Goals | How they are achieved| 
 |:---| :--- | :--- |
 |1|The purpose and usage of the app are made clear.|On “Home” page, the introductory paragraph summarizes what users can do with the application.  In addition, the navigation links and the titles of sections are labeled with clearly indicative terms.  Also the icons that are used in the application such as heart, edit and trash bin icons are commonly utilized so their usage is clear for site visitors.| 
-|2|Clearly labeled navigation links| All navigation links are labeled with self explanatory terms such as ‘Contact’ and ‘My poems.’|
+|2|Clearly labeled navigation links| All navigation links are labeled with clear terms such as ‘Contact’ and ‘My poems.’|
 |3|Featued poems on the home page| Editors of the site can select featured poems, and those featured poems will be displayed on the home page.|
-|4| Lists of poems grouped by various criteria|Besides “Featured poems” on “Home” page, the app offers following pages displaying various lists of poems. 1. New Poems: poems published in the previous 14 days; 2. Popular Poems: the page lists poems with the highest number of likes at the top; 3. Poems by Categories: poems in six different categories can be found separately; 4. My Poems: list of poems written by the logged in user; 5. Poems I like: list of poems that the user liked|
-|5|Signing up for membership| A link to the signup page is displayed in the navigation bar at the top right of all pages in the app.  In addition, at the end of the introductory paragraph on “Home” page, visitors are invited to sign up, and a link is provided.|
-|6|Writing and sharing poems| Users can write poems and save or publish their poems on “Write Poems” page.  A link to the page is placed in the navigation bar at the top left for logged in users.|
+|4| Lists of poems grouped by various criteria|Besides “Featured poems” on “Home” page, the app offers following pages displaying various lists of poems. (1) New Poems: poems published in the previous 14 days (2) Popular Poems: the page lists poems with the highest number of likes at the top (3) Poems by Categories: poems in six different categories can be found separately (4) My Poems: list of poems written by the logged in user (5) Poems I like: list of poems that the user liked|
+|5|Signing up for membership| The link to the signup page is displayed in the navigation bar at the top right of all pages in the app.  At the end of the introductory paragraph on “Home” page, visitors are invited to sign up, and the link to sign up page is provided.|
+|6|Writing and sharing poems| Users can write poems and save or publish their poems on “Write Poems” page.  The link to the page is placed in the navigation bar at the top left for logged in users.|
 |7|Updating poems| In order to update a poem, users can go to “My Poems” page, click the title of the poem they want to edit, click the three dots that appear on the top right of their poem and click the edit icon.|
 |8|Deleting poems| In order to delete a poem, users should go to “My Poems” page, click the title of the poem they want to delete, click the three dots that appear on the top right of their poem, click the trash bin icon and click “delete” in the confirmation dialog.|
 |9|Posting comments on poems| Comment form is displayed below each poem if the user is logged in.  They can enter their comment and click ‘post.’|
 |10|Editing and deleting comments|Users can edit or delete their comments by clicking the three dots that appear on the right side of their comments.|
 |11|Liking poems|Logged in users can like others’ poems by clicking the heart icon.| 
 |12|Following users|Logged in users can follow other members by clicking ‘follow’ button that appear at the bottom part of their profile.| 
-|13|Profile Pages|Registered users can update their profiles to introduce themselves to other members.  Users can take a look at other members’ profiles to get to know about them.|
-|14|Restricting access where appropriate | Edit and delete buttons are displayed only for the owner of the poems and comments.  If users try to get to the Poem Edit pages of others' poems by entering the URL "/poems/:id/edit, they will be redirected to "Home" by the code at line 46 in PoemEditForm.js. |
+|13|Profile Pages|Registered users can update their profiles to introduce themselves to other members.  Users can look at other members’ profiles to get to know about them.|
+|14|Restricting access where appropriate | Edit and delete buttons are displayed only for the owner of the poems and comments.  If users try to get to the Poem Edit pages of others' poems by entering the URL "/poems/:id/edit, they will be redirected to "Home" by the code at line 49 in PoemEditForm.js. |
 |15|Searching Poems|On “Search” page, users can search poems by author, title of the poems, keywords, categories and published date ranges.|
 |16|Searching profiles |On “Search Profiles” page users can search profiles by entering display names.|
 
@@ -601,7 +600,7 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |6| poems count |—|Check poems count | The poems count turns to 1. | The poems count stays 0. |fail|[image](./images/manual-tests/FeaturedProfiles/6.png)|2023/7/29|
 |7| 'You!' tag |—|Check user1 profile| 'You!' tag is present | 'You!' tag is present. |pass|[image](./images/manual-tests/FeaturedProfiles/7.png)|2023/7/29|
 
-*test no. 6 failed, and how I fixed the issue will be discussed in the *[Bugs](#bugs)* section.*
+*test no. 6 failed, and how I fixed the issue will be discussed in the *[Bugs](#bugs)* section.
 
 **Test Featured Profiles on small screen**<br>
 
@@ -611,15 +610,13 @@ Test No.| Feature | Preparation Steps if any | Test Steps | Expected results | A
 |9| displayed elements |—|Check if avatar, name and poems count are displayed. |Avatar, name and poems count are displayed.| Avatar, name and poems count are displayed.|pass|[image](./images/manual-tests/FeaturedProfiles/8&9.png)|2023/7/29|
 |10| responsiveness |—|Narrow down the screen width gradually to 630px. |All elements will be displayed without any distortion, and at 630px, the profiles disappear.| All elements will be displayed without any distortion, and at 630px, the profiles disappear.|pass|[image1 ](./images/manual-tests/FeaturedProfiles/10-1.png)[image2](./images/manual-tests/FeaturedProfiles/10-2.png)|2023/7/29|
 
-test no. 6 failed.
-
 #### Search Profiles
 Test No.|Feature|Preparation Steps if any|Test Steps|Expected results|Actual results|Pass/Fail|Image|Date|
 |:---| :--- | :--- |:---| :--- | :--- |:---| :--- |:--- |
 |1|displayed elements|Go to "search profiles"|Check if navbars, the heading "Search Profiles" and an input box are displayed.|All aformentioned elements are displayed.|All aformentioned elements are displayed.|pass|[image](./images/manual-tests/SearchProfiles/1.png)|2023/7/23|
 |2|Correct profiles are filtered|--|Enter user1 (type fast--don't pose longer than 1 second inbetween.) and wait.|The profile of user1 is displayed.|The profile of user1 is displayed.|pass|[image](./images/manual-tests/SearchProfiles/2.png)|2023/7/23|
-|3|Display 'No profiles found with the name.' when no matches are found.|--|Enter testuser (type fast--don't pose longer than 1 second inbetween.) and wait.|A note 'No profiles found with the name.' is displayed.|A note 'No profiles found with the name.' is displayed.  After that many profiles are displayed for a moment, and then the note appears again.|fail|[image](./images/manual-tests/SearchProfiles/3.png)|2023/7/23|
-|4|Multiple profiles that match the search word will be displayed.|--|Enter 'user' and wait|All profiles containing the word 'user' user1, user2, user3 user4 will be displayed.|First many profiles not containing 'user' in their names are displayed, and after a few seconds only user 1-4 will be displayed.|fail|[image](./images/manual-tests/SearchProfiles/4.png)|2023/7/23|
+|3|Display 'No profiles found with the name.' when no matches are found.|--|Enter testuser (type fast--don't pose longer than 1 second inbetween.) and wait.|A note 'No profiles found with the name.' is displayed.|A note 'No profiles found with the name.' is displayed.|pass|[image](./images/manual-tests/SearchProfiles/3.png)|2023/7/23|
+|4|Multiple profiles that match the search word will be displayed.|--|Enter 'user' and wait|All profiles containing the word 'user' user1, user2, user3 user4 will be displayed.|user 1-4 are displayed.|pass|[image](./images/manual-tests/SearchProfiles/4.png)|2023/7/23|
 |5|The search will not run if only spaces are entered.|--|Enter a space and wait.|The search doesn't run.|The search didn't run.|pass|[image](./images/manual-tests/SearchProfiles/5.png)|2023/7/23|
 |6| responsiveness |—|Gradually narrow down the screen width to 330px. |All elements will be displayed without any distortion.| Below 400px, the input box extends to the edges of the screen, and the search icon is displayed on the new line, which doesn't appear good.|fail|[image](./images/manual-tests/FeaturedProfiles/6.png)|2023/7/29|
 
@@ -765,12 +762,10 @@ Solution: I added line 14 in function 'timer' in useEffect in SearchProfiles so 
 
 ### Checking Performance and Accessibility
 **Performance**<br>
-Performace for all pages scored in 80s (I cleared browser cache before testing.)
-
+Performace for all pages scored in 80s even though I cleared browser cache before testing.<br>
 The factor that lowered the score and the recommendation to improve the performance were stated as follows:
-
-Page prevented back/forward cache restoration.
-Serve static assets with an efficient cache policy.
+- Page prevented back/forward cache restoration.
+- Serve static assets with an efficient cache policy.
 
 I will need more time and research to look into these aspects.  For now I left these issues as they are.
 
@@ -778,7 +773,7 @@ I will need more time and research to look into these aspects.  For now I left t
 
 #### Home
 Accessibility scored 82 at first.
-I corrected the following points as the report suggested.
+I corrected the following points as suggested in the report.
 
 1. **Aria IDs are not unique.**<br>
 The same ID was used for as id for Nav.Dropdown in the NabBar and NavBarSecond components.
@@ -795,14 +790,14 @@ In Footer Component, I added list tags around anchor tags.
 5. **Heading elements are not in a sequentially-descending order.**<br>
 I was using h1, h2 and h4.  So I replaced h4 with h3.
 
-After the corrections, accessibility scores 96.
+**After the corrections, accessibility scores 96.**
 ![image](./images/Lighthouse/Home.png)
 
 The results for other pages are recorded [here](./Lighthouse.md)
 
 ### Checking html and css
 No errors were found in the html and css by validation tools at following sites:<br>
-https://validator.w3.org/
+https://validator.w3.org/<br>
 https://jigsaw.w3.org/
 
 ### Media
