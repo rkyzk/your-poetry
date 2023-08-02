@@ -1,14 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
-/** 
- * When the dropdown menus in the nav bars is open,
+/**
+ * When the dropdown menus in the nav bars are open,
  * and if outside the menu is clicked,
  * 'expanded' will be set false so the menu closes.
-*/
+ */
 const useClickOutsideToggle = () => {
-  /** expanded tells if the dropp down menu is open. */
+  /** 'expanded' tells if the dropp down menu is open. */
   const [expanded, setExpanded] = useState(false);
-  /** stores info on what has been clicked. */
+  /** stores info on which element has been clicked. */
   const ref = useRef(null);
 
   /**
@@ -22,9 +22,9 @@ const useClickOutsideToggle = () => {
         setExpanded(false);
       }
     };
-    document.addEventListener('mouseup', handleClickOutside);
+    document.addEventListener("mouseup", handleClickOutside);
     return () => {
-      document.removeEventListener('mouseup', handleClickOutside);
+      document.removeEventListener("mouseup", handleClickOutside);
     };
   }, [ref]);
   return { expanded, setExpanded, ref };

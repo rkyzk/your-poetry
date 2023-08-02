@@ -6,8 +6,8 @@ import PoemsPage from "../poems/PoemsPage";
 
 /**
  * Return the content for "New Poems" and "Popular Poems."
-*/
-function PoemsPageWithProfiles({page}) {
+ */
+function PoemsPageWithProfiles({ page }) {
   /** startDate will hold the start date when filtering by date range */
   var startDate;
   /** stores filter */
@@ -18,19 +18,23 @@ function PoemsPageWithProfiles({page}) {
   // For new poems page, filter poems by published in the past 14 days
   if (page === "newPoems") {
     // get the date 14 days ago in YYYY-MM-dd format
-    startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 14).toISOString().substring(0, 10);
-    // form filter statement         
+    startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 14)
+      .toISOString()
+      .substring(0, 10);
+    // form filter statement
     filter = `published=1&published_at__date__gte=${startDate}&ordering=-published_at`;
     // set the heading
-    heading="New Poems (published in the past 14 days)";
+    heading = "New Poems (published in the past 14 days)";
   }
   /* For popular poems page, filter poems published in the past 30 days
      and order them by descending number of likes. */
   if (page === "popularPoems") {
     // get the date 30 days ago in YYYY-MM-dd format
-    startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 30).toISOString().substring(0, 10);           
+    startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 30)
+      .toISOString()
+      .substring(0, 10);
     filter = `published=1&published_at__date__gte=${startDate}&ordering=-likes_count`;
-    heading="Popular Poems (published in the past 30 days)";
+    heading = "Popular Poems (published in the past 30 days)";
   }
 
   return (

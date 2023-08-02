@@ -20,13 +20,14 @@ import { toast } from "react-toastify";
 const NavBar = () => {
   /** store info of logged in user. */
   const currentUser = useCurrentUser();
-  /* expanded tells wheather the menu bar is expanded/not.
+  /* expanded tells wheather the menu bar is expanded or not.
      setExpanded will set expanded true/false.
      ref stores info about if inside or outside the menu has been clicked */
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
   /** get the function to set current user info */
   const setCurrentUser = useSetCurrentUser();
 
+  console.log(ref);
   /**
    * Sign out a user.
    * Close the drop down menu, set currenUser to null,

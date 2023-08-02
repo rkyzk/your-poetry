@@ -1,7 +1,6 @@
 import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
 import styles from "../../styles/Home.module.css";
 import PoemsPage from "../poems/PoemsPage";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
@@ -10,7 +9,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 /**
  * Return the content of "Home" page.
- * 
  * @returns
  */
 function Home() {

@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 /** 
  * Return poem data including title, content or excerpt,
  * author, published date.
- * Hold handleLike und handleUnlike functions.
+ * This Component holds handleLike und handleUnlike functions.
  * @param {props} 
  */
 const Poem = (props) => {
@@ -54,6 +54,7 @@ const Poem = (props) => {
   const currentUser = useCurrentUser();
   /** is_owner tells if the current user is the owner of the poem. */
   const is_owner = currentUser?.username === owner;
+  /** stores info on which URLs the user has visited. */
   const history = useHistory();
   /** get the pathname */
   const { pathname } = useLocation();
@@ -143,7 +144,6 @@ const Poem = (props) => {
   };
 
   return (
-    /** Return poem data  */
     <Card className={styles.Poem}>
       <Card.Body className="pr-5">
         {poemPage ? (

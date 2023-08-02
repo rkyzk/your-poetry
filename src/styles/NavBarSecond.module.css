@@ -4,9 +4,10 @@
   z-index: 1;
 }
   
-.NavBarSecond .NavToggle .NavLink {
+.NavBarSecond .NavToggle .NavLink a {
   font-family: 'Nanum Myeongj';
-  color: rgb(35, 78, 139);
+  color: rgb(35, 78, 139); 
+  
 }
   
 .NavLink:hover {

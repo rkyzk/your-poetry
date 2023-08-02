@@ -16,33 +16,24 @@ const FeaturedProfiles = ({ mobile }) => {
     >
       <h3 className={`${styles.Heading} text-center`}>Featured profiles</h3>
       {featuredProfilesData.results.length ? (
-        <> 
+        <>
           {mobile ? (
             <Row>
               {featuredProfilesData.results.map((profile) => (
-                <Col>
-                  <Profile
-                    key={profile.id}
-                    {...profile}
-                    mobile
-                  />
+                <Col key={profile.id}>
+                  <Profile {...profile} mobile />
                 </Col>
               ))}
             </Row>
           ) : (
             featuredProfilesData.results.map((profile) => (
-              <Profile
-                key={profile.id}
-                {...profile}
-                imageSize={55}
-                featured
-              />
+              <Profile key={profile.id} {...profile} imageSize={55} featured />
             ))
           )}
         </>
+      ) : errMessage ? (
+        <Alert variant="warning">{errMessage}</Alert>
       ) : (
-        errMessage ?
-        <Alert variant="warning">{errMessage}</Alert> :
         <Asset spinner />
       )}
     </Container>
