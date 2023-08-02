@@ -3,16 +3,20 @@
   background-color: #f8f8f8;
   z-index: 1;
 }
-  
+
 .NavBarSecond .NavToggle .NavLink a {
-  font-family: 'Nanum Myeongj';
-  color: rgb(35, 78, 139); 
-  
+  font-family: "Nanum Myeongj";
+  color: rgb(35, 78, 139);
 }
-  
+
+.NavBarSecond .NavToggle .NavLink {
+  font-family: "Nanum Myeongj";
+  color: rgb(35, 78, 139);
+}
+
 .NavLink:hover {
   text-decoration: underline;
-  color:rgb(10, 10, 90);
+  color: rgb(10, 10, 90);
 }
 
 .SpaceLeft {

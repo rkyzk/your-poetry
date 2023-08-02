@@ -12,22 +12,22 @@
 .Active {
   text-decoration: underline;
 }
-  
+
 .NavLink:hover {
   text-decoration: underline;
-  color:rgb(10, 10, 90);
+  color: rgb(10, 10, 90);
 }
 
 .NavLink {
-  font-family: 'Nanum Myeongj';
+  font-family: "Nanum Myeongj";
   color: rgb(51, 93, 151);
   margin-top: 20px;
 }
 
-.Name {
-  font-family: 'Nanum Myeongj';
+.Name a {
+  font-family: "Nanum Myeongj";
   font-size: 1.2rem;
-  color: rgb(51, 93, 151);
+  color: rgb(51, 93, 151) !important;
   margin-top: 12px;
 }
 
@@ -44,7 +44,8 @@
     padding: 10px;
   }
 
-  .NavLink, .Name {
+  .NavLink,
+  .Name {
     margin-top: 0;
   }
 }
