@@ -26,88 +26,93 @@ const NavBarSecond = () => {
       ref stores info about if inside or outside the menu has been clicked */
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
   /** On signin and singup pages set hide true so this component won't appear. */
-  let hide = pathname === "/signin" || pathname === "/signup"
+  let hide = pathname === "/signin" || pathname === "/signup";
 
   /** if 'poem' is clicked, keep the menu open. */
   const keepMenuOpen = (event) => {
-    event.target.id === "poem-dropdown" &&
-    setExpanded(true);
-  }
+    event.target.id === "poem-dropdown" && setExpanded(true);
+  };
 
   return (
-    !hide &&
-    <Navbar expanded={expanded} className={styles.NavBarSecond} expand="md" fixed="top">
-      <Container>
-        <Navbar.Toggle
-          ref={ref}
-          aria-controls="basic-navbar-second-nav"
-          onClick={() => setExpanded(!expanded)}
-        >
-          <i class={`${styles.Burger} fa-solid fa-bars`}></i>
-        </Navbar.Toggle>
-        <Navbar.Collapse id="basic-navbar-second-nav">
-        <Nav className={`${styles.NavToggle} text-left`}>
-          <NavDropdown
-            className={`${styles.NavLink} ${styles.SpaceLeft}`}
-            title="Poems"
-            id="poem-dropdown"
-            onClick={(event) => keepMenuOpen(event)}
+    !hide && (
+      <Navbar
+        expanded={expanded}
+        className={styles.NavBarSecond}
+        expand="md"
+        fixed="top"
+      >
+        <Container>
+          <Navbar.Toggle
+            ref={ref}
+            aria-controls="basic-navbar-second-nav"
+            onClick={() => setExpanded(!expanded)}
           >
-            <NavDropdown.Item>
-              <NavLink
-                className={styles.NavLink}
-                to="/new-poems"
-                onClick={() => setExpanded(false)}
+            <i class={`${styles.Burger} fa-solid fa-bars`}></i>
+          </Navbar.Toggle>
+          <Navbar.Collapse id="basic-navbar-second-nav">
+            <Nav className={`${styles.NavToggle} text-left`}>
+              <NavDropdown
+                className={`${styles.NavLink} ${styles.SpaceLeft}`}
+                title="Poems"
+                id="poem-dropdown"
+                onClick={(event) => keepMenuOpen(event)}
               >
-                New Poems
-              </NavLink>
-            </NavDropdown.Item>
-            <NavDropdown.Item>
+                <div>
+                  <NavLink
+                    className={styles.NavLink}
+                    to="/new-poems"
+                    onClick={() => setExpanded(false)}
+                  >
+                    New Poems
+                  </NavLink>
+                </div>
+                <div>
+                  <NavLink
+                    className={styles.NavLink}
+                    to="/popular-poems"
+                    onClick={() => setExpanded(false)}
+                  >
+                    Popular Poems
+                  </NavLink>
+                </div>
+                <div>
+                  <NavLink
+                    className={styles.NavLink}
+                    to="/poems-by-categories"
+                    onClick={() => setExpanded(false)}
+                  >
+                    Poems by Categories
+                  </NavLink>
+                </div>
+                <div>
+                  <NavLink
+                    className={styles.NavLink}
+                    to="/search/poems"
+                    onClick={() => setExpanded(false)}
+                  >
+                    Search
+                  </NavLink>
+                </div>
+              </NavDropdown>
+              {currentUser && (
+                <NavLink
+                  className={`${styles.NavLink} ${styles.SpaceLeft} mt-2`}
+                  to="/poems/create"
+                >
+                  Write Poems
+                </NavLink>
+              )}
               <NavLink
-                className={styles.NavLink}
-                to="/popular-poems"
-                onClick={() => setExpanded(false)}
+                className={`${styles.NavLink} ${styles.SpaceLeft} mt-2`}
+                to="/search/profiles"
               >
-                Popular Poems
+                Search Profiles
               </NavLink>
-            </NavDropdown.Item>
-            <NavDropdown.Item>
-              <NavLink
-                className={styles.NavLink}
-                to="/poems-by-categories"
-                onClick={() => setExpanded(false)}
-              >
-                Poems by Categories
-              </NavLink>
-            </NavDropdown.Item>
-            <NavDropdown.Item>
-              <NavLink
-                className={styles.NavLink}
-                to="/search/poems"
-                onClick={() => setExpanded(false)}
-              >
-                Search
-              </NavLink>
-            </NavDropdown.Item>
-          </NavDropdown>
-          {currentUser && (
-            <NavLink
-              className={`${styles.NavLink} ${styles.SpaceLeft} mt-2`}
-              to="/poems/create"
-            >
-              Write Poems
-            </NavLink>
-          )}
-          <NavLink
-            className={`${styles.NavLink} ${styles.SpaceLeft} mt-2`}
-            to="/search/profiles"
-          >
-            Search Profiles
-          </NavLink>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    )
   );
 };
 

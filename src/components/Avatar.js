@@ -9,7 +9,7 @@ import styles from "../styles/Avatar.module.css";
 const Avatar = ({ src, height = 45, navbar }) => {
   return (
     <span>
-      {/* if navbar, hide it below md screen */}
+      {/* if navbar, hide it in the burger menu (below md screen) */}
       <img
         className={`${styles.Avatar} ${navbar && "d-none d-md-block mt-3"}`}
         src={src}

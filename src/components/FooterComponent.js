@@ -11,7 +11,7 @@ export const FooterComponent = () => {
           <a
             href={"https://www.facebook.com"}
             target="_blank"
-            rel="noopener" 
+            rel="noopener"
             aria-label="Visit our facebook page (opens in a new tab)"
           >
             <i className={`${styles.SocialNW} fa-brands fa-facebook`}></i>
@@ -21,7 +21,7 @@ export const FooterComponent = () => {
           <a
             href={"https://www.twitter.com"}
             target="_blank"
-            rel="noopener" 
+            rel="noopener"
             aria-label="Visit our Twitter page (opens in a new tab)"
           >
             <i className={`${styles.SocialNW} fa-brands fa-twitter ml-2`}></i>
@@ -31,7 +31,7 @@ export const FooterComponent = () => {
           <a
             href={"https://www.instagram.com"}
             target="_blank"
-            rel="noopener" 
+            rel="noopener"
             aria-label="Visit our Instagram page (opens in a new tab)"
           >
             <i className={`${styles.SocialNW} fa-brands fa-instagram ml-2`}></i>

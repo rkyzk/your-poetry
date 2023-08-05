@@ -6,7 +6,10 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../assets/media/poetry-logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
 import Avatar from "./Avatar";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
@@ -53,9 +56,8 @@ const NavBar = () => {
    * keep the burger menu open.
    */
   const keepMenuOpen = (event) => {
-    event.target.id === "nav-my-space" &&
-    setExpanded(true);
-  }
+    event.target.id === "nav-my-space" && setExpanded(true);
+  };
 
   /*
    Nav link items to be displayed when logged in.
@@ -65,57 +67,57 @@ const NavBar = () => {
     <>
       <Avatar src={currentUser?.profile_image} height={40} navbar />
       <NavDropdown
-        className={`${styles.Dropdown} ${styles.Name}`}
+        className={styles.Dropdown}
         title={currentUser?.username}
         id="nav-my-space"
         onClick={(event) => keepMenuOpen(event)}
       >
-        <NavDropdown.Item>
+        <div>
           <NavLink
-            className={styles.NavLink}
+            className={styles.NavDropdownItem}
             to={`/profiles/${currentUser?.profile_id}`}
             id="my-profile"
             onClick={() => setExpanded(false)}
           >
             My Profile
           </NavLink>
-        </NavDropdown.Item>
-        <NavDropdown.Item>
+        </div>
+        <div>
           <NavLink
-            className={styles.NavLink}
+            className={styles.NavDropdownItem}
             to="/my-poems"
             onClick={() => setExpanded(false)}
           >
             My poems
           </NavLink>
-        </NavDropdown.Item>
-        <NavDropdown.Item>
+        </div>
+        <div>
           <NavLink
-            className={styles.NavLink}
+            className={styles.NavDropdownItem}
             to={`/profiles/:id/following`}
             onClick={() => setExpanded(false)}
           >
             Poets I'm following
           </NavLink>
-        </NavDropdown.Item>
-        <NavDropdown.Item>
+        </div>
+        <div>
           <NavLink
-            className={styles.NavLink}
+            className={styles.NavDropdownItem}
             to={`/liked`}
             onClick={() => setExpanded(false)}
           >
             Poems I like
           </NavLink>
-        </NavDropdown.Item>
-        <NavDropdown.Item>
+        </div>
+        <div>
           <NavLink
-            className={styles.NavLink}
+            className={styles.NavDropdownItem}
             to="/"
             onClick={handleSignOut}
           >
             Sign out
-          </NavLink> 
-        </NavDropdown.Item>
+          </NavLink>
+        </div>
       </NavDropdown>
     </>
   );
@@ -141,7 +143,12 @@ const NavBar = () => {
   );
 
   return (
-    <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
+    <Navbar
+      expanded={expanded}
+      className={styles.NavBar}
+      expand="md"
+      fixed="top"
+    >
       <Container>
         <NavLink exact activeClassName={styles.Active} to="/">
           <Navbar.Brand className={styles.Logo}>
@@ -156,7 +163,7 @@ const NavBar = () => {
           id="navbar-toggle"
         >
           <i class={`${styles.Burger} fa-solid fa-bars`}></i>
-        </Navbar.Toggle> 
+        </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`${styles.NavToggle} ml-auto`}>
             <NavLink
@@ -175,7 +182,7 @@ const NavBar = () => {
               Contact
             </NavLink>
             {/* If logged in, display 'loggedIn' if not, 'loggedOut'. */}
-            {currentUser? loggedIn : loggedOut}
+            {currentUser ? loggedIn : loggedOut}
           </Nav>
         </Navbar.Collapse>
       </Container>

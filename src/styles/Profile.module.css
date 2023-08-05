@@ -22,6 +22,10 @@
   display: none;
 }
 
+.Mobile {
+  width: 100%;
+}
+
 @media screen and (max-width: 490px) {
   .SmallLayout {
     display: none;
