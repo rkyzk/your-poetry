@@ -19,6 +19,10 @@
   color: rgb(10, 10, 90);
 }
 
+.NavDropdownItem {
+  margin-left: 10px;
+}
+
 .SpaceLeft {
   margin-left: 15px;
 }

@@ -4,7 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip"; 
+import Tooltip from "react-bootstrap/Tooltip";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
@@ -12,11 +12,10 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { toast } from "react-toastify";
 
-/** 
+/**
  * Return poem data including title, content or excerpt,
  * author, published date.
  * This Component holds handleLike und handleUnlike functions.
- * @param {props} 
  */
 const Poem = (props) => {
   const {
@@ -47,7 +46,7 @@ const Poem = (props) => {
     /** function to set poem data */
     setPoems,
     /** function to show confirmation modal */
-    showConfirmationModal
+    showConfirmationModal,
   } = props;
 
   /** get currentUser from CurrentUserContext. */
@@ -58,10 +57,10 @@ const Poem = (props) => {
   const history = useHistory();
   /** get the pathname */
   const { pathname } = useLocation();
-  
+
   /** Display PoemEdit page. */
   const handleEdit = () => history.push(`/poems/${id}/edit`);
-  
+
   /**
    * Request the backend to make a new 'Like' object.
    * Adjust likes count on the front end.
@@ -75,22 +74,28 @@ const Poem = (props) => {
       if (pathname === "/popular-poems") {
         setPoems((prevPoems) => ({
           ...prevPoems,
-          results: prevPoems.results.map((poem) => {
-            return poem.id === id
-              ? { ...poem, likes_count: poem.likes_count + 1, like_id: data.id }            
-              : poem;
-          }).sort((a, b) => b.likes_count - a.likes_count),
-        }))
+          results: prevPoems.results
+            .map((poem) => {
+              return poem.id === id
+                ? {
+                    ...poem,
+                    likes_count: poem.likes_count + 1,
+                    like_id: data.id,
+                  }
+                : poem;
+            })
+            .sort((a, b) => b.likes_count - a.likes_count),
+        }));
       } else {
         // On other pages, only adjust the number of likes.
         setPoems((prevPoems) => ({
           ...prevPoems,
           results: prevPoems.results.map((poem) => {
             return poem.id === id
-              ? { ...poem, likes_count: poem.likes_count + 1, like_id: data.id }            
+              ? { ...poem, likes_count: poem.likes_count + 1, like_id: data.id }
               : poem;
           }),
-        }))
+        }));
       }
     } catch (err) {
       // If there's an error, display an error message.
@@ -111,7 +116,7 @@ const Poem = (props) => {
         setPoems((prevPoems) => ({
           ...prevPoems,
           results: prevPoems.results.filter((poem) => {
-            return poem.id !== id
+            return poem.id !== id;
           }),
         }));
       } else {
@@ -119,20 +124,31 @@ const Poem = (props) => {
         if (pathname === "/popular-poems") {
           setPoems((prevPoems) => ({
             ...prevPoems,
-            results: prevPoems.results.map((poem) => {
-              return poem.id === id
-                ? { ...poem, likes_count: poem.likes_count - 1, like_id: null }            
-                : poem;
-            }).sort((a, b) => b.likes_count - a.likes_count),
-          }))
+            results: prevPoems.results
+              .map((poem) => {
+                return poem.id === id
+                  ? {
+                      ...poem,
+                      likes_count: poem.likes_count - 1,
+                      like_id: null,
+                    }
+                  : poem;
+              })
+              .sort((a, b) => b.likes_count - a.likes_count),
+          }));
         } else {
-          // On other pages only adjust the number of likes.        
+          // On other pages only adjust the number of likes.
           setPoems((prevPoems) => ({
             ...prevPoems,
             results: prevPoems.results.map((poem) => {
               return poem.id === id
-                ? (poem.likes_count === 1 ? { ...poem, likes_count: 0, like_id: null }
-                  : { ...poem, likes_count: poem.likes_count - 1, like_id: null })
+                ? poem.likes_count === 1
+                  ? { ...poem, likes_count: 0, like_id: null }
+                  : {
+                      ...poem,
+                      likes_count: poem.likes_count - 1,
+                      like_id: null,
+                    }
                 : poem;
             }),
           }));
@@ -169,7 +185,7 @@ const Poem = (props) => {
             </Link>
           </Card.Title>
         )}
-        <span className={`${styles.LinkText} ml-4`}> 
+        <span className={`${styles.LinkText} ml-4`}>
           by
           {/* Link the profile name to the profile page. */}
           <Link
@@ -177,65 +193,68 @@ const Poem = (props) => {
             to={`/profiles/${profile_id}`}
             aria-label={`go-to-the-profile-page-of-${profile_name}`}
           >
-            {profile_name && (profile_name)}
+            {profile_name && profile_name}
           </Link>
-        </span><br/>
+        </span>
+        <br />
         <Row>
           {/* If published display the published date */}
           <span className={`ml-auto ${styles.PubDate}`}>
-          {published_at ? (
-            <>Published on {published_at}</>
-          ) : (
-            <>Not published yet</>    
-          )}
+            {published_at ? (
+              <>Published on {published_at}</>
+            ) : (
+              <>Not published yet</>
+            )}
           </span>
         </Row>
         {/* If not poem page, display only the first 60 characters.
-            If poem page, display the whole content. */}        
+            If poem page, display the whole content. */}
         {!poemPage && content ? (
           <Card.Text>{content.substring(0, 60)}...</Card.Text>
         ) : (
           <>
             <Card.Text className={styles.Line}>{content}</Card.Text>
-            <p className={`mt-3 text-muted ${styles.Category}`}>Category: {category}</p>
+            <p className={`mt-3 text-muted ${styles.Category}`}>
+              Category: {category}
+            </p>
           </>
         )}
         {/* If is_owner, tell they can't like their own poems when
             they hover over the heart icon. */}
         {is_owner ? (
-        <OverlayTrigger
-          placement="top"
-          overlay={<Tooltip>You can't like your own poem!</Tooltip>}
-        >
-          <i className="far fa-heart" />
-        </OverlayTrigger>
-        ) : like_id ? (
-          <>
-          {/* If like_id exists, handleUnlike will be fired,
-              when the icon is clicked. */}
-          <span onClick={handleUnlike}>
-            <i className={`fas fa-heart ${styles.Heart}`} />
-          </span>
-          </>
-        ) : currentUser ? (
-          <>
-          {/* If like_id doesn't exist and if the user is logged in,
-              handleLike will be fired when the heart is clicked. */}
-          <span onClick={handleLike}>          
-            <i className={`far fa-heart ${styles.HeartOutline}`} />
-          </span>
-          </>
-        ) : (
-          <>
-          {/* If the user is not logged in,
-              display a note 'log in to like poems'
-              when they hover over the heart icon. */}
           <OverlayTrigger
             placement="top"
-            overlay={<Tooltip>Log in to like poems!</Tooltip>}
+            overlay={<Tooltip>You can't like your own poem!</Tooltip>}
           >
             <i className="far fa-heart" />
           </OverlayTrigger>
+        ) : like_id ? (
+          <>
+            {/* If like_id exists, handleUnlike will be fired,
+              when the icon is clicked. */}
+            <span onClick={handleUnlike}>
+              <i className={`fas fa-heart ${styles.Heart}`} />
+            </span>
+          </>
+        ) : currentUser ? (
+          <>
+            {/* If like_id doesn't exist and if the user is logged in,
+              handleLike will be fired when the heart is clicked. */}
+            <span onClick={handleLike}>
+              <i className={`far fa-heart ${styles.HeartOutline}`} />
+            </span>
+          </>
+        ) : (
+          <>
+            {/* If the user is not logged in,
+              display a note 'log in to like poems'
+              when they hover over the heart icon. */}
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>Log in to like poems!</Tooltip>}
+            >
+              <i className="far fa-heart" />
+            </OverlayTrigger>
           </>
         )}
         <span className="ml-1">{likes_count}</span>
@@ -246,7 +265,7 @@ const Poem = (props) => {
         >
           <i className="far fa-comments ml-2 mr-1" />
         </Link>
-        {comments_count}  
+        {comments_count}
       </Card.Body>
     </Card>
   );

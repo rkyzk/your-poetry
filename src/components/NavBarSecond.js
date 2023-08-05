@@ -47,7 +47,7 @@ const NavBarSecond = () => {
             aria-controls="basic-navbar-second-nav"
             onClick={() => setExpanded(!expanded)}
           >
-            <i class={`${styles.Burger} fa-solid fa-bars`}></i>
+            <i className={`${styles.Burger} fa-solid fa-bars`}></i>
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-second-nav">
             <Nav className={`${styles.NavToggle} text-left`}>
@@ -57,36 +57,36 @@ const NavBarSecond = () => {
                 id="poem-dropdown"
                 onClick={(event) => keepMenuOpen(event)}
               >
-                <div>
+                <div className="mt-1">
                   <NavLink
-                    className={styles.NavLink}
+                    className={styles.NavDropdownItem}
                     to="/new-poems"
                     onClick={() => setExpanded(false)}
                   >
                     New Poems
                   </NavLink>
                 </div>
-                <div>
+                <div className="mt-1">
                   <NavLink
-                    className={styles.NavLink}
+                    className={styles.NavDropdownItem}
                     to="/popular-poems"
                     onClick={() => setExpanded(false)}
                   >
                     Popular Poems
                   </NavLink>
                 </div>
-                <div>
+                <div className="mt-1">
                   <NavLink
-                    className={styles.NavLink}
+                    className={styles.NavDropdownItem}
                     to="/poems-by-categories"
                     onClick={() => setExpanded(false)}
                   >
                     Poems by Categories
                   </NavLink>
                 </div>
-                <div>
+                <div className="mt-1">
                   <NavLink
-                    className={styles.NavLink}
+                    className={styles.NavDropdownItem}
                     to="/search/poems"
                     onClick={() => setExpanded(false)}
                   >

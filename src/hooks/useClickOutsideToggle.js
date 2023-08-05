@@ -23,10 +23,12 @@ const useClickOutsideToggle = () => {
       }
     };
     document.addEventListener("mouseup", handleClickOutside);
+    // clean up the event listner
     return () => {
       document.removeEventListener("mouseup", handleClickOutside);
     };
   }, [ref]);
+
   return { expanded, setExpanded, ref };
 };
 

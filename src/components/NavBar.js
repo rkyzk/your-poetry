@@ -72,7 +72,7 @@ const NavBar = () => {
         id="nav-my-space"
         onClick={(event) => keepMenuOpen(event)}
       >
-        <div>
+        <div className="mt-1">
           <NavLink
             className={styles.NavDropdownItem}
             to={`/profiles/${currentUser?.profile_id}`}
@@ -82,7 +82,7 @@ const NavBar = () => {
             My Profile
           </NavLink>
         </div>
-        <div>
+        <div className="mt-1">
           <NavLink
             className={styles.NavDropdownItem}
             to="/my-poems"
@@ -91,7 +91,7 @@ const NavBar = () => {
             My poems
           </NavLink>
         </div>
-        <div>
+        <div className="mt-1">
           <NavLink
             className={styles.NavDropdownItem}
             to={`/profiles/:id/following`}
@@ -100,7 +100,7 @@ const NavBar = () => {
             Poets I'm following
           </NavLink>
         </div>
-        <div>
+        <div className="mt-1">
           <NavLink
             className={styles.NavDropdownItem}
             to={`/liked`}
@@ -109,7 +109,7 @@ const NavBar = () => {
             Poems I like
           </NavLink>
         </div>
-        <div>
+        <div className="mt-1">
           <NavLink
             className={styles.NavDropdownItem}
             to="/"
@@ -162,7 +162,7 @@ const NavBar = () => {
           onClick={() => setExpanded(!expanded)}
           id="navbar-toggle"
         >
-          <i class={`${styles.Burger} fa-solid fa-bars`}></i>
+          <i className={`${styles.Burger} fa-solid fa-bars`}></i>
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className={`${styles.NavToggle} ml-auto`}>
