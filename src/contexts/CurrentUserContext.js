@@ -14,18 +14,16 @@ export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
  * Return CurrentUserContext and SetCurrentUserContext.
  * Hold functions to refresh access token if refresh token
  * is valid.
- * @param {children}
- * @returns CurrentUserContext, SetCurrentUserContext
  */
 export const CurrentUserProvider = ({ children }) => {
-  /** stores info on the logged in user. */
+  /** stores info about the logged in user. */
   const [currentUser, setCurrentUser] = useState(null);
   /** stores info on which pages the user has visited. */
   const history = useHistory();
-  
+
   /**
-   * Get info about the logged in user from the backend.
-   * and set the data to currentUser. 
+   * Get info about the logged in user from the backend
+   * and set the data to currentUser.
    */
   const handleMount = async () => {
     try {
@@ -36,21 +34,22 @@ export const CurrentUserProvider = ({ children }) => {
   useEffect(() => {
     handleMount();
   }, []);
-  
+
   /**
    * Before children mount, run interceptors,
    * so users stay logged in as long as
    * the refresh token is valid.
    */
   useMemo(() => {
-    /** if refresh token is valid, run interceptor
-     *  send a request to refresh the acces token before
-     *  request by users is processed.
+    /**
+     * if refresh token is valid, run interceptor,
+     * send a request to refresh the acces token before
+     * request by users is processed.
      */
     axiosReq.interceptors.request.use(
       async (config) => {
-      // If refresh token hasn't expired, refresh the access token.
-      if (shouldRefreshToken()) {
+        // If refresh token hasn't expired, refresh the access token.
+        if (shouldRefreshToken()) {
           try {
             await axios.post("/dj-rest-auth/token/refresh/");
           } catch (err) {
@@ -68,19 +67,19 @@ export const CurrentUserProvider = ({ children }) => {
         return config;
       },
       (err) => {
-        // In case of an error reject the promise with the error.
+        // In case of an error, reject the promise with the error.
         return Promise.reject(err);
       }
     );
-    
-    /** 
-      * Intercept responses and if there's an 'unauthorized' error
-      * send a request to refresh the access token.
-      * If that fails set currentUser to null and remove 
-      * the TokenTimesStamp.  
-      * This prevents users from getting
-      * logged out every 5 minutes when the access token expires.
-      */
+
+    /**
+     * Intercept responses and if there's an 'unauthorized' error
+     * send a request to refresh the access token.
+     * If that fails, set currentUser to null and remove
+     * the Token Times Stamp.
+     * This prevents users from getting
+     * logged out every 5 minutes when the access token expires.
+     */
     axiosRes.interceptors.response.use(
       // If there's no error, return the response.
       (response) => response,
@@ -108,7 +107,7 @@ export const CurrentUserProvider = ({ children }) => {
               the interceptor. */
           return axios(err.config);
         }
-        /** if the error was not 401, reject the promise
+        /** if the error was not 401, reject the promise with the error
             to exit the interceptor. */
         return Promise.reject(err);
       }

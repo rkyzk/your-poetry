@@ -9,9 +9,8 @@ import { toast } from "react-toastify";
 
 /**
  * Return comment form.
- * @param {props}
  */
-function CommentCreateForm (props) {
+function CommentCreateForm(props) {
   /** destructure props */
   const { poem, setPoem, setComments, profileImage, profile_id } = props;
   /** content stores the comment */
@@ -26,17 +25,16 @@ function CommentCreateForm (props) {
    * Send comment data to the backend.
    * Add the comment to comments array
    * and adjust the comment count for the front end.
-   * @param {event}
    */
   const handleSubmit = async (event) => {
-    // Prevent the form to be submitted by default.
+    // Prevent the form from being submitted.
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/comments/", {
         content,
         poem,
       });
-      // Add the new comment to the array for storing comments.
+      // Add the new comment to the comments array.
       setComments((prevComments) => ({
         ...prevComments,
         results: [data, ...prevComments.results],
@@ -51,7 +49,7 @@ function CommentCreateForm (props) {
         ],
       }));
       setContent("");
-      toast("Your comment has been posted.")
+      toast("Your comment has been posted.");
     } catch (err) {
       toast("There was an error.  Please try again.");
     }

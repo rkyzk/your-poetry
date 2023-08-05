@@ -10,12 +10,11 @@ import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/SignInUpForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { setTokenTimestamp } from "../../utils/utils";
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 import { useRedirect } from "../../hooks/useRedirect";
 
 /**
- * Return the sign in form
- * that allows users to sign in.
+ * Return the sign in form.
  */
 function SignInForm() {
   /** get the function to set current user info to a variable. */
@@ -33,7 +32,7 @@ function SignInForm() {
   const history = useHistory();
   /** stores errors */
   const [errors, setErrors] = useState({});
- 
+
   /** set data entered by users to 'signInData'. */
   const handleChange = (event) => {
     setSignInData({
@@ -45,10 +44,9 @@ function SignInForm() {
   /**
    * Post the data entered by users to the backend.
    * If posting is successful, set 'currentUser' the data
-   * of logged in user.  Set the token time stamp,
+   * of logged in user.  Set the token time stamp and
    * redirect to "Home."
-   * @param {event}
-  */
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -121,7 +119,8 @@ function SignInForm() {
       </Container>
       <Container className="mt-3">
         <Link className={styles.Link} to="/signup">
-          Don't have an account? <span className={styles.TextColor}>Sign up now!</span>
+          Don't have an account?{" "}
+          <span className={styles.TextColor}>Sign up now!</span>
         </Link>
       </Container>
     </Col>

@@ -36,36 +36,34 @@ const Profile = (props) => {
   const handleFollow = async () => {
     try {
       const { data } = await axiosRes.post("/followers/", { followed: id });
-      {
-        setProfiles &&
-          setProfiles((prevProfiles) => ({
-            ...prevProfiles,
-            results: prevProfiles.results.map((profile) => {
-              return profile.id === id
-                ? {
-                    ...profile,
-                    followers_count: profile.followers_count + 1,
-                    following_id: data.id,
-                  }
-                : profile;
-            }),
-          }));
-      }
-      {
-        featured &&
-          setFeaturedProfilesData((prevProfiles) => ({
-            ...prevProfiles,
-            results: prevProfiles.results.map((profile) => {
-              return profile.id === id
-                ? {
-                    ...profile,
-                    followers_count: profile.followers_count + 1,
-                    following_id: data.id,
-                  }
-                : profile;
-            }),
-          }));
-      }
+
+      setProfiles &&
+        setProfiles((prevProfiles) => ({
+          ...prevProfiles,
+          results: prevProfiles.results.map((profile) => {
+            return profile.id === id
+              ? {
+                  ...profile,
+                  followers_count: profile.followers_count + 1,
+                  following_id: data.id,
+                }
+              : profile;
+          }),
+        }));
+
+      featured &&
+        setFeaturedProfilesData((prevProfiles) => ({
+          ...prevProfiles,
+          results: prevProfiles.results.map((profile) => {
+            return profile.id === id
+              ? {
+                  ...profile,
+                  followers_count: profile.followers_count + 1,
+                  following_id: data.id,
+                }
+              : profile;
+          }),
+        }));
     } catch (err) {
       toast("There was an error.  Please try again.");
     }
@@ -74,45 +72,39 @@ const Profile = (props) => {
   const handleUnfollow = async () => {
     try {
       await axiosRes.delete(`/followers/${following_id}`);
-      {
-        page === "profilesPage" &&
-          setProfiles((prevProfiles) => ({
-            ...prevProfiles,
-            results: prevProfiles.results.filter((profile) => {
-              return profile.id !== id;
-            }),
-          }));
-      }
-      {
-        (page === "search" || page === "profilePage") &&
-          setProfiles((prevProfiles) => ({
-            ...prevProfiles,
-            results: prevProfiles.results.map((profile) => {
-              return profile.id === id
-                ? {
-                    ...profile,
-                    followers_count: profile.followers_count - 1,
-                    following_id: null,
-                  }
-                : profile;
-            }),
-          }));
-      }
-      {
-        featured &&
-          setFeaturedProfilesData((prevProfiles) => ({
-            ...prevProfiles,
-            results: prevProfiles.results.map((profile) => {
-              return profile.id === id
-                ? {
-                    ...profile,
-                    followers_count: profile.followers_count - 1,
-                    following_id: null,
-                  }
-                : profile;
-            }),
-          }));
-      }
+      page === "profilesPage" &&
+        setProfiles((prevProfiles) => ({
+          ...prevProfiles,
+          results: prevProfiles.results.filter((profile) => {
+            return profile.id !== id;
+          }),
+        }));
+      (page === "search" || page === "profilePage") &&
+        setProfiles((prevProfiles) => ({
+          ...prevProfiles,
+          results: prevProfiles.results.map((profile) => {
+            return profile.id === id
+              ? {
+                  ...profile,
+                  followers_count: profile.followers_count - 1,
+                  following_id: null,
+                }
+              : profile;
+          }),
+        }));
+      featured &&
+        setFeaturedProfilesData((prevProfiles) => ({
+          ...prevProfiles,
+          results: prevProfiles.results.map((profile) => {
+            return profile.id === id
+              ? {
+                  ...profile,
+                  followers_count: profile.followers_count - 1,
+                  following_id: null,
+                }
+              : profile;
+          }),
+        }));
     } catch (err) {
       toast("There was an error.  Please try again.");
     }

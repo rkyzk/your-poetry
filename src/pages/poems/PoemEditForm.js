@@ -48,8 +48,8 @@ function PoemEditForm() {
            otherwise redirect to "Home" */
         is_owner ? setPoemData({ title, content, category }) : history.push("/");
       } catch (err) {
-        toast("There was an error.  The data couldn't be retreved.\
-              Please try again.")
+        toast("There was an error.  The data couldn't be retreved." +
+              "Please try again.")
       }
     };
     handleMount();

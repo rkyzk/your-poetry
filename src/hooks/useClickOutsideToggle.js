@@ -6,9 +6,9 @@ import { useEffect, useRef, useState } from "react";
  * 'expanded' will be set false so the menu closes.
  */
 const useClickOutsideToggle = () => {
-  /** 'expanded' tells if the dropp down menu is open. */
+  /** 'expanded' tells if the drop down menu is open. */
   const [expanded, setExpanded] = useState(false);
-  /** stores info on which element has been clicked. */
+  /** stores info of the elment if the menu has been clicked. */
   const ref = useRef(null);
 
   /**

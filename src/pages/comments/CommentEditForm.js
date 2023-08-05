@@ -8,9 +8,7 @@ import { toast } from "react-toastify";
  * Return comment edit form.
  * Display the current comment and let users
  * update the content.
- * Send a request to the backend to update the comment.
- * Update the comment in the front end as well.
- * @param {props}
+ * Update the comment in the backend and in the frontend.
  */
 function CommentEditForm(props) {
   /** destructure props */
@@ -22,22 +20,21 @@ function CommentEditForm(props) {
   const handleChange = (event) => {
     setFormContent(event.target.value);
   };
- 
+
   /**
    * Send comment data to the backend.
    * Replace the comment with the updated one
    * in the array storing comments for the front end.
-   * @param {event}
    */
   const handleSubmit = async (event) => {
-    // Prevent the form to be submitted by default.
+    // Prevent the form from being submitted.
     event.preventDefault();
     try {
       // Make a put request to update the comment
       await axiosRes.put(`/comments/${id}/`, {
         content: formContent.trim(),
       });
-      // update the comment in the array storing comments for the frontend.
+      // update the comment in the comments array in the frontend.
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.map((comment) => {
@@ -50,7 +47,7 @@ function CommentEditForm(props) {
             : comment;
         }),
       }));
-      toast("Your comment has been updated.")
+      toast("Your comment has been updated.");
       // hide the edit form.
       setShowEditForm(false);
     } catch (err) {

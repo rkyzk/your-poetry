@@ -2,9 +2,7 @@ import React from "react";
 import styles from "../styles/Avatar.module.css";
 
 /**
- * Returns avatar.
- * @param {src, height, navbar}
- * @returns avatar
+ * Return avatar.
  */
 const Avatar = ({ src, height = 45, navbar }) => {
   return (

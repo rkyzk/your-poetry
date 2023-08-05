@@ -27,8 +27,8 @@ const Comment = (props) => {
     setPoem,
     setComments,
   } = props;
-  
-  /** stores info about the logged in user. */
+
+  /** get info about the logged in user. */
   const currentUser = useCurrentUser();
   /** is_owner is set to true if the user is the owner. */
   const is_owner = currentUser?.username === owner;
@@ -49,8 +49,8 @@ const Comment = (props) => {
           {
             ...prevPoem.results[0],
             comments_count: prevPoem.results[0].comments_count - 1,
-          }
-        ]
+          },
+        ],
       }));
       // delete the comment from the comments array.
       setComments((prevComments) => ({
@@ -76,14 +76,16 @@ const Comment = (props) => {
               <span className={styles.Owner}>{owner}</span>
             </Col>
             {/* If the comment has been edited, label 'edited' */}
-            {updated_at !== created_at ?
-            <Col sm={7}>
-              <span className={`${styles.Time}`}>{created_at}</span>
-              <span className={`${styles.Time} ml-3`}>edited</span>
-            </Col> :
-            <Col sm={7}>
-              <span className={`${styles.Time}`}>{created_at}</span>
-            </Col>}
+            {updated_at !== created_at ? (
+              <Col sm={7}>
+                <span className={`${styles.Time}`}>{created_at}</span>
+                <span className={`${styles.Time} ml-3`}>edited</span>
+              </Col>
+            ) : (
+              <Col sm={7}>
+                <span className={`${styles.Time}`}>{created_at}</span>
+              </Col>
+            )}
           </Row>
           {/* If showEditForm is true, show the edit form. */}
           {showEditForm ? (

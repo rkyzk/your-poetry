@@ -4,17 +4,13 @@ import { axiosReq } from "../api/axiosDefaults";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
-import {
-  useSetFeaturedProfilesData
-} from "../contexts/FeaturedProfilesDataContext";
+import { useSetFeaturedProfilesData } from "../contexts/FeaturedProfilesDataContext";
 
 /**
  * Return Confirmation modal.
  * The modal will be displayed when 'show' is set true.
- * @param {show, hideConfirmationModal, id} 
- * @returns 
  */
-const ConfirmationModal = ({show, hideConfirmationModal, id}) => {
+const ConfirmationModal = ({ show, hideConfirmationModal, id }) => {
   /** store info on which pages the user has been to. */
   const history = useHistory();
   /** store the info of the logged in user. */
@@ -23,7 +19,7 @@ const ConfirmationModal = ({show, hideConfirmationModal, id}) => {
   const user_id = currentUser?.pk;
   /** get the function setFeaturedProfilesData */
   const setFeaturedProfilesData = useSetFeaturedProfilesData();
-  
+
   /**
    * Subtract 1 from poems count in the featured profile
    * if the user is featured.
@@ -33,12 +29,12 @@ const ConfirmationModal = ({show, hideConfirmationModal, id}) => {
       ...prevProfiles,
       results: prevProfiles.results.map((profile) => {
         return profile.id === user_id
-          ? { ...profile, poems_count: profile.poems_count - 1, }
+          ? { ...profile, poems_count: profile.poems_count - 1 }
           : profile;
       }),
     }));
   };
-  
+
   /** delete a poem from the backend,
       hide confirmation modal and send the user to 'My Poems' page. */
   const handleDeletePoem = async () => {
@@ -51,8 +47,8 @@ const ConfirmationModal = ({show, hideConfirmationModal, id}) => {
       history.push("/my-poems");
     } catch (err) {
       // In case of an error, notify the user.
-      toast("There was an error.  Please try again.")
-    }  
+      toast("There was an error.  Please try again.");
+    }
   };
 
   return (
@@ -60,22 +56,15 @@ const ConfirmationModal = ({show, hideConfirmationModal, id}) => {
       {/* The modal will only appear if show is true */}
       <Modal show={show} onHide={hideConfirmationModal}>
         <Modal.Body closeButton>
-          <span>Are you sure you want to delete your poem?
-            You won't be able to retrieve it.
-          </span> 
+          <span>
+            Are you sure you want to delete your poem? You won't be able to
+            retrieve it.
+          </span>
         </Modal.Body>
         <Modal.Footer>
-          <Button
-            onClick={handleDeletePoem}
-          >
-            delete
-          </Button>
-          {/* Firing hideConfirmationModal will set 'show' false. */}
-          <Button
-            onClick={hideConfirmationModal}
-          >
-            cancel
-          </Button>
+          <Button onClick={handleDeletePoem}>delete</Button>
+          {/* hideConfirmationModal will set 'show' false. */}
+          <Button onClick={hideConfirmationModal}>cancel</Button>
         </Modal.Footer>
       </Modal>
     </>

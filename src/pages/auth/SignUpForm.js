@@ -13,12 +13,10 @@ import { toast } from "react-toastify";
 import { useRedirect } from "../../hooks/useRedirect";
 
 /**
- * Return sign up form that lets 
- * users sign up.
- * @returns
+ * Return sign up form.
  */
 const SignUpForm = () => {
-  // Redirect users who are logged in to "Home".
+  // Redirect already logged in users to "Home".
   useRedirect("loggedIn");
   /** registerData will store data entered by users. */
   const [registerData, setRegisterData] = useState({
@@ -32,11 +30,10 @@ const SignUpForm = () => {
   const history = useHistory();
   /** stores errors */
   const [errors, setErrors] = useState({});
-  
-  /** 
+
+  /**
    * Set the data entered by users to
    * 'registerData.'
-   * @param {event}
    */
   const handleChange = (event) => {
     setRegisterData({
@@ -44,27 +41,26 @@ const SignUpForm = () => {
       [event.target.name]: event.target.value,
     });
   };
-  
+
   /**
    * Send the data entered by users to the backend.
    * Redirect the user to signin page.
-   * @param {event} 
    */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post('dj-rest-auth/registration/', registerData);
+      await axios.post("dj-rest-auth/registration/", registerData);
       history.push("/signin");
       toast(`You've been registered.  Now sign in.`);
     } catch (err) {
       // set errors
       setErrors(err.response?.data);
-    };
+    }
   };
 
   return (
     <Col
-      className="my-auto py-2 p-md-2" 
+      className="my-auto py-2 p-md-2"
       lg={{ span: 6, offset: 3 }}
       md={{ span: 8, offset: 2 }}
     >
@@ -83,10 +79,10 @@ const SignUpForm = () => {
             />
           </Form.Group>
           {errors.username?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
           <Form.Group controlId="password1">
             <Form.Label className="d-none">Password</Form.Label>
             <Form.Control
@@ -99,10 +95,10 @@ const SignUpForm = () => {
             />
           </Form.Group>
           {errors.password1?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
+          ))}
           <Form.Group controlId="password2">
             <Form.Label className="d-none">Confirm password</Form.Label>
             <Form.Control
@@ -115,9 +111,9 @@ const SignUpForm = () => {
             />
           </Form.Group>
           {errors.password2?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
+            <Alert variant="warning" key={idx}>
+              {message}
+            </Alert>
           ))}
           <Button
             className={`${btnStyles.Button} ${btnStyles.Large} ${btnStyles.Olive}`}
@@ -126,9 +122,9 @@ const SignUpForm = () => {
             Sign up
           </Button>
           {errors.non_field_errors?.map((message, idx) => (
-              <Alert key={idx} variant="warning" className="mt-3">
-                {message}
-              </Alert>
+            <Alert key={idx} variant="warning" className="mt-3">
+              {message}
+            </Alert>
           ))}
         </Form>
       </Container>

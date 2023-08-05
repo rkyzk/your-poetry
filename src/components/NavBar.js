@@ -60,8 +60,8 @@ const NavBar = () => {
   };
 
   /*
-   Nav link items to be displayed when logged in.
-   'setExpanded(false)' will close the dropdown menu.
+   * Nav link items will be displayed when logged in.
+   * 'setExpanded(false)' will close the dropdown menu.
    */
   const loggedIn = (
     <>

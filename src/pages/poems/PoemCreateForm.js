@@ -12,7 +12,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 /**
  * Return Poem create form.
  * Display error messages if the input is not valid.
- * @returns 
+ * @returns
  */
 function PoemCreateForm() {
   // redirect logged out users to home page.
@@ -34,19 +34,21 @@ function PoemCreateForm() {
   // get setFeaturedProfileData
   const setFeaturedProfilesData = useSetFeaturedProfilesData();
   const currentUser = useCurrentUser();
-  const user_id = currentUser?.pk
+  const user_id = currentUser?.pk;
+  // stores feedback message
+  var msg;
 
   /**
    *  Set user input into variable 'poemData'.
    *  @param {event}
-   */ 
+   */
   const handleChange = (event) => {
     setPoemData({
       ...poemData,
       [event.target.name]: event.target.value,
     });
   };
-  
+
   /**
    *  Add poems count in featured profiles
    *  when a new poem has been written
@@ -57,12 +59,12 @@ function PoemCreateForm() {
       ...prevProfiles,
       results: prevProfiles.results.map((profile) => {
         return profile.id === user_id
-          ? { ...profile, poems_count: profile.poems_count + 1, }
+          ? { ...profile, poems_count: profile.poems_count + 1 }
           : profile;
       }),
     }));
   };
-  
+
   /**
    * Send poem data entered by users to the backend.
    * @param{event}
@@ -74,9 +76,9 @@ function PoemCreateForm() {
        and set the feedback message accordingly */
     if (publish) {
       formData.append("published", true);
-      var msg = "Your poem has been published";
+      msg = "Your poem has been published";
     } else {
-      var msg = "Your poem has been saved";
+      msg = "Your poem has been saved";
     }
     formData.append("title", title);
     formData.append("content", content);
@@ -84,18 +86,17 @@ function PoemCreateForm() {
 
     try {
       // Send the api the data of a new poem
-      const { data } = await axiosReq.post('/poems/', formData);
+      const { data } = await axiosReq.post("/poems/", formData);
       /* Add 1 to poems count in the featured profile
-         if the user is featured. */      
+         if the user is featured. */
       handlePoemCount();
       // redirect users to the new poem's page.
       history.push(`/poems/${data.id}`);
       // display feedback message
       toast(msg);
-    } catch (err){
+    } catch (err) {
       // if the error is not 'unauthorized, set error data to 'erros'
-      err.response?.status !== 401 && 
-      setErrors(err.response?.data);
+      err.response?.status !== 401 && setErrors(err.response?.data);
     }
   };
 
@@ -114,9 +115,9 @@ function PoemCreateForm() {
           />
         </Form.Group>
         {errors?.title?.map((message, idx) => (
-          <Alert variant="warning" key={idx}>		
-            {message}		
-          </Alert>	
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
         ))}
         <Form.Group controlId="content">
           <Form.Label>Content</Form.Label>
@@ -130,14 +131,12 @@ function PoemCreateForm() {
           />
         </Form.Group>
         {errors?.content?.map((message, idx) => (
-          <Alert variant="warning" key={idx}>		
-            {message}		
+          <Alert variant="warning" key={idx}>
+            {message}
           </Alert>
         ))}
         <Form.Group contorlId="category">
-          <Form.Label className="my-1 mr-2">
-            Category
-          </Form.Label>
+          <Form.Label className="my-1 mr-2">Category</Form.Label>
           <Form.Control
             as="select"
             className={`${styles.Category} ml-3`}
@@ -156,16 +155,16 @@ function PoemCreateForm() {
           </Form.Control>
         </Form.Group>
         {errors?.category?.map((message, idx) => (
-         <Alert variant="warning" key={idx}>
-           {message}
-         </Alert>
-       ))}
-       {errors.non_field_errors?.map((message, idx) => (
-            <Alert key={idx} variant="warning" className="mt-3">
-              {message}
-            </Alert>
-          ))}
-        <Button 
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
+        {errors.non_field_errors?.map((message, idx) => (
+          <Alert key={idx} variant="warning" className="mt-3">
+            {message}
+          </Alert>
+        ))}
+        <Button
           className={`${btnStyles.Button} ${btnStyles.Olive} mt-2`}
           type="submit"
         >
@@ -173,7 +172,9 @@ function PoemCreateForm() {
         </Button>
         <Button
           className={`${btnStyles.Button} ${btnStyles.Olive} ml-2 mt-2`}
-          onClick={()=>{setPublish(true)}} 
+          onClick={() => {
+            setPublish(true);
+          }}
           type="submit"
         >
           publish

@@ -10,11 +10,10 @@ import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 /**
- * Return the second navigation bar on the left side of the page.
+ * Return the second navigation bar (one on the left side of the page).
  * The component will be displayed on all pages except for
  * signup and signin pages.
- * Renders different nav link items depending on the logged in status.
- * @returns NavBar
+ * Render different nav link items depending on the logged in status.
  */
 const NavBarSecond = () => {
   /** stores info on the logged in user. */
@@ -22,13 +21,13 @@ const NavBarSecond = () => {
   /** get the URL of the current page. */
   const { pathname } = useLocation();
   /** expanded tells wheather the menu bar is expanded/not.
-      setExpanded will set expanded true/false.
-      ref stores info about if inside or outside the menu has been clicked */
+      setExpanded will change the expanded value.
+      ref stores info of the element if inside the menu has been clicked */
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
   /** On signin and singup pages set hide true so this component won't appear. */
   let hide = pathname === "/signin" || pathname === "/signup";
 
-  /** if 'poem' is clicked, keep the menu open. */
+  /** if the dropdown menu item 'poem' is clicked, keep the menu open. */
   const keepMenuOpen = (event) => {
     event.target.id === "poem-dropdown" && setExpanded(true);
   };
@@ -94,6 +93,7 @@ const NavBarSecond = () => {
                   </NavLink>
                 </div>
               </NavDropdown>
+              {/* if user is logged in, display the link 'Write Poems' */}
               {currentUser && (
                 <NavLink
                   className={`${styles.NavLink} ${styles.SpaceLeft} mt-2`}

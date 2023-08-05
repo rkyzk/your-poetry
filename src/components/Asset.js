@@ -4,13 +4,11 @@ import styles from "../styles/Asset.module.css";
 
 /**
  * Return Spinner.
- * @param {spinner}
- * @returns Spinner
  */
-const Asset = ({ spinner }) => {
+const Asset = () => {
   return (
     <div className={`${styles.Asset} p-4`}>
-      {spinner && <Spinner animation="border" />}
+      <Spinner animation="border" />
     </div>
   );
 };

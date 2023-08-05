@@ -4,10 +4,10 @@ import styles from "../styles/MoreDropdown.module.css";
 import { useHistory } from "react-router";
 
 /**
- * Set forwardRef to the three dots.
+ * Set the three dots to forwardRef.
  * The forwardRef is necessary since the dropdown needs
  * access to the DOM node in order to position the Menu.
- */ 
+ */
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
     className="fas fa-ellipsis-v"
@@ -20,12 +20,14 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
 ));
 
 /**
- * Return a dropdown menu for editing/deleting poems and comments.
- * The dropdown will be shown as three dots.
- * @param {handleEdit, showConfirmationModal, handleDeleteComment}
- * @returns Dropdown
+ * Return a dropdown menu for editing/deleting poems and comments
+ * shown as three dots.
  */
-export const MoreDropdown = ({ handleEdit, showConfirmationModal, handleDeleteComment }) => {
+export const MoreDropdown = ({
+  handleEdit,
+  showConfirmationModal,
+  handleDeleteComment,
+}) => {
   return (
     <Dropdown className="ml-auto" drop="left">
       <Dropdown.Toggle as={ThreeDots} />
@@ -53,13 +55,13 @@ export const MoreDropdown = ({ handleEdit, showConfirmationModal, handleDeleteCo
             <i className="fas fa-trash-alt" />
           </Dropdown.Item>
         ) : (
-        <Dropdown.Item
-          className={styles.DropdownItem}
-          onClick={handleDeleteComment}
-          aria-label="delete"
-        >
-          <i className="fas fa-trash-alt" />
-        </Dropdown.Item>
+          <Dropdown.Item
+            className={styles.DropdownItem}
+            onClick={handleDeleteComment}
+            aria-label="delete"
+          >
+            <i className="fas fa-trash-alt" />
+          </Dropdown.Item>
         )}
       </Dropdown.Menu>
     </Dropdown>
@@ -67,10 +69,8 @@ export const MoreDropdown = ({ handleEdit, showConfirmationModal, handleDeleteCo
 };
 
 /**
- * Return a dropdown menu for editing profiles.
- * The menu will appear as three dots.
- * @param {id}
- * @returns 
+ * Return a dropdown menu for editing profiles
+ * shown as three dots.
  */
 export function ProfileEditDropdown({ id }) {
   /** stores info on which pages the user has been to. */

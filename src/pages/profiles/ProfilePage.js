@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
-import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Profile from "./Profile";
@@ -23,14 +22,13 @@ function ProfilePage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: profile }, { data: profilePoems }] =
-          await Promise.all([
-            axiosReq.get(`/profiles/${id}/`),
-            axiosReq.get(`/poems/?owner__profile=${id}`),
-          ]);
-          setProfileData({ results: [profile] });
-          setProfilePoems(profilePoems);
-          setHasLoaded(true);
+        const [{ data: profile }, { data: profilePoems }] = await Promise.all([
+          axiosReq.get(`/profiles/${id}/`),
+          axiosReq.get(`/poems/?owner__profile=${id}`),
+        ]);
+        setProfileData({ results: [profile] });
+        setProfilePoems(profilePoems);
+        setHasLoaded(true);
       } catch (err) {
         if (err.response?.status === 500) {
           setErrMsg("Server error.  Please try again later.");
@@ -47,31 +45,33 @@ function ProfilePage() {
   const poems = (
     <>
       <h4 className="my-3">Poems by this Writer</h4>
-      {profilePoems.results.length? (
-        <InfiniteScroll
-          children={profilePoems.results.map((poem) => (
-            <Poem
-              key={poem.id}
-              {...poem}
-              setPoems={setProfilePoems}
-            />
-          ))}
-          dataLength={profilePoems.results.length}
-          loader={<Asset spinner />}
-          hasMore={!!profilePoems.next}
-          next={() => fetchMoreData(profilePoems, setProfilePoems)}
-        />
+      {hasLoaded ? (
+        profilePoems.results.length ? (
+          <InfiniteScroll
+            children={profilePoems.results.map((poem) => (
+              <Poem key={poem.id} {...poem} setPoems={setProfilePoems} />
+            ))}
+            dataLength={profilePoems.results.length}
+            loader={<Asset spinner />}
+            hasMore={!!profilePoems.next}
+            next={() => fetchMoreData(profilePoems, setProfilePoems)}
+          />
+        ) : (
+          <p>No published poems yet</p>
+        )
       ) : (
-        <p>No published poems yet</p>
+        <Asset />
       )}
     </>
-  )
+  );
   return (
-    <Col
-      md={{ span: 8, offset: 2 }}
-    >
+    <Col md={{ span: 8, offset: 2 }}>
       {is_owner && <h2>My Profile</h2>}
-      {errMsg ? <Alert key={errMsg} variant="warning" className="mt-3">{errMsg}</Alert> : (
+      {errMsg ? (
+        <Alert key={errMsg} variant="warning" className="mt-3">
+          {errMsg}
+        </Alert>
+      ) : (
         <>
           <Profile
             {...profileData.results[0]}
@@ -81,7 +81,7 @@ function ProfilePage() {
           {poems}
         </>
       )}
-    </Col> 
+    </Col>
   );
 }
 
