@@ -12,7 +12,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 /**
  * Return Poem create form.
  * Display error messages if the input is not valid.
- * @returns
  */
 function PoemCreateForm() {
   // redirect logged out users to home page.
@@ -29,7 +28,7 @@ function PoemCreateForm() {
   const { title, content, category } = poemData;
   // boolean to tell if user has clicked on 'publish'
   const [publish, setPublish] = useState(false);
-  // instantiate history object to store data which url the user visits.
+  // instantiate history object to store data which url the user has visited.
   const history = useHistory();
   // get setFeaturedProfileData
   const setFeaturedProfilesData = useSetFeaturedProfilesData();
@@ -40,7 +39,6 @@ function PoemCreateForm() {
 
   /**
    *  Set user input into variable 'poemData'.
-   *  @param {event}
    */
   const handleChange = (event) => {
     setPoemData({
@@ -67,7 +65,6 @@ function PoemCreateForm() {
 
   /**
    * Send poem data entered by users to the backend.
-   * @param{event}
    */
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -95,7 +92,7 @@ function PoemCreateForm() {
       // display feedback message
       toast(msg);
     } catch (err) {
-      // if the error is not 'unauthorized, set error data to 'erros'
+      // if the error is not 'unauthorized, set error data to 'errors'
       err.response?.status !== 401 && setErrors(err.response?.data);
     }
   };

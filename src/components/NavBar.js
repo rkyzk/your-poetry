@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
+import Button from "react-bootstrap/Button";
 import logo from "../assets/media/poetry-logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
@@ -15,6 +15,7 @@ import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { removeTokenTimestamp } from "../utils/utils";
 import { toast } from "react-toastify";
+import useClickOutsideMenuRight from "../hooks/useClickOutsideMenuRight";
 
 /**
  *  Render the first navbar on top right.
@@ -27,6 +28,9 @@ const NavBar = () => {
      setExpanded will set expanded true/false.
      ref stores info about if inside or outside the menu has been clicked */
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
+
+  const { mySpaceMenu, setMySpaceMenu, mySpaceRef } =
+    useClickOutsideMenuRight();
   /** get the function to set current user info */
   const setCurrentUser = useSetCurrentUser();
 
@@ -51,14 +55,13 @@ const NavBar = () => {
     }
   };
 
-  /*
-   * For screen size md or below, if the username has been clicked,
-   * keep the burger menu open.
-   */
+  console.log(mySpaceMenu);
+  console.log(mySpaceRef);
+
   const keepMenuOpen = (event) => {
     event.target.id === "nav-my-space" && setExpanded(true);
+    setMySpaceMenu(!mySpaceMenu);
   };
-
   /*
    * Nav link items will be displayed when logged in.
    * 'setExpanded(false)' will close the dropdown menu.
@@ -66,59 +69,64 @@ const NavBar = () => {
   const loggedIn = (
     <>
       <Avatar src={currentUser?.profile_image} height={40} navbar />
-      <NavDropdown
-        className={styles.Dropdown}
-        title={currentUser?.username}
+      <Button
+        className={`${styles.DropdownBtn} pl-0`}
         id="nav-my-space"
+        ref={mySpaceRef}
         onClick={(event) => keepMenuOpen(event)}
       >
-        <div className="mt-1">
-          <NavLink
-            className={styles.NavDropdownItem}
-            to={`/profiles/${currentUser?.profile_id}`}
-            id="my-profile"
-            onClick={() => setExpanded(false)}
-          >
-            My Profile
-          </NavLink>
+        {currentUser?.username}
+        <i className="fa fa-angle-down ml-2" aria-hidden="true"></i>
+      </Button>
+      {mySpaceMenu && (
+        <div className={styles.DropdownBox}>
+          <div className="mt-1">
+            <NavLink
+              className={styles.NavDropdownItem}
+              to={`/profiles/${currentUser?.profile_id}`}
+              onClick={() => setMySpaceMenu(false)}
+            >
+              My Profile
+            </NavLink>
+          </div>
+          <div>
+            <NavLink
+              className={styles.NavDropdownItem}
+              to="/my-poems"
+              onClick={() => setMySpaceMenu(false)}
+            >
+              My poems
+            </NavLink>
+          </div>
+          <div>
+            <NavLink
+              className={styles.NavDropdownItem}
+              to={`/profiles/:id/following`}
+              onClick={() => setMySpaceMenu(false)}
+            >
+              Poets I'm following
+            </NavLink>
+          </div>
+          <div>
+            <NavLink
+              className={styles.NavDropdownItem}
+              to={`/liked`}
+              onClick={() => setMySpaceMenu(false)}
+            >
+              Poems I like
+            </NavLink>
+          </div>
+          <div>
+            <NavLink
+              className={styles.NavDropdownItem}
+              to="/"
+              onClick={handleSignOut}
+            >
+              Sign out
+            </NavLink>
+          </div>
         </div>
-        <div className="mt-1">
-          <NavLink
-            className={styles.NavDropdownItem}
-            to="/my-poems"
-            onClick={() => setExpanded(false)}
-          >
-            My poems
-          </NavLink>
-        </div>
-        <div className="mt-1">
-          <NavLink
-            className={styles.NavDropdownItem}
-            to={`/profiles/:id/following`}
-            onClick={() => setExpanded(false)}
-          >
-            Poets I'm following
-          </NavLink>
-        </div>
-        <div className="mt-1">
-          <NavLink
-            className={styles.NavDropdownItem}
-            to={`/liked`}
-            onClick={() => setExpanded(false)}
-          >
-            Poems I like
-          </NavLink>
-        </div>
-        <div className="mt-1">
-          <NavLink
-            className={styles.NavDropdownItem}
-            to="/"
-            onClick={handleSignOut}
-          >
-            Sign out
-          </NavLink>
-        </div>
-      </NavDropdown>
+      )}
     </>
   );
 

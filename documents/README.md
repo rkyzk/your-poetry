@@ -2,6 +2,7 @@ nvm install 16 && nvm use 16
 
 category & published dates font css on search poems
 ``
+profile three dots
 
 \
 
@@ -249,7 +250,7 @@ _Notes about both navigations_
 
 ### Testing If Goals (User Stories) are achieved
 
-| Test No. | Goals| How they are achieved                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Test No. | Goals                                            | How they are achieved                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | :------- | :----------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1        | The purpose and usage of the app are made clear. | On “Home” page, the introductory paragraph summarizes what users can do with the application. In addition, the navigation links and the titles of sections are labeled with clearly indicative terms. Also the icons that are used in the application such as heart, edit and trash bin icons are commonly utilized so their usage is clear for site visitors.                                                                                         |
 | 2        | Clearly labeled navigation links                 | All navigation links are labeled with clear terms such as ‘Contact’ and ‘My poems.’                                                                                                                                                                                                                                                                                                                                                                    |

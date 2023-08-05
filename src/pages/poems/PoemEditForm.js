@@ -66,7 +66,6 @@ function PoemEditForm() {
   /**
    * Send data entered by users to the backend
    * to update the poem.
-   * @param {event}
    */
   const handleSubmit = async (event) => {
     // prevent the form from being submitted.

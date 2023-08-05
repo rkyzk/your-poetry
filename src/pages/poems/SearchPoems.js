@@ -1,15 +1,19 @@
-import React from 'react'
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import { useState } from 'react';
-import PoemsPage from '../poems/PoemsPage';
+import { useState } from "react";
+import PoemsPage from "../poems/PoemsPage";
 import btnStyles from "../../styles/Button.module.css";
 import styles from "../../styles/SearchPoems.module.css";
-import Alert from 'react-bootstrap/Alert';
+import Alert from "react-bootstrap/Alert";
 
+/**
+ * Display input boxes for search poems.
+ * 
+ */
 function SearchPoems() {
   // variables for storing input made by users
   const [filterValues, setFilterValues] = useState({
@@ -17,15 +21,15 @@ function SearchPoems() {
     title: "",
     keyword: "",
     category: "choose...",
-    pub_date: "choose..."
+    pub_date: "choose...",
   });
   // destructure the filterValues object
   const { author, title, keyword, category, pub_date } = filterValues;
   // variable for storing the final search filter statement
   const [searchFilter, setSearchFilter] = useState("");
   // variable for storing the filter statement
-  var filter = "published=1"
-  
+  var filter = "published=1";
+
   /* If input is made for author, title, keyword and category,
      replace empty spaces and add to variable 'filter' */
   author.replace(/\s/g, "") &&
@@ -39,16 +43,24 @@ function SearchPoems() {
     switch (pub_date) {
       case "past 14 days":
         // get the date in YYYY-MM-dd format and set it to startDate.
-        startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 14).toISOString().substring(0, 10);  
+        startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 14)
+          .toISOString()
+          .substring(0, 10);
         break;
       case "past 30 days":
-        startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 30).toISOString().substring(0, 10); 
+        startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 30)
+          .toISOString()
+          .substring(0, 10);
         break;
       case "past 90 days":
-        startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 90).toISOString().substring(0, 10); 
+        startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 90)
+          .toISOString()
+          .substring(0, 10);
         break;
       case "past one year":
-        startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 365).toISOString().substring(0, 10); 
+        startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 365)
+          .toISOString()
+          .substring(0, 10);
         break;
     }
     // set the date range to filter
@@ -68,32 +80,33 @@ function SearchPoems() {
   //     return filter;
   //   });
   // };
-  
+
   const handleSearch = () => setSearchFilter(filter);
 
   return (
     <>
       <Container>
-        <h2>Search Poems<i className="fas fa-search ml-4 mt-2" /></h2>
-        <Form
-          onSubmit={(event) => event.preventDefault()}
-        >
+        <h2>
+          Search Poems
+          <i className="fas fa-search ml-4 mt-2" />
+        </h2>
+        <Form onSubmit={(event) => event.preventDefault()}>
           <Row>
             <Col lg={4}>
-              <Form.Group controlId="author">
+              <Form.Group controlid="author">
                 <Form.Label>author contains:</Form.Label>
-                  <Form.Control
-                    value={author}
-                    onChange={handleChange}
-                    type="text"
-                    name="author"
-                    className="mr-sm-2"
-                    placeholder="author"
-                  />
+                <Form.Control
+                  value={author}
+                  onChange={handleChange}
+                  type="text"
+                  name="author"
+                  className="mr-sm-2"
+                  placeholder="author"
+                />
               </Form.Group>
             </Col>
             <Col lg={4}>
-              <Form.Group controlId="title">
+              <Form.Group controlid="title">
                 <Form.Label>title contains:</Form.Label>
                 <Form.Control
                   value={title}
@@ -106,25 +119,23 @@ function SearchPoems() {
               </Form.Group>
             </Col>
             <Col lg={4}>
-              <Form.Group controlId="keyword">
-              <Form.Label>title/content contains:</Form.Label>
-              <Form.Control
+              <Form.Group controlid="keyword">
+                <Form.Label>title/content contains:</Form.Label>
+                <Form.Control
                   value={keyword}
                   name="keyword"
                   onChange={handleChange}
                   type="text"
                   className="mr-sm-2"
                   placeholder="keyword"
-              />
+                />
               </Form.Group>
             </Col>
           </Row>
           <Row>
             <Col lg={4}>
-              <Form.Group contorlId="category">
-                <Form.Label className="my-1 mr-2">
-                  category
-                </Form.Label>
+              <Form.Group contorlid="category">
+                <Form.Label className="my-1 mr-2">category</Form.Label>
                 <Form.Control
                   as="select"
                   className={`my-1 mr-sm-2 ${styles.Category}`}
@@ -145,9 +156,7 @@ function SearchPoems() {
               </Form.Group>
             </Col>
             <Col lg={4}>
-              <Form.Label className="my-1 mr-2">
-                Published date
-              </Form.Label>
+              <Form.Label className="my-1 mr-2">Published date</Form.Label>
               <Form.Group>
                 <Form.Control
                   as="select"
@@ -163,7 +172,7 @@ function SearchPoems() {
                   <option>past 30 days</option>
                   <option>past 90 days</option>
                   <option>past one year</option>
-                </Form.Control>   
+                </Form.Control>
               </Form.Group>
             </Col>
           </Row>
@@ -178,11 +187,11 @@ function SearchPoems() {
       <Container className="mt-3">
         {/* If 'search' is clicked but nothing or only spaces are entered,
             display an alert.  If an input has been made, display search results */}
-        {searchFilter === "published=1" ?
-          <Alert variant='warning'>Please enter at least one field</Alert> :
-          (searchFilter !== "" &&
-            <PoemsPage filter={searchFilter} />)
-        }
+        {searchFilter === "published=1" ? (
+          <Alert variant="warning">Please enter at least one field</Alert>
+        ) : (
+          searchFilter !== "" && <PoemsPage filter={searchFilter} />
+        )}
       </Container>
     </>
   );

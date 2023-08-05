@@ -8,7 +8,6 @@ import FeaturedProfiles from "../profiles/FeaturedProfiles";
 
 /**
  * Return content for "Poems by Categories" page.
- * @returns
  */
 function PoemsByCategories() {
   /** stores info on which category was selected. */

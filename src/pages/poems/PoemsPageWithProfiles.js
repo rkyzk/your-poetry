@@ -21,9 +21,7 @@ function PoemsPageWithProfiles({ page }) {
     startDate = new Date(Date.now() - 1000 * 60 * 60 * 24 * 14)
       .toISOString()
       .substring(0, 10);
-    // form filter statement
     filter = `published=1&published_at__date__gte=${startDate}&ordering=-published_at`;
-    // set the heading
     heading = "New Poems (published in the past 14 days)";
   }
   /* For popular poems page, filter poems published in the past 30 days

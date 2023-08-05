@@ -10,7 +10,6 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 /**
  * Return the content of "Home" page.
- * @returns
  */
 function Home() {
   /** get the currentUser info. */
