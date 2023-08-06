@@ -10,15 +10,27 @@ import { fetchMoreData } from "../../utils/utils";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Alert from "react-bootstrap/Alert";
 
+/**
+ * Return the content of individual profile pages.
+ * Get the data of the profile and the poems written by
+ * the profile owner, and set them to variables and pass
+ * them down to Profile and Poem component.
+ */
 function ProfilePage() {
+  /** get the profile id from the URL */
   const { id } = useParams();
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.pk === parseInt(id);
   const [hasLoaded, setHasLoaded] = useState(false);
+  /** stores data of a profile */
   const [profileData, setProfileData] = useState({ results: [] });
+  /** store data of poems written by the profile owner  */
   const [profilePoems, setProfilePoems] = useState({ results: [] });
+  /** stores error messages. */
   const [errMsg, setErrMsg] = useState("");
 
+  /** When the component is mounted, get the data of the profile and the poems,
+      set them to variables. */
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -36,9 +48,11 @@ function ProfilePage() {
     handleMount();
   }, [id]);
 
+  /** structure the list of poems */
   const poems = (
     <>
       <h4 className="my-3">Poems by this Writer</h4>
+      {/* if the data has loaded, display poems using the infinite scroll. */}
       {hasLoaded ? (
         profilePoems.results.length ? (
           <InfiniteScroll
@@ -58,6 +72,7 @@ function ProfilePage() {
       )}
     </>
   );
+
   return (
     <Col md={{ span: 8, offset: 2 }}>
       {is_owner && <h2>My Profile</h2>}

@@ -16,23 +16,38 @@ import {
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
-/**  */
+/**
+ * Get the profile data, display and edit form,
+ * take in input entered by users, make a post request
+ * to update the data.
+ */
 const ProfileEditForm = () => {
+  /** get the logged in user's info */
   const currentUser = useCurrentUser();
+  /** get the function to set the current user info */
   const setCurrentUser = useSetCurrentUser();
+  /** get the profile id from the URL */
   const { id } = useParams();
+  /** instantiate history object to store info on
+      which URLs the user has visited. */
   const history = useHistory();
+  /** stores the info of uploaded image file. */
   const imageFile = useRef();
 
+  /** stores the profile data */
   const [profileData, setProfileData] = useState({
     display_name: "",
     about_me: "",
     favorites: "",
     image: "",
   });
+  /** destructure the profileData object. */
   const { display_name, about_me, favorites, image } = profileData;
+  /** stores erros */
   const [errors, setErrors] = useState({});
 
+  /** When the component mounts, get the profile data from the backend
+      and stores them in 'profileData' */
   useEffect(() => {
     const handleMount = async () => {
       if (currentUser?.profile_id?.toString() === id) {
@@ -42,9 +57,12 @@ const ProfileEditForm = () => {
           setProfileData({ display_name, about_me, favorites, image });
         } catch (err) {
           toast("There was an error.  Please try again.");
+          /** in case of an error, redirect to "Home" */
           history.push("/");
         }
       } else {
+        /** in case the user is not the owner of the profile,
+            redirect to "Home". */
         history.push("/");
       }
     };
@@ -52,6 +70,9 @@ const ProfileEditForm = () => {
     handleMount();
   }, [currentUser, history, id]);
 
+  /**
+   * Take in the data entered by the users and store them in 'profileData'.
+   */
   const handleChange = (event) => {
     setProfileData({
       ...profileData,
@@ -59,23 +80,31 @@ const ProfileEditForm = () => {
     });
   };
 
+  /** Send the data entered by the user to the backend
+      so the profile will be updated. */
   const handleSubmit = async (event) => {
     event.preventDefault();
+    /** create a new form data instance */
     const formData = new FormData();
+    /** stores the data entered by the user to formData */
     formData.append("display_name", display_name);
     formData.append("about_me", about_me);
     formData.append("favorites", favorites);
 
+    /** If image file has been uploaded, store the data in 'formData' */
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
     }
 
     try {
+      /** sned the updated data to the backend */
       const { data } = await axiosReq.put(`/profiles/${id}/`, formData);
+      /** set the profile image to the currentUser */
       setCurrentUser((currentUser) => ({
         ...currentUser,
         profile_image: data.image,
       }));
+      /** Go back to 'My Profile' page. */
       history.goBack();
     } catch (err) {
       setErrors(err.response?.data);

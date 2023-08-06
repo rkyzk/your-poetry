@@ -11,28 +11,40 @@ import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../../contexts/CurrentUserContext";
-
 import btnStyles from "../../styles/Button.module.css";
-import appStyles from "../../App.module.css";
 
+
+/**  */
 const UsernameForm = () => {
+  /** stores username */
   const [username, setUsername] = useState("");
+  /** stores errors */
   const [errors, setErrors] = useState({});
-
+  /** stores data about which URLs the user has visited. */
   const history = useHistory();
+  /** get the id from the URL */
   const { id } = useParams();
-
+  /** get the info of the current user */
   const currentUser = useCurrentUser();
+  /** get the function to set current user info. */
   const setCurrentUser = useSetCurrentUser();
 
+  /** When the component is mounted, if the edit page
+      belongs to the current user, set username. */
   useEffect(() => {
     if (currentUser?.profile_id?.toString() === id) {
       setUsername(currentUser.username);
     } else {
+      /** If a wrong user is trying to access the edit page
+          redirect to "Home" */
       history.push("/");
     }
   }, [currentUser, history, id]);
 
+  /**
+   * Make a put request to update the username in the backend.
+   * Update the username in the currenUser object on the frontend.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -43,6 +55,7 @@ const UsernameForm = () => {
         ...prevUser,
         username,
       }));
+      /** Go back to the previous page, "My Profile" */
       history.goBack();
     } catch (err) {
       setErrors(err.response?.data);
@@ -52,7 +65,7 @@ const UsernameForm = () => {
   return (
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>
-        <Container className={appStyles.Content}>
+        <Container>
           <Form onSubmit={handleSubmit} className="my-2">
             <Form.Group>
               <Form.Label>Change username</Form.Label>

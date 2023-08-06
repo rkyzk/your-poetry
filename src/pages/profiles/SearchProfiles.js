@@ -5,14 +5,26 @@ import Row from "react-bootstrap/Row";
 import ProfilesPage from "./ProfilesPage";
 import styles from "../../styles/SearchProfiles.module.css";
 
+/**
+ * Take in the search query entered by the user
+ * and display a list of profiles that match the query.
+ */
 function SearchProfiles() {
+  /** stores query input by the user */
   const [query, setQuery] = useState("");
+  /** 'search' will be set to true one second after
+       a query has been entered. */
   const [search, setSearch] = useState(false);
 
+  /**
+   * Set search true if the user has entered a query
+   * and hasn't changed the input for a second
+   * (in order to prevent the search from running before
+   * the user has finished typing.)
+   */
   useEffect(() => {
     const timer = setTimeout(() => {
-      query.trim() !== "" &&
-        setSearch(true);
+      query.trim() !== "" && setSearch(true);
     }, 1000);
     return () => {
       clearTimeout(timer);
@@ -40,12 +52,14 @@ function SearchProfiles() {
                 className="mr-sm-2"
                 placeholder="Search profiles"
               />
-            </Form>      
+            </Form>
           </Col>
           <Col xs={1}>
             <i className={`fas fa-search ${styles.SearchIcon} mt-2`} />
           </Col>
         </Row>
+        {/* Look for profiles that match the query only
+            if 'search' is set true and query has a content. */}
         {search && query && (
           <ProfilesPage
             filter={`search=${query}`}

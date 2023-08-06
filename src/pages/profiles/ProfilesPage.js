@@ -9,12 +9,23 @@ import { fetchMoreData } from "../../utils/utils";
 import Asset from "../../components/Asset";
 import Alert from "react-bootstrap/Alert";
 
+/**
+ * Get the data of profiles specified by the filter statement.
+ * Pass the data down to the Profile component so the individual
+ * profile component can be structured.
+ * Return the list of profiles.
+ */
 function ProfilesPage(props) {
+  /** destructure the props. 'message' is what gets displayed
+      when there's no matching profile */
   const { filter, message, page } = props;
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profiles, setProfiles] = useState({ results: [] });
   const [errMsg, setErrMsg] = useState("");
 
+  /** When the component is mounted, profiles data will be fetched.
+      and set to the variable 'profiles' so they can be passed down to
+      the profile component.  */
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
@@ -55,16 +66,18 @@ function ProfilesPage(props) {
                 dataLength={profiles.results.length}
                 loader={<Asset spinner />}
                 hasMore={!!profiles.next}
-                next={() =>
-                  fetchMoreData(profiles, (setProfiles = { setProfiles }))
-                }
+                next={() => fetchMoreData(profiles, setProfiles)}
               />
             ) : (
-              <p>{message}</p>
+              <>
+                {/* If no matching profiles are found, dislay the message. */}
+                <p>{message}</p>
+              </>
             )}
           </>
         ) : (
           <Container>
+            {/* Display the spinner before the data is loaded. */}
             <Asset spinner />
           </Container>
         )}

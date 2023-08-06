@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
@@ -15,19 +14,23 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import { toast } from "react-toastify";
 
+/**
+ *
+ */
 const UserPasswordForm = () => {
   const history = useHistory();
   const { id } = useParams();
   const currentUser = useCurrentUser();
-
+  /** stores the passwords */
   const [userData, setUserData] = useState({
     new_password1: "",
     new_password2: "",
   });
+  /** destructure the userData */
   const { new_password1, new_password2 } = userData;
-
   const [errors, setErrors] = useState({});
 
+  /** taken in the user input and set the new passwords to 'userData' */
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -35,10 +38,12 @@ const UserPasswordForm = () => {
     });
   };
 
+  /** If 'cancel' is clicked, go back to "My Profile" page. */
   const handleCancel = () => {
+    /** go back to "My Profile" */
     history.goBack();
-    toast('You canceled.  The password remains the same.');
-  }
+    toast("You canceled.  The password remains the same.");
+  };
 
   useEffect(() => {
     if (currentUser?.profile_id?.toString() !== id) {
@@ -47,12 +52,14 @@ const UserPasswordForm = () => {
     }
   }, [currentUser, history, id]);
 
+  /** Make a post request to change the password. */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await axiosRes.post("/dj-rest-auth/password/change/", userData);
+      /** redirect to "My Profile" */
       history.goBack();
-      toast('Your password has been changed');
+      toast("Your password has been changed");
     } catch (err) {
       setErrors(err.response?.data);
     }
