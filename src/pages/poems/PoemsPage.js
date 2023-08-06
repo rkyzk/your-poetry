@@ -49,7 +49,7 @@ function PoemsPage({ filter, message = "No results found", heading }) {
 
   return (
     <Col className={`${customPadding && styles.Padding}`}>
-      <h2 className="my-2 px-2">{heading}</h2>
+      <h2 className="my-2 px-2 text-center">{heading}</h2>
       {/* If there's an error message, display it. */}
       {errMsg ? (
         <Alert variant="warning" className="mt-3">

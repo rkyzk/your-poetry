@@ -29,7 +29,7 @@ function ProfilesPage(props) {
     };
     setHasLoaded(false);
     fetchProfiles();
-  }, [filter]);
+  }, [filter, setProfiles]);
 
   return (
     <Row>
@@ -56,7 +56,7 @@ function ProfilesPage(props) {
                 loader={<Asset spinner />}
                 hasMore={!!profiles.next}
                 next={() =>
-                  fetchMoreData(profiles, (setProfiles = {setProfiles}))
+                  fetchMoreData(profiles, (setProfiles = { setProfiles }))
                 }
               />
             ) : (

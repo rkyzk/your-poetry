@@ -34,7 +34,7 @@
   margin-top: 8px;
 }
 
-.NavBarSecond .NavToggle .PoemsDropdown:hover {
+.NavBarSecond .PoemsDropdown:hover {
   background-color: #f8f8f8;
   color: rgb(10, 10, 90);
   border: none;
@@ -42,7 +42,7 @@
   text-decoration: underline;
 }
 
-.NavBarSecond .NavToggle .PoemsDropdown:active {
+.NavBarSecond .PoemsDropdown:active {
   background-color: #f8f8f8 !important;
   color: rgb(10, 10, 90);
   border: none;

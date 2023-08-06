@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import logo from "../assets/media/poetry-logo.png";
 import styles from "../styles/NavBar.module.css";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   useCurrentUser,
   useSetCurrentUser,
@@ -56,8 +56,8 @@ const NavBar = () => {
   };
 
   const keepMenuOpen = (event) => {
-      event.target.id === "nav-my-space" && setExpanded(true);
-      setMySpaceMenu(!mySpaceMenu);
+    event.target.id === "nav-my-space" && setExpanded(true);
+    setMySpaceMenu(!mySpaceMenu);
   };
 
   /*

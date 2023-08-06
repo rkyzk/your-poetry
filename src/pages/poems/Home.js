@@ -51,6 +51,7 @@ function Home() {
             screen sizes md or smaller. */}
           <FeaturedProfiles mobile />
           {intro}
+          <hr className="my-4" />
           {/* featured poems section */}
           <PoemsPage
             filter={`published=1&featured_flag=1&ordering=-created_at&`}
