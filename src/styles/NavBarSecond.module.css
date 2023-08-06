@@ -43,7 +43,7 @@
 }
 
 .NavBarSecond .NavToggle .PoemsDropdown:active {
-  background-color: #f8f8f8;
+  background-color: #f8f8f8 !important;
   color: rgb(10, 10, 90);
   border: none;
   outline: none;

@@ -6,18 +6,25 @@
   outline: none;
   color: #333;
 }
-  
+
 .BtnCategories:hover {
   background-color: #ddd;
   color: #333;
-}
-/* 
-.Button:active {
-  background-color: #6e6d12 !important;
-  opacity: 0.5;
+  outline: none;
+  border: none;
+  text-decoration: underline;
 }
 
-.Button:focus {
-  background-color: #6e6d12 !important;
-  opacity: 0.5;
-} */
+.BtnCategories:active {
+  background-color: #ddd !important;
+  color: #333;
+  outline: none !important;
+  border: none;
+}
+
+.BtnCategories:focus {
+  background-color: #ddd !important;
+  color: #333;
+  outline: none !important;
+  border: none;
+}
