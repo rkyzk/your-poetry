@@ -6,6 +6,10 @@ import Profile from "./Profile";
 import styles from "../../styles/FeaturedProfiles.module.css";
 import { useFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataContext";
 
+/**
+ * Get featured profiles data from FeaturedProfilesDataContext.js
+ * and display them.
+ */
 const FeaturedProfiles = ({ mobile }) => {
   const { featuredProfilesData, errMessage } = useFeaturedProfilesData();
   return (
@@ -17,6 +21,9 @@ const FeaturedProfiles = ({ mobile }) => {
       <h3 className={`${styles.Heading} text-center`}>Featured profiles</h3>
       {featuredProfilesData.results.length ? (
         <>
+          {/* For screen sizes below 768px, display the profiles
+              side to side and give 'mobile' props.
+              For screen size 768px or above, give 'featured' props. */}
           {mobile ? (
             <Row>
               {featuredProfilesData.results.map((profile) => (

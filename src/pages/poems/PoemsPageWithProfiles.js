@@ -36,17 +36,15 @@ function PoemsPageWithProfiles({ page }) {
   }
 
   return (
-    <>
-      <Row>
-        <Col className="py-2 p-0 p-lg-2" lg={8}>
-          <FeaturedProfiles mobile />
-          <PoemsPage filter={filter} heading={heading} />
-        </Col>
-        <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-          <FeaturedProfiles />
-        </Col>
-      </Row>
-    </>
+    <Row>
+      <Col className="py-2 p-0 p-lg-2" lg={8}>
+        <FeaturedProfiles mobile />
+        <PoemsPage filter={filter} heading={heading} />
+      </Col>
+      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+        <FeaturedProfiles />
+      </Col>
+    </Row>
   );
 }
 

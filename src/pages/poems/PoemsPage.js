@@ -43,6 +43,7 @@ function PoemsPage({ filter, message = "No results found", heading }) {
         setErrMsg("There was an error.  The poems couldn't be loaded.");
       }
     };
+    // at the beginning make sure hasLoaded is set to false.
     setHasLoaded(false);
     fetchPoems();
   }, [filter, pathname, currentUser]);

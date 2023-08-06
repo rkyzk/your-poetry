@@ -10,7 +10,12 @@ import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import { toast } from "react-toastify";
 import { useSetFeaturedProfilesData } from "../../contexts/FeaturedProfilesDataContext";
 
+/**
+ * Return Profile component.
+ * Depending on the page, return different elements.
+ */
 const Profile = (props) => {
+  /** destructure props */
   const {
     id,
     owner,
@@ -18,6 +23,8 @@ const Profile = (props) => {
     display_name,
     followers_count,
     poems_count,
+    /** if the current user is following the profile,
+        an following_id will be present, otherwise 'none'. */
     following_id,
     about_me,
     favorites,
@@ -28,15 +35,22 @@ const Profile = (props) => {
     featured,
     page,
   } = props;
-
+  /** Get logged in user info */
   const currentUser = useCurrentUser();
+  /** is_owner is set to True if the logged in user owns the profile. */
   const is_owner = currentUser?.username === owner;
+  /** Get the function to set featured profiles data. */
   const setFeaturedProfilesData = useSetFeaturedProfilesData();
 
+  /** Send a post request to make Follower object
+      of the user and the followed profile.
+      Adjust the followers count in the front end. */
   const handleFollow = async () => {
     try {
+      /** create a Follower object in the backend to record which user followed
+          which profile. */
       const { data } = await axiosRes.post("/followers/", { followed: id });
-
+      /** adjust the follower count in the profile component on the front end. */
       setProfiles &&
         setProfiles((prevProfiles) => ({
           ...prevProfiles,
@@ -50,7 +64,8 @@ const Profile = (props) => {
               : profile;
           }),
         }));
-
+      /** adjust the followers count in the featured profiles component
+          on the front end. */
       featured &&
         setFeaturedProfilesData((prevProfiles) => ({
           ...prevProfiles,
@@ -69,9 +84,14 @@ const Profile = (props) => {
     }
   };
 
+  /** Send a delete request of the Follower object
+      of the user and the profile.
+      Adjust the followers count in the front end. */
   const handleUnfollow = async () => {
     try {
+      /** delete the Follower object in the backend. */
       await axiosRes.delete(`/followers/${following_id}`);
+      /** on "Poets I'm following" page, remove the profile from the list. */
       page === "profilesPage" &&
         setProfiles((prevProfiles) => ({
           ...prevProfiles,
@@ -79,6 +99,8 @@ const Profile = (props) => {
             return profile.id !== id;
           }),
         }));
+      /** on "Search Profiles" and individual profile pages,
+          adjust the followers_count.  */
       (page === "search" || page === "profilePage") &&
         setProfiles((prevProfiles) => ({
           ...prevProfiles,
@@ -92,6 +114,7 @@ const Profile = (props) => {
               : profile;
           }),
         }));
+      /** Adjust the followers_count in the featured profiles component. */
       featured &&
         setFeaturedProfilesData((prevProfiles) => ({
           ...prevProfiles,
@@ -114,42 +137,50 @@ const Profile = (props) => {
     <Card className="mb-1">
       <Card.Body>
         {mobile ? (
-          <Row className={`${styles.Mobile} justify-content-center`}>
-            <Link className={styles.ProfileLink} to={`/profiles/${id}`}>
-              <Avatar src={image} height={45} />
-              <Media>
-                <div>
-                  <p className={`ml-0 mb-0 ${styles.MobileName}`}>
-                    {display_name}
-                  </p>
-                  <span className={`${styles.CountsText}`}>
+          <>
+            {/* In the featured profiles component on screen sizes below md,
+                display the following */}
+            <Row className={`${styles.Mobile} justify-content-center`}>
+              <Link className={styles.ProfileLink} to={`/profiles/${id}`}>
+                <Avatar src={image} height={45} />
+                <Media>
+                  <div>
+                    <p className={`ml-0 mb-0 ${styles.MobileName}`}>
+                      {display_name}
+                    </p>
+                    <span className={`${styles.CountsText}`}>
+                      {poems_count} poems
+                    </span>
+                  </div>
+                </Media>
+              </Link>
+            </Row>
+          </>
+        ) : featured ? (
+          <>
+            {/* In the featured profiles component for large screen,
+                display the following. */}
+            <Media className="align-items-center">
+              <Row>
+                <Col xs={4}>
+                  <Link className={styles.ProfileLink} to={`/profiles/${id}`}>
+                    <Avatar src={image} height={imageSize} />
+                  </Link>
+                </Col>
+                <Col xs={8}>
+                  <Link className={styles.ProfileLink} to={`/profiles/${id}`}>
+                    <h4 className={`${styles.FeaturedName}`}>{display_name}</h4>
+                  </Link>
+                  <span className={`${styles.ProfileText}`}>
                     {poems_count} poems
                   </span>
-                </div>
-              </Media>
-            </Link>
-          </Row>
-        ) : featured ? (
-          <Media className="align-items-center">
-            <Row>
-              <Col xs={4}>
-                <Link className={styles.ProfileLink} to={`/profiles/${id}`}>
-                  <Avatar src={image} height={imageSize} />
-                </Link>
-              </Col>
-              <Col xs={8}>
-                <Link className={styles.ProfileLink} to={`/profiles/${id}`}>
-                  <h4 className={`${styles.FeaturedName}`}>{display_name}</h4>
-                </Link>
-                <span className={`${styles.ProfileText}`}>
-                  {poems_count} poems
-                </span>
-                <span className={`${styles.ProfileText} ml-2`}>
-                  {followers_count} followers
-                </span>
-              </Col>
-            </Row>
-          </Media>
+                  <span className={`${styles.ProfileText} ml-2`}>
+                    {followers_count} followers
+                  </span>
+                </Col>
+              </Row>
+            </Media>
+          </>
         ) : (
           <>
             <Row style={{ height: "100px" }} className="pt-2">
@@ -186,7 +217,7 @@ const Profile = (props) => {
                   <span className="ml-2">{followers_count} followers</span>
                 </p>
               </div>
-              {/* on ProfilePage, display about me and favorites. */}
+              {/* On individual profile page, display about me and favorites. */}
               {about_me && about_me !== "null" && (
                 <p className={`${styles.ProfileLabel} mt-3`}>
                   <span className="text-muted">About me:</span>
@@ -204,6 +235,10 @@ const Profile = (props) => {
             </div>
           </>
         )}
+        {/* if not mobile, if logged in, and if the owner of the profile,
+            display 'You!' tag.  If not the owner, display follow/unfollow
+            buttons.  (If following_id exists, display 'unfollow,' otherwise
+            'follow.'  */}
         {!mobile &&
           currentUser &&
           (is_owner ? (

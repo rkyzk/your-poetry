@@ -12,7 +12,7 @@ import Alert from "react-bootstrap/Alert";
 
 /**
  * Display input boxes for search poems.
- * 
+ * Display search results when 'search' is clicked.
  */
 function SearchPoems() {
   // variables for storing input made by users
@@ -31,15 +31,17 @@ function SearchPoems() {
   var filter = "published=1";
 
   /* If input is made for author, title, keyword and category,
-     replace empty spaces and add to variable 'filter' */
-  author.replace(/\s/g, "") &&
+     replace empty spaces at the beginning and the end
+     and add to variable 'filter' */
+  author.trim() &&
     (filter = filter + `&owner__profile__display_name__icontains=${author}`);
-  title.replace(/\s/g, "") && (filter = filter + `&title__icontains=${title}`);
-  keyword.replace(/\s/g, "") && (filter = filter + `&search=${keyword}`);
+  title.trim() && (filter = filter + `&title__icontains=${title}`);
+  keyword.trim() && (filter = filter + `&search=${keyword}`);
   category !== "choose..." && (filter = filter + `&category=${category}`);
   // if published date range is specified, add it to variable 'filter'
   if (pub_date !== "choose...") {
-    var startDate;
+    /** stores the start date for the date range */
+    let startDate = "";
     switch (pub_date) {
       case "past 14 days":
         // get the date in YYYY-MM-dd format and set it to startDate.
@@ -67,20 +69,18 @@ function SearchPoems() {
     filter = filter + `&published_at__date__gte=${startDate}`;
   }
 
+  /** set user input to 'filterValues' */
   const handleChange = (event) => {
-    // set user input to 'filterValues'
     setFilterValues({
       ...filterValues,
       [event.target.name]: event.target.value,
     });
   };
 
-  // const handleSearch = () => {
-  //   setSearchFilter(prevState => {
-  //     return filter;
-  //   });
-  // };
-
+  /**
+   * If 'search' button is clicked, set the setFilter
+   * so the search will begin.
+   */
   const handleSearch = () => setSearchFilter(filter);
 
   return (

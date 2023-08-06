@@ -30,13 +30,7 @@ function ProfilePage() {
         setProfilePoems(profilePoems);
         setHasLoaded(true);
       } catch (err) {
-        if (err.response?.status === 500) {
-          setErrMsg("Server error.  Please try again later.");
-        } else if (err.response?.status === 404) {
-          setErrMsg("Profile with the given ID doesn't exist.");
-        } else {
-          setErrMsg("Something went wrong.  Please try again later");
-        }
+        setErrMsg("There was an error.  Please try again later");
       }
     };
     handleMount();

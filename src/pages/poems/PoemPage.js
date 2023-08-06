@@ -54,11 +54,7 @@ function PoemPage() {
         setComments(comments);
       } catch (err) {
         // Set error messages.
-        if (err.response?.status === 404) {
-          setErrMsg("Poem with the given ID doesn't exist.");
-        } else {
-          setErrMsg("There was an error.  Please try again later");
-        }
+        setErrMsg("There was an error.  Please try again later");
       }
     };
     handleMount();
