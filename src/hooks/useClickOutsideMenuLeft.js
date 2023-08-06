@@ -18,9 +18,14 @@ const useClickOutsideMenuLeft = () => {
    */
   useEffect(() => {
     const handleClickOutsideMenuLeft = (event) => {
-      if (poemsRef.current && !poemsRef.current.contains(event.target)) {
-        setPoemsMenu(false);
-      }
+      const togglePoemsMenu = setTimeout(() => {
+        if (poemsRef.current && !poemsRef.current.contains(event.target)) {
+          setPoemsMenu(false);
+        }
+      }, 200);
+      return () => {
+        clearTimeout(togglePoemsMenu);
+      };
     };
     document.addEventListener("mouseup", handleClickOutsideMenuLeft);
     // clean up the event listner

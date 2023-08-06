@@ -24,12 +24,14 @@
 }
 
 .PoemsDropdown {
+  width: 77px;
+  padding: 0;
   margin-left: 15px;
   background-color: #f8f8f8;
   border: none;
   outline: none;
   font-size: 1.2rem;
-  margin-top: 1px;
+  margin-top: 8px;
 }
 
 .PoemsDropdown:hover {
@@ -53,13 +55,17 @@
   background-color: #fff;
   border: solid 1px #ccc;
   position: absolute;
-  top: 60px;
-  left: 30px;
+  top: 50px;
+  left: 60px;
   font-size: 1rem;
 }
 
 .PoemsMenu a {
   color: rgb(35, 78, 139);
+}
+
+.NavItems {
+  margin-left: 20px;
 }
 
 @media screen and (max-width: 767px) {
@@ -70,7 +76,38 @@
     padding-left: 10px;
   }
 
-  .SpaceLeft {
+  .NavItems {
     margin-left: 0;
+  }
+
+  .PoemsDropdown {
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: none;
+    outline: none;
+  }
+
+  .PoemsDropdown:hover {
+    background-color: #fff;
+    border: none;
+    outline: none;
+  }
+
+  .PoemsDropdown:active {
+    background-color: #fff;
+    border: none;
+    outline: none;
+  }
+
+  .PoemsMenu {
+    top: 50px;
+    left: 30%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .PoemsMenu {
+    left: 40%;
   }
 }

@@ -8,6 +8,7 @@ import { useCurrentUser } from "../contexts/CurrentUserContext";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { Button } from "react-bootstrap";
+import useClickOutsideMenuLeft from "../hooks/useClickOutsideMenuLeft";
 
 /**
  * Return the second navigation bar (one on the left side of the page).
@@ -27,37 +28,27 @@ const NavBarSecond = () => {
   /** On signin and singup pages set hide true so this component won't appear. */
   let hide = pathname === "/signin" || pathname === "/signup";
 
-  const [poemsMenu, setPoemsMenu] = useState(false);
+  const { poemsMenu, setPoemsMenu, poemsRef } = useClickOutsideMenuLeft();
 
-  const closePoemsMenu = () => {
-    const close = setTimeout(() => {
-      setPoemsMenu(false);
-      console.log("fired");
-      document.removeEventListener("mouseup", closePoemsMenu);
-    }, 200);
-    return () => {
-      clearTimeout(close);
-    };
-  };
   /** if the dropdown menu item 'poem' is clicked, keep the menu open. */
   const handlePoemsDropdown = (event) => {
-    event.target.id === "poem-dropdown" && setExpanded(true);
-    setPoemsMenu(true);
-    document.addEventListener("mouseup", closePoemsMenu);
+    event.target.id === "poems-dropdown" && setExpanded(true);
+    setPoemsMenu(!poemsMenu);
     console.log("buttonFunction");
   };
 
-  const closeMenu = (event) => {
-    console.log("closeMenu");
-    if (
-      event.target.id === "new-poems" ||
-      event.target.id === "popular-poems" ||
-      event.target.id === "poems-by-cat" ||
-      event.target.id === "search-poems"
-    ) {
-      setExpanded(false);
-    }
-  };
+  // const closeMenu = (event) => {
+  //   console.log("closeMenu");
+  //   if (
+  //     event.target.id === "new-poems" ||
+  //     event.target.id === "popular-poems" ||
+  //     event.target.id === "poems-by-cat" ||
+  //     event.target.id === "search-poems"
+  //   ) {
+  //     setExpanded(false);
+  //     setPoemsMenu(false);
+  //   }
+  // };
 
   console.log(poemsMenu);
   return (
@@ -79,8 +70,9 @@ const NavBarSecond = () => {
           <Navbar.Collapse id="basic-navbar-second-nav">
             <Nav className={`${styles.NavToggle} text-left`}>
               <Button
+                ref={poemsRef}
                 className={`${styles.NavLink} ${styles.PoemsDropdown}`}
-                id="poem-dropdown"
+                id="poems-dropdown"
                 onClick={(event) => handlePoemsDropdown(event)}
               >
                 Poems
@@ -93,7 +85,6 @@ const NavBarSecond = () => {
                       className={styles.NavDropdownItem}
                       to="/new-poems"
                       id="new-poems"
-                      onClick={(event) => closeMenu(event)}
                     >
                       New Poems
                     </NavLink>
@@ -103,7 +94,6 @@ const NavBarSecond = () => {
                       className={styles.NavDropdownItem}
                       to="/popular-poems"
                       id="popular-poems"
-                      onClick={(event) => closeMenu(event)}
                     >
                       Popular Poems
                     </NavLink>
@@ -113,7 +103,6 @@ const NavBarSecond = () => {
                       className={styles.NavDropdownItem}
                       to="/poems-by-categories"
                       id="poems-by-cat"
-                      onClick={(event) => closeMenu(event)}
                     >
                       Poems by Categories
                     </NavLink>
@@ -123,7 +112,6 @@ const NavBarSecond = () => {
                       className={styles.NavDropdownItem}
                       to="/search/poems"
                       id="search-poems"
-                      onClick={(event) => closeMenu(event)}
                     >
                       Search
                     </NavLink>
@@ -133,14 +121,14 @@ const NavBarSecond = () => {
               {/* if user is logged in, display the link 'Write Poems' */}
               {currentUser && (
                 <NavLink
-                  className={`${styles.NavLink} ${styles.SpaceLeft} mt-2 ml-2`}
+                  className={`${styles.NavLink} ${styles.NavItems} mt-2`}
                   to="/poems/create"
                 >
                   Write Poems
                 </NavLink>
               )}
               <NavLink
-                className={`${styles.NavLink} ${styles.SpaceLeft} mt-2 ml-3`}
+                className={`${styles.NavLink} ${styles.NavItems} mt-2`}
                 to="/search/profiles"
               >
                 Search Profiles
