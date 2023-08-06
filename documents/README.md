@@ -882,7 +882,7 @@ https://jigsaw.w3.org/
 ### Media
 
 The favicon was taken from [this site](https://icons8.com/icons/set/feather).<br>
-The logo was taken from [this site](https://www.vecteezy.com/vector-art/20301495-continuous-line-drawing-plants-black-sketch-wild-flowers-isolated-on-white-background-flowers-one-line-illustration-minimalist-print-set).
+The logo was taken from [this site](https://www.freepik.com/free-vector/hand-drawn-quill-isolated-white-background_2782976.htm#query=quill%20pen%20and%20ink&position=25&from_view=search&track=ais).
 
 I used fonts from Google fonts and icons from Fontawesome.
 
@@ -907,4 +907,4 @@ Specifically the following files were taken from 'Moments' with very little or n
 - comments/CommentCreateForm.js
 - comments/CommentEditForm.js
 
-I also took the basic structure of Nav components in NavBar.js and NavBarSecond.js from React-Bootstrap.
+I also took the basic structure of Nav components in NavBar.js and NavBarSecond.js

@@ -4,13 +4,12 @@ import { useHistory } from "react-router";
 
 /**
  * Redirect users to "Home"
- * if they navigate to pages they shouldn't
- * be able to access.
+ * if they navigate to the pages they shouldn't access.
  */
 export const useRedirect = (userAuthStatus) => {
   /** stores info about which pages the user has visited. */
   const history = useHistory();
-  
+
   /**
    * Redirect users to "Home" page.
    */

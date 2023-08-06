@@ -1,20 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * When the dropdown menus in the nav bars are open,
+ * When the dropdown menu in the nav bar is open,
  * and if outside the menu is clicked,
- * 'mySpaceExpanded' will be set false so the menu closes.
+ * 'mySpaceMenu' will be set false so the menu closes.
  */
 const useClickOutsideMenuRight = () => {
-  /** 'mySpaceMenu' tells if the drop down menu is open. */
+  /** 'mySpaceMenu' tells if the dropdown menu is open. */
   const [mySpaceMenu, setMySpaceMenu] = useState(false);
-  /** stores info of the elment if the menu has been clicked. */
+  /** stores info of the element if the menu has been clicked. */
   const mySpaceRef = useRef(null);
 
   /**
    * If outside the menu is clicked,
    * set mySpaceMenu to false.
-   * Return 'mySpaceMenu', 'setMySpaceMenu' and 'ref'.
+   * Return 'mySpaceMenu', 'setMySpaceMenu' and 'mySpaceRef'.
    */
   useEffect(() => {
     const handleClickOutsideMenuRight = (event) => {
