@@ -26,6 +26,10 @@
   width: 100%;
 }
 
+.ProfileLink {
+  color: rgb(51, 93, 151);
+}
+
 @media screen and (max-width: 490px) {
   .SmallLayout {
     display: none;

@@ -1,7 +1,7 @@
 import styles from "./App.module.css";
-import NavBar from './components/NavBar';
+import NavBar from "./components/NavBar";
 import Container from "react-bootstrap/Container";
-import {Route, Switch} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import PoemCreateForm from "./pages/poems/PoemCreateForm";
@@ -20,8 +20,8 @@ import NavBarSecond from "./components/NavBarSecond";
 import SearchProfiles from "./pages/profiles/SearchProfiles";
 import SearchPoems from "./pages/poems/SearchPoems";
 import PoemsByCategories from "./pages/poems/PoemsByCategories";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { FooterComponent } from "./components/FooterComponent";
 import Contact from "./pages/other_pages/Contact";
 
@@ -33,22 +33,34 @@ function App() {
     <div className={styles.App}>
       <ToastContainer autoClose={4000} position="top-center" />
       <Container className={styles.Main}>
-      <NavBar />
-      <NavBarSecond />
-      <Switch>    
-          <Route exact path="/signin" render={() => <SignInForm /> } />
-          <Route exact path="/signup" render={() => <SignUpForm /> } />
-          <Route exact path="/" render={() => <Home /> } />
-          <Route exact path="/contact" render={() => <Contact /> } />  
-          <Route exact path="/poems/create" render={() => <PoemCreateForm /> } />
-          <Route exact path="/poems/" render={() => <PoemCreateForm /> } />
+        <NavBar />
+        <NavBarSecond />
+        <Switch>
+          <Route exact path="/signin" render={() => <SignInForm />} />
+          <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route exact path="/" render={() => <Home />} />
+          <Route exact path="/contact" render={() => <Contact />} />
+          <Route exact path="/poems/create" render={() => <PoemCreateForm />} />
+          <Route exact path="/poems/" render={() => <PoemCreateForm />} />
           <Route exact path="/poems/:id" render={() => <PoemPage />} />
           <Route exact path="/poems/:id/edit" render={() => <PoemEditForm />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
-          <Route exact path="/search/profiles" render={() => <SearchProfiles />} />
+          <Route
+            exact
+            path="/search/profiles"
+            render={() => <SearchProfiles />}
+          />
           <Route exact path="/search/poems" render={() => <SearchPoems />} />
-          <Route exact path="/poems-by-categories" render={() => <PoemsByCategories />} />
-          <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />} />
+          <Route
+            exact
+            path="/poems-by-categories"
+            render={() => <PoemsByCategories />}
+          />
+          <Route
+            exact
+            path="/profiles/:id/edit"
+            render={() => <ProfileEditForm />}
+          />
           <Route
             exact
             path="/profiles/:id/edit/username"
@@ -62,19 +74,25 @@ function App() {
           <Route
             exact
             path="/my-poems"
-            render={() => <PoemsPage 
-                            filter={`owner__profile=${profile_id}&ordering=-created_at&`}
-                            message="You haven't wrriten any poems yet."
-                            heading="My Poems"                            
-                          />} />
+            render={() => (
+              <PoemsPage
+                filter={`owner__profile=${profile_id}&ordering=-created_at&`}
+                message="You haven't wrriten any poems yet."
+                heading="My Poems"
+              />
+            )}
+          />
           <Route
             exact
             path="/liked"
-            render={() => <PoemsPage
-                            filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
-                            heading="Poems I like"
-                            message="You haven't liked any poems yet."
-                          />} />
+            render={() => (
+              <PoemsPage
+                filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`}
+                heading="Poems I like"
+                message="You haven't liked any poems yet."
+              />
+            )}
+          />
           <Route
             exact
             path="/profiles/:id/following"
@@ -83,20 +101,20 @@ function App() {
                 filter={`owner__followed__owner__profile=${profile_id}&ordering=-owner__following__created_at&`}
                 message="You haven't followed anyone."
                 page={"profilesPage"}
-              />)} />
-          <Route
-            exact path="/new-poems"
-            render={() => <PoemsPageWithProfiles
-                            page={"newPoems"}
-                          />}
+              />
+            )}
           />
           <Route
-            exact path="/popular-poems"
-            render={() => <PoemsPageWithProfiles
-                            page={"popularPoems"}
-                          />} 
+            exact
+            path="/new-poems"
+            render={() => <PoemsPageWithProfiles page={"newPoems"} />}
           />
-          <Route render={() => <h1>Page not found</h1> } />
+          <Route
+            exact
+            path="/popular-poems"
+            render={() => <PoemsPageWithProfiles page={"popularPoems"} />}
+          />
+          <Route render={() => <h1>Page not found</h1>} />
         </Switch>
       </Container>
       <FooterComponent />

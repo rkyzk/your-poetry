@@ -23,8 +23,43 @@
   margin-left: 10px;
 }
 
-.SpaceLeft {
+.PoemsDropdown {
   margin-left: 15px;
+  background-color: #f8f8f8;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  margin-top: 1px;
+}
+
+.PoemsDropdown:hover {
+  background-color: #f8f8f8;
+  color: rgb(10, 10, 90);
+  border: none;
+  outline: none;
+  text-decoration: underline;
+}
+
+.PoemsDropdown:active {
+  background-color: #f8f8f8;
+  color: rgb(10, 10, 90);
+  border: none;
+  outline: none;
+  text-decoration: underline;
+}
+
+.PoemsMenu {
+  width: 160px;
+  background-color: #fff;
+  border: solid 1px #ccc;
+  position: absolute;
+  top: 60px;
+  left: 30px;
+  font-size: 1rem;
+}
+
+.PoemsMenu a {
+  color: rgb(35, 78, 139);
 }
 
 @media screen and (max-width: 767px) {

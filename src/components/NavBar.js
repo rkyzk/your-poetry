@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import logo from "../assets/media/poetry-logo.png";
 import styles from "../styles/NavBar.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import {
   useCurrentUser,
   useSetCurrentUser,
@@ -59,9 +59,10 @@ const NavBar = () => {
   console.log(mySpaceRef);
 
   const keepMenuOpen = (event) => {
-    event.target.id === "nav-my-space" && setExpanded(true);
-    setMySpaceMenu(!mySpaceMenu);
+      event.target.id === "nav-my-space" && setExpanded(true);
+      setMySpaceMenu(!mySpaceMenu);
   };
+
   /*
    * Nav link items will be displayed when logged in.
    * 'setExpanded(false)' will close the dropdown menu.
@@ -82,19 +83,14 @@ const NavBar = () => {
         <div className={styles.DropdownBox}>
           <div className="mt-1">
             <NavLink
-              className={styles.NavDropdownItem}
               to={`/profiles/${currentUser?.profile_id}`}
-              onClick={() => setMySpaceMenu(false)}
+              className={styles.NavDropdownItem}
             >
               My Profile
             </NavLink>
           </div>
           <div>
-            <NavLink
-              className={styles.NavDropdownItem}
-              to="/my-poems"
-              onClick={() => setMySpaceMenu(false)}
-            >
+            <NavLink to="/my-poems" className={styles.NavDropdownItem}>
               My poems
             </NavLink>
           </div>
@@ -102,17 +98,12 @@ const NavBar = () => {
             <NavLink
               className={styles.NavDropdownItem}
               to={`/profiles/:id/following`}
-              onClick={() => setMySpaceMenu(false)}
             >
               Poets I'm following
             </NavLink>
           </div>
           <div>
-            <NavLink
-              className={styles.NavDropdownItem}
-              to={`/liked`}
-              onClick={() => setMySpaceMenu(false)}
-            >
+            <NavLink className={styles.NavDropdownItem} to={`/liked`}>
               Poems I like
             </NavLink>
           </div>

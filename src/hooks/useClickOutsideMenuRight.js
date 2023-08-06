@@ -18,9 +18,14 @@ const useClickOutsideMenuRight = () => {
    */
   useEffect(() => {
     const handleClickOutsideMenuRight = (event) => {
-      if (mySpaceRef.current && !mySpaceRef.current.contains(event.target)) {
-        setMySpaceMenu(false);
-      }
+      const toggleMenu = setTimeout(() => {
+        if (mySpaceRef.current && !mySpaceRef.current.contains(event.target)) {
+          setMySpaceMenu(false);
+        }
+      }, 200);
+      return () => {
+        clearTimeout(toggleMenu);
+      };
     };
     document.addEventListener("mouseup", handleClickOutsideMenuRight);
     // clean up the event listner

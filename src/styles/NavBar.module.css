@@ -24,13 +24,6 @@
   margin-top: 20px;
 }
 
-.Dropdown a {
-  font-family: "Nanum Myeongj";
-  font-size: 1.2rem;
-  color: rgb(51, 93, 151) !important;
-  margin-top: 12px;
-}
-
 .Dropdown {
   z-index: 3;
 }
@@ -51,7 +44,7 @@
   right: 10px;
 }
 
-.DropdownBtn {
+.NavBar .DropdownBtn {
   background-color: #f8f8f8;
   outline: none;
   border: none;
@@ -61,16 +54,19 @@
   margin-top: 15px;
 }
 
-.DropdownBtn:hover {
+.NavBar .DropdownBtn:hover {
   background-color: #f8f8f8;
   color: rgb(51, 93, 151);
   text-decoration: underline;
+  outline: none;
   border: none;
 }
 
-.DropdownBtn:active {
+.NavBar .DropdownBtn:active {
   background-color: #f8f8f8;
   color: rgb(51, 93, 151);
+  outline: none;
+  border: none;
 }
 
 @media screen and (max-width: 767px) {
@@ -105,6 +101,7 @@
   }
 
   .NavBar .DropdownBtn:active {
+    background-color: #fff;
     color: rgb(51, 93, 151);
   }
 

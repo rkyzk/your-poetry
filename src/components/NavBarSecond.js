@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import Nav from "react-bootstrap/Nav";
 import styles from "../styles/NavBarSecond.module.css";
 import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { Button } from "react-bootstrap";
 
 /**
  * Return the second navigation bar (one on the left side of the page).
@@ -27,11 +27,39 @@ const NavBarSecond = () => {
   /** On signin and singup pages set hide true so this component won't appear. */
   let hide = pathname === "/signin" || pathname === "/signup";
 
+  const [poemsMenu, setPoemsMenu] = useState(false);
+
+  const closePoemsMenu = () => {
+    const close = setTimeout(() => {
+      setPoemsMenu(false);
+      console.log("fired");
+      document.removeEventListener("mouseup", closePoemsMenu);
+    }, 200);
+    return () => {
+      clearTimeout(close);
+    };
+  };
   /** if the dropdown menu item 'poem' is clicked, keep the menu open. */
-  const keepMenuOpen = (event) => {
+  const handlePoemsDropdown = (event) => {
     event.target.id === "poem-dropdown" && setExpanded(true);
+    setPoemsMenu(true);
+    document.addEventListener("mouseup", closePoemsMenu);
+    console.log("buttonFunction");
   };
 
+  const closeMenu = (event) => {
+    console.log("closeMenu");
+    if (
+      event.target.id === "new-poems" ||
+      event.target.id === "popular-poems" ||
+      event.target.id === "poems-by-cat" ||
+      event.target.id === "search-poems"
+    ) {
+      setExpanded(false);
+    }
+  };
+
+  console.log(poemsMenu);
   return (
     !hide && (
       <Navbar
@@ -50,60 +78,69 @@ const NavBarSecond = () => {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-second-nav">
             <Nav className={`${styles.NavToggle} text-left`}>
-              <NavDropdown
-                className={`${styles.NavLink} ${styles.SpaceLeft}`}
-                title="Poems"
+              <Button
+                className={`${styles.NavLink} ${styles.PoemsDropdown}`}
                 id="poem-dropdown"
-                onClick={(event) => keepMenuOpen(event)}
+                onClick={(event) => handlePoemsDropdown(event)}
               >
-                <div className="mt-1">
-                  <NavLink
-                    className={styles.NavDropdownItem}
-                    to="/new-poems"
-                    onClick={() => setExpanded(false)}
-                  >
-                    New Poems
-                  </NavLink>
+                Poems
+                <i className="fa fa-angle-down ml-2" aria-hidden="true"></i>
+              </Button>
+              {poemsMenu && (
+                <div className={`${styles.PoemsMenu} py-2`}>
+                  <div>
+                    <NavLink
+                      className={styles.NavDropdownItem}
+                      to="/new-poems"
+                      id="new-poems"
+                      onClick={(event) => closeMenu(event)}
+                    >
+                      New Poems
+                    </NavLink>
+                  </div>
+                  <div>
+                    <NavLink
+                      className={styles.NavDropdownItem}
+                      to="/popular-poems"
+                      id="popular-poems"
+                      onClick={(event) => closeMenu(event)}
+                    >
+                      Popular Poems
+                    </NavLink>
+                  </div>
+                  <div>
+                    <NavLink
+                      className={styles.NavDropdownItem}
+                      to="/poems-by-categories"
+                      id="poems-by-cat"
+                      onClick={(event) => closeMenu(event)}
+                    >
+                      Poems by Categories
+                    </NavLink>
+                  </div>
+                  <div>
+                    <NavLink
+                      className={styles.NavDropdownItem}
+                      to="/search/poems"
+                      id="search-poems"
+                      onClick={(event) => closeMenu(event)}
+                    >
+                      Search
+                    </NavLink>
+                  </div>
                 </div>
-                <div className="mt-1">
-                  <NavLink
-                    className={styles.NavDropdownItem}
-                    to="/popular-poems"
-                    onClick={() => setExpanded(false)}
-                  >
-                    Popular Poems
-                  </NavLink>
-                </div>
-                <div className="mt-1">
-                  <NavLink
-                    className={styles.NavDropdownItem}
-                    to="/poems-by-categories"
-                    onClick={() => setExpanded(false)}
-                  >
-                    Poems by Categories
-                  </NavLink>
-                </div>
-                <div className="mt-1">
-                  <NavLink
-                    className={styles.NavDropdownItem}
-                    to="/search/poems"
-                    onClick={() => setExpanded(false)}
-                  >
-                    Search
-                  </NavLink>
-                </div>
-              </NavDropdown>
+              )}
               {/* if user is logged in, display the link 'Write Poems' */}
               {currentUser && (
                 <NavLink
-                  className={`${styles.NavLink} ${styles.SpaceLeft} mt-2`}
+                  className={`${styles.NavLink} ${styles.SpaceLeft} mt-2 ml-2`}
                   to="/poems/create"
                 >
                   Write Poems
                 </NavLink>
               )}
               <NavLink
-                className={`${styles.NavLink} ${styles.SpaceLeft} mt-2`}
+                className={`${styles.NavLink} ${styles.SpaceLeft} mt-2 ml-3`}
                 to="/search/profiles"
               >
                 Search Profiles

@@ -115,7 +115,7 @@ const Profile = (props) => {
       <Card.Body>
         {mobile ? (
           <Row className={`${styles.Mobile} justify-content-center`}>
-            <Link to={`/profiles/${id}`}>
+            <Link className={styles.ProfileLink} to={`/profiles/${id}`}>
               <Avatar src={image} height={45} />
               <Media>
                 <div>
@@ -133,12 +133,12 @@ const Profile = (props) => {
           <Media className="align-items-center">
             <Row>
               <Col xs={4}>
-                <Link to={`/profiles/${id}`}>
+                <Link className={styles.ProfileLink} to={`/profiles/${id}`}>
                   <Avatar src={image} height={imageSize} />
                 </Link>
               </Col>
               <Col xs={8}>
-                <Link to={`/profiles/${id}`}>
+                <Link className={styles.ProfileLink} to={`/profiles/${id}`}>
                   <h4 className={`${styles.FeaturedName}`}>{display_name}</h4>
                 </Link>
                 <span className={`${styles.ProfileText}`}>
