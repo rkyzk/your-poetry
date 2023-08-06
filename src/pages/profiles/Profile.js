@@ -212,7 +212,7 @@ const Profile = (props) => {
             </div>
           ) : following_id ? (
             <Button
-              className={`${btnStyles.Button} ${btnStyles.BlackOutline} mt-2 ml-4`}
+              className={`${btnStyles.Button} ${btnStyles.LightBlue} mt-2 ml-4`}
               onClick={() => handleUnfollow()}
             >
               unfollow

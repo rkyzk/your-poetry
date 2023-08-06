@@ -55,9 +55,6 @@ const NavBar = () => {
     }
   };
 
-  console.log(mySpaceMenu);
-  console.log(mySpaceRef);
-
   const keepMenuOpen = (event) => {
       event.target.id === "nav-my-space" && setExpanded(true);
       setMySpaceMenu(!mySpaceMenu);

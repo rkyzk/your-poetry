@@ -37,19 +37,6 @@ const NavBarSecond = () => {
     console.log("buttonFunction");
   };
 
-  // const closeMenu = (event) => {
-  //   console.log("closeMenu");
-  //   if (
-  //     event.target.id === "new-poems" ||
-  //     event.target.id === "popular-poems" ||
-  //     event.target.id === "poems-by-cat" ||
-  //     event.target.id === "search-poems"
-  //   ) {
-  //     setExpanded(false);
-  //     setPoemsMenu(false);
-  //   }
-  // };
-
   console.log(poemsMenu);
   return (
     !hide && (
@@ -113,7 +100,7 @@ const NavBarSecond = () => {
                       to="/search/poems"
                       id="search-poems"
                     >
-                      Search
+                      Search Poems
                     </NavLink>
                   </div>
                 </div>

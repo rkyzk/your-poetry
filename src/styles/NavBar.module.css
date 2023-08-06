@@ -41,7 +41,7 @@
   background-color: #fff;
   position: absolute;
   top: 80px;
-  right: 10px;
+  right: 10%;
 }
 
 .NavBar .DropdownBtn {
@@ -112,7 +112,7 @@
     position: absolute;
     color: rgb(51, 93, 151);
     top: 220px;
-    right: 10px;
+    right: 10%;
   }
 }
 
