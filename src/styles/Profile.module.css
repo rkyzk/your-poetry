@@ -30,6 +30,11 @@
   color: rgb(51, 93, 151);
 }
 
+.ProfileLink:hover {
+  color: rgb(10, 10, 90);
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 490px) {
   .SmallLayout {
     display: none;

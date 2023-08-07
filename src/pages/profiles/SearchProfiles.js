@@ -50,7 +50,7 @@ function SearchProfiles() {
                 onChange={(event) => setQuery(event.target.value)}
                 type="text"
                 className="mr-sm-2"
-                placeholder="Search profiles"
+                placeholder="name contains..."
               />
             </Form>
           </Col>

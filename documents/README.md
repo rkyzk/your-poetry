@@ -76,11 +76,11 @@ Overall I wanted the website to appear simple, elegant and original.<br>
 I used following colors in different sections:
 
 - Background of navigation bars: light gray, #f8f8f8
-- Text color: dark blue, rgb(10, 10, 90)
+- Text color: dark blue, rgb(51, 93, 151)
 - Most buttons: olive, #8d7326;
 - follow button: black, #242a3d
-- unfollow button: aliceblue
-- Footer: dark blue, rgb(10, 10, 90)
+- unfollow button: rgb(189, 218, 243)
+- Footer: dark blue, rgb(13, 13, 70)
 
 I used dark blue for the text, instead of very commonly used black or dark gray in order to provide originality.<br>
 I used light gray for the background of navigation bars to keep the appearance simple.<br>
