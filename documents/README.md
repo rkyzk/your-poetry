@@ -14,10 +14,11 @@ profile three dots
 - [User Stories](#user-stories)
 - [Features in Nutshell](#features-in-a-nutshell)
 - [Wireframes](#wireframes)
-- [Notes on Design](#notes-on-design)
+- [Notes on the Design](#notes-on-the-design)
 - [Main Technologies Used](#main-technologies-used)
 - [Each Part and Function in Detail](#each-part-and-function-in-detail)
 - [Installed Libraries and Dependencies](#installed-libraries-and-dependencies)
+- [Notes on Reuse of Components](#notes-on-reuse-of-components)
 - [Manual Testing](#manual-testing)
 - [Bugs](#bugs)
 - [Aspects to be improved in the future](#aspects-to-be-improved-in-the-future)
@@ -61,14 +62,14 @@ In this app users can:
 Wireframes for this application can be found [here.](https://wireframe.cc/pro/pp/8521443d2672331)
 Please click on "Homepage" in the upper left corner to see wireframes of different pages.
 
-## Notes on Design
+## Notes on the Design
 
 **Fonts**
 
 - For the website title and the headings of the pages, I used ‘Bacasime Antique.’
 - For navigation links, labels for input boxes and the contents of poems, I used 'Nanum Myeongj.'
 - I chose these two fonts because they both look artistic.
-- For introductory paragraph I used ‘Raleway’ since this font is readable and offers an approachable ambient.
+- For the introductory paragraph I used ‘Raleway’ since this font is readable and offers a friendly ambient.
 
 **Colors**<br>
 Overall I wanted the website to appear simple, elegant and original.<br>
@@ -85,10 +86,10 @@ I used dark blue for the text, instead of very commonly used black or dark gray 
 I used light gray for the background of navigation bars to keep the appearance simple.<br>
 I used olive color for most buttons, because the color provides a nice contrast to the dark blue.<br>
 
-**Logo**
+**Logo**<br>
 As a logo, I chose a drawing of a quill pen and ink, which suits the website's theme.
 
-**Favicon**
+**Favicon**<br>
 I chose a feather icon for the favicon which looks like a quill pen. This suits the theme of poetry.
 
 ## Main Technologies Used
@@ -99,11 +100,12 @@ I chose a feather icon for the favicon which looks like a quill pen. This suits 
 
 ## Each Part and Function in Detail
 
-**Logo**<br>
+**Logo**
 
 - The logo is placed at the top left corner of the page, and it links to the home page.
 
-**Navigation Bars**<br>
+**Navigation Bars**
+
 _Navigation Bar at the top right_<br>
 
 - For logged out users the navigation bar displays links to “Home”, “Contact”, “Sign in” and “Sign out” pages.
@@ -245,6 +247,23 @@ _Notes about both navigations_
 - react-toastify@9.0.3 was installed to display feedback messages.
 - jwt-decode was installed so that the timestamp within the response can be accessed.
   The timestamp for when the user logged in can be stored in the local storage, and this information is used to know if it’s appropriate to request a token refresh.
+
+## Notes on Reuse of Components
+
+Following components were used multiple times in the app.
+
+| Components               | In which components, or on which pages are they used?                                    |
+| :----------------------- | :--------------------------------------------------------------------------------------- | :-- |
+| Asset.js                 | PoemPage.js, PoemsPage.js, FeaturedProfiles.js, ProfilePage.js, ProfilesPage.js          |     |
+| Avatar.js                | Profile.js, NavBar.js, Comment.js, FeaturedProfiles.js                                   |
+| FooterComponent.js       | Appears on all pages                                                                     |
+| MoreDropdown.js          | Profile.js, Poem.js, Comment.js                                                          |
+| NavBar.js                | Appears on all pages                                                                     |
+| NavBarSecond.js          | Appears on all pages except for sign-in and sign-up pages                                |
+| Comment.js               | PoemPage.js                                                                              |
+| Poem.js                  | PoemPage.js, Poems.js, ProfilePage.js, Home.js, SearchPoems.js, PoemsPageWithProfiles.js |
+| PoemsPage.js             | Home.js, PoemsPageWithProfiles.js, PoemsByCategories.js, SearchPoems.js, ProfilePage.js  |
+| PoemsPageWithProfiles.js | NewPoems.js, PopularPoems.js                                                             |
 
 ## Manual Testing
 
