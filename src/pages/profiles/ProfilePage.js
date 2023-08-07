@@ -75,7 +75,7 @@ function ProfilePage() {
 
   return (
     <Col md={{ span: 8, offset: 2 }}>
-      {is_owner && <h2>My Profile</h2>}
+      {is_owner && <h2 className="text-center">My Profile</h2>}
       {errMsg ? (
         <Alert key={errMsg} variant="warning" className="mt-3">
           {errMsg}

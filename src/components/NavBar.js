@@ -67,7 +67,7 @@ const NavBar = () => {
   const loggedIn = (
     <>
       <Avatar src={currentUser?.profile_image} height={40} navbar />
-      <Button
+      <button
         className={`${styles.DropdownBtn} pl-0`}
         id="nav-my-space"
         ref={mySpaceRef}
@@ -75,7 +75,7 @@ const NavBar = () => {
       >
         {currentUser?.username}
         <i className="fa fa-angle-down ml-2" aria-hidden="true"></i>
-      </Button>
+      </button>
       {mySpaceMenu && (
         <div className={styles.DropdownBox}>
           <div className="mt-1">

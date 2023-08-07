@@ -56,7 +56,7 @@ const NavBarSecond = () => {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-second-nav">
             <Nav className={`${styles.NavToggle} text-left`}>
-              <Button
+              <button
                 ref={poemsRef}
                 className={`${styles.NavLink} ${styles.PoemsDropdown}`}
                 id="poems-dropdown"
@@ -64,7 +64,7 @@ const NavBarSecond = () => {
               >
                 Poems
                 <i className="fa fa-angle-down ml-2" aria-hidden="true"></i>
-              </Button>
+              </button>
               {poemsMenu && (
                 <div className={`${styles.PoemsMenu} py-2`}>
                   <div>

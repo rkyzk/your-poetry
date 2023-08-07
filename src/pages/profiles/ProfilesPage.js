@@ -45,7 +45,9 @@ function ProfilesPage(props) {
   return (
     <Row>
       <Col lg={{ span: 8, offset: 2 }}>
-        {page === "profilesPage" && <h2>Poets I'm following</h2>}
+        {page === "profilesPage" && (
+          <h2 className="text-center">Poets I'm following</h2>
+        )}
         {errMsg ? (
           <Alert key={errMsg} variant="warning" className="mt-3">
             {errMsg}
