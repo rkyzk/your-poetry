@@ -157,8 +157,8 @@ _Notes about both navigation bars_
 - Featured poems are presented right below the introduction.
 - The editors of the site can select featured poems every week or 2 weeks or so and set the featured flag of the poems to true.
 - It is important to present featured poems on “Home,” so editors can direct users to read well written poems when they land on the page, which will give them a good first impression of the site.
-- Featured profiles are presented on the right column for large screen sizes. For screen sizes below 767px, the profiles are displayed at the top center.
-- Featured profiles
+- Featured profiles are presented on the right column for large screen sizes. For screen sizes below 768px, the profiles are displayed at the top center.
+- Every week (or at any time intervals) three featured profiles can be selected by editors of the page and set the featured flag of the profiles to true. 
 
 **Contact**
 
