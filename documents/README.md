@@ -28,7 +28,7 @@ The app is deployed on Heroku and can be found [here](https://your-poetry-b19cd2
 
 ## Overview
 
-Your Poetry offers an interactive platform where users can share their poems and give/get comments on each other’s poems. The app is equipped with various features including liking/unliking poems, following/unfollowing profiles as well as searching poems/profiles. In addition users can also make their own profiles to let others know a few things about themselves. The app offers users opportunities to be creative, to share their art and to inspire others.
+Your Poetry offers an interactive platform where users can share their poems and give/get comments on each other’s poems. The app is equipped with various features including liking/unliking poems, following/unfollowing profiles as well as searching poems/profiles. In addition users can also make their own profiles to let others know a few things about themselves. The purpose of the app is to offer users opportunities to be creative, to share their art and to inspire others.
 
 ## User Stories
 
@@ -158,7 +158,7 @@ _Notes about both navigation bars_
 - The editors of the site can select featured poems every week or 2 weeks or so and set the featured flag of the poems to true.
 - It is important to present featured poems on “Home,” so editors can direct users to read well written poems when they land on the page, which will give them a good first impression of the site.
 - Featured profiles are presented on the right column for large screen sizes. For screen sizes below 768px, the profiles are displayed at the top center.
-- Every week (or at any time intervals) three featured profiles can be selected by editors of the page and set the featured flag of the profiles to true. 
+- Every week (or at any time intervals) three featured profiles can be selected by editors of the page and set the featured flag of the profiles to true.
 
 **Contact**
 
