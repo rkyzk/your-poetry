@@ -53,7 +53,7 @@ function PoemsPage({ filter, message = "No results found", heading }) {
       <h2 className="my-2 px-2 text-center">{heading}</h2>
       {/* If there's an error message, display it. */}
       {errMsg ? (
-        <Alert variant="warning" className="mt-3">
+        <Alert variant="warning" className="mt-3 text-center">
           {errMsg}
         </Alert>
       ) : hasLoaded ? (

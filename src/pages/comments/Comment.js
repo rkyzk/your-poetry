@@ -72,7 +72,7 @@ const Comment = (props) => {
         </Link>
         <Media.Body className="align-self-center ml-2">
           <Row className={styles.Info}>
-            <Col sm={5} className={styles.OwnerCol}>
+            <Col sm={5}>
               <span className={styles.Owner}>{owner}</span>
             </Col>
             {/* If the comment has been edited, label 'edited' */}

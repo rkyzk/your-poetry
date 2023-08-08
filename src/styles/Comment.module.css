@@ -10,11 +10,6 @@
   margin-top: 3px;
 }
 
-.Date {
-  font-weight: lighter;
-  color: #c1c1c5;
-}
-
 @media screen and (max-width: 575px) {
   .Time {
     margin-top: -8px;

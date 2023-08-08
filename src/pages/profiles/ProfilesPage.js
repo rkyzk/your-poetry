@@ -49,7 +49,7 @@ function ProfilesPage(props) {
           <h2 className="text-center">Poets I'm following</h2>
         )}
         {errMsg ? (
-          <Alert key={errMsg} variant="warning" className="mt-3">
+          <Alert key={errMsg} variant="warning" className="mt-3 text-center">
             {errMsg}
           </Alert>
         ) : hasLoaded ? (
@@ -73,7 +73,7 @@ function ProfilesPage(props) {
             ) : (
               <>
                 {/* If no matching profiles are found, dislay the message. */}
-                <p>{message}</p>
+                <p className="text-center">{message}</p>
               </>
             )}
           </>
