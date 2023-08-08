@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import Button from "react-bootstrap/Button";
 import logo from "../assets/media/poetry-logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
@@ -22,7 +21,7 @@ import useClickOutsideMenuRight from "../hooks/useClickOutsideMenuRight";
  *  Adjust displayed link items depending on the logged in status.
  */
 const NavBar = () => {
-  /** store info of logged in user. */
+  /** get the info of logged in user. */
   const currentUser = useCurrentUser();
   /* expanded tells wheather the menu bar is expanded or not.
      setExpanded will set expanded true/false.
@@ -55,12 +54,16 @@ const NavBar = () => {
     }
   };
 
+  /**
+   * If the burger menu is opened, and the username is clicked,
+   * keep the burger menu open.
+   */
   const keepMenuOpen = (event) => {
     event.target.id === "nav-my-space" && setExpanded(true);
     setMySpaceMenu(!mySpaceMenu);
   };
 
-  /*
+  /**
    * Nav link items will be displayed when logged in.
    * 'setExpanded(false)' will close the dropdown menu.
    */
@@ -76,6 +79,7 @@ const NavBar = () => {
         {currentUser?.username}
         <i className="fa fa-angle-down ml-2" aria-hidden="true"></i>
       </button>
+      {/* if the button is clicked, the dropdown menu will be shown. */}
       {mySpaceMenu && (
         <div className={styles.DropdownBox}>
           <div className="mt-1">

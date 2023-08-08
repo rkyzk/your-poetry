@@ -7,7 +7,6 @@ import { NavLink } from "react-router-dom";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import { Button } from "react-bootstrap";
 import useClickOutsideMenuLeft from "../hooks/useClickOutsideMenuLeft";
 
 /**
@@ -28,16 +27,19 @@ const NavBarSecond = () => {
   /** On signin and singup pages set hide true so this component won't appear. */
   let hide = pathname === "/signin" || pathname === "/signup";
 
+  /**
+   * poemsMenu tells if the menu should be displayed.
+   * setPoemsMenu is the function to set poemsMenu value
+   * poemsRef stores the info of the element if the dropdown button is clicked.
+   */
   const { poemsMenu, setPoemsMenu, poemsRef } = useClickOutsideMenuLeft();
 
   /** if the dropdown menu item 'poem' is clicked, keep the menu open. */
   const handlePoemsDropdown = (event) => {
     event.target.id === "poems-dropdown" && setExpanded(true);
     setPoemsMenu(!poemsMenu);
-    console.log("buttonFunction");
   };
 
-  console.log(poemsMenu);
   return (
     !hide && (
       <Navbar
@@ -52,7 +54,7 @@ const NavBarSecond = () => {
             aria-controls="basic-navbar-second-nav"
             onClick={() => setExpanded(!expanded)}
           >
-            <i className={`${styles.Burger} fa-solid fa-bars`}></i>
+            <i className="fa-solid fa-bars"></i>
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-second-nav">
             <Nav className={`${styles.NavToggle} text-left`}>
