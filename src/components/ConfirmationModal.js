@@ -5,15 +5,17 @@ import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { useSetFeaturedProfilesData } from "../contexts/FeaturedProfilesDataContext";
+import styles from "../styles/ConfirmationModal.module.css";
+import btnStyles from "../styles/Button.module.css";
 
 /**
  * Return Confirmation modal.
- * The modal will be displayed when 'show' is set true.
+ * The modal will be displayed when 'show' is set to true.
  */
 const ConfirmationModal = ({ show, hideConfirmationModal, id }) => {
-  /** store info on which pages the user has been to. */
+  /** store info on which pages the user has visited. */
   const history = useHistory();
-  /** store the info of the logged in user. */
+  /** get the info of the logged-in user. */
   const currentUser = useCurrentUser();
   /** store the current user's id */
   const user_id = currentUser?.pk;
@@ -21,7 +23,7 @@ const ConfirmationModal = ({ show, hideConfirmationModal, id }) => {
   const setFeaturedProfilesData = useSetFeaturedProfilesData();
 
   /**
-   * Subtract 1 from poems count in the featured profile
+   * Subtract 1 from poems count in the featured profiles
    * if the user is featured.
    */
   const subtractOneFromPoemsCount = () => {
@@ -53,18 +55,28 @@ const ConfirmationModal = ({ show, hideConfirmationModal, id }) => {
 
   return (
     <>
-      {/* The modal will only appear if show is true */}
+      {/* The modal will appear if show is true */}
       <Modal show={show} onHide={hideConfirmationModal}>
         <Modal.Body closeButton>
-          <span>
+          <span className={styles.Text}>
             Are you sure you want to delete your poem? You won't be able to
             retrieve it.
           </span>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={handleDeletePoem}>delete</Button>
+          <Button
+            className={`${btnStyles.Button} ${btnStyles.Olive}`}
+            onClick={handleDeletePoem}
+          >
+            delete
+          </Button>
           {/* hideConfirmationModal will set 'show' false. */}
-          <Button onClick={hideConfirmationModal}>cancel</Button>
+          <Button
+            onClick={hideConfirmationModal}
+            className={`${btnStyles.Button} ${btnStyles.Olive}`}
+          >
+            cancel
+          </Button>
         </Modal.Footer>
       </Modal>
     </>

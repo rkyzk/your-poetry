@@ -2,7 +2,6 @@ nvm install 16 && nvm use 16
 
 category & published dates font css on search poems
 ``
-profile three dots
 
 \
 
@@ -32,7 +31,7 @@ profile three dots
 
 ![your-poetry](./images/Your-Poetry.png)
 
-The app is hosted [here:](https://your-poetry-b19cd2115cd5.herokuapp.com/)
+The app is deployed on Heroku and can be found [here](https://your-poetry-b19cd2115cd5.herokuapp.com).
 
 ## Overview
 
@@ -47,14 +46,14 @@ User stories can be found [here](https://github.com/users/rkyzk/projects/6/views
 In this app users can:
 
 - Sign up for membership
-- Sign in to have full access
+- Sign in to have access to full features/sign out
 - Edit one's own profile
 - Write, update and delete poems
 - Write, update and delete comments on poems
 - Like/unlike poems
 - Follow/unfollow profiles
 - Look at various lists of poems such as recently published poems, popular poems, one's own poems and the poems they've liked
-- Look at the list of profiles they've followed.
+- Look at a list of profiles they've followed.
 - Search poems and profiles
 
 ## Wireframes
@@ -87,10 +86,10 @@ I used light gray for the background of navigation bars to keep the appearance s
 I used olive color for most buttons, because the color provides a nice contrast to the dark blue.<br>
 
 **Logo**<br>
-As a logo, I chose a drawing of a quill pen and ink, which suits the website's theme.
+As the logo, I chose a drawing of a quill pen and ink, which suits the website's theme.
 
 **Favicon**<br>
-I chose a feather icon for the favicon which looks like a quill pen. This suits the theme of poetry.
+I chose a feather icon for the favicon that looks like a quill pen, which is associated with poetry.
 
 ## Main Technologies Used
 
@@ -236,7 +235,7 @@ _Notes about both navigations_
 
 **Sign out (No page)**
 
-- Clicking the link will sing out the user.
+- Clicking 'Sign out' from the dropdown menu will sing out the user.
 
 ## Installed Libraries and Dependencies
 
@@ -824,22 +823,28 @@ After the code was added, all elements are displayed fine in small screen sizes.
 | 6        | individual profile page          | Change ‘/profiles/’ to “/profile/,“ in the get request in ProfilePage.js. Go to "/profiles/1" (the profile page of admin)  | Check if an error message appears. | Message "There was an error. Please try again later." is displayed.                              | Message "There was an error. Please try again later." is displayed.                              | pass      | [image](./images/manual-tests/ErrorMessages/6.png) | 2023/8/6  |
 | 7        | poems on individual profile page | Change ‘/poems/’ to “/poem/,“ in the get request in ProfilePage.js. Go to "/profiles/1" (the profile page of admin)        | Check if an error message appears. | Message "There was an error. Please try again later." is displayed.                              | Message "There was an error. Please try again later." is displayed.                              | pass      | [image](./images/manual-tests/ErrorMessages/7.png) | 2023/8/6  |
 
-### Bugs
+## Bugs
 
-1. In manual test 'Featured Profiles component' section, test no. 6 failed.
-   When a user who is featured writes a new poem, the poem count in the featured profile was not updated. (It was updated only after refreshing the page.)
+1. In the manual test 'Featured Profiles component' section, test no. 6 failed.
+   When a user, who is featured, writes a new poem, the poem count in the featured profile was not updated. (It was updated only after refreshing the page.)
 
-Solution: I added handlePoemCount function in PoemCreateForm which adjusts the poem count in the featured profile if a featured user write a new poem. I found that when a featured user deletes a poem, the poem count was also not reflected. I added subtractOneFromPoemsCount function in ConfirmationModal.js to adjust the poem count in case a featured user deletes a poem.
+Solution: I added handlePoemCount function in PoemCreateForm which adjusts the poem count in the featured profile if a featured user writes a new poem. I found that when a featured user deletes a poem, the poem count was also not reflected. I added subtractOneFromPoemsCount function in ConfirmationModal.js to adjust the poem count in case a featured user deletes a poem.
 
 2. On Search Profiles Page, when a user enters spaces, the search used to start running, which is not necessary.
 
-Solution: I added line 14 in function 'timer' in useEffect in SearchProfiles so the search will not be run if only spaces are entered.
+Solution: I added line 27 in function 'timer' in useEffect in SearchProfiles so the search will not be run if only spaces are entered.
 
 3. I got an error message in the console saying that a unique ID is needed for each child component of profiles in the FeaturedProfiles.js.
-   I had key={profile.id} in the Profile component, but this should’ve been in the outermost element 'Col'.
-   I moved the code snippet key={profile.id} into ‘Col’ element, and the error was resolved.
 
-### Depoyment Process
+Solution: I had key={profile.id} in the 'Profile' tag line 31 in FeaturedProfiles.js, but this should’ve been in the outermost element in the map function, 'Col' on line 30. I moved the code snippet key={profile.id} into ‘Col’ element, and the error was resolved.
+
+## Aspects to be improved in the future
+
+1. When the dropdown menu in the navigation, (the username next to Avatar when the user is logged in) is clicked, the menu first appears briefly on the left side of the dropdown title and disppears, and the menu reappears below the dropdown title. Similarly, the dropdown menu titled ‘Poems’ in the navigation on the left side also appears on the right side and reappears at below the title. I need to find a way to let the menus appear at the intended positions from the beginning.
+
+2. On "Popular Poems" page, if the user ‘likes’ a poem, and if the poems will be rearranged due to the new likes count, the rearrangement happens in a manner that it’s difficult for the user to know where the poem they’ve just liked has been moved to. I need to make it easier for the user to follow where the poem has been replaced.
+
+## Depoyment Process
 
 1. Remove ReactStrictMode components from index.js.
 2. Make sure in package.json file, in the “scripts” section, the following prebuild command is written:<br>
@@ -872,22 +877,19 @@ I will need more time and research to look into these aspects. For now I left th
 Accessibility scored 82 at first.
 I corrected the following points as suggested in the report.
 
-1. **Aria IDs are not unique.**<br>
-   The same ID was used for as id for Nav.Dropdown in the NabBar and NavBarSecond components.
-   I changed the aria-controls and the id in the NavBarSecond.
+1. **Background and foreground colors do not have a sufficient contrast ratio.**<br>
+   Both dropdown titles, the username next to the avatar and 'Poems,' didn't have enough contrast against the background. I changed the colors to dark blue.
 
-2. **Background and foreground colors do not have a sufficient contrast ratio.**<br>
-
-3. **Links do not have a discernible name.**<br>
+2. **Links do not have a discernible name.**<br>
    I added aria-label for the link on the comment icon.
 
-4. **Lists do not contain only <li> elements and script supporting elements (<script> and <template>).**<br>
-   In Footer Component, I added list tags around anchor tags.
+3. **Lists do not contain only <li> elements and script supporting elements "script" and "template".**<br>
+   In the Footer Component, I added list tags around anchor tags.
 
-5. **Heading elements are not in a sequentially-descending order.**<br>
+4. **Heading elements are not in a sequentially-descending order.**<br>
    I was using h1, h2 and h4. So I replaced h4 with h3.
 
-**After the corrections, accessibility scores 96.**
+**After the corrections, accessibility scores 100.**
 ![image](./images/Lighthouse/Home.png)
 
 The results for other pages are recorded [here](./Lighthouse.md)
@@ -900,8 +902,8 @@ https://jigsaw.w3.org/
 
 ### Media
 
-The favicon was taken from [this site](https://icons8.com/icons/set/feather).<br>
-The logo was taken from [this site](https://www.freepik.com/free-vector/hand-drawn-quill-isolated-white-background_2782976.htm#query=quill%20pen%20and%20ink&position=25&from_view=search&track=ais).
+The favicon was taken from https://icons8.com/icons/set/feather.<br>
+The logo was taken from https://www.freepik.com/free-vector/hand-drawn-quill-isolated-white-background_2782976.htm#query=quill%20pen%20and%20ink&position=25&from_view=search&track=ais
 
 I used fonts from Google fonts and icons from Fontawesome.
 
@@ -925,5 +927,5 @@ Specifically the following files were taken from 'Moments' with very little or n
 - comments/Comment.js
 - comments/CommentCreateForm.js
 - comments/CommentEditForm.js
-
+<br>
 I also took the basic structure of Nav components in NavBar.js and NavBarSecond.js
