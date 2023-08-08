@@ -1,10 +1,3 @@
-nvm install 16 && nvm use 16
-
-category & published dates font css on search poems
-``
-
-\
-
 # Your Poetry
 
 ## CONTENTS
@@ -18,18 +11,18 @@ category & published dates font css on search poems
 - [Each Part and Function in Detail](#each-part-and-function-in-detail)
 - [Installed Libraries and Dependencies](#installed-libraries-and-dependencies)
 - [Notes on Reuse of Components](#notes-on-reuse-of-components)
+- [Deployment Process](#depoyment-process)
 - [Manual Testing](#manual-testing)
 - [Bugs](#bugs)
-- [Aspects to be improved in the future](#aspects-to-be-improved-in-the-future)
-- [Deployment Process](#depoyment-process)
+- [Performance and Accessibility](#performance-and-accessibility)
 - [Validating CSS, Html code with Tools](#validating-css-html-code-with-tools)
-- [Checking Performance and Accessibility](#checking-performance-and-accessibility)
+- [Aspects to be improved in the future](#aspects-to-be-improved-in-the-future)
 - [Media](#media)
 - [Credits](#credits)
 
 ---
 
-![your-poetry](./images/Your-Poetry.png)
+![your-poetry](./images/readme/Your-Poetry.png)
 
 The app is deployed on Heroku and can be found [here](https://your-poetry-b19cd2115cd5.herokuapp.com).
 
@@ -86,6 +79,7 @@ I used light gray for the background of navigation bars to keep the appearance s
 I used olive color for most buttons, because the color provides a nice contrast to the dark blue.<br>
 
 **Logo**<br>
+<img src="./images/readme/logo.png" alt="logo" width="150px" >
 As the logo, I chose a drawing of a quill pen and ink, which suits the website's theme.
 
 **Favicon**<br>
@@ -105,6 +99,7 @@ I chose a feather icon for the favicon that looks like a quill pen, which is ass
 
 **Navigation Bars**
 
+<img src="./images/readme/NavigationBars.png" alt="navigation bars" width="600px" >
 _Navigation Bar at the top right_<br>
 
 - For logged out users the navigation bar displays links to “Home”, “Contact”, “Sign in” and “Sign out” pages.
@@ -126,6 +121,7 @@ _Notes about both navigations_
 
 **Footer**
 
+<img src="./images/readme/Footer.png" alt="footer" width="600px" >
 - Footer has a dark blue color that matches the color of the text in the app to establish unity in the appearance.
 - Footer offers links to facebook, twitter and Instagram pages.
 
@@ -142,6 +138,7 @@ _Notes about both navigations_
 
 **The Profile component**
 
+<img src="./images/readme/Profile.png" alt="profile component" width="600px" >
 - The profile component displays the avatar, display name, the date joined, the number of poems written and number of followers. On the individual profile page, an introduction written by the owner (about_me) and their favorite poems and poets (‘favorites’ field) will be displayed as well.
 - If users are logged in, follow/unfollow button will be displayed.
 - If the user is the owner of the profile, a tag saying ‘You!’ will be displayed.
@@ -252,8 +249,8 @@ _Notes about both navigations_
 Following components were used multiple times in the app.
 
 | Components               | In which components, or on which pages are they used?                                    |
-| :----------------------- | :--------------------------------------------------------------------------------------- | :-- |
-| Asset.js                 | PoemPage.js, PoemsPage.js, FeaturedProfiles.js, ProfilePage.js, ProfilesPage.js          |     |
+| :----------------------- | :--------------------------------------------------------------------------------------- |
+| Asset.js                 | PoemPage.js, PoemsPage.js, FeaturedProfiles.js, ProfilePage.js, ProfilesPage.js          |
 | Avatar.js                | Profile.js, NavBar.js, Comment.js, FeaturedProfiles.js                                   |
 | FooterComponent.js       | Appears on all pages                                                                     |
 | MoreDropdown.js          | Profile.js, Poem.js, Comment.js                                                          |
@@ -263,6 +260,21 @@ Following components were used multiple times in the app.
 | Poem.js                  | PoemPage.js, Poems.js, ProfilePage.js, Home.js, SearchPoems.js, PoemsPageWithProfiles.js |
 | PoemsPage.js             | Home.js, PoemsPageWithProfiles.js, PoemsByCategories.js, SearchPoems.js, ProfilePage.js  |
 | PoemsPageWithProfiles.js | NewPoems.js, PopularPoems.js                                                             |
+
+## Depoyment Process
+
+1. Remove ReactStrictMode components from index.js.
+2. Make sure in package.json file, in the “scripts” section, the following prebuild command is written:<br>
+   `"heroku-prebuild": "npm install -g serve",`
+3. Add Procfile and write `web: serve -s build`
+4. Create a new app on Heroku. On the Deploy tab, connect to this repository ‘your-poetry’ through Github.
+5. At the bottom of the page, click ‘deploy branch’
+6. After the app is successfully deployed, click “View” and get the URL of the app.
+7. Go to Dashboard, select the app of the DRF API and open the Settings tab.
+8. Add two Config Vars:
+
+- CLIENT_DEV_ORIGIN = the URL of this app in development
+- CLIENT_ORIGIN = the URL of the app deployed on Heroku. Deploy again the API project.
 
 ## Manual Testing
 
@@ -838,43 +850,15 @@ Solution: I added line 27 in function 'timer' in useEffect in SearchProfiles so 
 
 Solution: I had key={profile.id} in the 'Profile' tag line 31 in FeaturedProfiles.js, but this should’ve been in the outermost element in the map function, 'Col' on line 30. I moved the code snippet key={profile.id} into ‘Col’ element, and the error was resolved.
 
-## Aspects to be improved in the future
+## Performance and Accessibility
 
-1. When the dropdown menu in the navigation, (the username next to Avatar when the user is logged in) is clicked, the menu first appears briefly on the left side of the dropdown title and disppears, and the menu reappears below the dropdown title. Similarly, the dropdown menu titled ‘Poems’ in the navigation on the left side also appears on the right side and reappears at below the title. I need to find a way to let the menus appear at the intended positions from the beginning.
+**Performance**
 
-2. On "Popular Poems" page, if the user ‘likes’ a poem, and if the poems will be rearranged due to the new likes count, the rearrangement happens in a manner that it’s difficult for the user to know where the poem they’ve just liked has been moved to. I need to make it easier for the user to follow where the poem has been replaced.
-
-## Depoyment Process
-
-1. Remove ReactStrictMode components from index.js.
-2. Make sure in package.json file, in the “scripts” section, the following prebuild command is written:<br>
-   `"heroku-prebuild": "npm install -g serve",`
-3. Add Procfile and write `web: serve -s build`
-4. Create a new app on Heroku. On the Deploy tab, connect to this repository ‘your-poetry’ through Github.
-5. At the bottom of the page, click ‘deploy branch’
-6. After the app is successfully deployed, click “View” and get the URL of the app.
-7. Go to Dashboard, select the app of the DRF API and open the Settings tab.
-8. Add two Config Vars:
-
-- CLIENT_DEV_ORIGIN = the URL of this app in development
-- CLIENT_ORIGIN = the URL of the app deployed on Heroku. Deploy again the API project.
-
-### Checking Performance and Accessibility
-
-**Performance**<br>
-Performace for all pages scored in 80s even though I cleared browser cache before testing.<br>
-The factor that lowered the score and the recommendation to improve the performance were stated as follows:
-
-- Page prevented back/forward cache restoration.
-- Serve static assets with an efficient cache policy.
-
-I will need more time and research to look into these aspects. For now I left these issues as they are.
+Performace for most pages scored in the mid 80s even though I cleared browser cache before testing and ran tests in incognito mode. The major factors that were delaying the page load were that I was importing bootstrap and google fonts. I tried deferring loading these CSS, but the score didn’t improve, so I removed the code to defer loading the CSS. I will take a closer look in the future to improve the page loading speed.
 
 **Accessibility**
 
-#### Home
-
-Accessibility scored 82 at first.
+Accessibility scored 82 for "Home" at first.
 I corrected the following points as suggested in the report.
 
 1. **Background and foreground colors do not have a sufficient contrast ratio.**<br>
@@ -889,16 +873,23 @@ I corrected the following points as suggested in the report.
 4. **Heading elements are not in a sequentially-descending order.**<br>
    I was using h1, h2 and h4. So I replaced h4 with h3.
 
-**After the corrections, accessibility scores 100.**
-![image](./images/Lighthouse/Home.png)
+- After the above corrections were made, accessibility scored 100 for all pages.
 
-The results for other pages are recorded [here](./Lighthouse.md)
+The screenshots of the results can be found [here](./Lighthouse.md)
 
 ### Checking html and css
 
 No errors were found in the html and css by validation tools at following sites:<br>
 https://validator.w3.org/<br>
 https://jigsaw.w3.org/
+
+## Aspects to be improved in the future
+
+1. When the dropdown menu in the navigation, (the username next to Avatar when the user is logged in) is clicked, the menu first appears briefly on the left side of the dropdown title and disppears, and the menu reappears below the dropdown title. Similarly, the dropdown menu titled ‘Poems’ in the navigation on the left side also appears on the right side and reappears at below the title. I need to find a way to let the menus appear at the intended positions from the beginning.
+
+2. On "Popular Poems" page, if the user ‘likes’ a poem, and if the poems will be rearranged due to the new likes count, the rearrangement happens in a manner that it’s difficult for the user to know where the poem they’ve just liked has been moved to. I need to make it easier for the user to follow where the poem has been replaced.
+
+3. As discussed in the 'Performance and Accessibility' section, the performance needs to be improved.
 
 ### Media
 
@@ -927,5 +918,5 @@ Specifically the following files were taken from 'Moments' with very little or n
 - comments/Comment.js
 - comments/CommentCreateForm.js
 - comments/CommentEditForm.js
-<br>
-I also took the basic structure of Nav components in NavBar.js and NavBarSecond.js
+  <br>
+  I also took the basic structure of Nav components in NavBar.js and NavBarSecond.js
