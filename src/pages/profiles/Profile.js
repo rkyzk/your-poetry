@@ -191,7 +191,9 @@ const Profile = (props) => {
                 next to the avatar for screen sizes above 490px
                 className ProfileInfo won't be displayed below 490px. */}
               <Col xs={7} className={styles.ProfileInfo}>
-                <h3 className={`${styles.ProfileName}`}>{display_name}</h3>
+                <Link className={styles.ProfileLink} to={`/profiles/${id}`}>
+                  <h3 className={`${styles.ProfileName}`}>{display_name}</h3>
+                </Link>
                 <p className={`${styles.ProfileText} mb-0`}>
                   Member since {created_at}
                 </p>
@@ -209,7 +211,9 @@ const Profile = (props) => {
                 below the avatar for screen sizes below 490px
                 className ProfileInfoSmall will be displayed only below 490px. */}
               <div className={`${styles.ProfileInfoSmall}`}>
-                <h3 className={`${styles.ProfileName}`}>{display_name}</h3>
+                <Link className={styles.ProfileLink} to={`/profiles/${id}`}>
+                  <h3 className={`${styles.ProfileName}`}>{display_name}</h3>
+                </Link>
                 <p className={`${styles.ProfileText} mb-0`}>
                   Member since {created_at}
                   <br />
@@ -218,14 +222,14 @@ const Profile = (props) => {
                 </p>
               </div>
               {/* On individual profile page, display about me and favorites. */}
-              {about_me && about_me !== "null" && (
+              {page === "profilePage" && about_me && about_me !== "null" && (
                 <p className={`${styles.ProfileLabel} mt-3`}>
                   <span className="text-muted">About me:</span>
                   <br />
                   {about_me}
                 </p>
               )}
-              {favorites && favorites !== "null" && (
+              {page === "profilePage" && favorites && favorites !== "null" && (
                 <p className={`${styles.ProfileLabel} mt-3`}>
                   <span className="text-muted">My favorites:</span>
                   <br />
