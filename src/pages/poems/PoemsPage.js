@@ -74,7 +74,7 @@ function PoemsPage({ filter, message = "No results found", heading }) {
             <>
               {/* If there's no poem that matches the filter,
                     display message (no results found, etc). */}
-              <p>{message}</p>
+              <p className="text-center">{message}</p>
             </>
           )}
         </>

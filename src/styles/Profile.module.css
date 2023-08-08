@@ -43,19 +43,6 @@
   .XSLayout {
     display: block;
   }
-
-  .Name {
-    font-size: 1.3rem;
-  }
-
-  .DateJoined {
-    font-size: 1rem;
-  }
-
-  .MemberInfo {
-    width: 200px;
-    margin: 0 auto;
-  }
 }
 
 @media screen and (max-width: 460px) {
@@ -65,10 +52,5 @@
 
   .ProfileInfoSmall {
     display: block;
-  }
-
-  .CardSpace {
-    margin: 0;
-    padding: 0;
   }
 }

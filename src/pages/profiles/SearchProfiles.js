@@ -3,7 +3,6 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import ProfilesPage from "./ProfilesPage";
-import styles from "../../styles/SearchProfiles.module.css";
 
 /**
  * Take in the search query entered by the user
@@ -42,7 +41,7 @@ function SearchProfiles() {
             xs={{ span: 10 }}
           >
             <Form
-              className={`${styles.SearchBar} mb-3`}
+              className="mb-3"
               onSubmit={(event) => event.preventDefault()}
             >
               <Form.Control
@@ -55,7 +54,7 @@ function SearchProfiles() {
             </Form>
           </Col>
           <Col xs={1}>
-            <i className={`fas fa-search ${styles.SearchIcon} mt-2`} />
+            <i className={`fas fa-search mt-2`} />
           </Col>
         </Row>
         {/* Look for profiles that match the query only

@@ -885,7 +885,7 @@ I corrected the following points as suggested in the report.
 
 - After the above corrections were made, accessibility scored 100 for all pages.
 
-The screenshots of the results can be found [here](./Lighthouse.md)
+The screenshots of the results can be found [here](./Lighthouse.md).
 
 ### Checking html and css
 
@@ -928,5 +928,5 @@ Specifically the following files were taken from 'Moments' with very little or n
 - comments/Comment.js
 - comments/CommentCreateForm.js
 - comments/CommentEditForm.js
-<br>
+
 I also took the basic structure of Nav components in NavBar.js and NavBarSecond.js

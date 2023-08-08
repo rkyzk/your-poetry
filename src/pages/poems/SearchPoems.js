@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button";
 import { useState } from "react";
 import PoemsPage from "../poems/PoemsPage";
 import btnStyles from "../../styles/Button.module.css";
-import styles from "../../styles/SearchPoems.module.css";
 import Alert from "react-bootstrap/Alert";
 
 /**
@@ -138,7 +137,7 @@ function SearchPoems() {
                 <Form.Label className="my-1 mr-2">category</Form.Label>
                 <Form.Control
                   as="select"
-                  className={`my-1 mr-sm-2 ${styles.Category}`}
+                  className="my-1 mr-sm-2"
                   id="category"
                   name="category"
                   value={category}
@@ -146,8 +145,8 @@ function SearchPoems() {
                   custom
                 >
                   <option>choose...</option>
-                  <option className={styles.Category}>nature</option>
-                  <option className={styles.Category}>love</option>
+                  <option>nature</option>
+                  <option>love</option>
                   <option>people</option>
                   <option>humor</option>
                   <option>haiku</option>
