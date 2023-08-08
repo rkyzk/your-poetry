@@ -63,7 +63,8 @@ Please click on "Homepage" in the upper left corner to see wireframes of differe
 - I chose these two fonts because they both look artistic.
 - For the introductory paragraph I used ‘Raleway’ since this font is readable and offers a friendly ambient.
 
-**Colors**<br>
+**Colors**
+
 Overall I wanted the website to appear simple, elegant and original.<br>
 I used following colors in different sections:
 
@@ -78,11 +79,14 @@ I used dark blue for the text, instead of very commonly used black or dark gray 
 I used light gray for the background of navigation bars to keep the appearance simple.<br>
 I used olive color for most buttons, because the color provides a nice contrast to the dark blue.<br>
 
-**Logo**<br>
+**Logo**
+
 <img src="./images/readme/logo.png" alt="logo" width="150px" >
+
 As the logo, I chose a drawing of a quill pen and ink, which suits the website's theme.
 
-**Favicon**<br>
+**Favicon**
+
 I chose a feather icon for the favicon that looks like a quill pen, which is associated with poetry.
 
 ## Main Technologies Used
@@ -100,24 +104,25 @@ I chose a feather icon for the favicon that looks like a quill pen, which is ass
 **Navigation Bars**
 
 <img src="./images/readme/NavigationBars.png" alt="navigation bars" width="600px" >
-_Navigation Bar at the top right_<br>
+
+_Navigation Bar at the top right_
 
 - For logged out users the navigation bar displays links to “Home”, “Contact”, “Sign in” and “Sign out” pages.
 - For logged in users, the avatar and the logged in user’s name are displayed in place of “Sign in” and “Sign up.”
 - Clicking the username shows a dropdown menu for “My Profile”, “My Poems”, “Poets I’m following”, “Poems I like” and “Sign out”.
 - I placed links to poems lists and a profile list that are specific to the current user in the top right dropdown menu. I placed links to other lists that are common to all users such as “New Poems” and “Popular poems” in the navigation bar on the left side.
 
-_Navigation Bar at the top left_<br>
+_Navigation Bar at the top left_
 
 - The second navigation bar is displayed on all pages except for sign in and sign up pages. (Users trying to sign in or sign up will not need this navigation bar.)
 - For logged out users, a dropdown menu “Poems” and a link “Search Profiles” are displayed.
 - For logged in users, the link to “Write Poems” will be displayed as well. This is hidden for logged out users because only logged in users can write poems.
 - Clicking the dropdown menu “Poems” will show links to “New Poems”, “Popular Poems”, “Poems by Categories” and “Search” pages.
 
-_Notes about both navigations_
+_Notes about both navigation bars_
 
-- Both navigation bars will be replaced by burger menus for screen sizes below 767px.<br>
-- The names of all links clearly indicate what the destination pages are about.
+- Both navigation bars will be replaced by burger menus for screen sizes below 768px.
+- The names of all links clearly indicate what the destination pages are about, making it easy for users to navigate through the app.
 
 **Footer**
 
@@ -126,6 +131,8 @@ _Notes about both navigations_
 - Footer offers links to facebook, twitter and Instagram pages.
 
 **The Poem component**
+
+<img src="./images/readme/Poem.png" alt="poem component" width="600px" >
 
 - The poem component displays the title, the author, published date, excerpt (the first 60 characters of the content), likes count and comments count of the poem.
 - Users can click the title to go to the individual poem page that displays the full content.
@@ -139,6 +146,7 @@ _Notes about both navigations_
 **The Profile component**
 
 <img src="./images/readme/Profile.png" alt="profile component" width="600px" >
+
 - The profile component displays the avatar, display name, the date joined, the number of poems written and number of followers. On the individual profile page, an introduction written by the owner (about_me) and their favorite poems and poets (‘favorites’ field) will be displayed as well.
 - If users are logged in, follow/unfollow button will be displayed.
 - If the user is the owner of the profile, a tag saying ‘You!’ will be displayed.
@@ -190,6 +198,8 @@ _Notes about both navigations_
 - If the user hasn’t published the poem, ‘publish’ button will be displayed.
 
 **Delete Poems (No page)**
+
+<img src="./images/readme/ConfirmationModal.png" alt="delete confirmation modal" width="600px" >
 
 - If users wish to delete their poem, they can click the three dots on the individual poem page and click the trash bin icon.
 - A confirmation modal will be displayed, and the user can choose to delete or cancel.
@@ -893,8 +903,8 @@ https://jigsaw.w3.org/
 
 ### Media
 
-The favicon was taken from https://icons8.com/icons/set/feather.<br>
-The logo was taken from https://www.freepik.com/free-vector/hand-drawn-quill-isolated-white-background_2782976.htm#query=quill%20pen%20and%20ink&position=25&from_view=search&track=ais
+The favicon was taken from [this site](https://icons8.com/icons/set/feather).<br>
+The logo was taken from [this site](https://www.freepik.com/free-vector/hand-drawn-quill-isolated-white-background_2782976.htm#query=quill%20pen%20and%20ink&position=25&from_view=search&track=ais)
 
 I used fonts from Google fonts and icons from Fontawesome.
 
@@ -918,5 +928,5 @@ Specifically the following files were taken from 'Moments' with very little or n
 - comments/Comment.js
 - comments/CommentCreateForm.js
 - comments/CommentEditForm.js
-  <br>
-  I also took the basic structure of Nav components in NavBar.js and NavBarSecond.js
+<br>
+I also took the basic structure of Nav components in NavBar.js and NavBarSecond.js
