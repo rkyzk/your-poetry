@@ -18,6 +18,7 @@ const Profile = (props) => {
   /** destructure props */
   const {
     id,
+    user_id,
     owner,
     image,
     display_name,
@@ -49,17 +50,20 @@ const Profile = (props) => {
     try {
       /** create a Follower object in the backend to record which user followed
           which profile. */
-      const { data } = await axiosRes.post("/followers/", { followed: id });
+      const { data } = await axiosRes.post("/followers/", {
+        followed: user_id,
+      });
+
       /** adjust the follower count in the profile component on the front end. */
       setProfiles &&
         setProfiles((prevProfiles) => ({
           ...prevProfiles,
           results: prevProfiles.results.map((profile) => {
-            return profile.id === id
+            return profile.user_id === user_id
               ? {
                   ...profile,
                   followers_count: profile.followers_count + 1,
-                  following_id: data.id,
+                  following_id: data.user_id,
                 }
               : profile;
           }),
@@ -70,16 +74,17 @@ const Profile = (props) => {
         setFeaturedProfilesData((prevProfiles) => ({
           ...prevProfiles,
           results: prevProfiles.results.map((profile) => {
-            return profile.id === id
+            return profile.user_id === user_id
               ? {
                   ...profile,
                   followers_count: profile.followers_count + 1,
-                  following_id: data.id,
+                  following_id: data.user_id,
                 }
               : profile;
           }),
         }));
     } catch (err) {
+      console.log(err);
       toast("There was an error.  Please try again.");
     }
   };
@@ -96,7 +101,7 @@ const Profile = (props) => {
         setProfiles((prevProfiles) => ({
           ...prevProfiles,
           results: prevProfiles.results.filter((profile) => {
-            return profile.id !== id;
+            return profile.user_id !== user_id;
           }),
         }));
       /** on "Search Profiles" and individual profile pages,
@@ -105,7 +110,7 @@ const Profile = (props) => {
         setProfiles((prevProfiles) => ({
           ...prevProfiles,
           results: prevProfiles.results.map((profile) => {
-            return profile.id === id
+            return profile.user_id === user_id
               ? {
                   ...profile,
                   followers_count: profile.followers_count - 1,
@@ -119,7 +124,7 @@ const Profile = (props) => {
         setFeaturedProfilesData((prevProfiles) => ({
           ...prevProfiles,
           results: prevProfiles.results.map((profile) => {
-            return profile.id === id
+            return profile.user_id === user_id
               ? {
                   ...profile,
                   followers_count: profile.followers_count - 1,
