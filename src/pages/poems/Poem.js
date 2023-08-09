@@ -185,7 +185,7 @@ const Poem = (props) => {
             </Link>
           </Card.Title>
         )}
-        <span className={`${styles.LinkText} ml-4`}>
+        <span className={`${styles.Text} ml-4`}>
           by
           {/* Link the profile name to the profile page. */}
           <Link
