@@ -63,7 +63,7 @@ const Profile = (props) => {
               ? {
                   ...profile,
                   followers_count: profile.followers_count + 1,
-                  following_id: data.user_id,
+                  following_id: data.id,
                 }
               : profile;
           }),
@@ -78,13 +78,12 @@ const Profile = (props) => {
               ? {
                   ...profile,
                   followers_count: profile.followers_count + 1,
-                  following_id: data.user_id,
+                  following_id: data.id,
                 }
               : profile;
           }),
         }));
     } catch (err) {
-      console.log(err);
       toast("There was an error.  Please try again.");
     }
   };
@@ -150,10 +149,10 @@ const Profile = (props) => {
                 <Avatar src={image} height={45} />
                 <Media>
                   <div>
-                    <p className={`ml-0 mb-0 ${styles.MobileName}`}>
+                    <p className={`ml-2 mb-0 ${styles.MobileName}`}>
                       {display_name}
                     </p>
-                    <span className={`${styles.CountsText}`}>
+                    <span className={`ml-2 ${styles.CountsText}`}>
                       {poems_count} poems
                     </span>
                   </div>
